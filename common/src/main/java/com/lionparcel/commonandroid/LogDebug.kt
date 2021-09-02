@@ -5,7 +5,7 @@ import android.util.Log
 class LogDebug {
 
     companion object {
-        val TAG = "SUPER AWESOME APP"
+        val TAG = "LionParcel"
 
         fun d(message: String) {
             Log.d(TAG, "message")

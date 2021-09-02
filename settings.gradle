@@ -7,5 +7,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "LionParcel Common Android"
-include ':app'
+include ':sample'
 include ':common'
