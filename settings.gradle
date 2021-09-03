@@ -1,0 +1,3 @@
+rootProject.name = "common-android"
+include ':sample'
+include ':core'
