@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="sp_14">14sp</dimen>
+
     <dimen name="spacing_none">0dp</dimen>
     <dimen name="spacing_xxs">4dp</dimen>
     <dimen name="spacing_xs">8dp</dimen>
