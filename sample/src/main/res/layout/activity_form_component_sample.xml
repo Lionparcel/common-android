@@ -22,19 +22,20 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
+    <com.lionparcel.commonandroid.form.LPTextInputLayout
+        android:id="@+id/tilAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/LPTextInputLayout">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.lionparcel.commonandroid.form.LPTextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:ignore="TouchTargetSizeCheck"
             style="@style/LPTextInputEditText"
             android:hint="address" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+    </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilEmail"
