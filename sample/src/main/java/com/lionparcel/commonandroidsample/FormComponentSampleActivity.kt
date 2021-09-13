@@ -10,6 +10,6 @@ class FormComponentSampleActivity : AppCompatActivity() {
         title = "Form Component Sample"
         setContentView(R.layout.activity_form_component_sample)
 
-        findViewById<TextInputLayout>(R.id.tilEmail).error = "this is an error"
+        findViewById<TextInputLayout>(R.id.tilAddress).error = "this is an error"
     }
 }
