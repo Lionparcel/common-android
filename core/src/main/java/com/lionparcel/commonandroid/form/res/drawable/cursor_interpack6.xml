@@ -3,6 +3,6 @@
     <size android:width="2sp" />
     <solid android:color="@color/interpack6"  />
     <padding
-        android:top="-4sp"
-        android:bottom="-5sp" />
+        android:top="0sp"
+        android:bottom="0sp" />
 </shape>
