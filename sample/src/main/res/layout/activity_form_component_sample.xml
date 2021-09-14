@@ -8,48 +8,42 @@
     android:orientation="vertical"
     tools:context=".FormComponentSampleActivity">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/LPTextInputLayout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="name"
-            tools:ignore="TouchTargetSizeCheck"
-            style="@style/LPTextInputEditText" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
     <com.lionparcel.commonandroid.form.LPTextInputLayout
-        android:id="@+id/tilAddress"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/LPTextInputLayout">
+        android:layout_height="wrap_content">
 
         <com.lionparcel.commonandroid.form.LPTextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:ignore="TouchTargetSizeCheck"
-            style="@style/LPTextInputEditText"
-            android:hint="address" />
+            android:minHeight="55dp"
+            android:hint="Name" />
 
     </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilEmail"
+    <com.lionparcel.commonandroid.form.LPTextInputLayout
+        android:id="@+id/tilAddress"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/LPTextInputLayout">
+        android:layout_height="wrap_content">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.lionparcel.commonandroid.form.LPTextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:ignore="TouchTargetSizeCheck"
-            style="@style/LPTextInputEditText"
-            android:hint="email" />
+            android:hint="Address" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+
+    <com.lionparcel.commonandroid.form.LPTextInputLayout
+        android:id="@+id/tilEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.lionparcel.commonandroid.form.LPTextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="55dp"
+            android:hint="Email"
+            />
+
+    </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
 </LinearLayout>

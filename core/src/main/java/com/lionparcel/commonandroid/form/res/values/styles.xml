@@ -7,11 +7,6 @@
             [LPTextInputLayout], then this will also set hint/label color in focused state) -->
         <item name="colorControlActivated">@color/shades2</item>
     </style>
-    <style name="LPTextInputEditTextTheme">
-        underline color in collapsed state
-        <item name="colorControlNormal">@color/shades2</item>
-
-    </style>
 
     <style name="LPTextInputLayout" parent="Widget.Design.TextInputLayout">
         <item name="theme">@style/LPTextInputLayoutTheme</item>
@@ -29,11 +24,11 @@
     </style>
 
     <style name="LPTextInputEditText" parent="Widget.Design.TextInputEditText">
-        <item name="theme">@style/LPTextInputEditTextTheme</item>
 <!--        text appearance for input and hint label in both state -->
         <item name="android:textAppearance">@style/Subtitle2Regular</item>
         <item name="android:textColor">@color/shades5</item>
-<!--        blinking cursor color -->
+        <item name="android:minHeight">55dp</item>
+<!--        blinking cursor -->
         <item name="android:textCursorDrawable">@drawable/cursor_interpack6</item>
     </style>
 </resources>
