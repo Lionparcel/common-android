@@ -26,7 +26,7 @@
     <style name="LPTextInputEditText" parent="Widget.Design.TextInputEditText">
 <!--        text appearance for input and hint label in both state -->
         <item name="android:textAppearance">@style/Subtitle2Regular</item>
-        <item name="android:textColor">@color/shades5</item>
+        <item name="android:textColor">@drawable/edit_text_color_selector</item>
         <item name="android:minHeight">55dp</item>
 <!--        blinking cursor -->
         <item name="android:textCursorDrawable">@drawable/cursor_interpack6</item>
