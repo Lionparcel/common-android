@@ -9,7 +9,7 @@ import com.lionparcel.commonandroid.R
 class LPTextInputEditText: TextInputEditText {
 
     constructor(context: Context) : this(context, null)
-    constructor(context: Context, attrs: AttributeSet? = null) : this(context, attrs, 0)
+    constructor(context: Context, attrs: AttributeSet? = null) : this(context, attrs, R.attr.LPTextInputEditTextStyle)
     constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int)
-        : super(ContextThemeWrapper(context, R.style.LPTextInputEditText), attrs, defStyleAttr)
+        : super(ContextThemeWrapper(context, R.style.LPTextInputEditTextTheme), attrs, defStyleAttr)
 }

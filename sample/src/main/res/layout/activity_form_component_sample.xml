@@ -10,7 +10,8 @@
 
     <com.lionparcel.commonandroid.form.LPTextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:helperText="Your username">
         <com.lionparcel.commonandroid.form.LPTextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,11 +22,23 @@
     <com.lionparcel.commonandroid.form.LPTextInputLayout
         android:id="@+id/tilName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:helperText="Your real name">
         <com.lionparcel.commonandroid.form.LPTextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Real Name" />
+            android:hint="Real Name"/>
+    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+
+    <com.lionparcel.commonandroid.form.LPTextInputLayout
+        android:id="@+id/tilName2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:helperText="Your real name">
+        <com.lionparcel.commonandroid.form.LPTextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Real Name"/>
     </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
     <com.lionparcel.commonandroid.form.LPTextInputLayout
@@ -46,12 +59,11 @@
         android:layout_height="wrap_content"
         app:counterEnabled="true"
         app:counterMaxLength="50"
-        style="@style/LPTextInputLayout">
+        app:helperText="The name of the receiver">
         <com.lionparcel.commonandroid.form.LPTextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Receiver Name"
-            style="@style/LPTextInputEditText"
             />
     </com.lionparcel.commonandroid.form.LPTextInputLayout>
 

@@ -12,9 +12,9 @@ import com.lionparcel.commonandroid.R
 class LPTextInputLayout: TextInputLayout {
 
     constructor(context: Context) : this(context, null)
-    constructor(context: Context, attrs: AttributeSet? = null) : this(context, attrs, 0)
+    constructor(context: Context, attrs: AttributeSet? = null) : this(context, attrs, R.attr.LPTextInputLayoutStyle)
     constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int)
-            : super(ContextThemeWrapper(context, R.style.LPTextInputLayout), attrs, defStyleAttr) {
+            : super(ContextThemeWrapper(context, R.style.LPTextInputLayoutTheme), attrs, defStyleAttr) {
 
         this.hintTextColor = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.shades3))
 
