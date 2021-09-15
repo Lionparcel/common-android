@@ -10,8 +10,7 @@
 
     <com.lionparcel.commonandroid.form.LPTextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:helperText="Your username">
+        android:layout_height="wrap_content">
         <com.lionparcel.commonandroid.form.LPTextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,18 +22,7 @@
         android:id="@+id/tilName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:helperText="Your real name">
-        <com.lionparcel.commonandroid.form.LPTextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Real Name"/>
-    </com.lionparcel.commonandroid.form.LPTextInputLayout>
-
-    <com.lionparcel.commonandroid.form.LPTextInputLayout
-        android:id="@+id/tilName2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:helperText="Your real name">
+        app:endIconMode="clear_text">
         <com.lionparcel.commonandroid.form.LPTextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
