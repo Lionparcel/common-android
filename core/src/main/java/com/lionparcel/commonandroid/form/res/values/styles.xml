@@ -23,7 +23,7 @@
 <!--        Hint color and label color in focused state. If not defined, then the color will be
             defined by theme attribute [colorControlActivated] -->
         <item name="hintTextColor">@color/shades3</item>
-<!--error text is a text below the EditText, see https://material.io/components/text-fields#anatomy-->
+<!--        error text is a text below the EditText, see https://material.io/components/text-fields#anatomy-->
         <item name="errorTextAppearance">@style/Body3Regular</item>
         <item name="errorTextColor">@color/interpack6</item>
 <!--        helper text is a text below the EditText, parallel to the error text.
