@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/spacing_xs"
+    android:orientation="vertical"
+    tools:context=".FormComponentSampleActivity">
+
+    <com.lionparcel.commonandroid.form.LPTextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.lionparcel.commonandroid.form.LPTextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            tools:text="udin"/>
+    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+
+    <com.lionparcel.commonandroid.form.LPTextInputLayout
+        android:id="@+id/tilName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:endIconMode="clear_text">
+        <com.lionparcel.commonandroid.form.LPTextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Real Name"/>
+    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+
+    <com.lionparcel.commonandroid.form.LPTextInputLayout
+        android:id="@+id/tilEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.lionparcel.commonandroid.form.LPTextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:text="test@lionparcel.com"
+            android:enabled="false"
+            />
+    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+
+    <com.lionparcel.commonandroid.form.LPTextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:counterEnabled="true"
+        app:counterMaxLength="50"
+        app:helperText="The name of the receiver">
+        <com.lionparcel.commonandroid.form.LPTextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Receiver Name"
+            />
+    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+
+    <com.lionparcel.commonandroid.form.LPTextInputLayout
+        android:id="@+id/tilReceiverAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:counterEnabled="true"
+        app:counterMaxLength="254">
+        <com.lionparcel.commonandroid.form.LPTextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Receiver Address"
+            />
+    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+
+</LinearLayout>

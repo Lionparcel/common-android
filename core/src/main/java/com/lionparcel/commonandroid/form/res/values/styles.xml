@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="LPTextInputLayoutTheme">
+<!--        underline color in collapsed state -->
+        <item name="colorControlNormal">@color/shades2</item>
+<!--        underline color in focused state (if hintTextAppearance and hintTextColor are NOT defined in
+            [LPTextInputLayout], then this will also set hint/label color in focused state) -->
+        <item name="colorControlActivated">@color/shades2</item>
+
+        <item name="LPTextInputLayoutStyle">@style/LPTextInputLayout</item>
+    </style>
+    <style name="LPTextInputEditTextTheme">
+        <item name="LPTextInputEditTextStyle">@style/LPTextInputEditText</item>
+    </style>
+
+    <style name="LPTextInputLayout" parent="Widget.Design.TextInputLayout">
+<!--        Hint color and label color in collapsed state. If hintTextAppearance is also defined,
+            then this will set color in both state -->
+        <item name="android:textColorHint">@color/shades3</item>
+<!--        Hint text appearance in focused state
+            (only affects text size. Family and style are superseded by [LPTextInputEditText]) -->
+        <item name="hintTextAppearance">@style/Body3Regular</item>
+<!--        Hint color and label color in focused state. If not defined, then the color will be
+            defined by theme attribute [colorControlActivated] -->
+        <item name="hintTextColor">@color/shades3</item>
+<!--        error text is a text below the EditText, see https://material.io/components/text-fields#anatomy-->
+        <item name="errorTextAppearance">@style/Body3Regular</item>
+        <item name="errorTextColor">@color/interpack6</item>
+<!--        helper text is a text below the EditText, parallel to the error text.
+            see https://material.io/components/text-fields#anatomy -->
+        <item name="helperTextTextAppearance">@style/Body3Regular</item>
+        <item name="helperTextTextColor">@color/shades3</item>
+    </style>
+
+    <style name="LPTextInputEditText" parent="Widget.Design.TextInputEditText">
+<!--        text appearance for input and hint label in both state -->
+        <item name="android:textAppearance">@style/Subtitle2Regular</item>
+        <item name="android:textColor">@drawable/edit_text_color_selector</item>
+        <item name="android:minHeight">55dp</item>
+<!--        blinking cursor -->
+        <item name="android:textCursorDrawable">@drawable/cursor_interpack6</item>
+    </style>
+</resources>

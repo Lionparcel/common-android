@@ -3,6 +3,16 @@ plugins {
     id 'kotlin-android'
 }
 
+def moduleHomeDir = 'src/main/java/com/lionparcel/commonandroid/'
+def moduleDirs = [
+    'modal',
+    'walkthrough',
+    'button',
+    'form',
+    'popup',
+    'loading',
+]
+
 android {
     compileSdk 30
 
@@ -28,6 +38,17 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    sourceSets {
+        // this is global res folders
+        main.res.srcDirs += 'src/main/res'
+        main.res.srcDirs += 'src/main/res-public'
+
+        // module-specific res folders if any
+        moduleDirs.forEach {
+            main.res.srcDirs += moduleHomeDir + it + '/res'
+            main.res.srcDirs += moduleHomeDir + it + '/res-public'
+        }
     }
 }
 

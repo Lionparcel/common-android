@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <public name="test_public_string_res" type="string"/>
+</resources>

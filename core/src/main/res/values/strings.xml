@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="test_private_string_res">test_private_string_res</string>
+    <string name="test_private_string_res2">test_private_string_res2</string>
+    <string name="test_public_string_res">test_public_string_res</string>
+</resources>
