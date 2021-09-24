@@ -13,5 +13,8 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.button_to_formcomponentsampleactivity).setOnClickListener {
             startActivity(Intent(this, FormComponentSampleActivity::class.java))
         }
+        findViewById<Button>(R.id.button_to_walkthroughsampleactivity).setOnClickListener {
+            startActivity(Intent(this, WalkThroughSampleActivity::class.java))
+        }
     }
 }

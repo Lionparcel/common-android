@@ -98,12 +98,12 @@ class WalkThroughBuilder(activity: Activity) {
         return this
     }
 
-    internal fun contentListener(listener: WalkThroughMessageViewListener): WalkThroughBuilder {
+    fun contentListener(listener: WalkThroughMessageViewListener): WalkThroughBuilder {
         this.walkThroughMessageListener = listener
         return this
     }
 
-    internal fun sequenceListener(listener: WalkThroughSequenceListener): WalkThroughBuilder {
+    fun sequenceListener(listener: WalkThroughSequenceListener): WalkThroughBuilder {
         this.walkThroughSequenceListener = listener
         return this
     }

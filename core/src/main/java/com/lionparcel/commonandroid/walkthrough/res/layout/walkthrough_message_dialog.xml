@@ -50,7 +50,7 @@
                 app:layout_constraintTop_toBottomOf="@id/txtTittle"
                 tools:text="Walk through content description, lorem ipsum dolor molor"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnNext"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dp_34"
@@ -71,7 +71,7 @@
                 android:layout_height="0dp"
                 android:background="@drawable/bg_rounded_sexy_red_outlined_4"
                 android:layout_marginEnd="@dimen/spacing_s"
-                android:src="@drawable/ic_arrow_left_sexy_red"
+                app:srcCompat="@drawable/ic_arrow_left_sexy_red"
                 app:layout_constraintEnd_toStartOf="@id/btnNext"
                 app:layout_constraintTop_toTopOf="@id/btnNext"
                 app:layout_constraintBottom_toBottomOf="@id/btnNext"

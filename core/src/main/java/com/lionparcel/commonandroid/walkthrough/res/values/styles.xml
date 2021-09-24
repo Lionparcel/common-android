@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="WalkThroughMessageViewTheme">
+
+        <item name="WalkThroughMessageViewStyle">@style/WalkThroughMessageViewStyle</item>
+    </style>
+
+    <style name="WalkThroughMessageViewStyle" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+
+    </style>
+</resources>

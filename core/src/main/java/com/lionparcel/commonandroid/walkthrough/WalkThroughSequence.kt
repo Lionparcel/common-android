@@ -14,7 +14,7 @@ class WalkThroughSequence {
         walkThroughBuilderList.clear()
     }
 
-    fun setSequenceDelay(delay: Long){
+    fun setSequenceDelay(delay: Long) {
         eachSequenceDelay = delay
     }
 
@@ -28,7 +28,10 @@ class WalkThroughSequence {
         return this
     }
 
-    fun replaceWalkThrough(position: Int, walkThroughBuilder: WalkThroughBuilder): WalkThroughSequence {
+    fun replaceWalkThrough(
+        position: Int,
+        walkThroughBuilder: WalkThroughBuilder
+    ): WalkThroughSequence {
         walkThroughBuilderList[position] = walkThroughBuilder
         return this
     }
@@ -138,7 +141,7 @@ class WalkThroughSequence {
             .show()
     }
 
-    internal fun skipListener(skip: () -> Unit): WalkThroughSequence {
+    fun skipListener(skip: () -> Unit): WalkThroughSequence {
         this.skipListener = object : WalkThroughSkipListener {
             override fun onSkip() {
                 skip.invoke()

@@ -7,6 +7,7 @@ import android.graphics.Path
 import android.graphics.RectF
 import android.text.SpannableStringBuilder
 import android.util.AttributeSet
+import android.view.ContextThemeWrapper
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
@@ -143,19 +144,22 @@ class WalkThroughMessageView : ConstraintLayout {
         fun build() = context.get()?.let { WalkThroughMessageView(it, this) }
     }
 
-    constructor(context: Context): super(context) {
+    constructor(context: Context): super(context, null) {
         initView()
     }
 
-    constructor(context: Context, builder: Builder) : super(context) {
+    constructor(context: Context, builder: Builder) : super(context, null) {
         initView()
         setAttributes(builder)
         setWalkThroughMessageListener(builder)
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, R.attr.WalkThroughMessageViewStyle) {
         initView()
     }
+
+    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int)
+            : super(ContextThemeWrapper(context, R.style.WalkThroughMessageViewTheme), attrs, defStyleAttr)
 
     private fun initView() {
         setWillNotDraw(false)
