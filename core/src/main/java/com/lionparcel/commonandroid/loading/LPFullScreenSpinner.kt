@@ -16,23 +16,13 @@ open class LPFullScreenSpinner(
     context: Context
 ) : Dialog(context, R.style.LPFullScreenDialog) {
 
-    var animationDrawable: AnimationDrawable? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.lp_spinner_full)
-        val mProgressBar: ImageView = findViewById(R.id.iv_frame_loading)
-        animationDrawable = mProgressBar.background as AnimationDrawable;
-        animationDrawable?.start()
         window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
         window?.setFormat(PixelFormat.TRANSLUCENT)
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
-    }
-
-    override fun onDetachedFromWindow() {
-        super.onDetachedFromWindow()
-        animationDrawable?.stop()
     }
 
     companion object {

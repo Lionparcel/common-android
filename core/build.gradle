@@ -40,6 +40,12 @@ android {
         jvmTarget = '1.8'
     }
     sourceSets {
+        main {
+            assets {
+                srcDirs 'src\\main\\assets'
+            }
+        }
+
         // this is global res folders
         main.res.srcDirs += 'src/main/res'
         main.res.srcDirs += 'src/main/res-public'
@@ -63,4 +69,7 @@ dependencies {
 
     //Shimmer
     implementation "com.facebook.shimmer:shimmer:0.4.0"
+
+    //Lottie
+    implementation "com.airbnb.android:lottie:3.4.0"
 }
