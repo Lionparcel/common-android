@@ -6,11 +6,15 @@
     android:orientation="vertical"
     tools:context=".loading.LoadingSpinnerDefaultSampleActivity">
 
-    <include
-        layout="@layout/lp_list_shimmer_normal"/>
+    <com.lionparcel.commonandroid.loading.LPShimmerNormal
+        android:id="@+id/lpShimmerNormal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
-    <include
-        layout="@layout/lp_list_shimmer_large"/>
+    <com.lionparcel.commonandroid.loading.LPShimmerLarge
+        android:id="@+id/lpShimmerLarge"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <Button
         android:id="@+id/btnBack"

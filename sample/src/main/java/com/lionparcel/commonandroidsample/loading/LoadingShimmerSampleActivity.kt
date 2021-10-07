@@ -14,8 +14,8 @@ class LoadingShimmerSampleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_loading_shimmer_sample)
         val type = intent.getIntExtra("TYPE", 1)
-        findViewById<ConstraintLayout>(R.id.layoutShimmerNormal).isVisible = type == 1
-        findViewById<ConstraintLayout>(R.id.layoutShimmerLarge).isVisible = type == 2
+        findViewById<ConstraintLayout>(R.id.lpShimmerNormal).isVisible = type == 1
+        findViewById<ConstraintLayout>(R.id.lpShimmerLarge).isVisible = type == 2
         findViewById<Button>(R.id.btnBack).setOnClickListener{
             onBackPressed()
         }
