@@ -34,8 +34,8 @@
                 app:layout_constraintEnd_toStartOf="@id/tvBasicTitleGeneral"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/viewIndicatorGeneral"
+                android:paddingEnd="@dimen/size_12"
                 android:layout_marginTop="@dimen/size_12"
-                android:layout_marginEnd="@dimen/size_12"
                 android:visibility="gone"
                 tools:visibility="visible"
                 app:srcCompat="@drawable/ic_arrow_back"/>
@@ -47,7 +47,6 @@
                 android:layout_height="wrap_content"
                 android:text="Title Insert Here"
                 android:textColor="@color/shades5"
-                android:layout_marginStart="@dimen/size_10"
                 app:layout_constraintStart_toEndOf="@id/ivBasicBackIcon"
                 app:layout_constraintTop_toBottomOf="@id/viewIndicatorGeneral"
                 android:layout_marginTop="@dimen/size_12"
