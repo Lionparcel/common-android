@@ -18,7 +18,7 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
     private var primaryListener: View.OnClickListener? = null
     private var secondListener: View.OnClickListener? = null
     private var resetListener: View.OnClickListener? = null
-    private var back: View.OnClickListener? = null
+    private var backListener: View.OnClickListener? = null
     private var customList: ViewGroup? = null
     private var listItem: List<String> = listOf()
     private var selectedItem: Int = 0
@@ -72,7 +72,7 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
 
         fun lpModalBasicBackIcon(title: String, content: String, btnPrimaryListener: View.OnClickListener? = null, backListener: View.OnClickListener? = null) =
             LPModalDialogFragment(TypeModal.BASIC_BACK_ICON).apply {
-                back = backListener?: View.OnClickListener{ dialog?.dismiss() }
+                this.backListener = backListener?: View.OnClickListener{ dialog?.dismiss() }
                 primaryListener = btnPrimaryListener?: View.OnClickListener { dialog?.dismiss() }
                 arguments = bundleOf(
                     BASIC_TITLE_GENERAL to title,
@@ -254,6 +254,9 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         content?.gravity = Gravity.START
         primaryButton?.setOnClickListener {
             primaryListener?.onClick(it)
+        }
+        back?.setOnClickListener {
+            backListener?.onClick(it)
         }
         arguments?.getString(BASIC_TITLE_GENERAL)?.let { data ->
             title?.text = data
