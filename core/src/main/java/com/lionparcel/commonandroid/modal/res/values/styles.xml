@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_rounded_bottom_sheet</item>
+    </style>
+
+    <style name="BaseBottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog" />
+
+    <style name="IndicatorSwipeModalStyle">
+        <item name="android:layout_width">@dimen/size_30</item>
+        <item name="android:layout_height">4dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/bg_indicator_swipe_modal</item>
+    </style>
+
+    <style name="BaseButtonStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="RedPaleSalmonButtonStyle" parent="BaseButtonStyle">
+        <item name="android:background">@drawable/bg_btn_solid_red_palesamon</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_height">@dimen/size_45</item>
+        <item name="android:layout_marginTop">@dimen/size_5</item>
+        <item name="android:layout_marginBottom">@dimen/size_5</item>
+        <item name="android:paddingStart">@dimen/size_5</item>
+        <item name="android:paddingEnd">@dimen/size_5</item>
+    </style>
+
+    <style name="BorderRedButtonStyle" parent="BaseButtonStyle">
+        <item name="android:background">@drawable/bg_btn_border_red</item>
+        <item name="android:textColor">@color/interpack6</item>
+        <item name="android:layout_height">@dimen/size_45</item>
+        <item name="android:layout_marginTop">@dimen/size_5</item>
+        <item name="android:layout_marginBottom">@dimen/size_5</item>
+        <item name="android:paddingStart">@dimen/size_5</item>
+        <item name="android:paddingEnd">@dimen/size_5</item>
+    </style>
+
+    <!--Divider-->
+    <style name="DividerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@drawable/bg_divider_shadow</item>
+    </style>
+
+</resources>
