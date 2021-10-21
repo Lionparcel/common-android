@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false">
+        <shape>
+            <solid android:color="@color/interpack1" />
+            <corners android:radius="@dimen/size_4"/>
+        </shape>
+    </item>
+
+    <item>
+        <ripple android:color="@color/interpack1">
+            <item android:state_enabled="true">
+                <shape android:shape="rectangle">
+                    <corners android:radius="@dimen/size_4"/>
+                    <solid android:color="@color/interpack6" />
+                </shape>
+            </item>
+        </ripple>
+    </item>
+</selector>

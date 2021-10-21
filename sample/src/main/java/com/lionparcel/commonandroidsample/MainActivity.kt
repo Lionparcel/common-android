@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.lionparcel.commonandroidsample.loading.LoadingComponentSampleActivity
+import com.lionparcel.commonandroidsample.modal.ModalComponentSampleActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,6 +17,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.button_to_loadingcomponentsampleactivity).setOnClickListener {
             startActivity(Intent(this, LoadingComponentSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_modalComponentSampleactivity).setOnClickListener {
+            startActivity(Intent(this, ModalComponentSampleActivity::class.java))
         }
     }
 }
