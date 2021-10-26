@@ -23,10 +23,6 @@ class WalkThroughSampleActivity : AppCompatActivity() {
                     .description("Write Your Description (2)")
                     .targetView(btnMock).targetArrowView(btnMock)
             )
-        ).addBeforeShowingListener {
-            // add callback before showing the walkthrough
-        }.skipListener {
-            // add callback when skip/finish the walkthrough
-        }.show()
+        ).show()
     }
 }
