@@ -21,5 +21,8 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.button_to_modalComponentSampleactivity).setOnClickListener {
             startActivity(Intent(this, ModalComponentSampleActivity::class.java))
         }
+        findViewById<Button>(R.id.button_to_walkthroughsampleactivity).setOnClickListener {
+            startActivity(Intent(this, WalkThroughSampleActivity::class.java))
+        }
     }
 }
