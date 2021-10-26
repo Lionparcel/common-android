@@ -10,9 +10,26 @@
 
     <Button
         android:id="@+id/button_to_formcomponentsampleactivity"
+        style="@style/RedPaleSalmonButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Form Component Sample" />
+
+    <Button
+        android:id="@+id/button_to_loadingcomponentsampleactivity"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_5"
+        android:text="Loading Component Sample"/>
+
+    <Button
+        android:id="@+id/button_to_modalComponentSampleactivity"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_5"
+        android:text="Modal Component Sample"/>
 
     <Button
         android:id="@+id/button_to_walkthroughsampleactivity"

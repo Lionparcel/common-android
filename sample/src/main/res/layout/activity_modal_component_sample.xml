@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".loading.LoadingComponentSampleActivity">
+
+    <Button
+        android:id="@+id/btnBasicTextOnly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:text="MODAL BASIC TEXT ONLY"/>
+
+    <Button
+        android:id="@+id/btnBasic1Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:text="MODAL BASIC 1 BUTTON"/>
+
+    <Button
+        android:id="@+id/btnBasic2Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:text="MODAL BASIC 2 BUTTON"/>
+
+    <Button
+        android:id="@+id/btnBasic2ButtonAlt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:text="MODAL BASIC 2 BUTTON ALT"/>
+
+    <Button
+        android:id="@+id/btnBasicBackIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:text="MODAL BASIC BACK ICON"/>
+
+    <Button
+        android:id="@+id/btnBasicFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:text="MODAL BASIC FILTER"/>
+
+    <Button
+        android:id="@+id/btnIllustration1Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:text="MODAL ILLUSTRATION 1 BUTTON"/>
+
+    <Button
+        android:id="@+id/btnIllustration2Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:text="MODAL ILLUSTRATION 2 BUTTON"/>
+
+    <Button
+        android:id="@+id/btnIllustration2ButtonAlt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:text="MODAL ILLUSTRATION 2 BUTTON ALT"/>
+
+</LinearLayout>

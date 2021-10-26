@@ -15,6 +15,10 @@
         <activity
             android:name=".FormComponentSampleActivity"
             android:exported="true" />
+        <activity android:name=".loading.LoadingComponentSampleActivity" />
+        <activity android:name=".loading.LoadingSpinnerDefaultSampleActivity" />
+        <activity android:name=".loading.LoadingShimmerSampleActivity"/>
+        <activity android:name=".modal.ModalComponentSampleActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
