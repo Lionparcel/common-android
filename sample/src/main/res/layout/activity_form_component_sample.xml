@@ -6,7 +6,16 @@
     android:layout_height="match_parent"
     android:padding="@dimen/spacing_xs"
     android:orientation="vertical"
-    tools:context=".FormComponentSampleActivity">
+    tools:context=".form.FormComponentSampleActivity">
+
+    <TextView
+        style="@style/H4SemiBold"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Text Input Layout"
+        tools:ignore="HardcodedText"
+        android:layout_marginVertical="@dimen/spacing_xs"/>
 
     <com.lionparcel.commonandroid.form.LPTextInputLayout
         android:layout_width="match_parent"
@@ -14,8 +23,9 @@
         <com.lionparcel.commonandroid.form.LPTextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
-            tools:text="udin"/>
+            android:hint="Basic / Normal"
+            tools:text="udin"
+            tools:ignore="HardcodedText" />
     </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
     <com.lionparcel.commonandroid.form.LPTextInputLayout
@@ -26,7 +36,8 @@
         <com.lionparcel.commonandroid.form.LPTextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Real Name"/>
+            android:hint="Basic With Clear Text"
+            tools:ignore="HardcodedText" />
     </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
     <com.lionparcel.commonandroid.form.LPTextInputLayout
@@ -36,10 +47,10 @@
         <com.lionparcel.commonandroid.form.LPTextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="Disabled Field"
             android:text="test@lionparcel.com"
             android:enabled="false"
-            />
+            tools:ignore="HardcodedText" />
     </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
     <com.lionparcel.commonandroid.form.LPTextInputLayout
@@ -47,12 +58,12 @@
         android:layout_height="wrap_content"
         app:counterEnabled="true"
         app:counterMaxLength="50"
-        app:helperText="The name of the receiver">
+        app:helperText="Helper/Support Text">
         <com.lionparcel.commonandroid.form.LPTextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Receiver Name"
-            />
+            android:hint="Field with counter"
+            tools:ignore="HardcodedText" />
     </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
     <com.lionparcel.commonandroid.form.LPTextInputLayout
@@ -64,8 +75,30 @@
         <com.lionparcel.commonandroid.form.LPTextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Receiver Address"
-            />
+            android:hint="Error Field with counter"
+            tools:ignore="HardcodedText" />
+    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+
+    <com.lionparcel.commonandroid.form.LPTextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="text with start icon">
+        <com.lionparcel.commonandroid.form.LPTextInputEditText
+            android:drawableStart="@drawable/ics_o_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+
+    <com.lionparcel.commonandroid.form.LPTextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="text with prefix text"
+        app:prefixText="Rp"
+        app:expandedHintEnabled="false">
+        <com.lionparcel.commonandroid.form.LPTextInputEditText
+            android:hint="90000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
 </LinearLayout>

@@ -4,7 +4,7 @@
 
         <shape>
             <solid android:color="@color/interpack1"/>
-            <corners android:radius="@dimen/size_4"/>
+            <corners android:radius="@dimen/dp_4"/>
         </shape>
     </item>
 
@@ -12,14 +12,14 @@
 
         <shape>
             <solid android:color="@color/interpack6"/>
-            <corners android:radius="@dimen/size_4"/>
+            <corners android:radius="@dimen/dp_4"/>
         </shape>
     </item>
 
     <item android:state_enabled="false">
         <shape>
             <solid android:color="@color/interpack1"/>
-            <corners android:radius="@dimen/size_4"/>
+            <corners android:radius="@dimen/dp_4"/>
         </shape>
     </item>
 </selector>

@@ -3,10 +3,10 @@
     <solid
         android:color="@color/white"/>
     <corners
-        android:radius="@dimen/size_30" />
+        android:radius="@dimen/dp_30" />
     <padding
-        android:left="@dimen/size_10"
-        android:top="@dimen/size_10"
-        android:right="@dimen/size_10"
-        android:bottom="@dimen/size_10" />
+        android:left="@dimen/dp_10"
+        android:top="@dimen/dp_10"
+        android:right="@dimen/dp_10"
+        android:bottom="@dimen/dp_10" />
 </shape>

@@ -30,6 +30,10 @@
             see https://material.io/components/text-fields#anatomy -->
         <item name="helperTextTextAppearance">@style/Body3Regular</item>
         <item name="helperTextTextColor">@color/shades3</item>
+        <item name="android:paddingTop">@dimen/spacing_xs</item>
+        <item name="android:paddingBottom">@dimen/spacing_xs</item>
+        <item name="prefixTextAppearance">@style/Subtitle2Regular</item>
+        <item name="prefixTextColor">@color/shades5</item>
     </style>
 
     <style name="LPTextInputEditText" parent="Widget.Design.TextInputEditText">
@@ -37,17 +41,8 @@
         <item name="android:textAppearance">@style/Subtitle2Regular</item>
         <item name="android:textColor">@drawable/edit_text_color_selector</item>
         <item name="android:minHeight">55dp</item>
+        <item name="android:drawablePadding">@dimen/spacing_s</item>
 <!--        blinking cursor -->
         <item name="android:textCursorDrawable">@drawable/cursor_interpack6</item>
-    </style>
-
-    <style name="LPFullScreenDialog" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowCloseOnTouchOutside">true</item>
-        <item name="android:windowBackground">@android:drawable/alert_dark_frame</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:backgroundDimEnabled">false</item>
     </style>
 </resources>

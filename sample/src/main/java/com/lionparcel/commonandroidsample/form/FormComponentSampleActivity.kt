@@ -1,8 +1,9 @@
-package com.lionparcel.commonandroidsample
+package com.lionparcel.commonandroidsample.form
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.textfield.TextInputLayout
+import com.lionparcel.commonandroidsample.R
 
 class FormComponentSampleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
