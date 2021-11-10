@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_m"
+        android:padding="@dimen/spacing_l"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtTittle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/shades5"
+                android:layout_marginEnd="@dimen/spacing_s"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivClose"
+                tools:text="Walk Through Tittle"/>
+
+            <ImageView
+                android:id="@+id/ivClose"
+                android:layout_width="@dimen/spacing_l"
+                android:layout_height="@dimen/spacing_l"
+                app:srcCompat="@drawable/ics_o_close"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:contentDescription="@string/general_image_content_description" />
+
+            <TextView
+                android:id="@+id/txtDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_s"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/sp_12"
+                android:textColor="@color/shades5"
+                app:layout_constraintTop_toBottomOf="@id/txtTittle"
+                tools:text="Walk through content description, lorem ipsum dolor molor"/>
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_34"
+                android:layout_marginTop="@dimen/spacing_s"
+                android:paddingHorizontal="@dimen/spacing_s"
+                android:background="@drawable/bg_rounded_interpack6"
+                android:textAllCaps="false"
+                android:textSize="@dimen/sp_12"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:includeFontPadding="false"
+                app:layout_constraintTop_toBottomOf="@id/txtDescription"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Selanjutnya"/>
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="@dimen/dp_32"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_rounded_sexy_red_outlined_4"
+                android:layout_marginEnd="@dimen/spacing_s"
+                app:srcCompat="@drawable/ic_arrow_left_sexy_red"
+                app:layout_constraintEnd_toStartOf="@id/btnNext"
+                app:layout_constraintTop_toTopOf="@id/btnNext"
+                app:layout_constraintBottom_toBottomOf="@id/btnNext"
+                android:contentDescription="@string/general_image_content_description" />
+
+            <com.lionparcel.services.consumer.view.common.widget.indicator.PositionIndicatorView
+                android:id="@+id/indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btnNext"
+                app:layout_constraintBottom_toBottomOf="@id/btnNext"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

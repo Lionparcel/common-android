@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="general_image_content_description">Ini merupakan sebuah gambar</string>
+    <string name="general_button_finish">Selesai</string>
+    <string name="general_button_next">Selanjutnya</string>
+</resources>
