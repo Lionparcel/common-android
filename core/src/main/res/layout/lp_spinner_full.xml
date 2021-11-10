@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        app:cardCornerRadius="@dimen/size_8"
+        app:cardCornerRadius="@dimen/dp_8"
         tools:ignore="UselessParent">
 
         <RelativeLayout
@@ -27,8 +27,8 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animationView"
-            android:layout_width="@dimen/size_100"
-            android:layout_height="@dimen/size_100"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_100"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_fileName="loading-spinner.json"/>

@@ -13,7 +13,7 @@
     <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog" />
 
     <style name="IndicatorSwipeModalStyle">
-        <item name="android:layout_width">@dimen/size_30</item>
+        <item name="android:layout_width">@dimen/dp_30</item>
         <item name="android:layout_height">4dp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:background">@drawable/bg_indicator_swipe_modal</item>
@@ -31,21 +31,21 @@
     <style name="RedPaleSalmonButtonStyle" parent="BaseButtonStyle">
         <item name="android:background">@drawable/bg_btn_solid_red_palesamon</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:layout_height">@dimen/size_45</item>
-        <item name="android:layout_marginTop">@dimen/size_5</item>
-        <item name="android:layout_marginBottom">@dimen/size_5</item>
-        <item name="android:paddingStart">@dimen/size_5</item>
-        <item name="android:paddingEnd">@dimen/size_5</item>
+        <item name="android:layout_height">@dimen/dp_45</item>
+        <item name="android:layout_marginTop">@dimen/dp_5</item>
+        <item name="android:layout_marginBottom">@dimen/dp_5</item>
+        <item name="android:paddingStart">@dimen/dp_5</item>
+        <item name="android:paddingEnd">@dimen/dp_5</item>
     </style>
 
     <style name="BorderRedButtonStyle" parent="BaseButtonStyle">
         <item name="android:background">@drawable/bg_btn_border_red</item>
         <item name="android:textColor">@color/interpack6</item>
-        <item name="android:layout_height">@dimen/size_45</item>
-        <item name="android:layout_marginTop">@dimen/size_5</item>
-        <item name="android:layout_marginBottom">@dimen/size_5</item>
-        <item name="android:paddingStart">@dimen/size_5</item>
-        <item name="android:paddingEnd">@dimen/size_5</item>
+        <item name="android:layout_height">@dimen/dp_45</item>
+        <item name="android:layout_marginTop">@dimen/dp_5</item>
+        <item name="android:layout_marginBottom">@dimen/dp_5</item>
+        <item name="android:paddingStart">@dimen/dp_5</item>
+        <item name="android:paddingEnd">@dimen/dp_5</item>
     </style>
 
     <!--Divider-->

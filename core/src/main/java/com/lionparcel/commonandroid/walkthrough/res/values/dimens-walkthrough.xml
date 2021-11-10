@@ -2,8 +2,4 @@
 <resources>
     <dimen name="walkthrough_round_corner">4dp</dimen>
     <dimen name="walkthrough_message_margin">20dp</dimen>
-    <dimen name="sp_12">12sp</dimen>
-    <dimen name="dp_34">34dp</dimen>
-    <dimen name="dp_32">32dp</dimen>
-    <dimen name="dp_1">1dp</dimen>
 </resources>
