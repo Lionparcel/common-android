@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
         <activity
-            android:name=".FormComponentSampleActivity"
+            android:name=".form.FormComponentSampleActivity"
             android:exported="true" />
         <activity android:name=".loading.LoadingComponentSampleActivity" />
         <activity android:name=".loading.LoadingSpinnerDefaultSampleActivity" />
