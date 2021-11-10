@@ -89,4 +89,16 @@
             android:layout_height="wrap_content"/>
     </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
+    <com.lionparcel.commonandroid.form.LPTextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="text with prefix text"
+        app:prefixText="Rp"
+        app:expandedHintEnabled="false">
+        <com.lionparcel.commonandroid.form.LPTextInputEditText
+            android:hint="90000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+
 </LinearLayout>
