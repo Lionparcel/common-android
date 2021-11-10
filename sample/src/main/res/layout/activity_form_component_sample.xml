@@ -79,4 +79,14 @@
             tools:ignore="HardcodedText" />
     </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
+    <com.lionparcel.commonandroid.form.LPTextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="text with start icon">
+        <com.lionparcel.commonandroid.form.LPTextInputEditText
+            android:drawableStart="@drawable/ics_o_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+
 </LinearLayout>
