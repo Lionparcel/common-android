@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="LPTextInputLayoutTheme">
+        <item name="android:theme">@style/Theme.MaterialComponents.DayNight.Bridge</item>
 <!--        underline color in collapsed state -->
         <item name="colorControlNormal">@color/shades2</item>
 <!--        underline color in focused state (if hintTextAppearance and hintTextColor are NOT defined in
@@ -13,7 +14,7 @@
         <item name="LPTextInputEditTextStyle">@style/LPTextInputEditText</item>
     </style>
 
-    <style name="LPTextInputLayout" parent="Widget.Design.TextInputLayout">
+    <style name="LPTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 <!--        Hint color and label color in collapsed state. If hintTextAppearance is also defined,
             then this will set color in both state -->
         <item name="android:textColorHint">@color/shades3</item>

@@ -11,6 +11,6 @@ class FormComponentSampleActivity : AppCompatActivity() {
         title = "Form Component Sample"
         setContentView(R.layout.activity_form_component_sample)
 
-        findViewById<TextInputLayout>(R.id.tilReceiverAddress).error = "Your error information here"
+//        findViewById<TextInputLayout>(R.id.tilReceiverAddress).error = "Your error information here"
     }
 }
