@@ -101,4 +101,12 @@
             android:layout_height="wrap_content"/>
     </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
+
+    <Button
+        android:id="@+id/btn_input_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Input Number Sample"
+        tools:ignore="HardcodedText"/>
+
 </LinearLayout>

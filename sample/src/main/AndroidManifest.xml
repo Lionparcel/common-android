@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
         <activity
+            android:name=".form.InputNumberSampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".WalkThroughSampleActivity"
             android:exported="true" />
         <activity
@@ -17,8 +20,8 @@
             android:exported="true" />
         <activity android:name=".loading.LoadingComponentSampleActivity" />
         <activity android:name=".loading.LoadingSpinnerDefaultSampleActivity" />
-        <activity android:name=".loading.LoadingShimmerSampleActivity"/>
-        <activity android:name=".modal.ModalComponentSampleActivity"/>
+        <activity android:name=".loading.LoadingShimmerSampleActivity" />
+        <activity android:name=".modal.ModalComponentSampleActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -7,4 +7,33 @@
     <declare-styleable name="LPTextInputEditText">
         <attr name="LPTextInputEditTextStyle" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="LPInputNumber">
+        <attr name="android:inputType"/>
+        <attr name="android:importantForAutofill"/>
+        <attr name="android:autofillHints"/>
+        <attr name="in_itemCount" format="integer" />
+        <attr name="in_showCursor" format="boolean" />
+        <attr name="in_itemWidth" format="dimension" />
+        <attr name="in_itemHeight" format="dimension" />
+        <attr name="in_cursorColor" format="reference" />
+        <attr name="in_allcaps" format="boolean" />
+        <attr name="in_marginBetween" format="dimension" />
+        <attr name="in_ispassword" format="boolean" />
+
+        <attr name="in_textSize" format="dimension" />
+        <attr name="in_textColor" format="integer" />
+        <attr name="in_backgroundImage" format="reference" />
+        <attr name="in_Font" format="reference" />
+
+        <attr name="in_highlightedTextSize" format="dimension" />
+        <attr name="in_highlightedTextColor" format="integer" />
+        <attr name="in_highlightedBackgroundImage" format="reference" />
+        <attr name="in_highlightedFont" format="reference" />
+
+        <attr name="in_filledTextSize" format="dimension" />
+        <attr name="in_filledTextColor" format="integer" />
+        <attr name="in_filledBackgroundImage" format="reference" />
+        <attr name="in_filledFont" format="reference" />
+    </declare-styleable>
 </resources>

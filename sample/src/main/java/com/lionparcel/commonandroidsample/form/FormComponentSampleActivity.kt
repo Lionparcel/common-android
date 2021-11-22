@@ -1,7 +1,9 @@
 package com.lionparcel.commonandroidsample.form
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import com.google.android.material.textfield.TextInputLayout
 import com.lionparcel.commonandroidsample.R
 
@@ -12,5 +14,9 @@ class FormComponentSampleActivity : AppCompatActivity() {
         setContentView(R.layout.activity_form_component_sample)
 
         findViewById<TextInputLayout>(R.id.tilReceiverAddress).error = "Your error information here"
+
+        findViewById<Button>(R.id.btn_input_number).setOnClickListener {
+            startActivity(Intent(this, InputNumberSampleActivity::class.java ))
+        }
     }
 }
