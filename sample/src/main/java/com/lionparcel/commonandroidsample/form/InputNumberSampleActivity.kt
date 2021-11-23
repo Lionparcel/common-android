@@ -22,15 +22,18 @@ class InputNumberSampleActivity : AppCompatActivity() {
             Log.i("Activity", it)
             Toast.makeText(this, it, Toast.LENGTH_LONG).show()
         }
+
         input_number_view.setOnCharacterUpdatedListener {
-            if(it)
-                Log.i("Activity", "The view is filled")
-            else
-                Log.i("Activity", "The view is NOT Filled")
-            continue_button.isEnabled = it
+            if(it) continue_button.isEnabled = it
         }
+
         val displayMetrics = DisplayMetrics()
-        windowManager.defaultDisplay.getMetrics(displayMetrics)
+
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.R) {
+            @Suppress("DEPRECATION")
+            windowManager.defaultDisplay.getMetrics(displayMetrics)
+        }
+
         val width = displayMetrics.widthPixels
 
         input_number_view.fitToWidth(width)

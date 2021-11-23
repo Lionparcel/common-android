@@ -38,7 +38,6 @@ class LPInputNumber @JvmOverloads constructor(
     private val cursorColor: Int
     private val allCaps: Boolean
     private val marginBetween: Int
-    private val isPassword: Boolean
 
     private val textSizeDefault: Int
     private val textColor: Int
@@ -76,47 +75,25 @@ class LPInputNumber @JvmOverloads constructor(
                     itemCount = getInteger(R.styleable.LPInputNumber_in_itemCount, 1)
                     showCursor = getBoolean(R.styleable.LPInputNumber_in_showCursor, false)
                     inputType = getInteger(R.styleable.LPInputNumber_android_inputType, 0)
-                    importantForAutofillLocal =
-                        getInteger(R.styleable.LPInputNumber_android_importantForAutofill, 0)
+                    importantForAutofillLocal = getInteger(R.styleable.LPInputNumber_android_importantForAutofill, 0)
                     autofillHints = getString(R.styleable.LPInputNumber_android_autofillHints)
                     itemWidth = getDimensionPixelSize(R.styleable.LPInputNumber_in_itemWidth, 42)
                     itemHeight = getDimensionPixelSize(R.styleable.LPInputNumber_in_itemHeight, 40)
                     cursorColor = getColor(R.styleable.LPInputNumber_in_cursorColor, R.style.LPInputNumberCursor)
                     allCaps = getBoolean(R.styleable.LPInputNumber_in_allcaps, false)
-                    marginBetween = getDimensionPixelSize(
-                        R.styleable.LPInputNumber_in_marginBetween,
-                        8.dpTopx
-                    )
-                    isPassword = getBoolean(R.styleable.LPInputNumber_in_ispassword, false)
-
-                    textSizeDefault =
-                        getDimensionPixelSize(R.styleable.LPInputNumber_in_textSize, 14.dpTopx)
+                    marginBetween = getDimensionPixelSize(R.styleable.LPInputNumber_in_marginBetween, 8.dpTopx)
+                    textSizeDefault = getDimensionPixelSize(R.styleable.LPInputNumber_in_textSize, 14.dpTopx)
                     textColor = getInteger(R.styleable.LPInputNumber_in_textColor, Color.BLACK)
-                    backgroundImage =
-                        getDrawable(R.styleable.LPInputNumber_in_backgroundImage) ?: customBackground()
+                    backgroundImage = getDrawable(R.styleable.LPInputNumber_in_backgroundImage) ?: customBackground()
                     font = getFont(R.styleable.LPInputNumber_in_Font)
-
-                    highlightedTextSize = getDimensionPixelSize(
-                        R.styleable.LPInputNumber_in_highlightedTextSize,
-                        textSizeDefault
-                    )
-                    highlightedTextColor = getInteger(
-                        R.styleable.LPInputNumber_in_highlightedTextColor,
-                        textColor
-                    )
-                    highlightedBackgroundImage =
-                        getDrawable(R.styleable.LPInputNumber_in_highlightedBackgroundImage)
+                    highlightedTextSize = getDimensionPixelSize(R.styleable.LPInputNumber_in_highlightedTextSize, textSizeDefault)
+                    highlightedTextColor = getInteger(R.styleable.LPInputNumber_in_highlightedTextColor, textColor)
+                    highlightedBackgroundImage = getDrawable(R.styleable.LPInputNumber_in_highlightedBackgroundImage)
                             ?: backgroundImage
                     highlightedFont = getFont(R.styleable.LPInputNumber_in_highlightedFont) ?: font
-
-                    filledTextSize = getDimensionPixelSize(
-                        R.styleable.LPInputNumber_in_filledTextSize,
-                        textSizeDefault
-                    )
+                    filledTextSize = getDimensionPixelSize(R.styleable.LPInputNumber_in_filledTextSize, textSizeDefault)
                     filledTextColor = getInteger(R.styleable.LPInputNumber_in_filledTextColor, textColor)
-                    filledBackgroundImage =
-                        getDrawable(R.styleable.LPInputNumber_in_filledBackgroundImage)
-                            ?: backgroundImage
+                    filledBackgroundImage = getDrawable(R.styleable.LPInputNumber_in_filledBackgroundImage) ?: backgroundImage
                     filledFont = getFont(R.styleable.LPInputNumber_in_filledFont) ?: font
 
                     initEditTexts()
@@ -172,14 +149,13 @@ class LPInputNumber @JvmOverloads constructor(
 
         edt.setOnFocusChangeListener { _, hasFocus ->
             if(hasFocus){
-                edt.post(Runnable { edt.setSelection(0) })
+                edt.post { edt.setSelection(0) }
             }
         }
 
         editTexts.add(edt)
         in_wrapper.addView(edt)
     }
-
 
     private fun addListenerForIndex(index: Int) {
         editTexts[index].addTextChangedListener {
@@ -203,8 +179,6 @@ class LPInputNumber @JvmOverloads constructor(
                 disableEditListener = true
                 editTexts[index].setText("")
                 changeFocus(false)
-                //if(index-1 >= 0)
-                //editTexts[index - 1].setText("")
                 disableEditListener = false
             }
             if (event.action == KeyEvent.ACTION_DOWN &&
@@ -218,10 +192,10 @@ class LPInputNumber @JvmOverloads constructor(
             if(hasFocus)
                 focusIndex = index
             styleEditTexts()
-            v.post(Runnable {
+            v.post {
                 if (focusIndex < editTexts.size)
                     editTexts[focusIndex].setSelection(0)
-            })
+            }
         }
     }
 
@@ -286,7 +260,6 @@ class LPInputNumber @JvmOverloads constructor(
         shape.setStroke(2.dpTopx, Color.BLACK)
         return shape
     }
-
 
     private fun styleHighlighted(editText: EditText) {
         editText.setTextSize(TypedValue.COMPLEX_UNIT_PX, highlightedTextSize.toFloat())

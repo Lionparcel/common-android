@@ -19,7 +19,6 @@
         <attr name="in_cursorColor" format="reference" />
         <attr name="in_allcaps" format="boolean" />
         <attr name="in_marginBetween" format="dimension" />
-        <attr name="in_ispassword" format="boolean" />
 
         <attr name="in_textSize" format="dimension" />
         <attr name="in_textColor" format="integer" />
