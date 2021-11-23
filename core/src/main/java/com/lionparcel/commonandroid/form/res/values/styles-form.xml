@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="LPTextInputLayoutTheme">
-        <item name="android:theme">@style/Theme.MaterialComponents.DayNight.Bridge</item>
+    <style name="LPTextInputLayoutTheme" parent="@style/Theme.MaterialComponents.DayNight.Bridge">
 <!--        underline color in collapsed state -->
         <item name="colorControlNormal">@color/shades2</item>
 <!--        underline color in focused state (if hintTextAppearance and hintTextColor are NOT defined in
@@ -17,13 +16,13 @@
     <style name="LPTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 <!--        Hint color and label color in collapsed state. If hintTextAppearance is also defined,
             then this will set color in both state -->
-        <item name="android:textColorHint">@color/shades3</item>
+        <item name="android:textColorHint">@color/blue5</item>
 <!--        Hint text appearance in focused state
             (only affects text size. Family and style are superseded by [LPTextInputEditText]) -->
         <item name="hintTextAppearance">@style/Body3Regular</item>
 <!--        Hint color and label color in focused state. If not defined, then the color will be
             defined by theme attribute [colorControlActivated] -->
-        <item name="hintTextColor">@color/shades3</item>
+        <item name="hintTextColor">@color/blue5</item>
 <!--        error text is a text below the EditText, see https://material.io/components/text-fields#anatomy-->
         <item name="errorTextAppearance">@style/Body3Regular</item>
         <item name="errorTextColor">@color/interpack6</item>
