@@ -34,6 +34,8 @@
         <item name="helperTextTextColor">@color/shades3</item>
         <item name="prefixTextAppearance">@style/Subtitle2Regular</item>
         <item name="prefixTextColor">@color/shades5</item>
+        <item name="suffixTextAppearance">@style/Subtitle2Regular</item>
+        <item name="suffixTextColor">@color/shades5</item>
         <item name="errorIconDrawable">@null</item>
         <item name="endIconTint">@color/shades3</item>
     </style>

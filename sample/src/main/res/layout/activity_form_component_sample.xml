@@ -96,7 +96,7 @@
         <com.lionparcel.commonandroid.form.LPTextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="text with prefix text"
+            android:hint="text with prefix text not expandable"
             app:prefixText="Rp"
             app:expandedHintEnabled="false">
             <com.lionparcel.commonandroid.form.LPTextInputEditText
@@ -105,5 +105,24 @@
                 android:layout_height="wrap_content"/>
         </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
+        <com.lionparcel.commonandroid.form.LPTextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="text with prefix text"
+            app:prefixText="Rp">
+            <com.lionparcel.commonandroid.form.LPTextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.lionparcel.commonandroid.form.LPTextInputLayout>
+
+        <com.lionparcel.commonandroid.form.LPTextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="text with suffix text"
+            app:suffixText="Kg">
+            <com.lionparcel.commonandroid.form.LPTextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.lionparcel.commonandroid.form.LPTextInputLayout>
     </LinearLayout>
 </ScrollView>
