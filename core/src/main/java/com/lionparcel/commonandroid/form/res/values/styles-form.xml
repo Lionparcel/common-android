@@ -34,6 +34,7 @@
         <item name="android:paddingBottom">@dimen/spacing_xs</item>
         <item name="prefixTextAppearance">@style/Subtitle2Regular</item>
         <item name="prefixTextColor">@color/shades5</item>
+        <item name="errorIconDrawable">@null</item>
     </style>
 
     <style name="LPTextInputEditText" parent="Widget.Design.TextInputEditText">
