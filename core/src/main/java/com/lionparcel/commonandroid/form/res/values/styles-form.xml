@@ -14,6 +14,8 @@
     </style>
 
     <style name="LPTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:paddingTop">@dimen/spacing_xs</item>
+        <item name="android:paddingBottom">@dimen/spacing_xs</item>
 <!--        Hint color and label color in collapsed state. If hintTextAppearance is also defined,
             then this will set color in both state -->
         <item name="android:textColorHint">@color/shades3</item>
@@ -30,11 +32,10 @@
             see https://material.io/components/text-fields#anatomy -->
         <item name="helperTextTextAppearance">@style/Body3Regular</item>
         <item name="helperTextTextColor">@color/shades3</item>
-        <item name="android:paddingTop">@dimen/spacing_xs</item>
-        <item name="android:paddingBottom">@dimen/spacing_xs</item>
         <item name="prefixTextAppearance">@style/Subtitle2Regular</item>
         <item name="prefixTextColor">@color/shades5</item>
         <item name="errorIconDrawable">@null</item>
+        <item name="endIconTint">@color/shades3</item>
     </style>
 
     <style name="LPTextInputEditText" parent="Widget.Design.TextInputEditText">
