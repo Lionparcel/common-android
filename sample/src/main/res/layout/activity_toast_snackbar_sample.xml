@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/parent"
+    android:background="@color/interpack7"
+    tools:context=".toastsnackbar.ToastSnackbarSampleActivity">
+
+    <Button
+        android:id="@+id/btnToastDefaultBasicNoClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toast Default No Close"/>
+
+    <Button
+        android:id="@+id/btnToastDefaultSmallIconNoClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toast Default Small Icon No Close"/>
+
+    <Button
+        android:id="@+id/btnToastDefaultLargeIconNoClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toast Default Large Icon No Close"/>
+
+    <Button
+        android:id="@+id/btnToastDefaultButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toast Default Button Text"/>
+
+</LinearLayout>
