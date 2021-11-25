@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="LPTextInputLayoutTheme">
+    <style name="LPTextInputLayoutTheme" parent="@style/Theme.MaterialComponents.DayNight.Bridge">
 <!--        underline color in collapsed state -->
         <item name="colorControlNormal">@color/shades2</item>
 <!--        underline color in focused state (if hintTextAppearance and hintTextColor are NOT defined in
@@ -13,7 +13,9 @@
         <item name="LPTextInputEditTextStyle">@style/LPTextInputEditText</item>
     </style>
 
-    <style name="LPTextInputLayout" parent="Widget.Design.TextInputLayout">
+    <style name="LPTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:paddingTop">@dimen/spacing_xs</item>
+        <item name="android:paddingBottom">@dimen/spacing_xs</item>
 <!--        Hint color and label color in collapsed state. If hintTextAppearance is also defined,
             then this will set color in both state -->
         <item name="android:textColorHint">@color/shades3</item>
@@ -30,10 +32,12 @@
             see https://material.io/components/text-fields#anatomy -->
         <item name="helperTextTextAppearance">@style/Body3Regular</item>
         <item name="helperTextTextColor">@color/shades3</item>
-        <item name="android:paddingTop">@dimen/spacing_xs</item>
-        <item name="android:paddingBottom">@dimen/spacing_xs</item>
         <item name="prefixTextAppearance">@style/Subtitle2Regular</item>
         <item name="prefixTextColor">@color/shades5</item>
+        <item name="suffixTextAppearance">@style/Subtitle2Regular</item>
+        <item name="suffixTextColor">@color/shades5</item>
+        <item name="errorIconDrawable">@null</item>
+        <item name="endIconTint">@color/shades3</item>
     </style>
 
     <style name="LPTextInputEditText" parent="Widget.Design.TextInputEditText">
