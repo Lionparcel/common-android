@@ -7,12 +7,13 @@ import android.view.LayoutInflater
 import android.view.animation.AnimationUtils
 import android.widget.EditText
 import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.forEachIndexed
 import androidx.core.widget.doOnTextChanged
 import com.google.android.flexbox.FlexboxLayout
 import com.lionparcel.commonandroid.R
-import kotlinx.android.synthetic.main.lp_otp_single_number_view.view.*
 
 class LPInputNumberOTP : FrameLayout {
 
@@ -59,26 +60,30 @@ class LPInputNumberOTP : FrameLayout {
     private fun onOtpNumberChanged() {
         val cursorPosition = edtOtpNumber.text.toString().length
         flxOtpNumber.forEachIndexed { index, view ->
+
+            val txtNumber = view.findViewById<TextView>(R.id.txtNumber)
+            val ivNumberOutline = view.findViewById<ImageView>(R.id.ivNumberOutline)
             val otpNumberString = edtOtpNumber.text.toString()
+
             when {
                 index < otpNumberString.length -> {
-                    view.txtNumber.text = otpNumberString[index].toString()
+                    txtNumber.text = otpNumberString[index].toString()
                     val filledOtpNumberColor = ContextCompat.getColor(context, R.color.shades5)
                     filledOtpNumberColor.let(txtNumber::setTextColor)
-                    view.txtNumber.setTypeface(txtNumber.typeface, Typeface.BOLD)
-                    view.ivNumberOutline.setImageResource(R.drawable.bg_shades5_outline_rounded_3)
-                    view.txtNumber.clearAnimation()
+                    txtNumber.setTypeface(txtNumber.typeface, Typeface.BOLD)
+                    ivNumberOutline.setImageResource(R.drawable.bg_shades5_outline_rounded_3)
+                    txtNumber.clearAnimation()
                 }
                 index == cursorPosition && cursorPosition != 6 -> {
-                    val cursorColor = ContextCompat.getColor(context, R.color.interpack6)
+                    val cursorColor = ContextCompat.getColor(context, R.color.red3)
                     cursorColor.let(txtNumber::setTextColor)
-                    view.ivNumberOutline.setImageResource(R.drawable.bg_shades2_outline_rounded_3)
-                    view.txtNumber.text = "|"
-                    view.txtNumber.startAnimation(blinkingAnim)
+                    ivNumberOutline.setImageResource(R.drawable.bg_shades2_outline_rounded_3)
+                    txtNumber.text = "|"
+                    txtNumber.startAnimation(blinkingAnim)
                 }
                 else -> {
-                    view.txtNumber.text = String()
-                    view.txtNumber.clearAnimation()
+                    txtNumber.text = String()
+                    txtNumber.clearAnimation()
                 }
             }
         }
