@@ -240,16 +240,20 @@ class LPInputNumber @JvmOverloads constructor(
             val edt = editTexts[x]
             when {
                 x < focusIndex -> {
-                    styleFilled(edt)
+//                    styleFilled(edt)
                 }
                 x == focusIndex -> {
                     styleHighlighted(edt)
                 }
                 x > focusIndex -> {
-                    styleDefault(edt)
+//                    styleDefault(edt)
                 }
             }
         }
+    }
+
+    fun handlerStateInputError(){
+
     }
 
     private fun customBackground(): Drawable {
