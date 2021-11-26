@@ -1,47 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:id="@+id/parent"
+    android:fillViewport="true"
     tools:context=".toastsnackbar.ToastSnackbarSampleActivity">
 
-    <Button
-        android:id="@+id/btnToastDefaultBasicNoClose"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Toast Default No Close"/>
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/spacing_xl"
+        android:gravity="center">
 
-    <Button
-        android:id="@+id/btnToastDefaultSmallIconNoClose"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Toast Default Small Icon No Close"/>
+        <Button
+            android:id="@+id/btnToastDefaultBasicNoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_basic_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Default No Close"/>
 
-    <Button
-        android:id="@+id/btnToastDefaultLargeIconNoClose"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Toast Default Large Icon No Close"/>
+        <Button
+            android:id="@+id/btnToastDefaultSmallIconNoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_basic_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Default Small Icon No Close"/>
 
-    <Button
-        android:id="@+id/btnToastDefaultButtonText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Toast Default Button Text"/>
+        <Button
+            android:id="@+id/btnToastDefaultLargeIconNoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_basic_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Default Large Icon No Close"/>
 
-    <Button
-        android:id="@+id/btnToastDefaultSmallIconButtonText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Toast Default Small Icon Button Text"/>
+        <Button
+            android:id="@+id/btnToastDefaultButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_basic_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Default Button Text"/>
 
-    <Button
-        android:id="@+id/btnToastDefaultLargeIconButtonText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Toast Default Large Icon Button Text"/>
+        <Button
+            android:id="@+id/btnToastDefaultSmallIconButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_basic_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Default Small Icon Button Text"/>
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnToastDefaultLargeIconButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_basic_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Default Large Icon Button Text"/>
+
+        <Button
+            android:id="@+id/btnToastDefaultBasicWithClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_basic_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Default Basic With Close"/>
+
+        <Button
+            android:id="@+id/btnToastDefaultSmallIconWithClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_basic_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Default Small Icon With Close"/>
+
+        <Button
+            android:id="@+id/btnToastDefaultLargeIconWithClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_basic_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Default Large Icon With Close"/>
+
+    </LinearLayout>
+
+</ScrollView>

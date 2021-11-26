@@ -27,10 +27,53 @@ fun Context.showToastSuccessBasicNoClose(
     }
 }
 
+fun Context.showToastDefaultLargeIconWithClose(
+    viewGroup: ViewGroup,
+    message: String,
+    @DrawableRes imageStartResource: Int = R.drawable.ics_f_info_circle,
+    @DrawableRes imageEndResource: Int = R.drawable.ics_o_close,
+    callbackOnDismiss: (() -> Unit)? = null
+): Snackbar {
+    return showToastDefaultSmallIconWithClose(
+        viewGroup,
+        message,
+        imageStartResource,
+        imageEndResource,
+        callbackOnDismiss
+    ).apply {
+        val snackView = (view as Snackbar.SnackbarLayout)[0]
+        snackView.findViewById<ImageView>(R.id.imgStart)
+            .updateLayoutParams<LinearLayout.LayoutParams> {
+                gravity = Gravity.CENTER
+            }
+    }
+}
+
+fun Context.showToastDefaultSmallIconWithClose(
+    viewGroup: ViewGroup,
+    message: String,
+    @DrawableRes imageStartResource: Int = R.drawable.ics_f_check_circle,
+    @DrawableRes imageEndResource: Int = R.drawable.ics_o_close,
+    callbackOnDismiss: (() -> Unit)? = null
+): Snackbar {
+    return showToastDefaultBasicWithClose(
+        viewGroup,
+        message,
+        imageEndResource,
+        callbackOnDismiss
+    ).apply {
+        val snackView = (view as Snackbar.SnackbarLayout)[0]
+        snackView.findViewById<ImageView>(R.id.imgStart).let {
+            it.isVisible = true
+            it.setImageResource(imageStartResource)
+        }
+    }
+}
+
 fun Context.showToastDefaultBasicWithClose(
     viewGroup: ViewGroup,
     message: String,
-    @DrawableRes imageEndResource: Int = R.drawable.ics_f_check_circle,
+    @DrawableRes imageEndResource: Int = R.drawable.ics_o_close,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
     return showToastDefaultBasicNoClose(viewGroup, message, callbackOnDismiss).apply {
@@ -38,6 +81,9 @@ fun Context.showToastDefaultBasicWithClose(
         snackView.findViewById<ImageView>(R.id.imgEnd).let {
             it.isVisible = true
             it.setImageResource(imageEndResource)
+            it.setOnClickListener {
+                dismiss()
+            }
         }
     }
 }
@@ -45,7 +91,7 @@ fun Context.showToastDefaultBasicWithClose(
 fun Context.showToastDefaultLargeIconButtonText(
     viewGroup: ViewGroup,
     message: String,
-    @DrawableRes imageStartResource: Int,
+    @DrawableRes imageStartResource: Int = R.drawable.ics_f_info_circle,
     messageButton: String,
     callbackMessageButton: () -> Unit,
     callbackOnDismiss: (() -> Unit)? = null
@@ -70,7 +116,7 @@ fun Context.showToastDefaultLargeIconButtonText(
 fun Context.showToastDefaultSmallIconButtonText(
     viewGroup: ViewGroup,
     message: String,
-    @DrawableRes imageStartResource: Int,
+    @DrawableRes imageStartResource: Int = R.drawable.ics_f_check_circle,
     messageButton: String,
     callbackMessageButton: () -> Unit,
     callbackOnDismiss: (() -> Unit)? = null
@@ -113,7 +159,7 @@ fun Context.showToastDefaultButtonText(
 fun Context.showToastDefaultLargeIconNoClose(
     viewGroup: ViewGroup,
     message: String,
-    @DrawableRes imageStartResource: Int,
+    @DrawableRes imageStartResource: Int = R.drawable.ics_f_info_circle,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
     val snackView = inflateToastItemView(viewGroup, message).apply {
@@ -131,7 +177,7 @@ fun Context.showToastDefaultLargeIconNoClose(
 fun Context.showToastDefaultSmallIconNoClose(
     viewGroup: ViewGroup,
     message: String,
-    @DrawableRes imageStartResource: Int,
+    @DrawableRes imageStartResource: Int = R.drawable.ics_f_info_circle,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
     val snackView = inflateToastItemView(viewGroup, message).apply {

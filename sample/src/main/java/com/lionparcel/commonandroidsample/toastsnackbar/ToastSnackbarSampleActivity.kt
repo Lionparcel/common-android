@@ -1,9 +1,9 @@
 package com.lionparcel.commonandroidsample.toastsnackbar
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.LinearLayout
+import android.widget.ScrollView
+import androidx.appcompat.app.AppCompatActivity
 import com.lionparcel.commonandroid.snackbartoast.*
 import com.lionparcel.commonandroidsample.R
 
@@ -11,7 +11,7 @@ class ToastSnackbarSampleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_toast_snackbar_sample)
-        val parent = findViewById<LinearLayout>(R.id.parent)
+        val parent = findViewById<ScrollView>(R.id.parent)
         findViewById<Button>(R.id.btnToastDefaultBasicNoClose).setOnClickListener {
             showToastDefaultBasicNoClose(parent, getString(R.string.general_message))
         }
@@ -51,6 +51,24 @@ class ToastSnackbarSampleActivity : AppCompatActivity() {
                 R.drawable.ics_f_info_circle,
                 "Label Text",
                 callbackMessageButton = {})
+        }
+        findViewById<Button>(R.id.btnToastDefaultBasicWithClose).setOnClickListener {
+            showToastDefaultBasicWithClose(
+                parent,
+                getString(R.string.general_message)
+            )
+        }
+        findViewById<Button>(R.id.btnToastDefaultSmallIconWithClose).setOnClickListener {
+            showToastDefaultSmallIconWithClose(
+                parent,
+                getString(R.string.general_message)
+            )
+        }
+        findViewById<Button>(R.id.btnToastDefaultLargeIconWithClose).setOnClickListener {
+            showToastDefaultLargeIconWithClose(
+                parent,
+                getString(R.string.general_message)
+            )
         }
     }
 }
