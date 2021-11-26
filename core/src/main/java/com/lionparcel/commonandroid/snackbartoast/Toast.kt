@@ -18,118 +18,26 @@ import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.lionparcel.commonandroid.R
 
-fun Context.showToastSuccessLargeIconButtonText(
-    viewGroup: ViewGroup,
-    message: String,
-    @DrawableRes imageStartResource: Int = R.drawable.ics_f_info_circle,
-    messageButton: String,
-    callbackMessageButton: () -> Unit,
-    callbackOnDismiss: (() -> Unit)? = null
-): Snackbar {
-    return showToastDefaultLargeIconButtonText(
-        viewGroup,
-        message,
-        imageStartResource,
-        messageButton,
-        callbackMessageButton,
-        callbackOnDismiss
-    ).apply {
-        changeBackgroundToast(R.drawable.bg_toast_item_success_rounded)
-    }
+enum class ToastType {
+    DEFAULT,
+    SUCCESS,
+    ERROR
 }
 
-fun Context.showToastSuccessSmallIconButtonText(
-    viewGroup: ViewGroup,
-    message: String,
-    @DrawableRes imageStartResource: Int = R.drawable.ics_f_check_circle,
-    messageButton: String,
-    callbackMessageButton: () -> Unit,
-    callbackOnDismiss: (() -> Unit)? = null
-): Snackbar {
-    return showToastDefaultSmallIconButtonText(
-        viewGroup,
-        message,
-        imageStartResource,
-        messageButton,
-        callbackMessageButton,
-        callbackOnDismiss
-    ).apply {
-        changeBackgroundToast(R.drawable.bg_toast_item_success_rounded)
-    }
-}
-
-fun Context.showToastSuccessBasicButtonText(
-    viewGroup: ViewGroup,
-    message: String,
-    messageButton: String,
-    callbackMessageButton: () -> Unit,
-    callbackOnDismiss: (() -> Unit)? = null
-): Snackbar {
-    return showToastDefaultBasicButtonText(
-        viewGroup,
-        message,
-        messageButton,
-        callbackMessageButton,
-        callbackOnDismiss
-    ).apply {
-        changeBackgroundToast(R.drawable.bg_toast_item_success_rounded)
-    }
-}
-
-fun Context.showToastSuccessLargeIconNoClose(
-    viewGroup: ViewGroup,
-    message: String,
-    @DrawableRes imageStartResource: Int = R.drawable.ics_f_info_circle,
-    callbackOnDismiss: (() -> Unit)? = null
-): Snackbar {
-    return showToastDefaultLargeIconNoClose(
-        viewGroup,
-        message,
-        imageStartResource,
-        callbackOnDismiss
-    ).apply {
-        changeBackgroundToast(R.drawable.bg_toast_item_success_rounded)
-    }
-}
-
-fun Context.showToastSuccessSmallIconNoClose(
-    viewGroup: ViewGroup,
-    message: String,
-    @DrawableRes imageStartResource: Int = R.drawable.ics_f_check_circle,
-    callbackOnDismiss: (() -> Unit)? = null
-): Snackbar {
-    return showToastDefaultSmallIconNoClose(
-        viewGroup,
-        message,
-        imageStartResource,
-        callbackOnDismiss
-    ).apply {
-        changeBackgroundToast(R.drawable.bg_toast_item_success_rounded)
-    }
-}
-
-fun Context.showToastSuccessBasicNoClose(
-    viewGroup: ViewGroup,
-    message: String,
-    callbackOnDismiss: (() -> Unit)? = null
-): Snackbar {
-    return showToastDefaultBasicNoClose(viewGroup, message, callbackOnDismiss).apply {
-        changeBackgroundToast(R.drawable.bg_toast_item_success_rounded)
-    }
-}
-
-fun Context.showToastDefaultLargeIconWithClose(
+fun Context.showToastLargeIconWithClose(
     viewGroup: ViewGroup,
     message: String,
     @DrawableRes imageStartResource: Int = R.drawable.ics_f_info_circle,
     @DrawableRes imageEndResource: Int = R.drawable.ics_o_close,
+    toastType: ToastType,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
-    return showToastDefaultSmallIconWithClose(
+    return showToastSmallIconWithClose(
         viewGroup,
         message,
         imageStartResource,
         imageEndResource,
+        toastType,
         callbackOnDismiss
     ).apply {
         val snackView = (view as Snackbar.SnackbarLayout)[0]
@@ -140,17 +48,19 @@ fun Context.showToastDefaultLargeIconWithClose(
     }
 }
 
-fun Context.showToastDefaultSmallIconWithClose(
+fun Context.showToastSmallIconWithClose(
     viewGroup: ViewGroup,
     message: String,
     @DrawableRes imageStartResource: Int = R.drawable.ics_f_check_circle,
     @DrawableRes imageEndResource: Int = R.drawable.ics_o_close,
+    toastType: ToastType,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
-    return showToastDefaultBasicWithClose(
+    return showToastBasicWithClose(
         viewGroup,
         message,
         imageEndResource,
+        toastType,
         callbackOnDismiss
     ).apply {
         val snackView = (view as Snackbar.SnackbarLayout)[0]
@@ -161,13 +71,14 @@ fun Context.showToastDefaultSmallIconWithClose(
     }
 }
 
-fun Context.showToastDefaultBasicWithClose(
+fun Context.showToastBasicWithClose(
     viewGroup: ViewGroup,
     message: String,
     @DrawableRes imageEndResource: Int = R.drawable.ics_o_close,
+    toastType: ToastType,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
-    return showToastDefaultBasicNoClose(viewGroup, message, callbackOnDismiss).apply {
+    return showToastBasicNoClose(viewGroup, message, toastType, callbackOnDismiss).apply {
         val snackView = (view as Snackbar.SnackbarLayout)[0]
         snackView.findViewById<ImageView>(R.id.imgEnd).let {
             it.isVisible = true
@@ -179,20 +90,22 @@ fun Context.showToastDefaultBasicWithClose(
     }
 }
 
-fun Context.showToastDefaultLargeIconButtonText(
+fun Context.showToastLargeIconButtonText(
     viewGroup: ViewGroup,
     message: String,
     @DrawableRes imageStartResource: Int = R.drawable.ics_f_info_circle,
     messageButton: String,
     callbackMessageButton: () -> Unit,
+    toastType: ToastType,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
-    return showToastDefaultSmallIconButtonText(
+    return showToastSmallIconButtonText(
         viewGroup,
         message,
         imageStartResource,
         messageButton,
         callbackMessageButton,
+        toastType,
         callbackOnDismiss
     ).apply {
         val snackView = (view as Snackbar.SnackbarLayout)[0]
@@ -204,19 +117,21 @@ fun Context.showToastDefaultLargeIconButtonText(
     }
 }
 
-fun Context.showToastDefaultSmallIconButtonText(
+fun Context.showToastSmallIconButtonText(
     viewGroup: ViewGroup,
     message: String,
     @DrawableRes imageStartResource: Int = R.drawable.ics_f_check_circle,
     messageButton: String,
     callbackMessageButton: () -> Unit,
+    toastType: ToastType,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
-    return showToastDefaultBasicButtonText(
+    return showToastButtonText(
         viewGroup,
         message,
         messageButton,
         callbackMessageButton,
+        toastType,
         callbackOnDismiss
     ).apply {
         val snackView = (view as Snackbar.SnackbarLayout)[0]
@@ -227,14 +142,15 @@ fun Context.showToastDefaultSmallIconButtonText(
     }
 }
 
-fun Context.showToastDefaultBasicButtonText(
+fun Context.showToastButtonText(
     viewGroup: ViewGroup,
     message: String,
     messageButton: String,
     callbackMessageButton: () -> Unit,
+    toastType: ToastType,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
-    return showToastDefaultBasicNoClose(viewGroup, message, callbackOnDismiss).apply {
+    return showToastBasicNoClose(viewGroup, message, toastType, callbackOnDismiss).apply {
         val snackView = (view as Snackbar.SnackbarLayout)[0]
         snackView.findViewById<TextView>(R.id.txtAction).let {
             it.isVisible = true
@@ -247,14 +163,16 @@ fun Context.showToastDefaultBasicButtonText(
     }
 }
 
-fun Context.showToastDefaultLargeIconNoClose(
+fun Context.showToastLargeIconNoClose(
     viewGroup: ViewGroup,
     message: String,
     @DrawableRes imageStartResource: Int = R.drawable.ics_f_info_circle,
+    toastType: ToastType,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
     val snackView = inflateToastItemView(viewGroup, message).apply {
         setVisibleItemToast(isImgStartVisible = true)
+        setBackgroundItemToast(toastType)
         findViewById<ImageView>(R.id.imgStart).apply {
             updateLayoutParams<LinearLayout.LayoutParams> {
                 gravity = Gravity.CENTER
@@ -265,26 +183,30 @@ fun Context.showToastDefaultLargeIconNoClose(
     return showToast(viewGroup, snackView, callbackOnDismiss)
 }
 
-fun Context.showToastDefaultSmallIconNoClose(
+fun Context.showToastSmallIconNoClose(
     viewGroup: ViewGroup,
     message: String,
-    @DrawableRes imageStartResource: Int = R.drawable.ics_f_info_circle,
+    @DrawableRes imageStartResource: Int = R.drawable.ics_f_check_circle,
+    toastType: ToastType,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
     val snackView = inflateToastItemView(viewGroup, message).apply {
         setVisibleItemToast(isImgStartVisible = true)
+        setBackgroundItemToast(toastType)
         findViewById<ImageView>(R.id.imgStart).setImageResource(imageStartResource)
     }
     return showToast(viewGroup, snackView, callbackOnDismiss)
 }
 
-fun Context.showToastDefaultBasicNoClose(
+fun Context.showToastBasicNoClose(
     viewGroup: ViewGroup,
     message: String,
+    toastType: ToastType,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
     val snackView = inflateToastItemView(viewGroup, message).apply {
         setVisibleItemToast()
+        setBackgroundItemToast(toastType)
     }
     return showToast(viewGroup, snackView, callbackOnDismiss)
 }
@@ -306,10 +228,13 @@ private fun View.setVisibleItemToast(
     findViewById<TextView>(R.id.txtAction).isVisible = isTxtActionVisible
 }
 
-private fun Snackbar.changeBackgroundToast(@DrawableRes background: Int) {
-    val snackView = (view as Snackbar.SnackbarLayout)[0]
-    snackView.findViewById<LinearLayout>(R.id.llParent).background =
-        ContextCompat.getDrawable(context, R.drawable.bg_toast_item_success_rounded)
+private fun View.setBackgroundItemToast(toastType: ToastType) {
+    findViewById<LinearLayout>(R.id.llParent).background =
+        when (toastType) {
+            ToastType.DEFAULT -> R.drawable.bg_toast_item_default_rounded
+            ToastType.SUCCESS -> R.drawable.bg_toast_item_success_rounded
+            ToastType.ERROR -> R.drawable.bg_toast_item_error_rounded
+        }.let { ContextCompat.getDrawable(context, it) }
 }
 
 private fun showToast(

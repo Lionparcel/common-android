@@ -13,92 +13,219 @@ class ToastSnackbarSampleActivity : AppCompatActivity() {
         setContentView(R.layout.activity_toast_snackbar_sample)
         val parent = findViewById<ScrollView>(R.id.parent)
         findViewById<Button>(R.id.btnToastDefaultBasicNoClose).setOnClickListener {
-            showToastDefaultBasicNoClose(parent, getString(R.string.general_message))
-        }
-        findViewById<Button>(R.id.btnToastDefaultSmallIconNoClose).setOnClickListener {
-            showToastDefaultSmallIconNoClose(
+            showToastBasicNoClose(
                 parent,
                 getString(R.string.general_message),
-                R.drawable.ics_f_check_circle
+                toastType = ToastType.DEFAULT
+            )
+        }
+        findViewById<Button>(R.id.btnToastDefaultSmallIconNoClose).setOnClickListener {
+            showToastSmallIconNoClose(
+                parent,
+                getString(R.string.general_message),
+                toastType = ToastType.DEFAULT
             )
         }
         findViewById<Button>(R.id.btnToastDefaultLargeIconNoClose).setOnClickListener {
-            showToastDefaultLargeIconNoClose(
+            showToastLargeIconNoClose(
                 parent,
                 getString(R.string.general_message),
-                R.drawable.ics_f_info_circle
+                toastType = ToastType.DEFAULT
             )
         }
         findViewById<Button>(R.id.btnToastDefaultButtonText).setOnClickListener {
-            showToastDefaultBasicButtonText(
+            showToastButtonText(
                 parent,
                 getString(R.string.general_message),
                 "Label Text",
-                callbackMessageButton = {})
+                callbackMessageButton = {},
+                toastType = ToastType.DEFAULT
+            )
         }
         findViewById<Button>(R.id.btnToastDefaultSmallIconButtonText).setOnClickListener {
-            showToastDefaultSmallIconButtonText(
+            showToastSmallIconButtonText(
                 parent,
                 getString(R.string.general_message),
                 R.drawable.ics_f_check_circle,
                 "Label Text",
-                callbackMessageButton = {})
+                callbackMessageButton = {},
+                toastType = ToastType.DEFAULT
+            )
         }
         findViewById<Button>(R.id.btnToastDefaultLargeIconButtonText).setOnClickListener {
-            showToastDefaultLargeIconButtonText(
+            showToastLargeIconButtonText(
                 parent,
                 getString(R.string.general_message),
                 R.drawable.ics_f_info_circle,
                 "Label Text",
-                callbackMessageButton = {})
+                callbackMessageButton = {},
+                toastType = ToastType.DEFAULT
+            )
         }
         findViewById<Button>(R.id.btnToastDefaultBasicWithClose).setOnClickListener {
-            showToastDefaultBasicWithClose(
+            showToastBasicWithClose(
                 parent,
-                getString(R.string.general_message)
+                getString(R.string.general_message),
+                toastType = ToastType.DEFAULT
             )
         }
         findViewById<Button>(R.id.btnToastDefaultSmallIconWithClose).setOnClickListener {
-            showToastDefaultSmallIconWithClose(
+            showToastSmallIconWithClose(
                 parent,
-                getString(R.string.general_message)
+                getString(R.string.general_message),
+                toastType = ToastType.DEFAULT
             )
         }
         findViewById<Button>(R.id.btnToastDefaultLargeIconWithClose).setOnClickListener {
-            showToastDefaultLargeIconWithClose(
+            showToastLargeIconWithClose(
                 parent,
-                getString(R.string.general_message)
+                getString(R.string.general_message),
+                toastType = ToastType.DEFAULT
             )
         }
         findViewById<Button>(R.id.btnToastSuccessBasicNoClose).setOnClickListener {
-            showToastSuccessBasicNoClose(parent, getString(R.string.general_message))
+            showToastBasicNoClose(
+                parent,
+                getString(R.string.general_message),
+                toastType = ToastType.SUCCESS
+            )
         }
         findViewById<Button>(R.id.btnToastSuccessSmallIconNoClose).setOnClickListener {
-            showToastSuccessSmallIconNoClose(parent, getString(R.string.general_message))
+            showToastSmallIconNoClose(
+                parent,
+                getString(R.string.general_message),
+                toastType = ToastType.SUCCESS
+            )
         }
         findViewById<Button>(R.id.btnToastSuccessLargeIconNoClose).setOnClickListener {
-            showToastSuccessLargeIconNoClose(parent, getString(R.string.general_message))
+            showToastLargeIconNoClose(
+                parent,
+                getString(R.string.general_message),
+                toastType = ToastType.SUCCESS
+            )
         }
         findViewById<Button>(R.id.btnToastSuccessBasicButtonText).setOnClickListener {
-            showToastSuccessBasicButtonText(
+            showToastButtonText(
                 parent,
                 getString(R.string.general_message),
                 "Label Text",
-                callbackMessageButton = {})
+                callbackMessageButton = {},
+                toastType = ToastType.SUCCESS
+            )
         }
         findViewById<Button>(R.id.btnToastSuccessSmallIconButtonText).setOnClickListener {
-            showToastSuccessSmallIconButtonText(
+            showToastSmallIconButtonText(
                 parent,
                 getString(R.string.general_message),
-                messageButton = "Label Text",
-                callbackMessageButton = {})
+                R.drawable.ics_f_check_circle,
+                "Label Text",
+                callbackMessageButton = {},
+                toastType = ToastType.SUCCESS
+            )
         }
         findViewById<Button>(R.id.btnToastSuccessLargeIconButtonText).setOnClickListener {
-            showToastSuccessLargeIconButtonText(
+            showToastLargeIconButtonText(
                 parent,
                 getString(R.string.general_message),
-                messageButton = "Label Text",
-                callbackMessageButton = {})
+                R.drawable.ics_f_info_circle,
+                "Label Text",
+                callbackMessageButton = {},
+                toastType = ToastType.SUCCESS
+            )
+        }
+        findViewById<Button>(R.id.btnToastSuccessBasicWithClose).setOnClickListener {
+            showToastBasicWithClose(
+                parent,
+                getString(R.string.general_message),
+                toastType = ToastType.SUCCESS
+            )
+        }
+        findViewById<Button>(R.id.btnToastSuccessSmallIconWithClose).setOnClickListener {
+            showToastSmallIconWithClose(
+                parent,
+                getString(R.string.general_message),
+                toastType = ToastType.SUCCESS
+            )
+        }
+        findViewById<Button>(R.id.btnToastSuccessLargeIconWithClose).setOnClickListener {
+            showToastLargeIconWithClose(
+                parent,
+                getString(R.string.general_message),
+                toastType = ToastType.SUCCESS
+            )
+        }
+        //
+
+        findViewById<Button>(R.id.btnToastErrorBasicNoClose).setOnClickListener {
+            showToastBasicNoClose(
+                parent,
+                getString(R.string.general_message),
+                toastType = ToastType.ERROR
+            )
+        }
+        findViewById<Button>(R.id.btnToastErrorSmallIconNoClose).setOnClickListener {
+            showToastSmallIconNoClose(
+                parent,
+                getString(R.string.general_message),
+                toastType = ToastType.ERROR
+            )
+        }
+        findViewById<Button>(R.id.btnToastErrorLargeIconNoClose).setOnClickListener {
+            showToastLargeIconNoClose(
+                parent,
+                getString(R.string.general_message),
+                toastType = ToastType.ERROR
+            )
+        }
+        findViewById<Button>(R.id.btnToastErrorBasicButtonText).setOnClickListener {
+            showToastButtonText(
+                parent,
+                getString(R.string.general_message),
+                "Label Text",
+                callbackMessageButton = {},
+                toastType = ToastType.ERROR
+            )
+        }
+        findViewById<Button>(R.id.btnToastErrorSmallIconButtonText).setOnClickListener {
+            showToastSmallIconButtonText(
+                parent,
+                getString(R.string.general_message),
+                R.drawable.ics_f_check_circle,
+                "Label Text",
+                callbackMessageButton = {},
+                toastType = ToastType.ERROR
+            )
+        }
+        findViewById<Button>(R.id.btnToastErrorLargeIconButtonText).setOnClickListener {
+            showToastLargeIconButtonText(
+                parent,
+                getString(R.string.general_message),
+                R.drawable.ics_f_info_circle,
+                "Label Text",
+                callbackMessageButton = {},
+                toastType = ToastType.ERROR
+            )
+        }
+        findViewById<Button>(R.id.btnToastErrorBasicWithClose).setOnClickListener {
+            showToastBasicWithClose(
+                parent,
+                getString(R.string.general_message),
+                toastType = ToastType.ERROR
+            )
+        }
+        findViewById<Button>(R.id.btnToastErrorSmallIconWithClose).setOnClickListener {
+            showToastSmallIconWithClose(
+                parent,
+                getString(R.string.general_message),
+                toastType = ToastType.ERROR
+            )
+        }
+        findViewById<Button>(R.id.btnToastErrorLargeIconWithClose).setOnClickListener {
+            showToastLargeIconWithClose(
+                parent,
+                getString(R.string.general_message),
+                toastType = ToastType.ERROR
+            )
         }
     }
 }

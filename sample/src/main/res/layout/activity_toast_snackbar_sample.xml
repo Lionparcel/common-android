@@ -19,7 +19,7 @@
             android:id="@+id/btnToastDefaultBasicNoClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_toast_item_basic_rounded"
+            android:background="@drawable/bg_toast_item_default_rounded"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_medium"
             android:includeFontPadding="false"
@@ -31,7 +31,7 @@
             android:id="@+id/btnToastDefaultSmallIconNoClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_toast_item_basic_rounded"
+            android:background="@drawable/bg_toast_item_default_rounded"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_medium"
             android:includeFontPadding="false"
@@ -43,7 +43,7 @@
             android:id="@+id/btnToastDefaultLargeIconNoClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_toast_item_basic_rounded"
+            android:background="@drawable/bg_toast_item_default_rounded"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_medium"
             android:includeFontPadding="false"
@@ -55,7 +55,7 @@
             android:id="@+id/btnToastDefaultButtonText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_toast_item_basic_rounded"
+            android:background="@drawable/bg_toast_item_default_rounded"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_medium"
             android:includeFontPadding="false"
@@ -67,7 +67,7 @@
             android:id="@+id/btnToastDefaultSmallIconButtonText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_toast_item_basic_rounded"
+            android:background="@drawable/bg_toast_item_default_rounded"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_medium"
             android:includeFontPadding="false"
@@ -79,7 +79,7 @@
             android:id="@+id/btnToastDefaultLargeIconButtonText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_toast_item_basic_rounded"
+            android:background="@drawable/bg_toast_item_default_rounded"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_medium"
             android:includeFontPadding="false"
@@ -91,7 +91,7 @@
             android:id="@+id/btnToastDefaultBasicWithClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_toast_item_basic_rounded"
+            android:background="@drawable/bg_toast_item_default_rounded"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_medium"
             android:includeFontPadding="false"
@@ -103,7 +103,7 @@
             android:id="@+id/btnToastDefaultSmallIconWithClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_toast_item_basic_rounded"
+            android:background="@drawable/bg_toast_item_default_rounded"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_medium"
             android:includeFontPadding="false"
@@ -115,7 +115,7 @@
             android:id="@+id/btnToastDefaultLargeIconWithClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_toast_item_basic_rounded"
+            android:background="@drawable/bg_toast_item_default_rounded"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_medium"
             android:includeFontPadding="false"
@@ -194,6 +194,150 @@
             android:layout_marginVertical="@dimen/spacing_xxs"
             android:paddingHorizontal="@dimen/spacing_l"
             android:text="Toast Success Large Icon Button Text"/>
+
+        <Button
+            android:id="@+id/btnToastSuccessBasicWithClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_success_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Success Basic With Close"/>
+
+        <Button
+            android:id="@+id/btnToastSuccessSmallIconWithClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_success_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Success Small Icon With Close"/>
+
+        <Button
+            android:id="@+id/btnToastSuccessLargeIconWithClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_success_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Success Large Icon With Close"/>
+
+        <Button
+            android:id="@+id/btnToastErrorBasicNoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_error_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Success Basic No Close"/>
+
+        <Button
+            android:id="@+id/btnToastErrorSmallIconNoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_error_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Success Small Icon No Close"/>
+
+        <Button
+            android:id="@+id/btnToastErrorLargeIconNoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_error_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Success Large Icon No Close"/>
+
+        <Button
+            android:id="@+id/btnToastErrorBasicButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_error_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Success Basic Button Text"/>
+
+        <Button
+            android:id="@+id/btnToastErrorSmallIconButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_error_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Success Small Icon Button Text"/>
+
+        <Button
+            android:id="@+id/btnToastErrorLargeIconButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_error_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Success Large Icon Button Text"/>
+
+        <Button
+            android:id="@+id/btnToastErrorBasicWithClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_error_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Success Basic With Close"/>
+
+        <Button
+            android:id="@+id/btnToastErrorSmallIconWithClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_error_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Success Small Icon With Close"/>
+
+        <Button
+            android:id="@+id/btnToastErrorLargeIconWithClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_error_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Success Large Icon With Close"/>
 
     </LinearLayout>
 
