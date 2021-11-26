@@ -2,6 +2,7 @@ package com.lionparcel.commonandroid.snackbartoast
 
 import android.content.Context
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
@@ -17,13 +19,35 @@ import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.lionparcel.commonandroid.R
 
+fun Context.showToastSuccessLargeIconNoClose(
+    viewGroup: ViewGroup,
+    message: String,
+    @DrawableRes imageStartResource: Int = R.drawable.ics_f_info_circle,
+    callbackOnDismiss: (() -> Unit)? = null
+): Snackbar {
+    return showToastDefaultLargeIconNoClose(viewGroup, message, imageStartResource, callbackOnDismiss).apply {
+        changeBackgroundToast(R.drawable.bg_toast_item_success_rounded)
+    }
+}
+
+fun Context.showToastSuccessSmallIconNoClose(
+    viewGroup: ViewGroup,
+    message: String,
+    @DrawableRes imageStartResource: Int = R.drawable.ics_f_check_circle,
+    callbackOnDismiss: (() -> Unit)? = null
+): Snackbar {
+    return showToastDefaultSmallIconNoClose(viewGroup, message, imageStartResource, callbackOnDismiss).apply {
+        changeBackgroundToast(R.drawable.bg_toast_item_success_rounded)
+    }
+}
+
 fun Context.showToastSuccessBasicNoClose(
     viewGroup: ViewGroup,
     message: String,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
     return showToastDefaultBasicNoClose(viewGroup, message, callbackOnDismiss).apply {
-
+        changeBackgroundToast(R.drawable.bg_toast_item_success_rounded)
     }
 }
 
@@ -213,6 +237,12 @@ private fun View.setVisibleItemToast(
     findViewById<ImageView>(R.id.imgStart).isVisible = isImgStartVisible
     findViewById<ImageView>(R.id.imgEnd).isVisible = isImgEndVisible
     findViewById<TextView>(R.id.txtAction).isVisible = isTxtActionVisible
+}
+
+private fun Snackbar.changeBackgroundToast(@DrawableRes background: Int) {
+    val snackView = (view as Snackbar.SnackbarLayout)[0]
+    snackView.findViewById<LinearLayout>(R.id.llParent).background =
+        ContextCompat.getDrawable(context, R.drawable.bg_toast_item_success_rounded)
 }
 
 private fun showToast(

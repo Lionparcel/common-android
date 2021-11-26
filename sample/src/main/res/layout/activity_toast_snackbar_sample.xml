@@ -25,7 +25,7 @@
             android:includeFontPadding="false"
             android:layout_marginVertical="@dimen/spacing_xxs"
             android:paddingHorizontal="@dimen/spacing_l"
-            android:text="Toast Default No Close"/>
+            android:text="Toast Default Basic No Close"/>
 
         <Button
             android:id="@+id/btnToastDefaultSmallIconNoClose"
@@ -122,6 +122,42 @@
             android:layout_marginVertical="@dimen/spacing_xxs"
             android:paddingHorizontal="@dimen/spacing_l"
             android:text="Toast Default Large Icon With Close"/>
+
+        <Button
+            android:id="@+id/btnToastSuccessBasicNoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_success_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Success Basic No Close"/>
+
+        <Button
+            android:id="@+id/btnToastSuccessSmallIconNoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_success_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Success Small Icon No Close"/>
+
+        <Button
+            android:id="@+id/btnToastSuccessLargeIconNoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_success_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Toast Success Large Icon No Close"/>
 
     </LinearLayout>
 

@@ -70,5 +70,14 @@ class ToastSnackbarSampleActivity : AppCompatActivity() {
                 getString(R.string.general_message)
             )
         }
+        findViewById<Button>(R.id.btnToastSuccessBasicNoClose).setOnClickListener {
+            showToastSuccessBasicNoClose(parent, getString(R.string.general_message))
+        }
+        findViewById<Button>(R.id.btnToastSuccessSmallIconNoClose).setOnClickListener {
+            showToastSuccessSmallIconNoClose(parent, getString(R.string.general_message))
+        }
+        findViewById<Button>(R.id.btnToastSuccessLargeIconNoClose).setOnClickListener {
+            showToastSuccessLargeIconNoClose(parent, getString(R.string.general_message))
+        }
     }
 }
