@@ -30,7 +30,7 @@ class ToastSnackbarSampleActivity : AppCompatActivity() {
             )
         }
         findViewById<Button>(R.id.btnToastDefaultButtonText).setOnClickListener {
-            showToastDefaultButtonText(
+            showToastDefaultBasicButtonText(
                 parent,
                 getString(R.string.general_message),
                 "Label Text",
@@ -78,6 +78,27 @@ class ToastSnackbarSampleActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.btnToastSuccessLargeIconNoClose).setOnClickListener {
             showToastSuccessLargeIconNoClose(parent, getString(R.string.general_message))
+        }
+        findViewById<Button>(R.id.btnToastSuccessBasicButtonText).setOnClickListener {
+            showToastSuccessBasicButtonText(
+                parent,
+                getString(R.string.general_message),
+                "Label Text",
+                callbackMessageButton = {})
+        }
+        findViewById<Button>(R.id.btnToastSuccessSmallIconButtonText).setOnClickListener {
+            showToastSuccessSmallIconButtonText(
+                parent,
+                getString(R.string.general_message),
+                messageButton = "Label Text",
+                callbackMessageButton = {})
+        }
+        findViewById<Button>(R.id.btnToastSuccessLargeIconButtonText).setOnClickListener {
+            showToastSuccessLargeIconButtonText(
+                parent,
+                getString(R.string.general_message),
+                messageButton = "Label Text",
+                callbackMessageButton = {})
         }
     }
 }

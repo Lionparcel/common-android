@@ -2,7 +2,6 @@ package com.lionparcel.commonandroid.snackbartoast
 
 import android.content.Context
 import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -19,13 +18,76 @@ import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.lionparcel.commonandroid.R
 
+fun Context.showToastSuccessLargeIconButtonText(
+    viewGroup: ViewGroup,
+    message: String,
+    @DrawableRes imageStartResource: Int = R.drawable.ics_f_info_circle,
+    messageButton: String,
+    callbackMessageButton: () -> Unit,
+    callbackOnDismiss: (() -> Unit)? = null
+): Snackbar {
+    return showToastDefaultLargeIconButtonText(
+        viewGroup,
+        message,
+        imageStartResource,
+        messageButton,
+        callbackMessageButton,
+        callbackOnDismiss
+    ).apply {
+        changeBackgroundToast(R.drawable.bg_toast_item_success_rounded)
+    }
+}
+
+fun Context.showToastSuccessSmallIconButtonText(
+    viewGroup: ViewGroup,
+    message: String,
+    @DrawableRes imageStartResource: Int = R.drawable.ics_f_check_circle,
+    messageButton: String,
+    callbackMessageButton: () -> Unit,
+    callbackOnDismiss: (() -> Unit)? = null
+): Snackbar {
+    return showToastDefaultSmallIconButtonText(
+        viewGroup,
+        message,
+        imageStartResource,
+        messageButton,
+        callbackMessageButton,
+        callbackOnDismiss
+    ).apply {
+        changeBackgroundToast(R.drawable.bg_toast_item_success_rounded)
+    }
+}
+
+fun Context.showToastSuccessBasicButtonText(
+    viewGroup: ViewGroup,
+    message: String,
+    messageButton: String,
+    callbackMessageButton: () -> Unit,
+    callbackOnDismiss: (() -> Unit)? = null
+): Snackbar {
+    return showToastDefaultBasicButtonText(
+        viewGroup,
+        message,
+        messageButton,
+        callbackMessageButton,
+        callbackOnDismiss
+    ).apply {
+        changeBackgroundToast(R.drawable.bg_toast_item_success_rounded)
+    }
+}
+
 fun Context.showToastSuccessLargeIconNoClose(
     viewGroup: ViewGroup,
     message: String,
     @DrawableRes imageStartResource: Int = R.drawable.ics_f_info_circle,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
-    return showToastDefaultLargeIconNoClose(viewGroup, message, imageStartResource, callbackOnDismiss).apply {
+    return showToastDefaultLargeIconNoClose(
+        viewGroup,
+        message,
+        imageStartResource,
+        callbackOnDismiss
+    ).apply {
         changeBackgroundToast(R.drawable.bg_toast_item_success_rounded)
     }
 }
@@ -36,7 +98,12 @@ fun Context.showToastSuccessSmallIconNoClose(
     @DrawableRes imageStartResource: Int = R.drawable.ics_f_check_circle,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
-    return showToastDefaultSmallIconNoClose(viewGroup, message, imageStartResource, callbackOnDismiss).apply {
+    return showToastDefaultSmallIconNoClose(
+        viewGroup,
+        message,
+        imageStartResource,
+        callbackOnDismiss
+    ).apply {
         changeBackgroundToast(R.drawable.bg_toast_item_success_rounded)
     }
 }
@@ -145,7 +212,7 @@ fun Context.showToastDefaultSmallIconButtonText(
     callbackMessageButton: () -> Unit,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
-    return showToastDefaultButtonText(
+    return showToastDefaultBasicButtonText(
         viewGroup,
         message,
         messageButton,
@@ -160,7 +227,7 @@ fun Context.showToastDefaultSmallIconButtonText(
     }
 }
 
-fun Context.showToastDefaultButtonText(
+fun Context.showToastDefaultBasicButtonText(
     viewGroup: ViewGroup,
     message: String,
     messageButton: String,
