@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/parent"
-    android:background="@color/interpack7"
     tools:context=".toastsnackbar.ToastSnackbarSampleActivity">
 
     <Button
@@ -32,5 +31,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Toast Default Button Text"/>
+
+    <Button
+        android:id="@+id/btnToastDefaultSmallIconButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toast Default Small Icon Button Text"/>
+
+    <Button
+        android:id="@+id/btnToastDefaultLargeIconButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toast Default Large Icon Button Text"/>
 
 </LinearLayout>

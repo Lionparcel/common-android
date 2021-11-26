@@ -1,4 +1,4 @@
-package com.lionparcel.commonandroidsample
+package com.lionparcel.commonandroidsample.walktrough
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.widget.Button
 import com.google.android.material.card.MaterialCardView
 import com.lionparcel.commonandroid.walkthrough.WalkThroughBuilder
 import com.lionparcel.commonandroid.walkthrough.WalkThroughSequence
+import com.lionparcel.commonandroidsample.R
 
 class WalkThroughSampleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
