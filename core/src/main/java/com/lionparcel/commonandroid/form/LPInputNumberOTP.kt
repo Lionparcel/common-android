@@ -5,11 +5,9 @@ import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.animation.AnimationUtils
-import android.widget.EditText
-import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.core.content.ContextCompat
+import androidx.core.view.forEach
 import androidx.core.view.forEachIndexed
 import androidx.core.widget.doOnTextChanged
 import com.google.android.flexbox.FlexboxLayout
@@ -90,7 +88,14 @@ class LPInputNumberOTP : FrameLayout {
 
         if (edtOtpNumber.length() == 6) {
             callbackOnOtpNumberCompleted?.invoke(edtOtpNumber.toString())
+            onHandlerError()
         }
     }
 
+    private fun onHandlerError() {
+        flxOtpNumber.forEach { view ->
+            val ivNumberOutline = view.findViewById<ImageView>(R.id.ivNumberOutline)
+            ivNumberOutline.setImageResource(R.drawable.bg_interpack_6_outline)
+        }
+    }
 }
