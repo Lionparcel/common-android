@@ -6,13 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".form.InputNumberSampleActivity">
 
-    <com.lionparcel.commonandroid.form.LPInputNumberOTP
+    <com.lionparcel.commonandroid.form.LPInputNumberOtp
         android:id="@+id/input_number_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.37" />
+
+    <com.lionparcel.commonandroid.form.LPInputNumberPin
+        android:id="@+id/pin_number_view"
+        android:layout_marginStart="@dimen/dp_24"
+        android:layout_marginEnd="@dimen/dp_24"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

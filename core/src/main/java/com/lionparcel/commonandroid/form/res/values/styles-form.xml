@@ -46,15 +46,4 @@
         <item name="android:textCursorDrawable">@drawable/cursor_interpack6</item>
     </style>
 
-    <style name="LPInputNumberCursor">
-        <item name="android:textCursorDrawable">@drawable/cursor_red3</item>
-        <item name="in_backgroundImage">@drawable/bg_interpack_6_outline</item>
-        <item name="in_filledBackgroundImage">@drawable/bg_interpack_6_outline</item>
-        <item name="in_highlightedBackgroundImage">@drawable/bg_input_number_highlighted</item>
-        <item name="in_Font">@font/poppins</item>
-        <item name="in_filledTextSize">@dimen/sp_20</item>
-        <item name="in_highlightedTextSize">@dimen/sp_20</item>
-        <item name="in_textSize">@dimen/sp_20</item>
-        <item name="in_marginBetween">@dimen/dp_12</item>
-    </style>
 </resources>

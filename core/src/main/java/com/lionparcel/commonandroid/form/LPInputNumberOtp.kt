@@ -13,7 +13,7 @@ import androidx.core.widget.doOnTextChanged
 import com.google.android.flexbox.FlexboxLayout
 import com.lionparcel.commonandroid.R
 
-class LPInputNumberOTP : FrameLayout {
+class LPInputNumberOtp : FrameLayout {
 
     private val blinkingAnim by lazy {
         context?.let { AnimationUtils.loadAnimation(it, R.anim.blinking_view) }
@@ -23,7 +23,7 @@ class LPInputNumberOTP : FrameLayout {
     private var flxOtpNumber: FlexboxLayout
 
     var onShowKeyboard: ((EditText) -> Unit)? = null
-    var callbackOnOtpNumberCompleted: ((String) -> Unit)? = null
+    private var callbackOnOtpNumberCompleted: ((String) -> Unit)? = null
 
     constructor(context: Context) : this(context, null)
 
@@ -88,11 +88,11 @@ class LPInputNumberOTP : FrameLayout {
 
         if (edtOtpNumber.length() == 6) {
             callbackOnOtpNumberCompleted?.invoke(edtOtpNumber.toString())
-            onHandlerError()
+            onHandlerOtpError()
         }
     }
 
-    private fun onHandlerError() {
+    private fun onHandlerOtpError() {
         flxOtpNumber.forEach { view ->
             val ivNumberOutline = view.findViewById<ImageView>(R.id.ivNumberOutline)
             ivNumberOutline.setImageResource(R.drawable.bg_interpack_6_outline)
