@@ -16,6 +16,9 @@
         <activity
             android:name=".form.FormComponentSampleActivity"
             android:exported="true" />
+        <activity
+            android:name=".form.InputNumberSampleActivity"
+            android:exported="true" />
         <activity android:name=".loading.LoadingComponentSampleActivity" />
         <activity android:name=".loading.LoadingSpinnerDefaultSampleActivity" />
         <activity android:name=".loading.LoadingShimmerSampleActivity" />
