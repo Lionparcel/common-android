@@ -1,112 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    tools:context=".form.FormComponentSampleActivity"
     android:layout_height="match_parent"
-    android:padding="@dimen/spacing_xs"
-    android:orientation="vertical"
-    tools:context=".form.FormComponentSampleActivity">
+    android:layout_width="match_parent">
 
-    <TextView
-        style="@style/H4SemiBold"
-        android:textColor="@color/black"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Text Input Layout"
-        tools:ignore="HardcodedText"
-        android:layout_marginVertical="@dimen/spacing_xs"/>
+        android:layout_height="match_parent"
+        android:padding="@dimen/spacing_xs"
+        android:orientation="vertical">
 
-    <com.lionparcel.commonandroid.form.LPTextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.lionparcel.commonandroid.form.LPTextInputEditText
+        <TextView
+            style="@style/H4SemiBold"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Basic / Normal"
-            tools:text="udin"
-            tools:ignore="HardcodedText" />
-    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+            android:text="Text Input Layout"
+            tools:ignore="HardcodedText"
+            android:layout_marginVertical="@dimen/spacing_xs"/>
 
-    <com.lionparcel.commonandroid.form.LPTextInputLayout
-        android:id="@+id/tilName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:endIconMode="clear_text">
-        <com.lionparcel.commonandroid.form.LPTextInputEditText
+        <com.lionparcel.commonandroid.form.LPTextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.lionparcel.commonandroid.form.LPTextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Basic / Normal"
+                tools:text="udin"
+                tools:ignore="HardcodedText" />
+        </com.lionparcel.commonandroid.form.LPTextInputLayout>
+
+        <com.lionparcel.commonandroid.form.LPTextInputLayout
+            android:id="@+id/tilName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Basic With Clear Text"
-            tools:ignore="HardcodedText" />
-    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+            app:endIconMode="clear_text">
+            <com.lionparcel.commonandroid.form.LPTextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Basic With Clear Text"
+                tools:ignore="HardcodedText" />
+        </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
-    <com.lionparcel.commonandroid.form.LPTextInputLayout
-        android:id="@+id/tilEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.lionparcel.commonandroid.form.LPTextInputEditText
+        <com.lionparcel.commonandroid.form.LPTextInputLayout
+            android:id="@+id/tilEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.lionparcel.commonandroid.form.LPTextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Disabled Field"
+                android:text="test@lionparcel.com"
+                android:enabled="false"
+                tools:ignore="HardcodedText" />
+        </com.lionparcel.commonandroid.form.LPTextInputLayout>
+
+        <com.lionparcel.commonandroid.form.LPTextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Disabled Field"
-            android:text="test@lionparcel.com"
-            android:enabled="false"
-            tools:ignore="HardcodedText" />
-    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+            app:counterEnabled="true"
+            app:counterMaxLength="50"
+            app:helperText="Helper/Support Text">
+            <com.lionparcel.commonandroid.form.LPTextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Field with counter"
+                tools:ignore="HardcodedText" />
+        </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
-    <com.lionparcel.commonandroid.form.LPTextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:counterEnabled="true"
-        app:counterMaxLength="50"
-        app:helperText="Helper/Support Text">
-        <com.lionparcel.commonandroid.form.LPTextInputEditText
+        <com.lionparcel.commonandroid.form.LPTextInputLayout
+            android:id="@+id/tilReceiverAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Field with counter"
-            tools:ignore="HardcodedText" />
-    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+            app:counterEnabled="true"
+            app:counterMaxLength="254">
+            <com.lionparcel.commonandroid.form.LPTextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Error Field with counter"
+                tools:ignore="HardcodedText" />
+        </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
-    <com.lionparcel.commonandroid.form.LPTextInputLayout
-        android:id="@+id/tilReceiverAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:counterEnabled="true"
-        app:counterMaxLength="254">
-        <com.lionparcel.commonandroid.form.LPTextInputEditText
+        <com.lionparcel.commonandroid.form.LPTextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Error Field with counter"
-            tools:ignore="HardcodedText" />
-    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+            android:hint="text with start icon">
+            <com.lionparcel.commonandroid.form.LPTextInputEditText
+                android:drawableStart="@drawable/ics_o_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
-    <com.lionparcel.commonandroid.form.LPTextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="text with start icon">
-        <com.lionparcel.commonandroid.form.LPTextInputEditText
-            android:drawableStart="@drawable/ics_o_profile"
+        <com.lionparcel.commonandroid.form.LPTextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+            android:layout_height="wrap_content"
+            android:hint="text with prefix text not expandable"
+            app:prefixText="Rp"
+            app:expandedHintEnabled="false">
+            <com.lionparcel.commonandroid.form.LPTextInputEditText
+                android:hint="90000"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
-    <com.lionparcel.commonandroid.form.LPTextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="text with prefix text"
-        app:prefixText="Rp"
-        app:expandedHintEnabled="false">
-        <com.lionparcel.commonandroid.form.LPTextInputEditText
-            android:hint="90000"
+        <com.lionparcel.commonandroid.form.LPTextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+            android:layout_height="wrap_content"
+            android:hint="text with prefix text"
+            app:prefixText="Rp">
+            <com.lionparcel.commonandroid.form.LPTextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
+        <com.lionparcel.commonandroid.form.LPTextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="text with suffix text"
+            app:suffixText="Kg">
+            <com.lionparcel.commonandroid.form.LPTextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
-    <Button
-        android:id="@+id/btn_input_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Input Number Sample"
-        tools:ignore="HardcodedText"/>
-
-</LinearLayout>
+        <Button
+            android:id="@+id/btn_input_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Input Number Sample"
+            tools:ignore="HardcodedText"/>
+    </LinearLayout>
+</ScrollView>
