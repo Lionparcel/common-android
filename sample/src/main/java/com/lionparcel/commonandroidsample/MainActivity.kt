@@ -7,6 +7,8 @@ import android.widget.Button
 import com.lionparcel.commonandroidsample.form.FormComponentSampleActivity
 import com.lionparcel.commonandroidsample.loading.LoadingComponentSampleActivity
 import com.lionparcel.commonandroidsample.modal.ModalComponentSampleActivity
+import com.lionparcel.commonandroidsample.toastsnackbar.ToastSnackbarSampleActivity
+import com.lionparcel.commonandroidsample.walktrough.WalkThroughSampleActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +26,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.button_to_walkthroughsampleactivity).setOnClickListener {
             startActivity(Intent(this, WalkThroughSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_toastSnackbarSampleActivity).setOnClickListener {
+            startActivity(Intent(this, ToastSnackbarSampleActivity::class.java))
         }
     }
 }
