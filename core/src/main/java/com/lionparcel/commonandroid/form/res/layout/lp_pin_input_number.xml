@@ -1,0 +1,34 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginRight="@dimen/dp_56"
+    android:layout_marginLeft="@dimen/dp_56">
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/flxPinNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:flexWrap="wrap"
+        app:justifyContent="space_between"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtPinNumber"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="0dp"
+        android:autofillHints=""
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:inputType="number"
+        android:maxLength="6"
+        app:layout_constraintBottom_toBottomOf="@+id/flxPinNumber"
+        app:layout_constraintLeft_toRightOf="@+id/flxPinNumber"
+        app:layout_constraintTop_toTopOf="@+id/flxPinNumber"
+        tools:ignore="LabelFor"
+        tools:targetApi="o"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

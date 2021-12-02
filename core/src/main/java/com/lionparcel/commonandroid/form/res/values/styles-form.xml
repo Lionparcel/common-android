@@ -49,4 +49,5 @@
 <!--        blinking cursor -->
         <item name="android:textCursorDrawable">@drawable/cursor_interpack6</item>
     </style>
+
 </resources>

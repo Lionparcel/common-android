@@ -6,4 +6,5 @@
     <declare-styleable name="LPTextInputEditText">
         <attr name="LPTextInputEditTextStyle" format="reference" />
     </declare-styleable>
+
 </resources>
