@@ -42,4 +42,6 @@
     <dimen name="dp_100">100dp</dimen>
     <dimen name="dp_120">120dp</dimen>
 
+    <dimen name="minus_dp_5">-5dp</dimen>
+
 </resources>

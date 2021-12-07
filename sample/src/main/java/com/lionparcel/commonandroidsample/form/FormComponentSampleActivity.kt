@@ -18,5 +18,9 @@ class FormComponentSampleActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_input_number).setOnClickListener {
             startActivity(Intent(this, InputNumberSampleActivity::class.java ))
         }
+
+        findViewById<Button>(R.id.btn_password_sample).setOnClickListener {
+            startActivity(Intent(this, PasswordSampleActivity::class.java))
+        }
     }
 }
