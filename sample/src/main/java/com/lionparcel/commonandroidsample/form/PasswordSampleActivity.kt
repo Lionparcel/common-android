@@ -34,7 +34,7 @@ class PasswordSampleActivity : AppCompatActivity() {
                     edtPassword.text?.clear()
                 }
             } else{
-                ivClear2.visibility = View.INVISIBLE
+                ivClear.visibility = View.INVISIBLE
             }
         }
 
