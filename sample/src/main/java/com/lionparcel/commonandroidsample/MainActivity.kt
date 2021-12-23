@@ -7,7 +7,7 @@ import android.widget.Button
 import com.lionparcel.commonandroidsample.form.FormComponentSampleActivity
 import com.lionparcel.commonandroidsample.loading.LoadingComponentSampleActivity
 import com.lionparcel.commonandroidsample.modal.ModalComponentSampleActivity
-import com.lionparcel.commonandroidsample.toastsnackbar.ToastSnackbarSampleActivity
+import com.lionparcel.commonandroidsample.toastsnackbar.ToastSampleActivity
 import com.lionparcel.commonandroidsample.walktrough.WalkThroughSampleActivity
 
 class MainActivity : AppCompatActivity() {
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, WalkThroughSampleActivity::class.java))
         }
         findViewById<Button>(R.id.button_to_toastSnackbarSampleActivity).setOnClickListener {
-            startActivity(Intent(this, ToastSnackbarSampleActivity::class.java))
+            startActivity(Intent(this, ToastSampleActivity::class.java))
         }
     }
 }

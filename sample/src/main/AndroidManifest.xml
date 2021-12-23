@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid" >
-        <activity android:name=".toastsnackbar.ToastSnackbarSampleActivity" />
+        <activity android:name=".toastsnackbar.ToastSampleActivity" />
         <activity
             android:name=".walktrough.WalkThroughSampleActivity"
             android:exported="true" />
