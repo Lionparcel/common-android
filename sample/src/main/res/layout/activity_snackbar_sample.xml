@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/parent"
+    android:fillViewport="true"
+    tools:context=".toastsnackbar.SnackbarSampleActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/spacing_xl"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnSnackbarDefaultBasicNoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_default_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Default Basic No Close"/>
+
+        <Button
+            android:id="@+id/btnSnackbarDefaultSmallIconNoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_default_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Default Small Icon No Close"/>
+
+        <Button
+            android:id="@+id/btnSnackbarDefaultLargeIconNoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_default_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Default Large Icon No Close"/>
+
+        <Button
+            android:id="@+id/btnSnackbarDefaultButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_default_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Default Button Text"/>
+
+        <Button
+            android:id="@+id/btnSnackbarDefaultSmallIconButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_default_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Default Small Icon Button Text"/>
+
+        <Button
+            android:id="@+id/btnSnackbarDefaultLargeIconButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_default_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Default Large Icon Button Text"/>
+
+        <Button
+            android:id="@+id/btnSnackbarDefaultBasicWithClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_default_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Default Basic With Close"/>
+
+        <Button
+            android:id="@+id/btnSnackbarDefaultSmallIconWithClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_default_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Default Small Icon With Close"/>
+
+        <Button
+            android:id="@+id/btnSnackbarDefaultLargeIconWithClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_default_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Default Large Icon With Close"/>
+
+        <Button
+            android:id="@+id/btnSnackbarSuccessBasicNoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_success_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Success Basic No Close"/>
+
+        <Button
+            android:id="@+id/btnSnackbarSuccessSmallIconNoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_success_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Success Small Icon No Close"/>
+
+        <Button
+            android:id="@+id/btnSnackbarSuccessLargeIconNoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_success_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Success Large Icon No Close"/>
+
+        <Button
+            android:id="@+id/btnSnackbarSuccessBasicButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_success_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Success Basic Button Text"/>
+
+        <Button
+            android:id="@+id/btnSnackbarSuccessSmallIconButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_success_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Success Small Icon Button Text"/>
+
+        <Button
+            android:id="@+id/btnSnackbarSuccessLargeIconButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_success_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Success Large Icon Button Text"/>
+
+        <Button
+            android:id="@+id/btnSnackbarSuccessBasicWithClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_success_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Success Basic With Close"/>
+
+        <Button
+            android:id="@+id/btnSnackbarSuccessSmallIconWithClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_success_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Success Small Icon With Close"/>
+
+        <Button
+            android:id="@+id/btnSnackbarSuccessLargeIconWithClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_success_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Success Large Icon With Close"/>
+
+        <Button
+            android:id="@+id/btnSnackbarErrorBasicNoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_error_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Success Basic No Close"/>
+
+        <Button
+            android:id="@+id/btnSnackbarErrorSmallIconNoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_error_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Success Small Icon No Close"/>
+
+        <Button
+            android:id="@+id/btnSnackbarErrorLargeIconNoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_error_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Success Large Icon No Close"/>
+
+        <Button
+            android:id="@+id/btnSnackbarErrorBasicButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_error_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Success Basic Button Text"/>
+
+        <Button
+            android:id="@+id/btnSnackbarErrorSmallIconButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_error_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Success Small Icon Button Text"/>
+
+        <Button
+            android:id="@+id/btnSnackbarErrorLargeIconButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_error_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Success Large Icon Button Text"/>
+
+        <Button
+            android:id="@+id/btnSnackbarErrorBasicWithClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_error_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Success Basic With Close"/>
+
+        <Button
+            android:id="@+id/btnSnackbarErrorSmallIconWithClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_error_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Success Small Icon With Close"/>
+
+        <Button
+            android:id="@+id/btnSnackbarErrorLargeIconWithClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toast_item_error_rounded"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:layout_marginVertical="@dimen/spacing_xxs"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:text="Snackbar Success Large Icon With Close"/>
+
+    </LinearLayout>
+
+</ScrollView>
