@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtKtpPhotoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/form_claim_damaged_or_lost_ktp_photo_label"
+        android:textColor="@color/shades3"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/llKtpPhoto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:background="@drawable/bg_selector_dot_rectangle_silver_sexy_red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txtKtpPhotoLabel"
+        app:layout_constraintTop_toBottomOf="@+id/txtKtpPhotoLabel">
+
+        <include
+            android:id="@+id/includeKtpPhoto"
+            layout="@layout/add_photo_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtKtpPhotoMaxLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/claim_form_page_max_photo"
+        android:textColor="@color/shades3"
+        android:textSize="@dimen/sp_10"
+        android:layout_marginTop="@dimen/dp_4"
+        app:layout_constraintStart_toStartOf="@+id/llKtpPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/llKtpPhoto" />
+
+    <TextView
+        android:id="@+id/txtRequiredKtpPhotoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_4"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/form_claim_damaged_or_lost_required_label"
+        android:textColor="@color/shades3"
+        android:textSize="@dimen/sp_10"
+        app:layout_constraintEnd_toEndOf="@+id/llKtpPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/llKtpPhoto" />
+
+    <TextView
+        android:id="@+id/txtPackagePhotoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/form_claim_damaged_or_lost_package_photo_label"
+        android:textColor="@color/shades3"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintStart_toStartOf="@+id/llKtpPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/txtKtpPhotoMaxLabel" />
+
+    <LinearLayout
+        android:id="@+id/llPackagePhotoRequired"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/bg_selector_dot_rectangle_silver_sexy_red"
+        app:layout_constraintEnd_toEndOf="@+id/llKtpPhoto"
+        app:layout_constraintStart_toStartOf="@+id/llKtpPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/txtPackagePhotoLabel">
+
+        <include
+            android:id="@+id/includePackagePhotoRequired"
+            layout="@layout/add_photo_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtPackagePhotoMaxLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/claim_form_page_max_photo"
+        android:textColor="@color/shades3"
+        android:textSize="@dimen/sp_10"
+        android:layout_marginTop="@dimen/dp_4"
+        app:layout_constraintStart_toStartOf="@+id/llPackagePhotoRequired"
+        app:layout_constraintTop_toBottomOf="@+id/llPackagePhotoRequired" />
+
+    <TextView
+        android:id="@+id/txtRequiredPackagePhotoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/form_claim_damaged_or_lost_required_label"
+        android:textColor="@color/shades3"
+        android:textSize="@dimen/sp_10"
+        android:layout_marginTop="@dimen/dp_4"
+        app:layout_constraintEnd_toEndOf="@+id/llPackagePhotoRequired"
+        app:layout_constraintTop_toBottomOf="@+id/llPackagePhotoRequired" />
+
+    <LinearLayout
+        android:id="@+id/llPackagePhotoOptional"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/bg_selector_dot_rectangle_silver_sexy_red"
+        app:layout_constraintEnd_toEndOf="@+id/llPackagePhotoRequired"
+        app:layout_constraintStart_toStartOf="@+id/llPackagePhotoRequired"
+        app:layout_constraintTop_toBottomOf="@+id/txtPackagePhotoMaxLabel">
+
+        <include
+            android:id="@+id/includePackagePhotoOptional"
+            layout="@layout/add_photo_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtPackagePhotoOptionalMaxLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/claim_form_page_max_photo"
+        android:textColor="@color/shades3"
+        android:textSize="@dimen/sp_10"
+        android:layout_marginTop="@dimen/dp_4"
+        app:layout_constraintStart_toStartOf="@+id/llPackagePhotoOptional"
+        app:layout_constraintTop_toBottomOf="@+id/llPackagePhotoOptional" />
+
+    <TextView
+        android:id="@+id/txtOptionalPackagePhotoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/form_claim_damaged_or_lost_optional_label"
+        android:textColor="@color/shades3"
+        android:textSize="@dimen/sp_10"
+        android:layout_marginTop="@dimen/dp_4"
+        app:layout_constraintEnd_toEndOf="@+id/llPackagePhotoOptional"
+        app:layout_constraintTop_toBottomOf="@+id/llPackagePhotoOptional" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,5 +18,9 @@ class FormComponentSampleActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_input_number).setOnClickListener {
             startActivity(Intent(this, InputNumberSampleActivity::class.java ))
         }
+
+        findViewById<Button>(R.id.btn_attach_file).setOnClickListener {
+            startActivity(Intent(this, AttachFileActivity::class.java ))
+        }
     }
 }
