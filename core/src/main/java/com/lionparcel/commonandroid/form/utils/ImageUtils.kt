@@ -28,7 +28,7 @@ object ImageUtils {
     fun getOutputMediaFileUri(activity: Activity, name: String): Uri? {
         return getOutputMediaFile(activity, name)?.let {
             FileProvider.getUriForFile(
-                activity, BuildConfig.LIBRARY_PACKAGE_NAME + PROVIDER,
+                activity, "common$PROVIDER",
                 it
             )
         }
