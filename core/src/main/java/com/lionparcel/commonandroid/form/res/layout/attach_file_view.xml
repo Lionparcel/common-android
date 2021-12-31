@@ -1,38 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:id="@+id/clParent"
+    android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/txtKtpPhotoLabel"
+        style="@style/Subtitle2Regular"
+        android:id="@+id/txtPhotoLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_20"
-        android:layout_marginStart="@dimen/dp_20"
-        android:layout_marginEnd="@dimen/dp_20"
-        android:fontFamily="@font/poppins_regular"
         android:text="@string/form_claim_damaged_or_lost_ktp_photo_label"
         android:textColor="@color/shades3"
-        android:textSize="@dimen/sp_14"
+        android:includeFontPadding="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/llKtpPhoto"
+        android:id="@+id/llPhoto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
-        android:layout_marginTop="@dimen/dp_5"
-        android:layout_marginEnd="@dimen/dp_20"
+        android:layout_marginTop="@dimen/spacing_xxs"
         android:background="@drawable/bg_selector_dot_rectangle_silver_sexy_red"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/txtKtpPhotoLabel"
-        app:layout_constraintTop_toBottomOf="@+id/txtKtpPhotoLabel">
+        app:layout_constraintStart_toStartOf="@+id/txtPhotoLabel"
+        app:layout_constraintTop_toBottomOf="@+id/txtPhotoLabel">
 
         <include
-            android:id="@+id/includeKtpPhoto"
+            android:id="@+id/includePhotoDetail"
             layout="@layout/add_photo_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,7 +36,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txtKtpPhotoMaxLabel"
+        android:id="@+id/txtPhotoInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_regular"
@@ -48,11 +44,12 @@
         android:textColor="@color/shades3"
         android:textSize="@dimen/sp_10"
         android:layout_marginTop="@dimen/dp_4"
-        app:layout_constraintStart_toStartOf="@+id/llKtpPhoto"
-        app:layout_constraintTop_toBottomOf="@+id/llKtpPhoto" />
+        android:includeFontPadding="false"
+        app:layout_constraintStart_toStartOf="@+id/llPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/llPhoto" />
 
     <TextView
-        android:id="@+id/txtRequiredKtpPhotoLabel"
+        android:id="@+id/txtPhotoRequiredLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_4"
@@ -60,7 +57,7 @@
         android:text="@string/form_claim_damaged_or_lost_required_label"
         android:textColor="@color/shades3"
         android:textSize="@dimen/sp_10"
-        app:layout_constraintEnd_toEndOf="@+id/llKtpPhoto"
-        app:layout_constraintTop_toBottomOf="@+id/llKtpPhoto" />
-
+        android:includeFontPadding="false"
+        app:layout_constraintEnd_toEndOf="@+id/llPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/llPhoto" />
 </androidx.constraintlayout.widget.ConstraintLayout>
