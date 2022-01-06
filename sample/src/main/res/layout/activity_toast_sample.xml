@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/parent"
     android:fillViewport="true"
-    tools:context=".toastsnackbar.ToastSnackbarSampleActivity">
+    tools:context=".toastsnackbar.ToastSampleActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

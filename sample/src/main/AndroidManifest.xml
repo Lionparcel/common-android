@@ -10,9 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
         <activity
-            android:name=".form.PasswordSampleActivity"
-            android:exported="true" />
-        <activity android:name=".toastsnackbar.ToastSnackbarSampleActivity" />
+            android:name=".toastsnackbar.SnackbarSampleActivity"
+            android:exported="false" />
+        <activity android:name=".toastsnackbar.ToastSampleActivity" />
         <activity
             android:name=".walktrough.WalkThroughSampleActivity"
             android:exported="true" />
@@ -21,6 +21,9 @@
             android:exported="true" />
         <activity
             android:name=".form.InputNumberSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".form.PasswordSampleActivity"
             android:exported="true" />
         <activity android:name=".loading.LoadingComponentSampleActivity" />
         <activity android:name=".loading.LoadingSpinnerDefaultSampleActivity" />
