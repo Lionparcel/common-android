@@ -8,8 +8,9 @@ import com.lionparcel.commonandroidsample.R
 
 class PasswordSampleActivity : AppCompatActivity() {
 
-    private lateinit var edtPasswordOld: LPPasswordLayout
-    private lateinit var edtPasswordNew: LPPasswordLayout
+    private lateinit var edtPasswordView: LPPasswordLayout
+    private lateinit var edtPasswordDisable: LPPasswordLayout
+    private lateinit var edtPasswordError: LPPasswordLayout
     private lateinit var btnCheck: Button
 
 
@@ -17,12 +18,15 @@ class PasswordSampleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_password_sample)
 
+        edtPasswordView = findViewById(R.id.passwordView)
+        edtPasswordDisable = findViewById(R.id.disablePasswordView)
+        edtPasswordError = findViewById(R.id.errorPasswordView)
         btnCheck = findViewById(R.id.btn_check)
-        edtPasswordOld = findViewById(R.id.passwordView)
-        edtPasswordNew = findViewById(R.id.passwordView2)
+
+        edtPasswordDisable.disablePassword()
 
         btnCheck.setOnClickListener {
-            edtPasswordNew.helperTextShowError("Password yang anda masukkan salah")
+            edtPasswordError.showHelperTextError("Password yang anda masukkan salah")
         }
     }
 }

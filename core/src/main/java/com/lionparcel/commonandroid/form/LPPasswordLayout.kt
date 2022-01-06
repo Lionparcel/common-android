@@ -1,6 +1,7 @@
 package com.lionparcel.commonandroid.form
 
 import android.content.Context
+import android.os.Build
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
@@ -8,6 +9,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -56,11 +58,6 @@ class LPPasswordLayout @JvmOverloads constructor(
         }
     }
 
-    fun helperTextShowError(errorMessage: String) {
-        val helperText = findViewById<TextInputLayout>(R.id.tflPassword)
-        helperText.error = errorMessage
-    }
-
     private fun setTextInputEditText() {
         endIconMode.isVisible = true
         tflPassword.hint = hint
@@ -77,5 +74,22 @@ class LPPasswordLayout @JvmOverloads constructor(
 
             }
         })
+    }
+
+    // password with helper text error
+    fun showHelperTextError(defaultMessage: String) {
+        tflPassword.let {
+            it.helperText = defaultMessage
+            val color = ContextCompat.getColorStateList(context, R.color.interpack6)
+            it.setHelperTextColor(color)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                it.editText?.backgroundTintList = color
+            }
+        }
+    }
+
+    // password disabled
+    fun disablePassword() {
+        edtPassword.isEnabled = false
     }
 }
