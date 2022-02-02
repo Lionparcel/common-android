@@ -1,41 +1,16 @@
 package com.lionparcel.commonandroid.button
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.view.ContextThemeWrapper
 import androidx.appcompat.widget.AppCompatButton
 import com.lionparcel.commonandroid.R
 
-class LPButton @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
-) : AppCompatButton(context, attrs, defStyleAttr) {
+class LPButton : AppCompatButton {
 
-    private var enabledBackground: Drawable? = null
-    private var disabledBackground: Drawable? = null
-    private var txtColor: Int = 0
-
-    override fun onDraw(canvas: Canvas?) {
-        super.onDraw(canvas)
-    }
-
-    init {
-        context.theme.obtainStyledAttributes(
-            attrs,
-            R.styleable.LPButton,
-            0,
-            0
-        ).apply {
-
-            try {
-                
-            } finally {
-                recycle()
-            }
-
-        }
-    }
-
+    constructor(context: Context) : this(context, null)
+    constructor(context: Context, attrs: AttributeSet? = null)
+            : this(context, attrs, R.attr.LPButtonStyle)
+    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int)
+            : super(ContextThemeWrapper(context, R.style.LPButtonTheme), attrs, defStyleAttr)
 }
