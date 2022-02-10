@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".button.ButtonSampleActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_2"
+        android:fillViewport="true">
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton"
+            style="@style/LPSolidRedLargeButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Solid Large"
+            app:layout_constraintEnd_toStartOf="@+id/guideline1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton3"
+            style="@style/LPSolidRedMediumButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Solid Medium"
+            app:layout_constraintEnd_toStartOf="@+id/guideline1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton4"
+            style="@style/LPSolidRedSmallButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Solid Small"
+            app:layout_constraintEnd_toStartOf="@+id/guideline1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton3"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton5"
+            style="@style/LPRoundedRedLargeButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Rounded Large"
+            android:enabled="false"
+            app:layout_constraintEnd_toStartOf="@+id/guideline1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton4"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton6"
+            style="@style/LPRoundedRedMediumButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Rounded Medium"
+            app:layout_constraintEnd_toStartOf="@+id/guideline1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton5"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton13"
+            style="@style/LPRoundedRedSmallButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Rounded Small"
+            app:layout_constraintEnd_toStartOf="@+id/guideline1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton6"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton7"
+            style="@style/LPSolidRedBorderLargeButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Border Solid"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton8"
+            style="@style/LPSolidRedBorderMediumButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Border Solid"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton7"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton9"
+            style="@style/LPSolidRedBorderSmallButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Border Solid"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton8"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton10"
+            style="@style/LPRoundedRedBorderLargeButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Borded Rounded"
+            android:enabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton9"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton11"
+            style="@style/LPRoundedRedBorderMediumButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Borded Rounded"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton10"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton16"
+            style="@style/LPRoundedRedBorderSmallButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Borded Rounded"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton11"
+            tools:ignore="TouchTargetSizeCheck" />
+
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton12"
+            style="@style/LPRoundedRedMediumButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Icon Before"
+            android:drawableStart="@drawable/ics_f_medium_filter"
+            app:layout_constraintEnd_toStartOf="@+id/guideline1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton13"
+            tools:ignore="TouchTargetSizeCheck" />
+
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton14"
+            style="@style/LPRoundedRedMediumButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableEnd="@drawable/ics_f_medium_filter"
+            android:text="Icon after"
+            app:layout_constraintEnd_toStartOf="@+id/guideline1"
+            app:layout_constraintHorizontal_bias="0.484"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton12"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton15"
+            style="@style/LPRoundedRedBorderMediumButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Icon Before"
+            android:drawableStart="@drawable/ics_f_medium_filter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton16"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton17"
+            style="@style/LPRoundedRedBorderMediumButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableEnd="@drawable/ics_f_medium_filter"
+            android:text="Icon after"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton15"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton18"
+            style="@style/LPRedLargeTextButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Text Button"
+            android:enabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton24"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton19"
+            style="@style/LPRedMediumTextButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Text Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton18"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton20"
+            style="@style/LPRedSmallTextButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Text Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton19"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton21"
+            style="@style/LPRedMediumTextButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Icon Before"
+            android:drawableStart="@drawable/ics_f_medium_filter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton20"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton22"
+            style="@style/LPRedMediumTextButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableEnd="@drawable/ics_f_medium_filter"
+            android:text="Icon After"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton21"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton23"
+            style="@style/LPRedMediumButtonSquareStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Scan \nDelivery"
+            android:drawableTop="@drawable/icp_medium_oleholeh"
+            app:layout_constraintEnd_toStartOf="@+id/guideline1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton14"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/LPButton24"
+            style="@style/LPRedBorderMediumButtonSquareStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan \nDelivery"
+            android:drawableTop="@drawable/icp_medium_oleholeh"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton17"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/interpack6"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/dp_8"
+            app:layout_constraintEnd_toStartOf="@+id/guideline1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LPButton23"
+            tools:ignore="TouchTargetSizeCheck">
+
+            <com.lionparcel.commonandroid.button.LPButton
+                style="@style/LPWhiteMediumTextButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="inverted"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <com.lionparcel.commonandroid.button.LPButton
+                style="@style/LPWhiteMediumTextButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ics_f_medium_filter"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="inverted"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <com.lionparcel.commonandroid.button.LPButton
+                style="@style/LPRoundedWhiteMediumButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="round inverted"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <com.lionparcel.commonandroid.button.LPButton
+                style="@style/LPRoundedWhiteMediumButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:drawableStart="@drawable/ics_f_medium_filter"
+                android:text="icon before"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <com.lionparcel.commonandroid.button.LPButton
+                style="@style/LPRoundedWhiteMediumButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:drawableEnd="@drawable/ics_f_medium_filter"
+                android:text="icon after"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <com.lionparcel.commonandroid.button.LPButton
+                style="@style/LPRoundedWhiteBorderMediumButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="border inverted"
+                tools:ignore="TouchTargetSizeCheck" />
+            <com.lionparcel.commonandroid.button.LPButton
+                style="@style/LPRoundedWhiteBorderMediumButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ics_f_medium_filter"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="border inverted"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <com.lionparcel.commonandroid.button.LPButton
+                style="@style/LPWhiteMediumButtonSquareStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/icp_medium_oleholeh"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="scan \ninverted"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <com.lionparcel.commonandroid.button.LPButton
+                style="@style/LPWhiteBorderMediumButtonSquareStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/icp_medium_oleholeh"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="scan \ninverted"
+                tools:ignore="TouchTargetSizeCheck" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="205dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

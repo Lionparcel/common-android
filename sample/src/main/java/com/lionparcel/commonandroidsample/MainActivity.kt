@@ -1,9 +1,10 @@
 package com.lionparcel.commonandroidsample
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+import com.lionparcel.commonandroidsample.button.ButtonSampleActivity
 import com.lionparcel.commonandroidsample.form.FormComponentSampleActivity
 import com.lionparcel.commonandroidsample.loading.LoadingComponentSampleActivity
 import com.lionparcel.commonandroidsample.modal.ModalComponentSampleActivity
@@ -33,6 +34,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.button_to_snackbarSampleActivity).setOnClickListener {
             startActivity(Intent(this, SnackbarSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_buttonSampleActivity).setOnClickListener {
+            startActivity(Intent(this, ButtonSampleActivity::class.java))
         }
     }
 }
