@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/flAddSignatureParent">
+
+    <LinearLayout
+        android:id="@+id/llEmptySignature"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:paddingVertical="@dimen/dp_40">
+
+        <ImageView
+            android:id="@+id/imgAddSignature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_f_pencil" />
+
+        <TextView
+            android:id="@+id/txtAddSignature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/form_signature_add_signature"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/shades3"
+            android:textSize="@dimen/sp_10"
+            android:layout_marginTop="@dimen/dp_10.5"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llSignatureDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/dp_8"
+        android:paddingBottom="@dimen/dp_8"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imgSignature"
+            android:layout_width="@dimen/dp_210"
+            android:layout_height="140dp"
+            android:scaleType="centerInside"/>
+
+        <TextView
+            android:id="@+id/txtChangeSignature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/form_signature_add_signature"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/shades3"
+            android:textSize="@dimen/sp_10"
+            android:layout_marginTop="@dimen/dp_8"/>
+    </LinearLayout>
+
+
+</FrameLayout>
