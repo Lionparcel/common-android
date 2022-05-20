@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/clInsertSignatureParent">
     
@@ -11,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="@dimen/dp_26"
+        android:padding="@dimen/spacing_xl"
         android:gravity="center_vertical"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +29,7 @@
             android:id="@+id/txtHeadingInputSignature"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_18"
+            android:layout_marginStart="@dimen/spacing_m"
             android:textAppearance="@style/H5Bold"
             android:text="@string/form_input_signature_heading_title"/>
 
@@ -37,11 +38,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/llInputSignature"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="@dimen/dp_24"
-        android:layout_marginTop="@dimen/dp_20"
-        android:layout_marginBottom="@dimen/dp_76"
-        android:padding="@dimen/dp_1"
+        android:layout_height="@dimen/spacing_none"
+        android:layout_marginHorizontal="@dimen/spacing_xl"
+        android:layout_marginTop="@dimen/spacing_l"
+        android:layout_marginBottom="@dimen/spacing_xxxxl"
+        android:padding="@dimen/spacing_xxxs"
         app:layout_constraintTop_toBottomOf="@+id/llHeadingInputSignature"
         app:layout_constraintBottom_toTopOf="@id/llAlertInputSignature"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +52,7 @@
         <com.lionparcel.commonandroid.form.LPSignaturePad
             android:id="@+id/LPSignaturePad"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/spacing_none"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -63,8 +64,8 @@
             android:layout_height="wrap_content"
             android:background="@color/transparent"
             android:src="@drawable/ics_o_reload"
-            android:layout_marginBottom="@dimen/dp_20"
-            android:layout_marginEnd="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/spacing_l"
+            android:layout_marginEnd="@dimen/spacing_l"
             app:layout_constraintBottom_toBottomOf="@+id/llInputSignature"
             app:layout_constraintEnd_toEndOf="@+id/llInputSignature" />
 
@@ -75,8 +76,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginHorizontal="@dimen/dp_24"
-        android:layout_marginBottom="@dimen/dp_24"
+        android:layout_marginHorizontal="@dimen/spacing_xl"
+        android:layout_marginBottom="@dimen/spacing_xl"
         android:gravity="center_vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/Body4Regular"
-            android:layout_marginStart="@dimen/dp_18"
+            android:layout_marginStart="@dimen/spacing_m"
             android:text="@string/form_input_signature_alert_text"/>
 
     </LinearLayout>
@@ -102,8 +103,8 @@
         style="@style/LPRoundedRedLargeButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dp_24"
-        android:layout_marginBottom="@dimen/dp_16"
+        android:layout_marginHorizontal="@dimen/spacing_xl"
+        android:layout_marginBottom="@dimen/spacing_m"
         android:text="@string/form_input_signature_save_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

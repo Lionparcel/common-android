@@ -11,8 +11,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="visible"
-        android:paddingVertical="@dimen/dp_40">
+        android:visibility="visible">
 
         <ImageView
             android:id="@+id/imgAddSignature"
@@ -28,7 +27,7 @@
             android:fontFamily="@font/poppins_regular"
             android:textColor="@color/shades3"
             android:textSize="@dimen/sp_10"
-            android:layout_marginTop="@dimen/dp_10.5"/>
+            android:layout_marginTop="@dimen/spacing_xs"/>
 
     </LinearLayout>
 
@@ -36,16 +35,16 @@
         android:id="@+id/llSignatureDetail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/dp_8"
-        android:paddingBottom="@dimen/dp_8"
+        android:paddingTop="@dimen/spacing_xs"
+        android:paddingBottom="@dimen/spacing_xs"
         android:orientation="vertical"
         android:gravity="center"
         android:visibility="gone">
 
         <ImageView
             android:id="@+id/imgSignature"
-            android:layout_width="@dimen/dp_210"
-            android:layout_height="140dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:scaleType="centerInside"/>
 
         <TextView
@@ -56,7 +55,7 @@
             android:fontFamily="@font/poppins_regular"
             android:textColor="@color/shades3"
             android:textSize="@dimen/sp_10"
-            android:layout_marginTop="@dimen/dp_8"/>
+            android:layout_marginTop="@dimen/spacing_xs"/>
     </LinearLayout>
 
 

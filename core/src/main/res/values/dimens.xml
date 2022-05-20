@@ -8,6 +8,7 @@
     <dimen name="sp_20">20sp</dimen>
 
     <dimen name="spacing_none">0dp</dimen>
+    <dimen name="spacing_xxxs">1dp</dimen>
     <dimen name="spacing_xxs">4dp</dimen>
     <dimen name="spacing_xs">8dp</dimen>
     <dimen name="spacing_s">12dp</dimen>
@@ -16,6 +17,8 @@
     <dimen name="spacing_xl">24dp</dimen>
     <dimen name="spacing_xxl">32dp</dimen>
     <dimen name="spacing_xxxl">48dp</dimen>
+    <dimen name="spacing_xxxxl">72dp</dimen>
+    <dimen name="spacing_xxxxxl">120</dimen>
 
     <dimen name="dp_1">1dp</dimen>
     <dimen name="dp_2">2dp</dimen>

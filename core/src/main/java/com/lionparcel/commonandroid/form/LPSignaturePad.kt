@@ -29,7 +29,7 @@ class LPSignaturePad @JvmOverloads constructor(
     private var path = Path()
 
     private val drawColor = ResourcesCompat.getColor(resources, R.color.shades5, null)
-    private val backgroundColor = ResourcesCompat.getColor(resources, R.color.androidDefault, null)
+    private val backgroundColor = ResourcesCompat.getColor(resources, R.color.white, null)
     private var extraCanvas: Canvas? = null
     private var extraBitmap: Bitmap? = null
     private var onStartDrawingListener: (() -> Unit)? = null
