@@ -3,4 +3,14 @@
     <string name="test_private_string_res">test_private_string_res</string>
     <string name="test_private_string_res2">test_private_string_res2</string>
     <string name="test_public_string_res">test_public_string_res</string>
+
+    <string name="form_signature_label">Signature</string>
+    <string name="form_signature_add_signature">klik untuk membuat tanda tangan</string>
+    <string name="form_signature_required_label">* wajib diisi</string>
+    <string name="form_input_signature_heading_title">Heading Title</string>
+    <string name="form_input_signature_save_button">Simpan Tanda Tangan</string>
+    <string name="form_input_signature_alert_text">Data Anda akan sepenuhnya aman dan akan
+di pergunakan dengan sebagai mana mestinya</string>
+
+    <string name="error_information">Your error information here</string>
 </resources>

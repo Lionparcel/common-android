@@ -22,5 +22,10 @@ class FormComponentSampleActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_password_sample).setOnClickListener {
             startActivity(Intent(this, PasswordSampleActivity::class.java))
         }
+
+        findViewById<Button>(R.id.btn_signature_form_sample).setOnClickListener {
+            startActivity(Intent(this, SignatureFormSampleActivity::class.java))
+        }
+
     }
 }

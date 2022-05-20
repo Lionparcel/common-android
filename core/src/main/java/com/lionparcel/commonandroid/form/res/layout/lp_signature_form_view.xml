@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/clSignatureParent">
+
+    <TextView
+        style="@style/Subtitle2Regular"
+        android:id="@+id/txtSignatureLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/shades3"
+        android:text="@string/form_signature_label"
+        android:includeFontPadding="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/llSignature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/spacing_xxxxl"
+        android:maxHeight="@dimen/spacing_xxxxxl"
+        android:layout_marginTop="@dimen/spacing_xxs"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/bg_selector_dot_rectangle_shade_interpackred"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/txtSignatureLabel"
+        app:layout_constraintTop_toBottomOf="@id/txtSignatureLabel">
+
+        <include
+            layout="@layout/lp_add_signature_view"
+            android:id="@+id/includeSignatureDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtErrorSignature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xxs"
+        android:text="@string/error_information"
+        android:textAppearance="@style/Subtitle3Regular"
+        app:layout_constraintStart_toStartOf="@id/llSignature"
+        app:layout_constraintTop_toBottomOf="@id/llSignature"/>
+
+    <TextView
+        android:id="@+id/txtSignatureRequiredLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xxs"
+        android:fontFamily="@font/poppins_regular"
+        android:includeFontPadding="false"
+        android:textColor="@color/shades3"
+        android:textSize="@dimen/sp_12"
+        android:text="@string/form_signature_required_label"
+        app:layout_constraintEnd_toEndOf="@id/llSignature"
+        app:layout_constraintTop_toBottomOf="@id/llSignature"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
