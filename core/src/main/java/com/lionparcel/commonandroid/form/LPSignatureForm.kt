@@ -15,9 +15,6 @@ import java.io.File
 
 class LPSignatureForm : FrameLayout{
 
-    private var selectedSignature : File? = null
-
-    private var activity : Activity? = context as Activity
     private var isOptional : Boolean = false
 
     private var clSignatureParent : ConstraintLayout
@@ -79,6 +76,10 @@ class LPSignatureForm : FrameLayout{
 
     fun setTxtErrorSignature(string: String){
         txtErrorSignature.text = string
+    }
+
+    fun setTxtSignatureLabelVisibility(isOption : Boolean){
+        txtSignatureLabel.isVisible = isOption
     }
 
 
