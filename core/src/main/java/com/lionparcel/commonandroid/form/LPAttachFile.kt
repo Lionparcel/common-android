@@ -3,21 +3,28 @@ package com.lionparcel.commonandroid.form
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.ImageDecoder
+import android.media.ExifInterface
 import android.net.Uri
+import android.os.Build
+import android.provider.MediaStore
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.form.utils.ImageUtils
-import kotlinx.android.synthetic.main.add_photo_view.view.*
-import kotlinx.android.synthetic.main.attach_file_view.view.*
 import java.io.File
 
 class LPAttachFile : FrameLayout {
@@ -38,12 +45,14 @@ class LPAttachFile : FrameLayout {
 
     var activity: Activity? = null
 
+    var REQUEST_CODE : Int? = null
+
     var clParent: ConstraintLayout
     var txtPhotoLabel: TextView
     var llPhoto: LinearLayout
     var txtPhotoInfo: TextView
     var txtPhotoRequiredLabel: TextView
-    var llEmptyPhoto: TextView
+    var llEmptyPhoto: LinearLayout
     var clPhotoDetail: ConstraintLayout
     var imgPhoto: ImageView
     var txtPhotoName: TextView
@@ -88,6 +97,7 @@ class LPAttachFile : FrameLayout {
         }
     }
 
+
     private fun addPackagePhotoOptional() {
         executeSelectImage({
             gotoCamera()
@@ -102,9 +112,11 @@ class LPAttachFile : FrameLayout {
                 activity = it,
                 R.string.claim_form_page_photo_ktp_form.toString()
             )
-            fileUri?.let { uri ->
-                gotoCameraCallback?.invoke(uri)
-            }
+            startActivityForResult(
+                activity!!,
+                Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                    .putExtra(MediaStore.EXTRA_OUTPUT, fileUri),
+                REQUEST_CODE!!, null)
         }
     }
 
@@ -124,6 +136,11 @@ class LPAttachFile : FrameLayout {
         handleSelectImage(gotoCamera, gotoGallery)
     }
 
+    private fun setVisibilitySelectedImage() {
+        clPhotoDetail.isVisible = true
+        llEmptyPhoto.isVisible = false
+    }
+
     private fun handleSelectImage(gotoCamera: () -> Unit, gotoGallery: () -> Unit) {
         val options = resources.getStringArray(R.array.claim_form_select_image_array)
         val builder: AlertDialog.Builder = AlertDialog.Builder(context)
@@ -141,6 +158,39 @@ class LPAttachFile : FrameLayout {
         }
         builder.show()
     }
+
+//    private fun handleImageFromCamera(uri: Uri?, imgView: ImageView): File? {
+//        return try {
+//            val bitmap = if (Build.VERSION.SDK_INT < 28) {
+//                BitmapFactory.decodeFile(uri?.path).handleExifInterfaceRotationBitmap(uri!!)
+//            } else {
+//                ImageDecoder.createSource(activity!!.contentResolver, uri!!).let {
+//                    ImageDecoder.decodeBitmap(it)
+//                }
+//            }
+//            Glide.with(activity!!)
+//                .load(uri.path)
+//                .into(imgView)
+//            ImageUtils.createTempFile(activity!!, bitmap)
+//        } catch (ex: Exception) {
+//            ex.printStackTrace()
+//            null
+//        }
+//    }
+
+//    private fun Bitmap.handleExifInterfaceRotationBitmap(path: Uri): Bitmap {
+//        return try {
+//            val exifInterfaceOrientation = activity!!.contentResolver.openInputStream(path).let {
+//                ExifInterface(it!!).getAttributeInt(
+//                    ExifInterface.TAG_ORIENTATION,
+//                    ExifInterface.ORIENTATION_UNDEFINED
+//                )
+//            }
+//            ImageRotator.exifInterfaceRotation(this, exifInterfaceOrientation)
+//        } catch (ex: Exception) {
+//            this
+//        }
+//    }
 
     private fun handlePhotoActionClicked(addPhotoCallback: () -> Unit) {
         if (txtPhotoAction.text == resources.getString(R.string.general_change)) {
@@ -178,17 +228,12 @@ class LPAttachFile : FrameLayout {
             isError && llEmptyPhoto.isVisible -> resources.getString(R.string.form_claim_damaged_or_lost_photo_empty_error)
             else -> resources.getString(R.string.form_claim_damaged_or_lost_required_label)
         }
-        llKtpPhoto.isSelected = isError
-        when (containerView) {
-            llKtpPhoto -> {
-                txtKtpPhotoLabel.changeTextColor(textColor)
-                txtKtpPhotoMaxLabel.changeTextAndColor(maxPhotoLabel, textColor)
-                txtRequiredKtpPhotoLabel.changeTextAndColor(requiredLabel, textColor)
-            }
-
-            llPackagePhotoOptional -> {
-                txtPackagePhotoOptionalMaxLabel.changeTextAndColor(maxPhotoLabel, textColor)
-                txtOptionalPackagePhotoLabel.changeTextColor(textColor)
+        llEmptyPhoto.isSelected = isError
+        when (context) {
+            llPhoto -> {
+                txtPhotoLabel.changeTextColor(textColor)
+                txtPhotoInfo.changeTextAndColor(maxPhotoLabel, textColor)
+                txtPhotoRequiredLabel.changeTextAndColor(requiredLabel, textColor)
             }
         }
     }

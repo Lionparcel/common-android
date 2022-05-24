@@ -50,4 +50,62 @@
         <item name="android:textCursorDrawable">@drawable/cursor_interpack6</item>
     </style>
 
+
+    <!--Password layout style-->
+    <style name="PasswordLayoutStyle">
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textColorHint">@color/shades4</item>
+        <item name="errorEnabled">true</item>
+        <item name="endIconTint">@color/shades3</item>
+        <item name="errorTextAppearance">@style/PasswordLayoutErrorAppearance</item>
+        <item name="helperTextEnabled">true</item>
+        <item name="helperTextTextAppearance">@style/PasswordLayoutHelperAppearance</item>
+        <item name="hintTextAppearance">@style/PasswordLayoutHintAppearance</item>
+        <item name="counterTextAppearance">@style/PasswordLayoutCounterAppearance</item>
+    </style>
+
+    <style name="PasswordLayoutErrorAppearance" parent="TextAppearance.Design.Error">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:textColor">@color/interpack6</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+    <style name="PasswordLayoutHelperAppearance" parent="TextAppearance.Design.HelperText">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:textColor">@color/shades4</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="PasswordLayoutHintAppearance" parent="TextAppearance.Design.Hint">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/shades4</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="PasswordLayoutCounterAppearance" parent="TextAppearance.Design.HelperText">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <!-- Password EditText Style-->
+    <style name="PasswordEditTextStyle">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/shades5</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="tint">@color/shades3</item>
+        <item name="colorControlActivated">@color/shades5</item>
+        <item name="android:theme">@style/PasswordEditTextViewTheme</item>
+        <item name="android:textColorHighlight">@color/interpack1</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_interpack6</item>
+    </style>
+
+    <style name="PasswordEditTextViewTheme">
+        <item name="colorControlActivated">@color/shades5</item>
+        <item name="colorControlNormal">@color/shades4</item>
+    </style>
+
 </resources>

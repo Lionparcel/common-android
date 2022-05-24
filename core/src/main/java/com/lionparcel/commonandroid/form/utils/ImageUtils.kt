@@ -14,7 +14,6 @@ import android.view.View
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import com.lionparcel.commonandroid.BuildConfig
 import com.lionparcel.commonandroid.R
 import java.io.*
 import java.text.SimpleDateFormat

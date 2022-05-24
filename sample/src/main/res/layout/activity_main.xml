@@ -39,10 +39,24 @@
         android:text="WalkThrough Component Sample"/>
 
     <Button
-        android:id="@+id/button_to_toastSnackbarSampleActivity"
+        android:id="@+id/button_to_toastSampleActivity"
         style="@style/RedPaleSalmonButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Toast Snackbar Component Sample"/>
+        android:text="Toast Component Sample"/>
+
+    <Button
+        android:id="@+id/button_to_snackbarSampleActivity"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Snackbar Component Sample"/>
+
+    <Button
+        android:id="@+id/button_to_buttonSampleActivity"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button Component Sample"/>
 
 </LinearLayout>

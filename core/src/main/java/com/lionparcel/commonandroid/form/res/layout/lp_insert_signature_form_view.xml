@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/clInsertSignatureParent">
+    
+    <LinearLayout
+        android:id="@+id/llHeadingInputSignature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_xl"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        
+        <ImageButton
+            android:id="@+id/btnInputSignatureBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_o_arrow_left_alt"/>
+
+        <TextView
+            android:id="@+id/txtHeadingInputSignature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_m"
+            android:textAppearance="@style/H5Bold"
+            android:text="@string/form_input_signature_heading_title"/>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llInputSignature"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_none"
+        android:layout_marginHorizontal="@dimen/spacing_xl"
+        android:layout_marginTop="@dimen/spacing_l"
+        android:layout_marginBottom="@dimen/spacing_xxxxl"
+        android:padding="@dimen/spacing_xxxs"
+        app:layout_constraintTop_toBottomOf="@+id/llHeadingInputSignature"
+        app:layout_constraintBottom_toTopOf="@id/llAlertInputSignature"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/bg_rounded_shade2_outlined_dash">
+
+        <com.lionparcel.commonandroid.form.LPSignaturePad
+            android:id="@+id/LPSignaturePad"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_none"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btnClearSignature" />
+
+        <ImageButton
+            android:id="@+id/btnClearSignature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:src="@drawable/ics_o_reload"
+            android:layout_marginBottom="@dimen/spacing_l"
+            android:layout_marginEnd="@dimen/spacing_l"
+            app:layout_constraintBottom_toBottomOf="@+id/llInputSignature"
+            app:layout_constraintEnd_toEndOf="@+id/llInputSignature" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/llAlertInputSignature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="@dimen/spacing_xl"
+        android:layout_marginBottom="@dimen/spacing_xl"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnSaveSignature">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ics_f_shield_check"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Body4Regular"
+            android:layout_marginStart="@dimen/spacing_m"
+            android:text="@string/form_input_signature_alert_text"/>
+
+    </LinearLayout>
+
+    <com.lionparcel.commonandroid.button.LPButton
+        android:id="@+id/btnSaveSignature"
+        android:enabled="false"
+        style="@style/LPRoundedRedLargeButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_xl"
+        android:layout_marginBottom="@dimen/spacing_m"
+        android:text="@string/form_input_signature_save_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

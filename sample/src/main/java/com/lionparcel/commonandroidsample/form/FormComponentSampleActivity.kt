@@ -19,6 +19,15 @@ class FormComponentSampleActivity : AppCompatActivity() {
             startActivity(Intent(this, InputNumberSampleActivity::class.java ))
         }
 
+        findViewById<Button>(R.id.btn_password_sample).setOnClickListener {
+            startActivity(Intent(this, PasswordSampleActivity::class.java))
+        }
+
+        findViewById<Button>(R.id.btn_signature_form_sample).setOnClickListener {
+            startActivity(Intent(this, SignatureFormSampleActivity::class.java))
+        }
+
+
         findViewById<Button>(R.id.btn_attach_file).setOnClickListener {
             startActivity(Intent(this, AttachFileActivity::class.java ))
         }

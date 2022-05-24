@@ -26,4 +26,14 @@
     <string name="form_claim_damaged_or_lost_photo_invalid_error">Format gambar tidak sesuai</string>
     <string name="form_claim_damaged_or_lost_max_spec_photo_label">maks: 5 mb (jpg, png)</string>
     <string name="form_claim_damaged_or_lost_photo_empty_error">*foto wajib diisi</string>
+
+    <string name="form_signature_label">Signature</string>
+    <string name="form_signature_add_signature">klik untuk membuat tanda tangan</string>
+    <string name="form_signature_required_label">* wajib diisi</string>
+    <string name="form_input_signature_heading_title">Heading Title</string>
+    <string name="form_input_signature_save_button">Simpan Tanda Tangan</string>
+    <string name="form_input_signature_alert_text">Data Anda akan sepenuhnya aman dan akan
+di pergunakan dengan sebagai mana mestinya</string>
+
+    <string name="error_information">Your error information here</string>
 </resources>
