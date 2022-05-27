@@ -44,9 +44,11 @@
             android:layout_height="@dimen/dp_51"
             android:contentDescription="@string/general_image_content_description"
             android:scaleType="centerCrop"
+            android:src="@color/interpack6"
+            android:background="@drawable/bg_image_view_rounded"
+            android:clipToOutline="true"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/cursor_interpack6" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txtPhotoName"
