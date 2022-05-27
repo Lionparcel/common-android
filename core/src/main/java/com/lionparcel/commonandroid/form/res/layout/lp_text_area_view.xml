@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/clTextAreaParent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/txtAreaLabel"
+        android:layout_width="@dimen/spacing_none"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Subtitle2Regular"
+        android:textColor="@color/shades5"
+        app:layout_constraintTop_toTopOf="@id/clTextAreaParent"
+        app:layout_constraintStart_toStartOf="@id/clTextAreaParent"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/spacing_xxxxl"
+        app:layout_constraintTop_toBottomOf="@+id/txtAreaLabel"
+        app:layout_constraintStart_toStartOf="@id/clTextAreaParent"
+        app:layout_constraintEnd_toEndOf="@id/clTextAreaParent">
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
