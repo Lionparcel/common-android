@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_xs"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".form.TextAreaSampleActivity">
+
+    <com.lionparcel.commonandroid.form.LPTextArea
+        android:id="@+id/lpTextArea"
+        android:hint="change your hint at android:hint"
+        app:textLabel="Text Area"
+        android:maxLength="100"
+        app:textSupported="Isi sesuai kemampuan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.lionparcel.commonandroid.form.LPTextArea
+        android:hint="change your hint at android:hint"
+        android:maxLength="50"
+        app:textLabel="Text Area Error"
+        app:errorEnabled="true"
+        app:textSupported="Jangan sampai kosong"
+        app:textError="Text tidak boleh kosong!!"
+        android:layout_marginTop="@dimen/spacing_m"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.lionparcel.commonandroid.form.LPTextArea
+        android:hint="change your hint at android:hint"
+        android:maxLength="50"
+        app:textLabel="Text Area Disabled"
+        app:textSupported="Jangan sampai kosong"
+        app:enabledView="false"
+        android:layout_marginTop="@dimen/spacing_m"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

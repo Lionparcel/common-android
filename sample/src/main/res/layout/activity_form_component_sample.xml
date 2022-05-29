@@ -148,5 +148,13 @@
             android:layout_height="wrap_content"
             android:text="Siganture Form Sample"
             tools:ignore="HardcodedText"/>
+
+        <Button
+            android:id="@+id/btn_text_area_sample"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Text Area Sample"
+            tools:ignore="HardcodedText"/>
     </LinearLayout>
 </ScrollView>

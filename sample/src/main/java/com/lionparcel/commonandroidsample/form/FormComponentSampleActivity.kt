@@ -27,5 +27,9 @@ class FormComponentSampleActivity : AppCompatActivity() {
             startActivity(Intent(this, SignatureFormSampleActivity::class.java))
         }
 
+        findViewById<Button>(R.id.btn_text_area_sample).setOnClickListener {
+            startActivity(Intent(this, TextAreaSampleActivity::class.java))
+        }
+
     }
 }
