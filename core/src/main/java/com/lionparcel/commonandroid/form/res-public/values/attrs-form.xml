@@ -18,5 +18,8 @@
         <attr name="textError" format="string"/>
         <attr name="textLabel" format="string"/>
         <attr name="enabledView" format="boolean"/>
+        <attr name="counterTextEnabled" format="boolean"/>
+        <attr name="supportedTextEnabled" format="boolean"/>
+        <attr name="errorTextEnabled" format="boolean"/>
     </declare-styleable>
 </resources>

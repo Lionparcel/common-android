@@ -19,6 +19,9 @@ class LPTextArea : ConstraintLayout{
     private var counterMaxLength : Int
     private var hint : String
     private var errorEnabled : Boolean
+    private var errorTextEnabled : Boolean
+    private var counterTextEnabled : Boolean
+    private var supportedTextEnabled : Boolean
     private var clTextAreaParent : ConstraintLayout
     private var txtAreaLabel : TextView
     private var llEditText : LinearLayout
@@ -57,56 +60,72 @@ class LPTextArea : ConstraintLayout{
 
             hint = getString(R.styleable.LPTextArea_android_hint).setString()
             counterMaxLength = getInt(R.styleable.LPTextArea_android_maxLength, 0)
-            errorEnabled = getBoolean(R.styleable.LPTextArea_errorEnabled, false)
+            errorEnabled = getBoolean(R.styleable.LPTextArea_errorEnabled, true)
+            errorTextEnabled = getBoolean(R.styleable.LPTextArea_errorTextEnabled, true)
+            counterTextEnabled = getBoolean(R.styleable.LPTextArea_counterTextEnabled, true)
+            supportedTextEnabled = getBoolean(R.styleable.LPTextArea_supportedTextEnabled, true)
             txtAreaLabel.text = getString(R.styleable.LPTextArea_textLabel).setString()
-            txtAreaAlert.text = getString(R.styleable.LPTextArea_textSupported).setString()
-            txtAreaError.text = getString(R.styleable.LPTextArea_textError).setString()
+            if (supportedTextEnabled) txtAreaAlert.text = getString(R.styleable.LPTextArea_textSupported).setString() else txtAreaAlert.isVisible = false
+            if (errorTextEnabled) txtAreaError.text = getString(R.styleable.LPTextArea_textError).setString() else txtAreaError.isVisible = false
             lpEditTextArea.isEnabled = getBoolean(R.styleable.LPTextArea_enabledView, true)
-            setTextInputEditText(counterMaxLength, hint, errorEnabled)
+            setTextInputEditText(counterMaxLength, hint, errorEnabled, errorTextEnabled, counterTextEnabled, supportedTextEnabled)
         }
 
     }
 
-    private fun setTextInputEditText(maxLength : Int, setHint : String, isError: Boolean) {
-        lpEditTextArea.setMaxLength(maxLength)
+    private fun setTextInputEditText(
+        maxLength : Int,
+        setHint : String,
+        isError: Boolean,
+        isErrorTextEnabled: Boolean,
+        isCounterTextEnabled : Boolean,
+        isSupportedTextEnabled : Boolean) {
         lpEditTextArea.hint = setHint
         txtAreaCounter.text = "0/$maxLength"
         if (isError){
             lpEditTextArea.onFocusChangeListener = View.OnFocusChangeListener{ view, b ->
                 if (b || !lpEditTextArea.text.isNullOrEmpty()){
-                    changeStateViewTextArea(!isError)
+                    changeStateViewTextArea(!isError, isSupportedTextEnabled, isErrorTextEnabled)
                 } else if(!b && lpEditTextArea.text.isNullOrEmpty()) {
-                    changeStateViewTextArea(isError)
+                    changeStateViewTextArea(isError, isSupportedTextEnabled, isErrorTextEnabled)
                 }
             }
         }
-        lpEditTextArea.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
+        if(isCounterTextEnabled){
+            lpEditTextArea.setMaxLength(maxLength)
+            lpEditTextArea.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                }
 
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                txtAreaCounter.text = "${p0?.toString()?.length}/$maxLength"
-            }
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    txtAreaCounter.text = "${p0?.toString()?.length}/$maxLength"
+                }
 
-            override fun afterTextChanged(p0: Editable?) {
-            }
-        })
+                override fun afterTextChanged(p0: Editable?) {
+                }
+            })
+        } else txtAreaCounter.isVisible = false
     }
 
     private fun LPTextInputEditText.setMaxLength(maxLength: Int){
         filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
     }
 
-    private fun changeStateViewTextArea(isError : Boolean){
+    private fun changeStateViewTextArea(isError : Boolean, isSupportedTextEnabled: Boolean, isErrorTextEnabled: Boolean){
         val textColor = if (isError) R.color.interpack6 else R.color.shades3
         llEditText.isSelected = isError
         txtAreaCounter.changeTextColor(textColor)
-        txtAreaError.isVisible = isError
-        txtAreaAlert.isVisible = !isError
+        if (isSupportedTextEnabled) txtAreaAlert.isVisible = !isError else txtAreaAlert.isVisible = false
+        if (isErrorTextEnabled) txtAreaError.isVisible = isError else txtAreaError.isVisible = false
     }
 
     private fun TextView.changeTextColor(color: Int) {
         setTextColor(ContextCompat.getColor(context, color))
+    }
+
+    // function for get text from LPTextArea
+    fun getTextAreaText() : String {
+        return lpEditTextArea.text.toString()
     }
 
 }
