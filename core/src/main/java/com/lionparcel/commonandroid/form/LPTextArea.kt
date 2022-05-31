@@ -18,10 +18,14 @@ class LPTextArea : ConstraintLayout{
 
     private var counterMaxLength : Int
     private var hint : String
+    private var labelText : String
+    private var supportedText : String
+    private var errorText : String
     private var errorEnabled : Boolean
     private var errorTextEnabled : Boolean
     private var counterTextEnabled : Boolean
     private var supportedTextEnabled : Boolean
+    private var edtTextEnabled : Boolean
     private var clTextAreaParent : ConstraintLayout
     private var txtAreaLabel : TextView
     private var llEditText : LinearLayout
@@ -50,26 +54,43 @@ class LPTextArea : ConstraintLayout{
             0,
             0,
         ).apply {
-            clTextAreaParent = findViewById(R.id.clTextAreaParent)
-            txtAreaLabel = findViewById(R.id.txtAreaLabel)
-            llEditText = findViewById(R.id.llEditText)
-            lpEditTextArea = findViewById(R.id.lpEditTextArea)
-            txtAreaCounter = findViewById(R.id.txtAreaCounter)
-            txtAreaAlert = findViewById(R.id.txtAreaAlert)
-            txtAreaError = findViewById(R.id.txtAreaError)
+            try {
+                hint = getString(R.styleable.LPTextArea_android_hint).setString()
+                counterMaxLength = getInt(R.styleable.LPTextArea_android_maxLength, 0)
+                errorEnabled = getBoolean(R.styleable.LPTextArea_errorEnabled, true)
+                errorTextEnabled = getBoolean(R.styleable.LPTextArea_errorTextEnabled, true)
+                counterTextEnabled = getBoolean(R.styleable.LPTextArea_counterTextEnabled, true)
+                supportedTextEnabled = getBoolean(R.styleable.LPTextArea_supportedTextEnabled, true)
+                labelText = getString(R.styleable.LPTextArea_textLabel).setString()
+                supportedText = getString(R.styleable.LPTextArea_textSupported).setString()
+                errorText = getString(R.styleable.LPTextArea_textError).setString()
+                edtTextEnabled = getBoolean(R.styleable.LPTextArea_enabledView, true)
 
-            hint = getString(R.styleable.LPTextArea_android_hint).setString()
-            counterMaxLength = getInt(R.styleable.LPTextArea_android_maxLength, 0)
-            errorEnabled = getBoolean(R.styleable.LPTextArea_errorEnabled, true)
-            errorTextEnabled = getBoolean(R.styleable.LPTextArea_errorTextEnabled, true)
-            counterTextEnabled = getBoolean(R.styleable.LPTextArea_counterTextEnabled, true)
-            supportedTextEnabled = getBoolean(R.styleable.LPTextArea_supportedTextEnabled, true)
-            txtAreaLabel.text = getString(R.styleable.LPTextArea_textLabel).setString()
-            if (supportedTextEnabled) txtAreaAlert.text = getString(R.styleable.LPTextArea_textSupported).setString() else txtAreaAlert.isVisible = false
-            if (errorTextEnabled) txtAreaError.text = getString(R.styleable.LPTextArea_textError).setString() else txtAreaError.isVisible = false
-            lpEditTextArea.isEnabled = getBoolean(R.styleable.LPTextArea_enabledView, true)
-            setTextInputEditText(counterMaxLength, hint, errorEnabled, errorTextEnabled, counterTextEnabled, supportedTextEnabled)
+
+            }finally {
+                recycle()
+            }
         }
+
+        clTextAreaParent = findViewById(R.id.clTextAreaParent)
+        txtAreaLabel = findViewById(R.id.txtAreaLabel)
+        llEditText = findViewById(R.id.llEditText)
+        lpEditTextArea = findViewById(R.id.lpEditTextArea)
+        txtAreaCounter = findViewById(R.id.txtAreaCounter)
+        txtAreaAlert = findViewById(R.id.txtAreaAlert)
+        txtAreaError = findViewById(R.id.txtAreaError)
+
+        // enable or disable LPTextArea
+        lpEditTextArea.isEnabled = edtTextEnabled
+        changeTextColorDisabled(edtTextEnabled)
+        // set LPTextArea label
+        txtAreaLabel.text = labelText
+        // set LPTextArea supported text
+        if (supportedTextEnabled) txtAreaAlert.text = supportedText  else txtAreaAlert.isVisible = false
+        // set LPTextArea error text
+        if (errorTextEnabled) txtAreaError.text = errorText else txtAreaError.isVisible = false
+
+        setTextInputEditText(counterMaxLength, hint, errorEnabled, errorTextEnabled, counterTextEnabled, supportedTextEnabled)
 
     }
 
@@ -83,7 +104,7 @@ class LPTextArea : ConstraintLayout{
         lpEditTextArea.hint = setHint
         txtAreaCounter.text = "0/$maxLength"
         if (isError){
-            lpEditTextArea.onFocusChangeListener = View.OnFocusChangeListener{ view, b ->
+            lpEditTextArea.onFocusChangeListener = OnFocusChangeListener{ view, b ->
                 if (b || !lpEditTextArea.text.isNullOrEmpty()){
                     changeStateViewTextArea(!isError, isSupportedTextEnabled, isErrorTextEnabled)
                 } else if(!b && lpEditTextArea.text.isNullOrEmpty()) {
@@ -123,9 +144,27 @@ class LPTextArea : ConstraintLayout{
         setTextColor(ContextCompat.getColor(context, color))
     }
 
+    private fun LPTextInputEditText.changeTextColor(color: Int) {
+        setTextColor(ContextCompat.getColor(context, color))
+    }
+
+    private fun changeTextColorDisabled(isTextAreaEnabled : Boolean){
+        val textColor = if (isTextAreaEnabled) R.color.shades5 else R.color.shades3
+        lpEditTextArea.changeTextColor(textColor)
+    }
+
     // function for get text from LPTextArea
     fun getTextAreaText() : String {
         return lpEditTextArea.text.toString()
+    }
+
+    // function for enable/disable LPTextArea programmatically
+    fun setEnabledView(enabledView : Boolean){
+        edtTextEnabled = enabledView
+        lpEditTextArea.isEnabled = edtTextEnabled
+        changeTextColorDisabled(edtTextEnabled)
+        invalidate()
+        requestLayout()
     }
 
 }

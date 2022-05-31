@@ -12,5 +12,8 @@ class TextAreaSampleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_text_area_sample)
 
+        findViewById<LPButton>(R.id.btnTextArea).setOnClickListener {
+            findViewById<LPTextArea>(R.id.lpTextArea).setEnabledView(false)
+        }
     }
 }

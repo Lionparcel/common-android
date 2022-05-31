@@ -22,6 +22,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <com.lionparcel.commonandroid.button.LPButton
+            android:id="@+id/btnTextArea"
+            android:text="Disabled it"
+            android:layout_marginTop="@dimen/spacing_m"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
         <com.lionparcel.commonandroid.form.LPTextArea
             android:hint="change your hint at android:hint"
             android:maxLength="50"
