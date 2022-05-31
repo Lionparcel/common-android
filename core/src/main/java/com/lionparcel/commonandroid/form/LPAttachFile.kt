@@ -269,7 +269,6 @@ class LPAttachFile : FrameLayout {
             else -> resources.getString(R.string.form_claim_damaged_or_lost_required_label)
         }
         llPhoto.isSelected = isError
-        txtPhotoLabel.changeTextColor(textColor)
         txtPhotoInfo.changeTextAndColor(maxPhotoLabel, textColor)
         txtPhotoRequiredLabel.changeTextAndColor(requiredLabel, textColor)
     }
