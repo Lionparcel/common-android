@@ -10,18 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
         <activity
+            android:name=".form.TextAreaSampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".form.InsertSignatureForm"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".form.SignatureFormSampleActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".button.ButtonSampleActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".toastsnackbar.SnackbarSampleActivity"
-            android:exported="false" />
-        <activity android:name=".toastsnackbar.ToastSampleActivity" />
+            android:exported="true" />
+        <activity android:name=".toastsnackbar.ToastSampleActivity"
+            android:exported="true"/>
         <activity
             android:name=".walktrough.WalkThroughSampleActivity"
             android:exported="true" />

@@ -12,5 +12,10 @@
     <string name="form_input_signature_alert_text">Data Anda akan sepenuhnya aman dan akan
 di pergunakan dengan sebagai mana mestinya</string>
 
+    <string name="text_area_label">Text Area</string>
+    <string name="text_area_alert">Insert your supported text here</string>
+    <string name="text_area_counter">18/254</string>
+    <string name="text_area_hint">Type your placeholder text here </string>
+
     <string name="error_information">Your error information here</string>
 </resources>
