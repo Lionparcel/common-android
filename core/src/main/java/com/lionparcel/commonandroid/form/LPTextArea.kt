@@ -14,7 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.lionparcel.commonandroid.R
 
-class LPTextArea : ConstraintLayout{
+class LPTextArea : ConstraintLayout {
 
     private var counterMaxLength : Int
     private var hint : String
@@ -67,7 +67,7 @@ class LPTextArea : ConstraintLayout{
                 edtTextEnabled = getBoolean(R.styleable.LPTextArea_enabledView, true)
 
 
-            }finally {
+            } finally {
                 recycle()
             }
         }
@@ -103,23 +103,23 @@ class LPTextArea : ConstraintLayout{
         isSupportedTextEnabled : Boolean) {
         lpEditTextArea.hint = setHint
         txtAreaCounter.text = "0/$maxLength"
-        if (isError){
-            lpEditTextArea.onFocusChangeListener = OnFocusChangeListener{ view, b ->
-                if (b || !lpEditTextArea.text.isNullOrEmpty()){
+        if (isError) {
+            lpEditTextArea.onFocusChangeListener = OnFocusChangeListener{ view, hasFocus ->
+                if (hasFocus || !lpEditTextArea.text.isNullOrEmpty()){
                     changeStateViewTextArea(!isError, isSupportedTextEnabled, isErrorTextEnabled)
-                } else if(!b && lpEditTextArea.text.isNullOrEmpty()) {
+                } else if(!hasFocus && lpEditTextArea.text.isNullOrEmpty()) {
                     changeStateViewTextArea(isError, isSupportedTextEnabled, isErrorTextEnabled)
                 }
             }
         }
-        if(isCounterTextEnabled){
+        if (isCounterTextEnabled) {
             lpEditTextArea.setMaxLength(maxLength)
             lpEditTextArea.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 }
 
-                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                    txtAreaCounter.text = "${p0?.toString()?.length}/$maxLength"
+                override fun onTextChanged(charSequence: CharSequence?, start : Int, before: Int, count: Int) {
+                    txtAreaCounter.text = "${charSequence?.toString()?.length}/$maxLength"
                 }
 
                 override fun afterTextChanged(p0: Editable?) {
@@ -128,11 +128,11 @@ class LPTextArea : ConstraintLayout{
         } else txtAreaCounter.isVisible = false
     }
 
-    private fun LPTextInputEditText.setMaxLength(maxLength: Int){
+    private fun LPTextInputEditText.setMaxLength(maxLength: Int) {
         filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
     }
 
-    private fun changeStateViewTextArea(isError : Boolean, isSupportedTextEnabled: Boolean, isErrorTextEnabled: Boolean){
+    private fun changeStateViewTextArea(isError : Boolean, isSupportedTextEnabled: Boolean, isErrorTextEnabled: Boolean) {
         val textColor = if (isError) R.color.interpack6 else R.color.shades3
         llEditText.isSelected = isError
         txtAreaCounter.changeTextColor(textColor)
@@ -148,7 +148,7 @@ class LPTextArea : ConstraintLayout{
         setTextColor(ContextCompat.getColor(context, color))
     }
 
-    private fun changeTextColorDisabled(isTextAreaEnabled : Boolean){
+    private fun changeTextColorDisabled(isTextAreaEnabled : Boolean) {
         val textColor = if (isTextAreaEnabled) R.color.shades5 else R.color.shades3
         lpEditTextArea.changeTextColor(textColor)
     }
@@ -159,7 +159,7 @@ class LPTextArea : ConstraintLayout{
     }
 
     // function for enable/disable LPTextArea programmatically
-    fun setEnabledView(enabledView : Boolean){
+    fun setEnabledView(enabledView : Boolean) {
         edtTextEnabled = enabledView
         lpEditTextArea.isEnabled = edtTextEnabled
         changeTextColorDisabled(edtTextEnabled)
