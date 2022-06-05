@@ -31,5 +31,9 @@ class FormComponentSampleActivity : AppCompatActivity() {
             startActivity(Intent(this, TextAreaSampleActivity::class.java))
         }
 
+        findViewById<Button>(R.id.btn_stepper_input_sample).setOnClickListener {
+            startActivity(Intent(this, StepperInputSampleActivity::class.java))
+        }
+
     }
 }

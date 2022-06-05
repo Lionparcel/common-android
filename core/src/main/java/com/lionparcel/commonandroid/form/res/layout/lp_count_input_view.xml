@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/spacing_xxxs"
+    android:paddingVertical="@dimen/spacing_xxxs"
+    android:orientation="horizontal">
+
+    <ImageButton
+        android:id="@+id/imgBtnCountInputMin"
+        android:layout_width="@dimen/spacing_l"
+        android:layout_height="@dimen/spacing_l"
+        android:alpha="0.5"
+        android:src="@drawable/ics_f_min_circle"
+        android:layout_marginRight="@dimen/spacing_xs"/>
+
+    <TextView
+        android:id="@+id/txtCountInputValue"
+        android:layout_width="@dimen/spacing_xl"
+        android:layout_height="@dimen/spacing_l"
+        android:layout_marginRight="@dimen/spacing_xs"
+        android:textAppearance="@style/Subtitle2Semibold"
+        android:gravity="center"
+        android:textColor="@color/shades5"/>
+
+    <ImageButton
+        android:id="@+id/imgBtnCountInputPlus"
+        android:layout_width="@dimen/spacing_l"
+        android:layout_height="@dimen/spacing_l"
+        android:src="@drawable/ics_f_plus_circle"/>
+
+</LinearLayout>
