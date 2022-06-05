@@ -26,6 +26,7 @@ class LPAutoCompleteTextView : AppCompatAutoCompleteTextView {
             startDrawable ?: 0, 0, clearIcon, 0
         )
     }
+
     fun handleOnClearIconClick(){
         this.setOnTouchListener(object : OnTouchListener{
             override fun onTouch(view: View?, motionEvent: MotionEvent?): Boolean {
@@ -39,12 +40,9 @@ class LPAutoCompleteTextView : AppCompatAutoCompleteTextView {
         })
     }
 
-//    override fun onTouchEvent(event: MotionEvent?): Boolean {
-//        if (event!!.action == MotionEvent.ACTION_UP){
-//            handleRightDrawableTouch(this, event)
-//        }
-//        return super.onTouchEvent(event)
-//    }
+    override fun performClick(): Boolean {
+        return super.performClick()
+    }
 
 
     private fun handleRightDrawableTouch(textView: TextView, motionEvent: MotionEvent): Boolean {

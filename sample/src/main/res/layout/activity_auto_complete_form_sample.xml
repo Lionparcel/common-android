@@ -9,6 +9,13 @@
     tools:context=".form.AutoCompleteFormSampleActivity">
 
     <com.lionparcel.commonandroid.form.LPAutoCompleteForm
+        android:id="@+id/lpAutoCompleteForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="LPTextAutoCompleteTextView"/>
+
+    <com.lionparcel.commonandroid.form.LPAutoCompleteTextView
+        android:id="@+id/autoCompleteTxtView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

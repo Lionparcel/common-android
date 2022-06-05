@@ -10,4 +10,7 @@
     <declare-styleable name="LPPasswordLayout">
         <attr name="android:hint" />
     </declare-styleable>
+    <declare-styleable name="LPAutoCompleteForm">
+        <attr name="android:hint"/>
+    </declare-styleable>
 </resources>
