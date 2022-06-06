@@ -81,8 +81,8 @@ class LPAutoCompleteForm : ConstraintLayout {
 
     }
 
-    fun <T> autoCompleteArrayText(arrayList : ArrayList<T>, data : String){
-        val arrayAdapter = AutoCompleteArrayAdapter(context, arrayList) { it.let { data }}
+    fun <T> autoCompleteArrayText(arrayList : ArrayList<T>){
+        val arrayAdapter = AutoCompleteArrayAdapter(context, arrayList)
         lpAutoCompleteTextView.threshold = 0
         lpAutoCompleteTextView.setAdapter(arrayAdapter)
 

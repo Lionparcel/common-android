@@ -14,13 +14,12 @@ import kotlin.collections.ArrayList
 
 class AutoCompleteArrayAdapter<T>(
     context: Context,
-    var item : List<T>,
-    val toName : (T) -> String,
+    var item : List<T>
 ) : ArrayAdapter<T>(context, R.layout.lp_layout_item_autocomplete, R.id.txtAutoComplete, arrayListOf()) {
 
     var selectedItem: T? = null
 
-    var suggestions = mutableListOf<T>()
+    var suggestions = listOf<T>()
 
     private var inputString: String = String()
 
@@ -34,11 +33,11 @@ class AutoCompleteArrayAdapter<T>(
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val view = convertView ?: LayoutInflater.from(context).inflate(
-            R.layout.lp_auto_complete_form,
+            R.layout.lp_layout_item_autocomplete,
             parent,
             false
         )
-        val text = getItem(position)?.let(toName).toString()
+        val text = getItem(position).toString()
         when {
             text.contains(inputString, false) ->
                 view.txtAutoComplete.setBoldSpannable(text, inputString)
@@ -56,13 +55,23 @@ class AutoCompleteArrayAdapter<T>(
     override fun getFilter(): Filter = object : Filter() {
 
         override fun convertResultToString(resultValue: Any?): CharSequence {
-            return (resultValue as T).let(toName)
+            return (resultValue as T).toString()
         }
 
         override fun performFiltering(constraint: CharSequence?): FilterResults? {
             return if (constraint != null) {
                 inputString = constraint.toString().toTitleCase()
-                val suggestions = item.filter { toName(it).contains(constraint, true) }.toMutableList()
+                val suggestions = item.filter { it.toString().contains(constraint, true) }
+//                val originalValue = ArrayList<T>(item)
+//                val counts = originalValue.size
+//                val newValue = ArrayList<T>(counts)
+//                for (i in 0 until counts){
+//                    val item = originalValue[i]
+//                    if (item.toString().toTitleCase().contains(inputString)){
+//                        newValue.add(item)
+//                    }
+//                }
+//                val suggetions = item
                 val filterResult = FilterResults()
                 filterResult.values = suggestions
                 filterResult.count = suggestions.size
@@ -71,15 +80,11 @@ class AutoCompleteArrayAdapter<T>(
         }
 
         override fun publishResults(constraint: CharSequence?, filterResult: FilterResults?) {
-            val filterList = filterResult?.values as ArrayList<*>? ?: item
-            val sortedList = mutableListOf<T>()
-            suggestions.clear()
             try {
-                (filterList as List<T>).let {
-                    sortedList.addAll(LPAutoCompleteForm(context).sortDataList(constraint.toString(), it))
-                }
-                filterList.forEach {
-                    suggestions.add(it)
+                if (filterResult != null){
+                    suggestions = filterResult.values as ArrayList<T>
+                } else {
+                    suggestions = item
                 }
             } catch (_: Exception){
 

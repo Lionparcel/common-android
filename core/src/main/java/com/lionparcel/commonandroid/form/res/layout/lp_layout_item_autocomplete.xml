@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingVertical="@dimen/spacing_s"
-    android:paddingHorizontal="@dimen/spacing_xl">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/txtAutoComplete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/Subtitle3Regular"/>
+        android:gravity="center_vertical"
+        android:textAppearance="@style/Subtitle3Regular"
+        android:textColor="@color/shades5"
+        android:paddingHorizontal="@dimen/spacing_xl"
+        android:paddingVertical="@dimen/spacing_s"
+        tools:text="Jakarta" />
 
 </LinearLayout>
