@@ -1,36 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/dp_8"
     tools:context=".form.AttachFileActivity">
 
-    <com.lionparcel.commonandroid.form.LPAttachFile
-        android:id="@+id/lpAttachFile"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.lionparcel.commonandroid.form.LPAttachFile
-        android:id="@+id/lpAttachFile2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lpAttachFile" />
-
-    <ImageView
-        android:id="@+id/imgAttachFile"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lpAttachFile2"/>
+        android:padding="@dimen/dp_8">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.lionparcel.commonandroid.form.LPAttachFile
+            android:id="@+id/lpAttachFile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.lionparcel.commonandroid.form.LPAttachFile
+            android:id="@+id/lpAttachFile2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8" />
+
+        <ImageView
+            android:id="@+id/imgAttachFile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"/>
+
+        <com.lionparcel.commonandroid.form.LPBulkAttachFile
+            android:id="@+id/lpBulkAttachFile"
+            app:textLabel="Bulk Attach File"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"/>
+
+    </LinearLayout>
+
+</ScrollView>

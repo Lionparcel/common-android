@@ -10,4 +10,8 @@
     <declare-styleable name="LPPasswordLayout">
         <attr name="android:hint" />
     </declare-styleable>
+
+    <declare-styleable name="LPBulkAttachFile">
+        <attr name="textLabel" format="string"/>
+    </declare-styleable>
 </resources>
