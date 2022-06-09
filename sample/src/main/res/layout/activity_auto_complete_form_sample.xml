@@ -12,10 +12,52 @@
         android:id="@+id/lpAutoCompleteForm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="LPTextAutoCompleteTextView"/>
+        android:hint="Default"/>
 
-    <com.lionparcel.commonandroid.form.LPAutoCompleteTextView
-        android:id="@+id/autoCompleteTxtView"
+    <TextView
+        android:id="@+id/txtPreview"
+        android:layout_marginTop="@dimen/dp_18"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnAddAutoCompleteText"
+        android:layout_marginTop="@dimen/dp_8"
+        style="@style/LPSolidRedLargeButtonStyle"
+        android:text="Add Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.lionparcel.commonandroid.form.LPAutoCompleteForm
+        android:id="@+id/lpAutoCompleteForm1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_18"
+        android:hint="Disabled"
+        app:enabledEditText="false"/>
+
+    <Button
+        android:id="@+id/btnDisableAutoCompleteText"
+        android:layout_marginTop="@dimen/dp_8"
+        style="@style/LPSolidRedLargeButtonStyle"
+        android:text="Disable Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.lionparcel.commonandroid.form.LPAutoCompleteForm
+        android:id="@+id/lpAutoCompleteForm2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_18"
+        android:hint="Error"
+        app:errorEnabled="true"
+        app:errorText="Tidak boleh kosong!!"/>
+
+    <Button
+        android:id="@+id/btnCheckErrorAutoCompleteText"
+        android:layout_marginTop="@dimen/dp_8"
+        style="@style/LPSolidRedLargeButtonStyle"
+        android:text="Check Error"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

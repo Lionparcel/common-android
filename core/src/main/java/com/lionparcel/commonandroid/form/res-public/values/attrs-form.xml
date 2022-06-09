@@ -12,5 +12,8 @@
     </declare-styleable>
     <declare-styleable name="LPAutoCompleteForm">
         <attr name="android:hint"/>
+        <attr name="enabledEditText" format="boolean"/>
+        <attr name="errorEnabled" format="boolean"/>
+        <attr name="errorText" format="string"/>
     </declare-styleable>
 </resources>

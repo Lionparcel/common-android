@@ -9,7 +9,7 @@ import androidx.core.content.res.ResourcesCompat
 import com.lionparcel.commonandroid.R
 
 
-fun TextView.setBoldSpannable(
+fun TextView.setSemiBoldSpannable(
     content: CharSequence,
     vararg targetStrings: String,
     fontArg: Typeface? = null

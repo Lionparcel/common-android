@@ -40,13 +40,13 @@ class AutoCompleteArrayAdapter<T>(
         val text = getItem(position).toString()
         when {
             text.contains(inputString, false) ->
-                view.txtAutoComplete.setBoldSpannable(text, inputString)
+                view.txtAutoComplete.setSemiBoldSpannable(text, inputString)
             text.contains(inputString.lowercase(Locale.ROOT), false) ->
-                view.txtAutoComplete.setBoldSpannable(text, inputString.lowercase(Locale.ROOT))
+                view.txtAutoComplete.setSemiBoldSpannable(text, inputString.lowercase(Locale.ROOT))
             text.contains(inputString.uppercase(Locale.ROOT), false) ->
-                view.txtAutoComplete.setBoldSpannable(text, inputString.uppercase(Locale.ROOT))
+                view.txtAutoComplete.setSemiBoldSpannable(text, inputString.uppercase(Locale.ROOT))
             text.contains(inputString.toTitleCase(), false) ->
-                view.txtAutoComplete.setBoldSpannable(text, inputString.toTitleCase())
+                view.txtAutoComplete.setSemiBoldSpannable(text, inputString.toTitleCase())
         }
         return view
     }
@@ -62,16 +62,6 @@ class AutoCompleteArrayAdapter<T>(
             return if (constraint != null) {
                 inputString = constraint.toString().toTitleCase()
                 val suggestions = item.filter { it.toString().contains(constraint, true) }
-//                val originalValue = ArrayList<T>(item)
-//                val counts = originalValue.size
-//                val newValue = ArrayList<T>(counts)
-//                for (i in 0 until counts){
-//                    val item = originalValue[i]
-//                    if (item.toString().toTitleCase().contains(inputString)){
-//                        newValue.add(item)
-//                    }
-//                }
-//                val suggetions = item
                 val filterResult = FilterResults()
                 filterResult.values = suggestions
                 filterResult.count = suggestions.size
@@ -92,46 +82,5 @@ class AutoCompleteArrayAdapter<T>(
             notifyDataSetChanged()
         }
     }
-
-
-
-//    private fun createViewFromResource(inflater: LayoutInflater, position: Int, convertView: View?, parent: ViewGroup, resource: Int) : View{
-//        val view : View
-//        val textView : TextView
-//
-//        if (convertView == null){
-//            view = inflater.inflate(resource, parent, false)
-//        } else {
-//            view = convertView
-//        }
-//        if (textResId == 0){
-//            textView = view as TextView
-//        } else {
-//            textView = view.findViewById(textResId)
-//        }
-//        val item = getItem(position)
-//        textView.setText(highlight(query, item.toString()))
-//        return view
-//    }
-
-//    private fun highlight(search : String, originalText : CharSequence) : CharSequence{
-//        if (search.isEmpty()) return originalText
-//        val normalizedText = Normalizer
-//            .normalize(originalText, Normalizer.Form.NFD)
-//            .replace("\\p{InCombiningDiacriticalMarks}+","")
-//        var start = normalizedText.indexOf(search)
-//        if (start < 0){
-//            return originalText
-//        } else {
-//            val highlighted = SpannableString(originalText)
-//            while ( start >= 0) {
-//                val spanStart = Math.min(start, originalText.length)
-//                val spanEnd = Math.min(start + search.length, originalText.length)
-//                highlighted.setSpan(StyleSpan(Typeface.BOLD), spanStart, spanEnd, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-//                start = normalizedText.indexOf(search, spanEnd)
-//            }
-//            return highlighted
-//        }
-//    }
 
 }

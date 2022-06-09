@@ -1,5 +1,6 @@
 package com.lionparcel.commonandroid.form
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.ContextThemeWrapper
@@ -18,8 +19,8 @@ class LPAutoCompleteTextView : AppCompatAutoCompleteTextView {
     : super(ContextThemeWrapper(context, R.style.LPTextInputEditTextTheme), attrs, defStyleAttr)
 
 
-    fun setClearIcon(startDrawable: Int? = null) {
-        val clearIcon = if (this.text.isNotEmpty()) {
+    fun setClearIcon(startDrawable: Int? = null, isEnabled : Boolean) {
+        val clearIcon = if (this.text.isNotEmpty() && isEnabled) {
             R.drawable.ics_f_close_circle
         } else 0
         this.setCompoundDrawablesRelativeWithIntrinsicBounds(
@@ -29,6 +30,7 @@ class LPAutoCompleteTextView : AppCompatAutoCompleteTextView {
 
     fun handleOnClearIconClick(){
         this.setOnTouchListener(object : OnTouchListener{
+            @SuppressLint("ClickableViewAccessibility")
             override fun onTouch(view: View?, motionEvent: MotionEvent?): Boolean {
                 if (handleRightDrawableTouch(view as TextView, motionEvent!!)) {
                     this@LPAutoCompleteTextView.text.clear()
@@ -43,7 +45,6 @@ class LPAutoCompleteTextView : AppCompatAutoCompleteTextView {
     override fun performClick(): Boolean {
         return super.performClick()
     }
-
 
     private fun handleRightDrawableTouch(textView: TextView, motionEvent: MotionEvent): Boolean {
         val rightDrawable = textView.compoundDrawables[2]
