@@ -1,6 +1,7 @@
 package com.lionparcel.commonandroid.form.utils
 
 import android.app.Activity
+import android.content.Context
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.view.LayoutInflater
@@ -14,8 +15,9 @@ import com.lionparcel.commonandroid.modal.inflate
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.lp_bulk_attach_file_image_list.*
 import kotlinx.android.synthetic.main.lp_bulk_attach_file_view.*
+import kotlin.math.acosh
 
-class BulkAttachFileAdapter(val listImage : ArrayList<Uri>) :
+class BulkAttachFileAdapter(val listImage : ArrayList<Uri>,private var onItemClicked : ((visibility : Boolean) -> Unit)) :
     RecyclerView.Adapter<BulkAttachFileAdapter.BulkAttachFileViewHolder>() {
 
 //    private var listImage = mutableListOf<Uri>()
@@ -50,10 +52,8 @@ class BulkAttachFileAdapter(val listImage : ArrayList<Uri>) :
                 ivPreviewBulkAttachFile.setImageURI(data)
                 ibDeletePreviewBulkAttachFile.setOnClickListener {
                     deleteImage(position)
+                    onItemClicked(true)
                     notifyDataSetChanged()
-                    if (this@BulkAttachFileAdapter.itemCount < 3){
-
-                    }
                 }
             }
 

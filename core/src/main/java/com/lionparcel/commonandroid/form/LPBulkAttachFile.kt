@@ -95,7 +95,7 @@ class LPBulkAttachFile : ConstraintLayout {
 //            ivAddBulkAttachFile.layoutParams = layoutParams
 //        }
 
-        adapter = BulkAttachFileAdapter(listImage)
+        adapter = BulkAttachFileAdapter(listImage){setVisibilityImagePicker(it) }
         rvBulkAttachFile.adapter = adapter
         val llm = LinearLayoutManager(context)
         llm.orientation = LinearLayoutManager.HORIZONTAL
@@ -228,8 +228,8 @@ class LPBulkAttachFile : ConstraintLayout {
         return PermissionHelper().onRequestPermissionsResult(activity, requestCode, permissions, grantResults)
     }
 
-    fun setVisibilityImagePicker(){
-        ivAddBulkAttachFile.isVisible = true
+    fun setVisibilityImagePicker(visibility : Boolean) {
+       ivAddBulkAttachFile.isVisible = visibility
     }
 
     private fun setVisibilityImagePickerWhen(){

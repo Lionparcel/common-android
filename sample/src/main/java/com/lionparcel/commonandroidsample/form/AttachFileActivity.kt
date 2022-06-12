@@ -69,7 +69,7 @@ class AttachFileActivity : AppCompatActivity() {
                 setImageFromGallery(data?.data, this@AttachFileActivity)
             }
         } else {
-            findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile).setVisibilityImagePicker()
+            findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile).setVisibilityImagePicker(true)
         }
     }
 
