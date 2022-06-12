@@ -33,8 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_18"
-        android:hint="Disabled"
-        app:enabledEditText="false"/>
+        android:hint="Disabled"/>
 
     <Button
         android:id="@+id/btnDisableAutoCompleteText"

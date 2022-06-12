@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Filter
 import com.lionparcel.commonandroid.R
-import com.lionparcel.commonandroid.form.LPAutoCompleteForm
 import kotlinx.android.synthetic.main.lp_layout_item_autocomplete.view.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -16,8 +15,6 @@ class AutoCompleteArrayAdapter<T>(
     context: Context,
     var item : List<T>
 ) : ArrayAdapter<T>(context, R.layout.lp_layout_item_autocomplete, R.id.txtAutoComplete, arrayListOf()) {
-
-    var selectedItem: T? = null
 
     var suggestions = listOf<T>()
 
@@ -71,13 +68,17 @@ class AutoCompleteArrayAdapter<T>(
 
         override fun publishResults(constraint: CharSequence?, filterResult: FilterResults?) {
             try {
-                if (filterResult != null){
-                    suggestions = filterResult.values as ArrayList<T>
+                suggestions = if (filterResult != null) {
+                    filterResult.values as ArrayList<T>
                 } else {
-                    suggestions = item
+                    item
                 }
-            } catch (_: Exception){
-
+            } catch (_: Exception) {
+                suggestions = if (filterResult != null) {
+                    filterResult.values as ArrayList<T>
+                } else {
+                    item
+                }
             }
             notifyDataSetChanged()
         }

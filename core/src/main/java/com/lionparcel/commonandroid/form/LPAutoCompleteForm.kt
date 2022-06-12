@@ -73,10 +73,10 @@ class LPAutoCompleteForm : ConstraintLayout {
         lpAutoCompleteTextView.let {
 
             if (isError) {
-                it.onFocusChangeListener = OnFocusChangeListener{ _, hasFocus ->
-                    if (hasFocus || !lpAutoCompleteTextView.text.isNullOrEmpty()){
+                it.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
+                    if (hasFocus || !lpAutoCompleteTextView.text.isNullOrEmpty()) {
                         changeStateViewTextViewError(!isError)
-                    } else if (!hasFocus && lpAutoCompleteTextView.text.isNullOrEmpty()){
+                    } else if (!hasFocus && lpAutoCompleteTextView.text.isNullOrEmpty()) {
                         changeStateViewTextViewError(isError)
                     }
                 }
@@ -104,10 +104,10 @@ class LPAutoCompleteForm : ConstraintLayout {
     }
 
     fun changeStateViewTextViewError(isError : Boolean) {
-        val textColor = if (isError){
+        val textColor = if (isError) {
             R.color.shades3
         } else R.color.shades5
-        val color = if (isError){
+        val color = if (isError) {
             ContextCompat.getColorStateList(context, R.color.interpack6)
         } else ContextCompat.getColorStateList(context, R.color.shades2)
         editTextError = isError
@@ -139,11 +139,11 @@ class LPAutoCompleteForm : ConstraintLayout {
         invalidate()
         requestLayout()
     }
-    fun setHint(hintText : String){
+    fun setHint(hintText : String) {
         lpTextInputLayoutAutoComplete.hint = hintText
     }
 
-    fun setErrorText(errorText : String){
+    fun setErrorText(errorText : String) {
         txtAutoCompleteError.text = errorText
     }
 

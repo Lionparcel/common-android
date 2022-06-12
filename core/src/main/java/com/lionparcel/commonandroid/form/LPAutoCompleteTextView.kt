@@ -28,8 +28,8 @@ class LPAutoCompleteTextView : AppCompatAutoCompleteTextView {
         )
     }
 
-    fun handleOnClearIconClick(){
-        this.setOnTouchListener(object : OnTouchListener{
+    fun handleOnClearIconClick() {
+        this.setOnTouchListener(object : OnTouchListener {
             @SuppressLint("ClickableViewAccessibility")
             override fun onTouch(view: View?, motionEvent: MotionEvent?): Boolean {
                 if (handleRightDrawableTouch(view as TextView, motionEvent!!)) {
