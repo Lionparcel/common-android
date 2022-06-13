@@ -111,4 +111,15 @@
         <item name="colorControlNormal">@color/shades4</item>
     </style>
 
+    <!-- Text Area EditTextStyle -->
+    <style name="TextAreaEditTextStyle">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/shades5</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="hintTextAppearance">@style/Body3Regular</item>
+        <item name="android:textColorHint">@color/shades3</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_interpack6</item>
+    </style>
+
 </resources>

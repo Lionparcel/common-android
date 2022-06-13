@@ -27,6 +27,10 @@ class FormComponentSampleActivity : AppCompatActivity() {
             startActivity(Intent(this, SignatureFormSampleActivity::class.java))
         }
 
+        findViewById<Button>(R.id.btn_text_area_sample).setOnClickListener {
+            startActivity(Intent(this, TextAreaSampleActivity::class.java))
+        }
+
         findViewById<Button>(R.id.btn_auto_complete_form_sample).setOnClickListener {
             startActivity(Intent(this, AutoCompleteFormSampleActivity::class.java))
         }
