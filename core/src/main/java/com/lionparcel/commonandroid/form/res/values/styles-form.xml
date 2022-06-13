@@ -12,6 +12,9 @@
     <style name="LPTextInputEditTextTheme">
         <item name="LPTextInputEditTextStyle">@style/LPTextInputEditText</item>
     </style>
+    <style name="LPAutoCompleteTextViewTheme">
+        <item name="LPTextInputEditTextStyle">@style/LPAutoCompleteTextViewTheme</item>
+    </style>
 
     <style name="LPTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:paddingTop">@dimen/spacing_xs</item>

@@ -13,6 +13,9 @@
             android:name=".form.TextAreaSampleActivity"
             android:exported="true" />
         <activity
+            android:name=".form.AutoCompleteFormSampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".form.InsertSignatureForm"
             android:exported="true" />
         <activity
