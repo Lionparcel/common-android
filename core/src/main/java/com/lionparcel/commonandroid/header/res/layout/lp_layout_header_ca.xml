@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_header"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/ll_header_text"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/img_btn_back_header"
+                android:layout_width="@dimen/spacing_xl"
+                android:layout_height="@dimen/spacing_xl"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/spacing_xl"
+                android:background="@color/transparent"
+                android:src="@drawable/ic_o_arrow_left_alt"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/txt_header_label"
+                android:layout_marginVertical="@dimen/spacing_m"
+                android:layout_marginStart="@dimen/spacing_xl"
+                android:textAppearance="@style/H5Bold"
+                android:textColor="@color/shades5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_icon_button_header"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/img_btn_info_2"
+                android:layout_width="@dimen/spacing_xl"
+                android:layout_height="@dimen/spacing_xl"
+                android:layout_marginEnd="@dimen/spacing_l"
+                android:background="@color/transparent"
+                android:src="@drawable/ics_o_info_circle"
+                app:layout_constraintTop_toTopOf="@id/cl_icon_button_header"
+                app:layout_constraintBottom_toBottomOf="@id/cl_icon_button_header"
+                app:layout_constraintEnd_toStartOf="@id/img_btn_info_1"
+                android:visibility="gone"/>
+
+            <ImageButton
+                android:id="@+id/img_btn_info_1"
+                android:layout_width="@dimen/spacing_xl"
+                android:layout_height="@dimen/spacing_xl"
+                android:layout_marginEnd="@dimen/spacing_xl"
+                android:background="@color/transparent"
+                android:src="@drawable/ics_o_info_circle"
+                app:layout_constraintTop_toTopOf="@id/cl_icon_button_header"
+                app:layout_constraintBottom_toBottomOf="@id/cl_icon_button_header"
+                app:layout_constraintEnd_toEndOf="@+id/cl_icon_button_header"
+                android:visibility="gone"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

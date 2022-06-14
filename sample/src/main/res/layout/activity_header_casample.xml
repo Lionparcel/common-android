@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".header.HeaderCASampleActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/dp_8"
+        android:orientation="vertical">
+
+        <TextView
+            android:text="Text (Basic)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/H5Bold"
+            android:textAlignment="center"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Payment"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showBackButton="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showFirstIconButton="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showBackButton="true"
+            app:showFirstIconButton="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showFirstIconButton="true"
+            app:showSecondIconButton="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showBackButton="true"
+            app:showFirstIconButton="true"
+            app:showSecondIconButton="true"/>
+
+    </LinearLayout>
+
+</ScrollView>
