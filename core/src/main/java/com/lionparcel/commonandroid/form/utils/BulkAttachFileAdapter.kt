@@ -1,26 +1,21 @@
 package com.lionparcel.commonandroid.form.utils
 
 import android.app.Activity
-import android.content.Context
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.lionparcel.commonandroid.R
-import com.lionparcel.commonandroid.form.LPBulkAttachFile
-import com.lionparcel.commonandroid.modal.inflate
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.lp_bulk_attach_file_image_list.*
 import kotlinx.android.synthetic.main.lp_bulk_attach_file_view.*
-import kotlin.math.acosh
 
-class BulkAttachFileAdapter(val listImage : ArrayList<Uri>,private var onItemClicked : ((visibility : Boolean) -> Unit)) :
+class BulkAttachFileAdapter(val listImage : ArrayList<Uri>, var isEnable : Boolean, var isError: Boolean ,private var onItemClicked : ((visibility : Boolean) -> Unit)) :
     RecyclerView.Adapter<BulkAttachFileAdapter.BulkAttachFileViewHolder>() {
 
 //    private var listImage = mutableListOf<Uri>()
+    private var enableView : Boolean = true
 
     private var selectedImage : Int = 1
 
@@ -38,7 +33,7 @@ class BulkAttachFileAdapter(val listImage : ArrayList<Uri>,private var onItemCli
     }
 
     override fun onBindViewHolder(holder: BulkAttachFileViewHolder, position: Int) {
-        holder.bind(listImage[position], position)
+        holder.bind(listImage[position], position, isEnable, isError)
     }
 
     override fun getItemCount(): Int = listImage.size
@@ -47,9 +42,10 @@ class BulkAttachFileAdapter(val listImage : ArrayList<Uri>,private var onItemCli
     inner class BulkAttachFileViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
         LayoutContainer{
 
-            fun bind(data : Uri, position: Int){
-//                val bitmap = BitmapFactory.decodeFile(data.path)
+            fun bind(data : Uri, position: Int, isEnable: Boolean, isError : Boolean){
+                vwOutlinedBulkAttachFile.isSelected = isError
                 ivPreviewBulkAttachFile.setImageURI(data)
+                ibDeletePreviewBulkAttachFile.isEnabled = isEnable
                 ibDeletePreviewBulkAttachFile.setOnClickListener {
                     deleteImage(position)
                     onItemClicked(true)
@@ -57,5 +53,15 @@ class BulkAttachFileAdapter(val listImage : ArrayList<Uri>,private var onItemCli
                 }
             }
 
+    }
+
+    fun enableClose(isEnabled: Boolean) {
+        this.isEnable = isEnabled
+        notifyDataSetChanged()
+    }
+
+    fun errorView(isError : Boolean){
+        this.isError = isError
+        notifyDataSetChanged()
     }
 }

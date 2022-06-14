@@ -36,6 +36,39 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_8"/>
 
+        <com.lionparcel.commonandroid.form.LPBulkAttachFile
+            android:id="@+id/lpBulkAttachFile1"
+            app:textLabel="Bulk Attach File"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"/>
+
+        <Button
+            android:id="@+id/btn_disable_bulk_attach_file"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Disable"
+            android:layout_marginTop="@dimen/dp_8"
+            tools:ignore="HardcodedText"/>
+
+        <com.lionparcel.commonandroid.form.LPBulkAttachFile
+            android:id="@+id/lpBulkAttachFile2"
+            app:textLabel="Bulk Attach File"
+            app:errorText="File terlalu besar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"/>
+
+        <Button
+            android:id="@+id/btn_error_bulk_attach_file"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Error"
+            android:layout_marginTop="@dimen/dp_8"
+            tools:ignore="HardcodedText"/>
+
     </LinearLayout>
 
 </ScrollView>

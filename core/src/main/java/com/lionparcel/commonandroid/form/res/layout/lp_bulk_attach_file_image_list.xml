@@ -5,15 +5,28 @@
     android:id="@+id/clPreviewBulkAttachFile"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/ivPreviewBulkAttachFile"
-        android:layout_width="@dimen/spacing_xxxxl"
-        android:background="@drawable/bg_bulk_attach_file_transparent_outlined"
-        android:layout_height="@dimen/spacing_xxxxl"
-        android:scaleType="centerCrop"
-        android:clipToOutline="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/ivPreviewBulkAttachFile"
+            android:layout_width="@dimen/spacing_xxxxl"
+            android:layout_height="@dimen/spacing_xxxxl"
+            android:scaleType="centerCrop"
+            android:clipToOutline="true"
+            android:background="@drawable/bg_selector_bulk_attach_file_outlined"
+            android:padding="@dimen/spacing_xxxs"/>
+
+        <View
+            android:id="@+id/vwOutlinedBulkAttachFile"
+            android:layout_width="@dimen/spacing_xxxxl"
+            android:layout_height="@dimen/spacing_xxxxl"
+            android:background="@drawable/bg_selector_transparent_bulk_attach_file_outlined_rounded"/>
+
+    </RelativeLayout>
 
     <ImageButton
         android:id="@+id/ibDeletePreviewBulkAttachFile"
@@ -23,7 +36,7 @@
         android:src="@drawable/ics_f_close_circle_white"
         android:layout_marginTop="@dimen/spacing_xxs"
         android:layout_marginRight="@dimen/spacing_xxs"
-        app:layout_constraintTop_toTopOf="@+id/ivPreviewBulkAttachFile"
-        app:layout_constraintEnd_toEndOf="@+id/ivPreviewBulkAttachFile"/>
+        app:layout_constraintTop_toTopOf="@id/clPreviewBulkAttachFile"
+        app:layout_constraintEnd_toEndOf="@id/clPreviewBulkAttachFile"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

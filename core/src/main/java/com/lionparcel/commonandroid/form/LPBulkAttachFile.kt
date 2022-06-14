@@ -5,21 +5,16 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
-import android.graphics.BitmapFactory
-import android.graphics.ImageDecoder
 import android.net.Uri
-import android.os.Build
 import android.provider.MediaStore
 import android.provider.Settings
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.widget.HorizontalScrollView
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
-import androidx.core.view.isNotEmpty
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,7 +23,6 @@ import com.lionparcel.commonandroid.form.utils.BulkAttachFileAdapter
 import com.lionparcel.commonandroid.form.utils.HorizontalSpaceItemDecoration
 import com.lionparcel.commonandroid.form.utils.ImageUtils
 import com.lionparcel.commonandroid.form.utils.PermissionHelper
-import kotlinx.android.synthetic.main.lp_bulk_attach_file_view.*
 import java.io.File
 
 class LPBulkAttachFile : ConstraintLayout {
@@ -39,7 +33,11 @@ class LPBulkAttachFile : ConstraintLayout {
     private val llBulkAttachFile : LinearLayout
     private val rvBulkAttachFile : RecyclerView
     private val ivAddBulkAttachFile : ImageView
-    private val textLabel : String
+    private val txtErrorBulkAttachFile : TextView
+    private var textLabel : String
+    private var enableView : Boolean
+    private var errorEnabled : Boolean
+    private var errorText : String
     private var fileUri: Uri? = null
     private var listImage = ArrayList<Uri>()
     private var selectedImage: File? = null
@@ -76,6 +74,9 @@ class LPBulkAttachFile : ConstraintLayout {
         ).apply {
             try {
                 textLabel = getString(R.styleable.LPBulkAttachFile_textLabel).setString()
+                enableView = getBoolean(R.styleable.LPBulkAttachFile_enabledView, true)
+                errorEnabled = getBoolean(R.styleable.LPBulkAttachFile_errorEnabled, false)
+                errorText = getString(R.styleable.LPBulkAttachFile_errorText).setString()
             } finally {
                 recycle()
             }
@@ -85,22 +86,22 @@ class LPBulkAttachFile : ConstraintLayout {
         llBulkAttachFile = findViewById(R.id.llBulkAttachFile)
         rvBulkAttachFile = findViewById(R.id.rvBulkAttachFile)
         ivAddBulkAttachFile = findViewById(R.id.ivAddBulkAttachFile)
-
+        txtErrorBulkAttachFile = findViewById(R.id.txtErrorBulkAttachFile)
+        // form label
         txtBulkAttachFile.text = textLabel
-
-
-//        if (rvBulkAttachFile.isNotEmpty()){
-//            val layoutParams = ivAddBulkAttachFile.layoutParams as LinearLayout.LayoutParams
-//            layoutParams.setMargins(16,0,0,0)
-//            ivAddBulkAttachFile.layoutParams = layoutParams
-//        }
-
-        adapter = BulkAttachFileAdapter(listImage){setVisibilityImagePicker(it) }
+        // recyclerview setup
+        adapter = BulkAttachFileAdapter(listImage, enableView, errorEnabled){setVisibilityImagePicker(it)}
         rvBulkAttachFile.adapter = adapter
         val llm = LinearLayoutManager(context)
         llm.orientation = LinearLayoutManager.HORIZONTAL
-        rvBulkAttachFile.addItemDecoration(HorizontalSpaceItemDecoration(16))
+        rvBulkAttachFile.addItemDecoration(HorizontalSpaceItemDecoration(12))
         rvBulkAttachFile.layoutManager = llm
+        // enable or disable view
+        setEnableView(enableView)
+        //error text
+        txtErrorBulkAttachFile.text = errorText
+        // enable or disable error view
+        setError(errorEnabled)
 
 
         ivAddBulkAttachFile.setOnClickListener{
@@ -178,50 +179,14 @@ class LPBulkAttachFile : ConstraintLayout {
         builder.show()
     }
 
-    private fun handleImageFromGallery(path: Uri?, activity: Activity): File? {
-        return try {
-            val bitmap = if (Build.VERSION.SDK_INT < 28) {
-                MediaStore.Images.Media.getBitmap(activity.contentResolver, path)
-            } else {
-                ImageDecoder.createSource(activity.contentResolver, path!!).let {
-                    ImageDecoder.decodeBitmap(it)
-                }
-            }
-            this.activity = activity
-//            BulkAttachFileAdapter().setData(path!!, 1, activity)
-            ImageUtils.createTempFile(activity, bitmap)
-        } catch (ex: Exception) {
-            ex.printStackTrace()
-            null
-        }
-    }
-
-    fun setImageFromGallery(data : Uri?, activity: Activity){
+    fun setImageFromGallery(data : Uri?){
         listImage.add(data!!)
         adapter.notifyDataSetChanged()
     }
 
-
-    private fun handleImageFromCamera(uri: Uri?, activity: Activity): File? {
-        return try {
-            val bitmap = if (Build.VERSION.SDK_INT < 28) {
-                BitmapFactory.decodeFile(uri?.path)
-            } else {
-                ImageDecoder.createSource(activity.contentResolver, uri!!).let {
-                    ImageDecoder.decodeBitmap(it)
-                }
-            }
-            this.activity = activity
-//            BulkAttachFileAdapter().setData(uri!!, 1, activity)
-            ImageUtils.createTempFile(activity, bitmap)
-        } catch (ex: Exception) {
-            ex.printStackTrace()
-            null
-        }
-    }
-
-    fun setImageFromCamera(activity: Activity) {
-        selectedImage = handleImageFromCamera(fileUri, activity)
+    fun setImageFromCamera() {
+        listImage.add(fileUri!!)
+        adapter.notifyDataSetChanged()
     }
 
     fun permissionHelper(activity: Activity, requestCode : Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -232,7 +197,21 @@ class LPBulkAttachFile : ConstraintLayout {
        ivAddBulkAttachFile.isVisible = visibility
     }
 
-    private fun setVisibilityImagePickerWhen(){
-        
+    fun setEnableView(isEnable : Boolean) {
+        llBulkAttachFile.isEnabled = isEnable
+        ivAddBulkAttachFile.isEnabled = isEnable
+        rvBulkAttachFile.isEnabled = isEnable
+        val opacity = if(isEnable) 1f else 0.5f
+        llBulkAttachFile.alpha = opacity
+        adapter.enableClose(isEnable)
+        invalidate()
+        requestLayout()
+    }
+
+    fun setError(isError : Boolean) {
+        errorEnabled = isError
+        ivAddBulkAttachFile.isSelected = isError
+        txtErrorBulkAttachFile.isVisible = isError
+        adapter.errorView(isError)
     }
 }
