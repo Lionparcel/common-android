@@ -55,7 +55,7 @@
         <com.lionparcel.commonandroid.form.LPBulkAttachFile
             android:id="@+id/lpBulkAttachFile2"
             app:textLabel="Bulk Attach File"
-            app:errorText="File terlalu besar"
+            app:errorText="*File terlalu besar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_8"/>
