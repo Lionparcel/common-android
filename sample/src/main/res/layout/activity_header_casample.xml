@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="@dimen/dp_8"
+        android:padding="@dimen/dp_8"
         android:orientation="vertical">
 
         <TextView
@@ -20,23 +20,27 @@
             android:textAlignment="center"/>
 
         <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:headerLabel="Payment"/>
 
         <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:headerLabel="Medium Page Title"
             app:showBackButton="true"/>
 
         <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:headerLabel="Medium Page Title"
             app:showFirstIconButton="true"/>
 
         <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:headerLabel="Medium Page Title"
@@ -44,6 +48,7 @@
             app:showFirstIconButton="true"/>
 
         <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:headerLabel="Medium Page Title"
@@ -51,12 +56,192 @@
             app:showSecondIconButton="true"/>
 
         <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:headerLabel="Medium Page Title"
             app:showBackButton="true"
             app:showFirstIconButton="true"
             app:showSecondIconButton="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Payment"
+            app:addElevation="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showBackButton="true"
+            app:addElevation="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showFirstIconButton="true"
+            app:addElevation="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showBackButton="true"
+            app:showFirstIconButton="true"
+            app:addElevation="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showFirstIconButton="true"
+            app:showSecondIconButton="true"
+            app:addElevation="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showBackButton="true"
+            app:showFirstIconButton="true"
+            app:showSecondIconButton="true"
+            app:addElevation="true"/>
+
+        <TextView
+            android:text="With Search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/H5Bold"
+            android:textAlignment="center"
+            android:layout_marginTop="@dimen/dp_4"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Payment"
+            app:searchHint="Search your item"
+            app:enableSearchView="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showBackButton="true"
+            app:searchHint="Search your item"
+            app:enableSearchView="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showFirstIconButton="true"
+            app:searchHint="Search your item"
+            app:enableSearchView="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showBackButton="true"
+            app:showFirstIconButton="true"
+            app:searchHint="Search your item"
+            app:enableSearchView="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showFirstIconButton="true"
+            app:showSecondIconButton="true"
+            app:searchHint="Search your item"
+            app:enableSearchView="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showBackButton="true"
+            app:showFirstIconButton="true"
+            app:showSecondIconButton="true"
+            app:searchHint="Search your item"
+            app:enableSearchView="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Payment"
+            app:addElevation="true"
+            app:searchHint="Search your item"
+            app:enableSearchView="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showBackButton="true"
+            app:addElevation="true"
+            app:searchHint="Search your item"
+            app:enableSearchView="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showFirstIconButton="true"
+            app:addElevation="true"
+            app:searchHint="Search your item"
+            app:enableSearchView="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showBackButton="true"
+            app:showFirstIconButton="true"
+            app:addElevation="true"
+            app:searchHint="Search your item"
+            app:enableSearchView="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showFirstIconButton="true"
+            app:showSecondIconButton="true"
+            app:addElevation="true"
+            app:searchHint="Search your item"
+            app:enableSearchView="true"/>
+
+        <com.lionparcel.commonandroid.header.LPHeaderCA
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLabel="Medium Page Title"
+            app:showBackButton="true"
+            app:showFirstIconButton="true"
+            app:showSecondIconButton="true"
+            app:addElevation="true"
+            app:searchHint="Search your item"
+            app:enableSearchView="true"/>
 
     </LinearLayout>
 
