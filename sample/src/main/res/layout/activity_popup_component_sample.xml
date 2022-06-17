@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".popup.PopupComponentSampleActivity">
+
+    <Button
+        android:id="@+id/btnTextOnly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:text="POPUP TEXT ONLY"/>
+
+    <Button
+        android:id="@+id/btnTextIllustration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:text="POPUP TEXT ILLUSTRATION"/>
+
+    <Button
+        android:id="@+id/btnTextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:text="POPUP TEXT BUTTON"/>
+
+    <Button
+        android:id="@+id/btntextButtonIllustration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:text="POPUP TEXT BUTTON ILLUSTRATION"/>
+
+</LinearLayout>

@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
         <activity
-            android:name=".emptystate.EmptyStateSampleActivity"
+            android:name=".popup.PopupComponentSampleActivity"
             android:exported="true" />
         <activity
-            android:name=".popup.PopupComponentSampleActivity"
+            android:name=".emptystate.EmptyStateSampleActivity"
             android:exported="true" />
         <activity
             android:name=".header.HeaderDASampleActivity"
