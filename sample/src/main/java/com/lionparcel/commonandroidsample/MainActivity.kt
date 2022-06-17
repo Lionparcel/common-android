@@ -44,6 +44,9 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.button_to_popupSampleActivity).setOnClickListener {
             startActivity(Intent(this, PopupComponentSampleActivity::class.java))
         }
+        findViewById<Button>(R.id.button_to_popupSampleActivity).setOnClickListener {
+            startActivity(Intent(this, PopupComponentSampleActivity::class.java))
+        }
         findViewById<Button>(R.id.button_to_headerSampleActivity).setOnClickListener {
             startActivity(Intent(this, HeaderSampleActivity::class.java))
         }
