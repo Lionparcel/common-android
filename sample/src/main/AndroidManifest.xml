@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
         <activity
+            android:name=".popup.PopupComponentSampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".form.TextAreaSampleActivity"
             android:exported="true" />
         <activity
@@ -27,8 +30,9 @@
         <activity
             android:name=".toastsnackbar.SnackbarSampleActivity"
             android:exported="true" />
-        <activity android:name=".toastsnackbar.ToastSampleActivity"
-            android:exported="true"/>
+        <activity
+            android:name=".toastsnackbar.ToastSampleActivity"
+            android:exported="true" />
         <activity
             android:name=".walktrough.WalkThroughSampleActivity"
             android:exported="true" />

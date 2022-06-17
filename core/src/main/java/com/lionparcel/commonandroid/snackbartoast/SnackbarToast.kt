@@ -30,7 +30,7 @@ fun Context.showToastLargeIconWithClose(
     viewGroup: ViewGroup,
     message: String,
     @DrawableRes imageStartResource: Int = R.drawable.ics_f_info_circle,
-    @DrawableRes imageEndResource: Int = R.drawable.ics_o_close,
+    @DrawableRes imageEndResource: Int = R.drawable.ics_o_close_shades5,
     messageType: MessageType,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
@@ -54,7 +54,7 @@ fun Context.showSnackbarLargeIconWithClose(
     viewGroup: ViewGroup,
     message: String,
     @DrawableRes imageStartResource: Int = R.drawable.ics_f_info_circle,
-    @DrawableRes imageEndResource: Int = R.drawable.ics_o_close,
+    @DrawableRes imageEndResource: Int = R.drawable.ics_o_close_shades5,
     messageType: MessageType,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
@@ -72,7 +72,7 @@ fun Context.showToastSmallIconWithClose(
     viewGroup: ViewGroup,
     message: String,
     @DrawableRes imageStartResource: Int = R.drawable.ics_f_check_circle,
-    @DrawableRes imageEndResource: Int = R.drawable.ics_o_close,
+    @DrawableRes imageEndResource: Int = R.drawable.ics_o_close_shades5,
     messageType: MessageType,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
@@ -95,7 +95,7 @@ fun Context.showSnackbarSmallIconWithClose(
     viewGroup: ViewGroup,
     message: String,
     @DrawableRes imageStartResource: Int = R.drawable.ics_f_check_circle,
-    @DrawableRes imageEndResource: Int = R.drawable.ics_o_close,
+    @DrawableRes imageEndResource: Int = R.drawable.ics_o_close_shades5,
     messageType: MessageType,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
@@ -112,7 +112,7 @@ fun Context.showSnackbarSmallIconWithClose(
 fun Context.showToastBasicWithClose(
     viewGroup: ViewGroup,
     message: String,
-    @DrawableRes imageEndResource: Int = R.drawable.ics_o_close,
+    @DrawableRes imageEndResource: Int = R.drawable.ics_o_close_shades5,
     messageType: MessageType,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
@@ -131,7 +131,7 @@ fun Context.showToastBasicWithClose(
 fun Context.showSnackbarBasicWithClose(
     viewGroup: ViewGroup,
     message: String,
-    @DrawableRes imageEndResource: Int = R.drawable.ics_o_close,
+    @DrawableRes imageEndResource: Int = R.drawable.ics_o_close_shades5,
     messageType: MessageType,
     callbackOnDismiss: (() -> Unit)? = null
 ): Snackbar {
