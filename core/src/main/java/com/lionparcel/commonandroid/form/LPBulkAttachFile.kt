@@ -106,9 +106,6 @@ class LPBulkAttachFile : ConstraintLayout {
 
         ivAddBulkAttachFile.setOnClickListener{
             addPackagePhotoOptional()
-            if (rvBulkAttachFile.adapter!!.itemCount > 2){
-                ivAddBulkAttachFile.isVisible = false
-            }
         }
     }
 
@@ -142,7 +139,7 @@ class LPBulkAttachFile : ConstraintLayout {
                 Intent(
                     Intent.ACTION_PICK,
                     MediaStore.Images.Media.INTERNAL_CONTENT_URI
-                ).setType("image/*"), Settings.Global.getString(
+                ).setType("image/*").putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true), Settings.Global.getString(
                     activity!!.contentResolver,
                     R.string.claim_form_select_image_title.toString()
                 )
@@ -179,9 +176,25 @@ class LPBulkAttachFile : ConstraintLayout {
         builder.show()
     }
 
-    fun setImageFromGallery(data : Uri?){
-        listImage.add(data!!)
-        adapter.notifyDataSetChanged()
+    fun setImageFromGallery(data : Intent?, maxPhoto : Int? = 4){
+        if (data != null){
+            if (data.clipData != null){
+                if (data.clipData!!.itemCount <= maxPhoto!! && listImage.size + data.clipData!!.itemCount <= maxPhoto){
+                    val x = data!!.clipData!!.itemCount
+                    for (i in 0 until x){
+                        val imageUri = data.clipData!!.getItemAt(i).uri
+                        listImage.add(imageUri)
+                    }
+                    if (listImage.size == maxPhoto){
+                        setVisibilityImagePicker(false)
+                    }
+                }
+            } else {
+                val imageUri = data.data!!
+                listImage.add(imageUri)
+            }
+            adapter.notifyDataSetChanged()
+        }
     }
 
     fun setImageFromCamera() {

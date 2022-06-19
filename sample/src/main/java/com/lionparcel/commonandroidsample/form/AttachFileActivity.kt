@@ -80,29 +80,25 @@ class AttachFileActivity : AppCompatActivity() {
             findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile).apply {
                 setImageFromCamera()
             }
-        if (requestCode == REQUEST_FROM_GALLERY3 && resultCode == Activity.RESULT_OK && data != null)
-        {
+        if (requestCode == REQUEST_FROM_GALLERY3 && resultCode == Activity.RESULT_OK)
             findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile).apply {
-                setImageFromGallery(data?.data)
+                setImageFromGallery(data)
             }
-        } else {
-            findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile).setVisibilityImagePicker(true)
-        }
         if (requestCode == REQUEST_FROM_CAMERA4 && resultCode == Activity.RESULT_OK)
             findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile1).apply {
                 setImageFromCamera()
             }
-        if (requestCode == REQUEST_FROM_GALLERY4 && resultCode == Activity.RESULT_OK && data != null)
+        if (requestCode == REQUEST_FROM_GALLERY4 && resultCode == Activity.RESULT_OK)
             findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile1).apply {
-                setImageFromGallery(data?.data)
+                setImageFromGallery(data)
             }
         if (requestCode == REQUEST_FROM_CAMERA5 && resultCode == Activity.RESULT_OK)
             findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile2).apply {
                 setImageFromCamera()
             }
-        if (requestCode == REQUEST_FROM_GALLERY5 && resultCode == Activity.RESULT_OK && data != null)
+        if (requestCode == REQUEST_FROM_GALLERY5 && resultCode == Activity.RESULT_OK)
             findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile2).apply {
-                setImageFromGallery(data?.data)
+                setImageFromGallery(data)
             }
 
     }
@@ -113,10 +109,30 @@ class AttachFileActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        findViewById<LPAttachFile>(R.id.lpAttachFile).permissionHelper(this, requestCode, permissions, grantResults)
-        findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile).permissionHelper(this, requestCode, permissions, grantResults)
-        findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile1).permissionHelper(this, requestCode, permissions, grantResults)
-        findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile2).permissionHelper(this, requestCode, permissions, grantResults)
+        findViewById<LPAttachFile>(R.id.lpAttachFile).permissionHelper(
+            this,
+            requestCode,
+            permissions,
+            grantResults
+        )
+        findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile).permissionHelper(
+            this,
+            requestCode,
+            permissions,
+            grantResults
+        )
+        findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile1).permissionHelper(
+            this,
+            requestCode,
+            permissions,
+            grantResults
+        )
+        findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile2).permissionHelper(
+            this,
+            requestCode,
+            permissions,
+            grantResults
+        )
     }
 
     companion object {
