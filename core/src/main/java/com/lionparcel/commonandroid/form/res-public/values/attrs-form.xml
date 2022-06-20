@@ -14,7 +14,7 @@
     <declare-styleable name="LPBulkAttachFile">
         <attr name="textLabel" format="string"/>
         <attr name="enabledView" format="boolean"/>
-        <attr name="errorEnabled"/>
+        <attr name="errorEnabled" format="boolean"/>
         <attr name="errorText" format="string"/>
     </declare-styleable>
 </resources>
