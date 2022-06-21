@@ -8,5 +8,6 @@
         <attr name="addElevation" format="boolean"/>
         <attr name="enableSearchView" format="boolean"/>
         <attr name="searchHint" format="string"/>
+        <attr name="enableTextLabel" format="boolean"/>
     </declare-styleable>
 </resources>

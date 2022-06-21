@@ -1,133 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ll_header_parent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clipToPadding="false">
 
-    <LinearLayout
-        android:id="@+id/ll_header"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:id="@+id/ll_header_text"
-            android:layout_width="match_parent"
+        <ImageButton
+            android:id="@+id/img_btn_back_header"
+            android:layout_width="@dimen/spacing_xl"
+            android:layout_height="@dimen/spacing_xl"
+            android:layout_gravity="center_vertical"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_o_arrow_left_alt"
+            android:layout_marginStart="@dimen/spacing_xl"
+            app:layout_constraintStart_toStartOf="@+id/cl_header"
+            app:layout_constraintTop_toTopOf="@+id/cl_header"
+            app:layout_constraintBottom_toBottomOf="@+id/cl_header"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/txt_header_label"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginTop="@dimen/spacing_m"
+            android:layout_marginBottom="@dimen/spacing_m"
+            android:layout_marginStart="@dimen/spacing_xl"
+            android:textAppearance="@style/H5Bold"
+            android:textColor="@color/shades5"
+            app:layout_constraintStart_toStartOf="@+id/cl_header"
+            app:layout_constraintTop_toTopOf="@+id/cl_header"
+            app:layout_constraintBottom_toBottomOf="@+id/cl_header"
+            tools:text="Medium Page Title"/>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/img_btn_info_2"
+            android:layout_width="@dimen/spacing_xl"
+            android:layout_height="@dimen/spacing_xl"
+            android:layout_marginEnd="@dimen/spacing_l"
+            android:background="@color/transparent"
+            android:src="@drawable/ics_o_info_circle"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/cl_header"
+            app:layout_constraintEnd_toStartOf="@id/img_btn_info_1"
+            app:layout_constraintTop_toTopOf="@id/cl_header" />
 
-                <ImageButton
-                    android:id="@+id/img_btn_back_header"
-                    android:layout_width="@dimen/spacing_xl"
-                    android:layout_height="@dimen/spacing_xl"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="@dimen/spacing_xl"
-                    android:background="@color/transparent"
-                    android:src="@drawable/ic_o_arrow_left_alt"
-                    android:visibility="gone" />
-
-                <TextView
-                    android:id="@+id/txt_header_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/spacing_m"
-                    android:layout_marginStart="@dimen/spacing_xl"
-                    android:textAppearance="@style/H5Bold"
-                    android:textColor="@color/shades5" />
-
-            </LinearLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_icon_button_header"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical">
-
-                <ImageButton
-                    android:id="@+id/img_btn_info_2"
-                    android:layout_width="@dimen/spacing_xl"
-                    android:layout_height="@dimen/spacing_xl"
-                    android:layout_marginEnd="@dimen/spacing_l"
-                    android:background="@color/transparent"
-                    android:src="@drawable/ics_o_info_circle"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="@id/cl_icon_button_header"
-                    app:layout_constraintEnd_toStartOf="@id/img_btn_info_1"
-                    app:layout_constraintTop_toTopOf="@id/cl_icon_button_header" />
-
-                <ImageButton
-                    android:id="@+id/img_btn_info_1"
-                    android:layout_width="@dimen/spacing_xl"
-                    android:layout_height="@dimen/spacing_xl"
-                    android:layout_marginEnd="@dimen/spacing_xl"
-                    android:background="@color/transparent"
-                    android:src="@drawable/ics_o_info_circle"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="@id/cl_icon_button_header"
-                    app:layout_constraintEnd_toEndOf="@+id/cl_icon_button_header"
-                    app:layout_constraintTop_toTopOf="@id/cl_icon_button_header" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </LinearLayout>
+        <ImageButton
+            android:id="@+id/img_btn_info_1"
+            android:layout_width="@dimen/spacing_xl"
+            android:layout_height="@dimen/spacing_xl"
+            android:layout_marginEnd="@dimen/spacing_xl"
+            android:background="@color/transparent"
+            android:src="@drawable/ics_o_info_circle"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/cl_header"
+            app:layout_constraintEnd_toEndOf="@+id/cl_header"
+            app:layout_constraintTop_toTopOf="@id/cl_header" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_header_search"
+            android:id="@+id/cl_header_search_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone">
+            android:layout_marginStart="@dimen/spacing_xl"
+            android:layout_marginEnd="@dimen/spacing_xl"
+            android:layout_marginBottom="@dimen/spacing_m"
+            android:background="@drawable/bg_header_search_rounded"
+            android:visibility="gone"
+            android:paddingVertical="@dimen/spacing_xs"
+            app:layout_constraintBottom_toBottomOf="@+id/cl_header"
+            app:layout_constraintEnd_toEndOf="@+id/cl_header"
+            app:layout_constraintStart_toStartOf="@+id/cl_header"
+            app:layout_constraintTop_toBottomOf="@id/txt_header_label">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_header_search_edit_text"
-                android:background="@drawable/bg_header_search_rounded"
-                android:layout_width="match_parent"
+            <ImageButton
+                android:id="@+id/img_btn_search"
+                android:layout_width="@dimen/spacing_l"
+                android:layout_height="@dimen/spacing_l"
+                android:layout_marginStart="@dimen/spacing_s"
+                android:layout_marginEnd="@dimen/spacing_xs"
+                android:background="@color/transparent"
+                android:src="@drawable/ics_o_search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/txt_search_autocomplete"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.lionparcel.commonandroid.form.LPAutoCompleteTextView
+                android:id="@+id/txt_search_autocomplete"
+                style="@style/HeaderSearchAutoCompleteTextView"
+                android:layout_width="@dimen/spacing_none"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/spacing_xl"
-                android:layout_marginBottom="@dimen/spacing_m"
-                app:layout_constraintStart_toStartOf="@+id/cl_header_search"
-                app:layout_constraintEnd_toEndOf="@+id/cl_header_search"
-                app:layout_constraintTop_toTopOf="@id/cl_header_search"
-                app:layout_constraintBottom_toBottomOf="@+id/cl_header_search">
-
-                <ImageButton
-                    android:id="@+id/img_btn_search"
-                    android:layout_width="@dimen/spacing_l"
-                    android:layout_height="@dimen/spacing_l"
-                    android:layout_marginStart="@dimen/spacing_s"
-                    android:layout_marginVertical="@dimen/spacing_xs"
-                    android:layout_marginEnd="@dimen/spacing_xs"
-                    android:background="@color/transparent"
-                    android:src="@drawable/ics_o_search"
-                    app:layout_constraintTop_toTopOf="@+id/cl_header_search_edit_text"
-                    app:layout_constraintBottom_toBottomOf="@id/cl_header_search_edit_text"
-                    app:layout_constraintStart_toStartOf="@+id/cl_header_search_edit_text"
-                    app:layout_constraintEnd_toStartOf="@+id/txt_search_autocomplete" />
-
-                <com.lionparcel.commonandroid.form.LPAutoCompleteTextView
-                    style="@style/HeaderSearchAutoCompleteTextView"
-                    android:id="@+id/txt_search_autocomplete"
-                    android:layout_width="@dimen/spacing_none"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/spacing_xs"
-                    android:layout_marginEnd="@dimen/spacing_s"
-                    app:layout_constraintStart_toEndOf="@id/img_btn_search"
-                    app:layout_constraintTop_toTopOf="@+id/cl_header_search_edit_text"
-                    app:layout_constraintBottom_toBottomOf="@+id/cl_header_search_edit_text"
-                    app:layout_constraintEnd_toEndOf="@+id/cl_header_search_edit_text"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_marginEnd="@dimen/spacing_s"
+                tools:hint="Search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/img_btn_search"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
