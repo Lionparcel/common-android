@@ -17,46 +17,46 @@ class PopupComponentSampleActivity : AppCompatActivity() {
             showCustomPopup(
                 supportFragmentManager,
                 "LP TEXT ONLY",
-                LPPopupDialogFragment.lpPopupTextOnly(
-                    "Title Insert Here",
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+                LPPopupDialogFragment.newPopupDialog(
+                    title = "Title Insert Here",
+                    content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
                 )
             )
         }
         findViewById<Button>(R.id.btnTextIllustration).setOnClickListener {
             showCustomPopup(
                 supportFragmentManager,
-                "LP TEXT ONLY",
-                LPPopupDialogFragment.lpPopupTextIllustration(
-                    "Title Insert Here",
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-                    R.drawable.ill_badge_success
+                "LP TEXT ILLUSTRATION",
+                LPPopupDialogFragment.newPopupDialog(
+                    title = "Title Insert Here",
+                    content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                    image = R.drawable.ill_badge_success
                 )
             )
         }
         findViewById<Button>(R.id.btnTextButton).setOnClickListener {
             showCustomPopup(
                 supportFragmentManager,
-                "LP TEXT ONLY",
-                LPPopupDialogFragment.lpPopupTextButton(
-                    "Title Insert Here",
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-                    "Lion Parcel",
-                    "Lion Parcel",
-                    {startActivity(Intent(this, MainActivity::class.java))}
+                "LP TEXT BUTTON",
+                LPPopupDialogFragment.newPopupDialog(
+                    title = "Title Insert Here",
+                    content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                    primaryButtonText = "Lion Parcel",
+                    secondaryButtonText = "Lion Parcel",
+                    primaryButtonListener = {startActivity(Intent(this, MainActivity::class.java))}
                 )
             )
         }
         findViewById<Button>(R.id.btntextButtonIllustration).setOnClickListener {
             showCustomPopup(
                 supportFragmentManager,
-                "LP TEXT ONLY",
-                LPPopupDialogFragment.lpPopupTextButtonIllustration(
-                    "Title Insert Here",
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-                    R.drawable.ill_badge_failed,
-                    "Primary Button",
-                    "Secondary Button"
+                "LP TEXT BUTTON ILLUSTRATION",
+                LPPopupDialogFragment.newPopupDialog(
+                    title = "Title Insert Here",
+                    content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                    image = R.drawable.ill_badge_failed,
+                    primaryButtonText = "Primary Button",
+                    secondaryButtonText = "Secondary Button"
                 )
             )
         }
