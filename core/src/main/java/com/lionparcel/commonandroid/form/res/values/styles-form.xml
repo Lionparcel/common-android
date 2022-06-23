@@ -126,7 +126,7 @@
         <!--        text appearance for input and hint label in both state -->
         <item name="android:textAppearance">@style/Subtitle2Regular</item>
         <item name="android:textColor">@drawable/edit_text_color_selector</item>
-        <item name="android:drawablePadding">@dimen/spacing_s</item>
+        <item name="android:drawablePadding">@dimen/spacing_xs</item>
         <item name="android:background">@color/transparent</item>
         <item name="android:singleLine">true</item>
         <!--        blinking cursor -->

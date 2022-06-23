@@ -7,9 +7,11 @@ import android.os.Build
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
+import android.view.KeyEvent
 import android.view.LayoutInflater
+import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.ImageButton
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
@@ -17,26 +19,40 @@ import androidx.core.view.isVisible
 import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.form.LPAutoCompleteTextView
 
-class LPHeaderCA : LinearLayout {
+class LPHeaderCA : ConstraintLayout {
 
-    private val llHeaderParent: LinearLayout
+    private var textLabel: String
+    private var enableBackButton: Boolean
+    private var backButtonImage: Int
+    private var showFirstIcon: Boolean
+    private var firstIconImage: Int
+    private var showSecondButton: Boolean
+    private var secondIconImage: Int
+    private var addElevation: Boolean
+    private var enableSearch: Boolean
+    private var searchHint: String
+    private var imageSearch: Int
+    private var enableTextLabel: Boolean
+    private var enableTextButton: Boolean
+    private var textButtonText: String
+    private var enableScanImage: Boolean
+    private var imgScanImage: Int
+    private var enableAssistiveText: Boolean
+    private var assistiveText: String
+    private var enableErrorText: Boolean
+    private var errorText: String
+
     private val clHeader: ConstraintLayout
     private val imgBtnBackHeader: ImageButton
     private val txtHeaderLabel: TextView
     private val imgBtnIcon1: ImageButton
     private val imgBtnIcon2: ImageButton
     private val clHeaderSearchEditText: ConstraintLayout
-    private val imgBtnSearch: ImageButton
     private val txtSearchAutoComplete: LPAutoCompleteTextView
-
-    private var textLabel: String
-    private var enableBackButton: Boolean
-    private var showFirstIcon: Boolean
-    private var showSecondButton: Boolean
-    private var addElevation: Boolean
-    private var enableSearch: Boolean
-    private var searchHint: String
-    private var enableTextLabel: Boolean
+    private val txtButtonHeader: TextView
+    private val imgBtnScanHeader: ImageButton
+    private val txtAssistiveHeader: TextView
+    private val txtErrorHeader: TextView
 
     private fun String?.setString() = this ?: ""
 
@@ -59,51 +75,103 @@ class LPHeaderCA : LinearLayout {
             try {
                 textLabel = getString(R.styleable.LPHeaderCA_headerLabel).setString()
                 enableBackButton = getBoolean(R.styleable.LPHeaderCA_showBackButton, false)
+                backButtonImage =
+                    getInt(R.styleable.LPHeaderCA_backButtonImage, R.drawable.ic_o_arrow_left_alt)
                 showFirstIcon = getBoolean(R.styleable.LPHeaderCA_showFirstIconButton, false)
+                firstIconImage =
+                    getInt(R.styleable.LPHeaderCA_firstIconImage, R.drawable.ics_o_info_circle)
                 showSecondButton = getBoolean(R.styleable.LPHeaderCA_showSecondIconButton, false)
+                secondIconImage =
+                    getInt(R.styleable.LPHeaderCA_secondIconImage, R.drawable.ics_o_info_circle)
                 addElevation = getBoolean(R.styleable.LPHeaderCA_addElevation, false)
                 enableSearch = getBoolean(R.styleable.LPHeaderCA_enableSearchView, false)
                 searchHint = getString(R.styleable.LPHeaderCA_searchHint).setString()
+                imageSearch = getInt(R.styleable.LPHeaderCA_searchImage, R.drawable.ics_o_search)
                 enableTextLabel = getBoolean(R.styleable.LPHeaderCA_enableTextLabel, true)
+                enableTextButton = getBoolean(R.styleable.LPHeaderCA_enableTextButton, false)
+                textButtonText = getString(R.styleable.LPHeaderCA_txtButtonText).setString()
+                enableScanImage = getBoolean(R.styleable.LPHeaderCA_enableScanImage, false)
+                imgScanImage = getInt(R.styleable.LPHeaderCA_imageScan, R.drawable.ics_o_scan)
+                enableAssistiveText = getBoolean(R.styleable.LPHeaderCA_enableAssistiveText, false)
+                assistiveText = getString(R.styleable.LPHeaderCA_assistiveText).setString()
+                enableErrorText = getBoolean(R.styleable.LPHeaderCA_enableErrorText, false)
+                errorText = getString(R.styleable.LPHeaderCA_errorTextHeader).setString()
 
             } finally {
                 recycle()
             }
         }
 
-        llHeaderParent = findViewById(R.id.ll_header_parent)
         clHeader = findViewById(R.id.cl_header)
         imgBtnBackHeader = findViewById(R.id.img_btn_back_header)
         txtHeaderLabel = findViewById(R.id.txt_header_label)
         imgBtnIcon1 = findViewById(R.id.img_btn_info_1)
         imgBtnIcon2 = findViewById(R.id.img_btn_info_2)
         clHeaderSearchEditText = findViewById(R.id.cl_header_search_edit_text)
-        imgBtnSearch = findViewById(R.id.img_btn_search)
         txtSearchAutoComplete = findViewById(R.id.txt_search_autocomplete)
+        txtButtonHeader = findViewById(R.id.txt_btn_header)
+        imgBtnScanHeader = findViewById(R.id.img_btn_scan_header)
+        txtAssistiveHeader = findViewById(R.id.txt_assistive_header)
+        txtErrorHeader = findViewById(R.id.txt_error_header)
 
         // set label text
-        setHeaderLabel(textLabel)
+        setHeaderLabel()
         // show back button
-        showBackButton(enableBackButton, enableTextLabel)
+        setBackButton()
         // show icon
-        showIconButton(showFirstIcon, showSecondButton)
+        setIconButton()
         // add shadow
-        addElevation(addElevation)
+        addElevation()
 
         txtSearchAutoComplete.handleOnClearIconClick()
-        enableSearchView(enableSearch)
-        setSearchHint(searchHint)
+//        txtSearchAutoComplete.handleOnSearchIconClick()
+        enableSearchView()
+        setSearchHint()
         // enable or disable text label
-        enableTextLabel(enableTextLabel, enableBackButton, showFirstIcon, showSecondButton)
+        enableTextLabel()
+        // set text button label
+        setTextButton()
+        // set image scan
+        setImageScan()
+        // set assistive text
+        setAssistiveText()
+        //set error text
+        setErrorText()
+
     }
 
-    fun setHeaderLabel(textLabel: String) {
-        txtHeaderLabel.text = textLabel
+    fun getTextFromSearch() : String {
+        return txtSearchAutoComplete.text.toString()
     }
 
-    fun showBackButton(isEnable: Boolean, isEnableTextLabel: Boolean) {
-        imgBtnBackHeader.isVisible = isEnable
-        if (isEnable && isEnableTextLabel) {
+    fun searchTextFromKeyboard(searchListener : ((View) -> Unit)? = null){
+        txtSearchAutoComplete.setOnEditorActionListener(object : TextView.OnEditorActionListener {
+            override fun onEditorAction(
+                view: TextView,
+                actiodId: Int,
+                keyEvent: KeyEvent?
+            ): Boolean {
+                if (actiodId == EditorInfo.IME_ACTION_SEARCH) {
+                    searchListener?.invoke(view)
+                    return true
+                }
+                return false
+            }
+        })
+    }
+
+    fun setHeaderLabel(textLabel: String? = null) {
+        txtHeaderLabel.text = textLabel ?: this.textLabel
+    }
+
+    fun setBackButton(
+        enableBackButton: Boolean? = null,
+        enableTextLabel: Boolean? = null,
+        backButtonImage: Int? = null
+    ) {
+        imgBtnBackHeader.isVisible = enableBackButton ?: this.enableBackButton
+        imgBtnBackHeader.setImageResource(backButtonImage ?: this.backButtonImage)
+        if (enableBackButton ?: this.enableBackButton && enableTextLabel ?: this.enableTextLabel) {
             val set = ConstraintSet()
             set.clone(clHeader)
             set.connect(
@@ -121,19 +189,34 @@ class LPHeaderCA : LinearLayout {
         }
     }
 
-    fun showIconButton(firstButton: Boolean, secondButton: Boolean = false) {
-        if (firstButton) {
-            imgBtnIcon1.isVisible = firstButton
+    fun setIconButton(
+        showFirstIcon: Boolean? = null,
+        showSecondIcon: Boolean? = null,
+        firsIconImage: Int? = null,
+        secondIconImage: Int? = null,
+        firstIconListener: ((View) -> Unit)? = null,
+        secondIconListener: ((View) -> Unit)? = null
+    ) {
+        if (showFirstIcon ?: this.showFirstIcon) {
+            imgBtnIcon1.isVisible = showFirstIcon ?: this.showFirstIcon
+            imgBtnIcon1.setImageResource(firsIconImage ?: this.firstIconImage)
+            imgBtnIcon1.setOnClickListener {
+                firstIconListener?.invoke(it)
+            }
         }
-        if (secondButton && firstButton) {
-            imgBtnIcon2.isVisible = secondButton
+        if (showSecondIcon ?: this.showSecondButton && showFirstIcon ?: this.showFirstIcon) {
+            imgBtnIcon2.isVisible = showSecondIcon ?: this.showSecondButton
+            imgBtnIcon2.setImageResource(secondIconImage ?: this.secondIconImage)
+            imgBtnIcon2.setOnClickListener {
+                secondIconListener?.invoke(it)
+            }
         }
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    fun addElevation(addElevation: Boolean) {
-        if (addElevation) {
-            llHeaderParent.setPadding(1, 1, 1, 1)
+    fun addElevation(addElevation: Boolean? = null) {
+        if (addElevation ?: this.addElevation) {
+            clHeader.setPadding(1, 1, 1, 1)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 clHeader.elevation = 4F
             }
@@ -141,9 +224,9 @@ class LPHeaderCA : LinearLayout {
         }
     }
 
-    fun enableSearchView(isEnable: Boolean) {
-        clHeaderSearchEditText.isVisible = isEnable
-        if (isEnable) {
+    fun enableSearchView(enableSearch: Boolean? = null, searchImage: Int? = null) {
+        clHeaderSearchEditText.isVisible = enableSearch ?: this.enableSearch
+        if (enableSearch ?: this.enableSearch) {
             val set = ConstraintSet()
             set.clone(clHeader)
             set.connect(
@@ -172,251 +255,335 @@ class LPHeaderCA : LinearLayout {
             )
             set.applyTo(clHeader)
         }
-        invalidate()
-        requestLayout()
+        txtSearchAutoComplete.setClearIcon(
+            searchImage ?: this@LPHeaderCA.imageSearch,
+            enableSearch ?: this@LPHeaderCA.enableSearch
+        )
         txtSearchAutoComplete.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                txtSearchAutoComplete.setClearIcon(isEnabled = isEnable)
+                txtSearchAutoComplete.setClearIcon(
+                    startDrawable = searchImage ?: this@LPHeaderCA.imageSearch,
+                    isEnabled = enableSearch ?: this@LPHeaderCA.enableSearch
+                )
             }
 
             override fun afterTextChanged(p0: Editable?) {
             }
-
         })
     }
 
+    fun setSearchHint(hint: String? = null) {
+        txtSearchAutoComplete.hint = hint ?: this.searchHint
+    }
+
     fun enableTextLabel(
-        isEnable: Boolean,
-        isEnableBackButton: Boolean,
-        isEnableIcon1: Boolean,
-        isEnableIcon2: Boolean
+        enableTextLabel: Boolean? = null,
+        enableBackButton: Boolean? = null,
+        enableIcon1: Boolean? = null,
+        enableIcon2: Boolean? = null
     ) {
-        if (!isEnable && !isEnableBackButton && !isEnableIcon1 && !isEnableIcon2) {
+        if (!(enableTextLabel ?: this.enableTextLabel)) {
             clHeaderSearchEditText.isVisible = true
             txtHeaderLabel.isVisible = false
-            val set = ConstraintSet()
-            set.clear(R.id.cl_header_search_edit_text)
-            set.clone(clHeader)
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.TOP,
-                R.id.cl_header,
-                ConstraintSet.TOP,
-                8
-            )
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.BOTTOM,
-                R.id.cl_header,
-                ConstraintSet.BOTTOM,
-                8
-            )
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.START,
-                R.id.cl_header,
-                ConstraintSet.START
-            )
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.END,
-                R.id.cl_header,
-                ConstraintSet.END
-            )
-            set.applyTo(clHeader)
-        }
-        if (!isEnable && isEnableBackButton && !isEnableIcon1 && !isEnableIcon2) {
-            clHeaderSearchEditText.isVisible = true
-            txtHeaderLabel.isVisible = false
-            val set = ConstraintSet()
-            set.clear(R.id.cl_header_search_edit_text)
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.TOP,
-                R.id.cl_header,
-                ConstraintSet.TOP,
-                8
-            )
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.BOTTOM,
-                R.id.cl_header,
-                ConstraintSet.BOTTOM,
-                8
-            )
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.START,
-                R.id.img_btn_back_header,
-                ConstraintSet.END,
-                16
-            )
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.END,
-                R.id.cl_header,
-                ConstraintSet.END,
-                68
-            )
-            set.constrainHeight(R.id.cl_header_search_edit_text, ConstraintSet.WRAP_CONTENT)
-            set.constrainWidth(R.id.cl_header_search_edit_text, ConstraintSet.PARENT_ID)
-            set.applyTo(clHeader)
-        }
-        if (!isEnable && !isEnableBackButton && isEnableIcon1 && !isEnableIcon2) {
-            clHeaderSearchEditText.isVisible = true
-            txtHeaderLabel.isVisible = false
-            val set = ConstraintSet()
-            set.clear(R.id.cl_header_search_edit_text)
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.TOP,
-                R.id.cl_header,
-                ConstraintSet.TOP,
-                8
-            )
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.BOTTOM,
-                R.id.cl_header,
-                ConstraintSet.BOTTOM,
-                8
-            )
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.START,
-                R.id.cl_header,
-                ConstraintSet.START,
-                24
-            )
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.END,
-                R.id.img_btn_info_1,
-                ConstraintSet.START,
-                18
-            )
-            set.constrainHeight(R.id.cl_header_search_edit_text, ConstraintSet.WRAP_CONTENT)
-            set.constrainWidth(R.id.cl_header_search_edit_text, ConstraintSet.PARENT_ID)
-            set.applyTo(clHeader)
-        }
-        if (!isEnable && isEnableBackButton && isEnableIcon1 && !isEnableIcon2) {
-            clHeaderSearchEditText.isVisible = true
-            txtHeaderLabel.isVisible = false
-            val set = ConstraintSet()
-            set.clear(R.id.cl_header_search_edit_text)
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.TOP,
-                R.id.cl_header,
-                ConstraintSet.TOP,
-                8
-            )
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.BOTTOM,
-                R.id.cl_header,
-                ConstraintSet.BOTTOM,
-                8
-            )
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.START,
-                R.id.img_btn_back_header,
-                ConstraintSet.END,
-                16
-            )
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.END,
-                R.id.img_btn_info_1,
-                ConstraintSet.START,
-                18
-            )
-            set.constrainHeight(R.id.cl_header_search_edit_text, ConstraintSet.WRAP_CONTENT)
-            set.constrainWidth(R.id.cl_header_search_edit_text, ConstraintSet.PARENT_ID)
-            set.applyTo(clHeader)
-        }
-        if (!isEnable && !isEnableBackButton && isEnableIcon1 && isEnableIcon2) {
-            clHeaderSearchEditText.isVisible = true
-            txtHeaderLabel.isVisible = false
-            val set = ConstraintSet()
-            set.clear(R.id.cl_header_search_edit_text)
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.TOP,
-                R.id.cl_header,
-                ConstraintSet.TOP,
-                8
-            )
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.BOTTOM,
-                R.id.cl_header,
-                ConstraintSet.BOTTOM,
-                8
-            )
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.START,
-                R.id.cl_header,
-                ConstraintSet.START,
-                24
-            )
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.END,
-                R.id.img_btn_info_2,
-                ConstraintSet.START,
-                18
-            )
-            set.constrainHeight(R.id.cl_header_search_edit_text, ConstraintSet.WRAP_CONTENT)
-            set.constrainWidth(R.id.cl_header_search_edit_text, ConstraintSet.PARENT_ID)
-            set.applyTo(clHeader)
-        }
-        if (!isEnable && isEnableBackButton && isEnableIcon1 && isEnableIcon2) {
-            clHeaderSearchEditText.isVisible = true
-            txtHeaderLabel.isVisible = false
-            val set = ConstraintSet()
-            set.clear(R.id.cl_header_search_edit_text)
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.TOP,
-                R.id.cl_header,
-                ConstraintSet.TOP,
-                8
-            )
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.BOTTOM,
-                R.id.cl_header,
-                ConstraintSet.BOTTOM,
-                8
-            )
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.START,
-                R.id.img_btn_back_header,
-                ConstraintSet.END,
-                16
-            )
-            set.connect(
-                R.id.cl_header_search_edit_text,
-                ConstraintSet.END,
-                R.id.img_btn_info_2,
-                ConstraintSet.START,
-                18
-            )
-            set.constrainHeight(R.id.cl_header_search_edit_text, ConstraintSet.WRAP_CONTENT)
-            set.constrainWidth(R.id.cl_header_search_edit_text, ConstraintSet.PARENT_ID)
-            set.applyTo(clHeader)
+            if (!(enableTextLabel ?: this.enableTextLabel) && !(enableBackButton
+                    ?: this.enableBackButton) && !(enableIcon1
+                    ?: this.showFirstIcon) && !(enableIcon2 ?: this.showSecondButton)
+            ) {
+                val set = ConstraintSet()
+                set.clear(R.id.cl_header_search_edit_text)
+                set.clone(clHeader)
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.TOP,
+                    R.id.cl_header,
+                    ConstraintSet.TOP,
+                    8
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.BOTTOM,
+                    R.id.cl_header,
+                    ConstraintSet.BOTTOM,
+                    8
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.START,
+                    R.id.cl_header,
+                    ConstraintSet.START
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.END,
+                    R.id.cl_header,
+                    ConstraintSet.END
+                )
+                set.applyTo(clHeader)
+            }
+            if (!(enableTextLabel
+                    ?: this.enableTextLabel) && enableBackButton ?: this.enableBackButton && !(enableIcon1
+                    ?: this.showFirstIcon) && !(enableIcon2 ?: this.showSecondButton)
+            ) {
+                val set = ConstraintSet()
+                set.clone(clHeader)
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.TOP,
+                    R.id.cl_header,
+                    ConstraintSet.TOP,
+                    8
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.BOTTOM,
+                    R.id.cl_header,
+                    ConstraintSet.BOTTOM,
+                    8
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.START,
+                    R.id.img_btn_back_header,
+                    ConstraintSet.END,
+                    16
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.END,
+                    R.id.cl_header,
+                    ConstraintSet.END
+                )
+                set.constrainWidth(R.id.cl_header_search_edit_text, ConstraintSet.PARENT_ID)
+                set.applyTo(clHeader)
+            }
+            if (!(enableTextLabel ?: this.enableTextLabel) && !(enableBackButton
+                    ?: this.enableBackButton) && enableIcon1 ?: this.showFirstIcon && !(enableIcon2
+                    ?: this.showSecondButton)
+            ) {
+                val set = ConstraintSet()
+                set.clone(clHeader)
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.TOP,
+                    R.id.cl_header,
+                    ConstraintSet.TOP,
+                    8
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.BOTTOM,
+                    R.id.cl_header,
+                    ConstraintSet.BOTTOM,
+                    8
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.START,
+                    R.id.cl_header,
+                    ConstraintSet.START
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.END,
+                    R.id.img_btn_info_1,
+                    ConstraintSet.START,
+                    18
+                )
+                set.constrainWidth(R.id.cl_header_search_edit_text, ConstraintSet.PARENT_ID)
+                set.applyTo(clHeader)
+            }
+            if (!(enableTextLabel
+                    ?: this.enableTextLabel) && enableBackButton ?: this.enableBackButton && enableIcon1 ?: this.showFirstIcon && !(enableIcon2
+                    ?: this.showSecondButton)
+            ) {
+                val set = ConstraintSet()
+                set.clone(clHeader)
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.TOP,
+                    R.id.cl_header,
+                    ConstraintSet.TOP,
+                    8
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.BOTTOM,
+                    R.id.cl_header,
+                    ConstraintSet.BOTTOM,
+                    8
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.START,
+                    R.id.img_btn_back_header,
+                    ConstraintSet.END,
+                    16
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.END,
+                    R.id.img_btn_info_1,
+                    ConstraintSet.START,
+                    18
+                )
+                set.constrainWidth(R.id.cl_header_search_edit_text, ConstraintSet.PARENT_ID)
+                set.applyTo(clHeader)
+            }
+            if (!(enableTextLabel ?: this.enableTextLabel) && !(enableBackButton
+                    ?: this.enableBackButton) && enableIcon1 ?: this.showFirstIcon && enableIcon2 ?: this.showSecondButton
+            ) {
+                val set = ConstraintSet()
+                set.clone(clHeader)
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.TOP,
+                    R.id.cl_header,
+                    ConstraintSet.TOP,
+                    8
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.BOTTOM,
+                    R.id.cl_header,
+                    ConstraintSet.BOTTOM,
+                    8
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.START,
+                    R.id.cl_header,
+                    ConstraintSet.START
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.END,
+                    R.id.img_btn_info_2,
+                    ConstraintSet.START,
+                    18
+                )
+                set.constrainWidth(R.id.cl_header_search_edit_text, ConstraintSet.PARENT_ID)
+                set.applyTo(clHeader)
+            }
+            if (!(enableTextLabel
+                    ?: this.enableTextLabel) && enableBackButton ?: this.enableBackButton && enableIcon1 ?: this.showFirstIcon && enableIcon2 ?: this.showSecondButton
+            ) {
+                val set = ConstraintSet()
+                set.clone(clHeader)
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.TOP,
+                    R.id.cl_header,
+                    ConstraintSet.TOP,
+                    8
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.BOTTOM,
+                    R.id.cl_header,
+                    ConstraintSet.BOTTOM,
+                    8
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.START,
+                    R.id.img_btn_back_header,
+                    ConstraintSet.END,
+                    16
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.END,
+                    R.id.img_btn_info_2,
+                    ConstraintSet.START,
+                    18
+                )
+                set.constrainWidth(R.id.cl_header_search_edit_text, ConstraintSet.PARENT_ID)
+                set.applyTo(clHeader)
+            }
+            invalidate()
+            requestLayout()
+            txtSearchAutoComplete.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                }
+
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    txtSearchAutoComplete.setClearIcon(
+                        startDrawable = this@LPHeaderCA.imageSearch,
+                        isEnabled = !(enableTextLabel ?: this@LPHeaderCA.enableTextLabel)
+                    )
+                }
+
+                override fun afterTextChanged(p0: Editable?) {
+                }
+            })
         }
 
     }
 
-    fun setSearchHint(hint: String) {
-        txtSearchAutoComplete.hint = hint
+    fun setTextButton(
+        enableTextBtn: Boolean? = null,
+        textBtnLabel: String? = null,
+        txtBtnListener: ((View) -> Unit)? = null
+    ) {
+        txtButtonHeader.isVisible = enableTextBtn ?: this.enableTextButton
+        txtButtonHeader.setOnClickListener {
+            txtBtnListener?.invoke(it)
+        }
+        if (enableTextBtn ?: this.enableTextButton) {
+            txtButtonHeader.text = textBtnLabel ?: this.textButtonText
+            val set = ConstraintSet()
+            set.clone(clHeader)
+            set.connect(
+                R.id.cl_header_search_edit_text,
+                ConstraintSet.END,
+                R.id.txt_btn_header,
+                ConstraintSet.START,
+                16
+            )
+            set.constrainWidth(R.id.cl_header_search_edit_text, ConstraintSet.PARENT_ID)
+            set.applyTo(clHeader)
+        }
+    }
+
+    fun setImageScan(
+        enableScanImage: Boolean? = null,
+        imageScanner: Int? = null,
+        imgScanListener: ((View) -> Unit)? = null
+    ) {
+        imgBtnScanHeader.isVisible = enableScanImage ?: this.enableScanImage
+        imgBtnScanHeader.setOnClickListener {
+            imgScanListener?.invoke(it)
+        }
+        if (enableScanImage ?: this.enableScanImage) {
+            imgBtnScanHeader.setImageResource(imageScanner ?: this.imgScanImage)
+            val set = ConstraintSet()
+            set.clone(clHeader)
+            set.connect(
+                R.id.cl_header_search_edit_text,
+                ConstraintSet.START,
+                R.id.img_btn_scan_header,
+                ConstraintSet.END,
+                16
+            )
+            set.constrainWidth(R.id.cl_header_search_edit_text, ConstraintSet.PARENT_ID)
+            set.applyTo(clHeader)
+        }
+    }
+
+    fun setAssistiveText(enableAssistiveText: Boolean? = null, assistiveText: String? = null) {
+        if (enableAssistiveText ?: this.enableAssistiveText) {
+            txtAssistiveHeader.isVisible = enableAssistiveText ?: this.enableAssistiveText
+            txtAssistiveHeader.text = assistiveText ?: this.assistiveText
+        }
+    }
+
+    fun setErrorText(enableErrorText: Boolean? = null, errorText: String? = null) {
+        if (enableErrorText ?: this.enableErrorText) {
+            txtErrorHeader.isVisible = enableErrorText ?: this.enableErrorText
+            txtErrorHeader.text = errorText ?: this.errorText
+        }
     }
 }

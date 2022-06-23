@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LPHeaderCA">
+        <attr name="headerLabel" format="string"/>
+        <attr name="showBackButton" format="boolean"/>
+        <attr name="backButtonImage" format="integer"/>
+        <attr name="showFirstIconButton" format="boolean"/>
+        <attr name="firstIconImage" format="integer"/>
+        <attr name="showSecondIconButton" format="boolean"/>
+        <attr name="secondIconImage" format="integer"/>
+        <attr name="addElevation" format="boolean"/>
+        <attr name="enableSearchView" format="boolean"/>
+        <attr name="searchHint" format="string"/>
+        <attr name="searchImage" format="integer"/>
+        <attr name="enableTextLabel" format="boolean"/>
+        <attr name="enableTextButton" format="boolean"/>
+        <attr name="txtButtonText" format="string"/>
+        <attr name="enableScanImage" format="boolean"/>
+        <attr name="imageScan" format="integer"/>
+        <attr name="enableAssistiveText" format="boolean"/>
+        <attr name="assistiveText" format="string"/>
+        <attr name="enableErrorText" format="boolean"/>
+        <attr name="errorTextHeader" format="string"/>
+    </declare-styleable>
+</resources>
