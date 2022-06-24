@@ -14,5 +14,8 @@ class HeaderSampleActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_header_ca).setOnClickListener {
             startActivity(Intent(this, HeaderCASampleActivity::class.java))
         }
+        findViewById<Button>(R.id.btn_header_da).setOnClickListener {
+            startActivity(Intent(this, HeaderDASampleActivity::class.java))
+        }
     }
 }

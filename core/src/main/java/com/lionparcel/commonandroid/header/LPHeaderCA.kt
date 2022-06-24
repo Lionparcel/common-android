@@ -3,6 +3,7 @@ package com.lionparcel.commonandroid.header
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.text.Editable
 import android.text.TextWatcher
@@ -19,24 +20,26 @@ import androidx.core.view.isVisible
 import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.form.LPAutoCompleteTextView
 
+@Suppress("DEPRECATION")
+@SuppressLint("UseCompatLoadingForDrawables")
 class LPHeaderCA : ConstraintLayout {
 
     private var textLabel: String
+    private var textLabelColor : Int
     private var enableBackButton: Boolean
-    private var backButtonImage: Int
+    private var backButtonImage: Drawable
     private var showFirstIcon: Boolean
-    private var firstIconImage: Int
+    private var firstIconImage: Drawable
     private var showSecondButton: Boolean
-    private var secondIconImage: Int
+    private var secondIconImage: Drawable
     private var addElevation: Boolean
     private var enableSearch: Boolean
     private var searchHint: String
-    private var imageSearch: Int
     private var enableTextLabel: Boolean
     private var enableTextButton: Boolean
     private var textButtonText: String
     private var enableScanImage: Boolean
-    private var imgScanImage: Int
+    private var imgScanImage: Drawable
     private var enableAssistiveText: Boolean
     private var assistiveText: String
     private var enableErrorText: Boolean
@@ -74,24 +77,24 @@ class LPHeaderCA : ConstraintLayout {
         ).apply {
             try {
                 textLabel = getString(R.styleable.LPHeaderCA_headerLabel).setString()
+                textLabelColor = getInt(R.styleable.LPHeaderCA_textLabelColor, 0)
                 enableBackButton = getBoolean(R.styleable.LPHeaderCA_showBackButton, false)
                 backButtonImage =
-                    getInt(R.styleable.LPHeaderCA_backButtonImage, R.drawable.ic_o_arrow_left_alt)
+                    getDrawable(R.styleable.LPHeaderCA_backButtonImage)?: resources.getDrawable(R.drawable.ic_o_arrow_left_alt)
                 showFirstIcon = getBoolean(R.styleable.LPHeaderCA_showFirstIconButton, false)
                 firstIconImage =
-                    getInt(R.styleable.LPHeaderCA_firstIconImage, R.drawable.ics_o_info_circle)
+                    getDrawable(R.styleable.LPHeaderCA_firstIconImage)?: resources.getDrawable(R.drawable.ics_o_info_circle)
                 showSecondButton = getBoolean(R.styleable.LPHeaderCA_showSecondIconButton, false)
                 secondIconImage =
-                    getInt(R.styleable.LPHeaderCA_secondIconImage, R.drawable.ics_o_info_circle)
+                    getDrawable(R.styleable.LPHeaderCA_secondIconImage)?: resources.getDrawable(R.drawable.ics_o_info_circle)
                 addElevation = getBoolean(R.styleable.LPHeaderCA_addElevation, false)
                 enableSearch = getBoolean(R.styleable.LPHeaderCA_enableSearchView, false)
                 searchHint = getString(R.styleable.LPHeaderCA_searchHint).setString()
-                imageSearch = getInt(R.styleable.LPHeaderCA_searchImage, R.drawable.ics_o_search)
                 enableTextLabel = getBoolean(R.styleable.LPHeaderCA_enableTextLabel, true)
                 enableTextButton = getBoolean(R.styleable.LPHeaderCA_enableTextButton, false)
                 textButtonText = getString(R.styleable.LPHeaderCA_txtButtonText).setString()
                 enableScanImage = getBoolean(R.styleable.LPHeaderCA_enableScanImage, false)
-                imgScanImage = getInt(R.styleable.LPHeaderCA_imageScan, R.drawable.ics_o_scan)
+                imgScanImage = getDrawable(R.styleable.LPHeaderCA_imageScan)?: resources.getDrawable(R.drawable.ics_o_scan)
                 enableAssistiveText = getBoolean(R.styleable.LPHeaderCA_enableAssistiveText, false)
                 assistiveText = getString(R.styleable.LPHeaderCA_assistiveText).setString()
                 enableErrorText = getBoolean(R.styleable.LPHeaderCA_enableErrorText, false)
@@ -116,6 +119,8 @@ class LPHeaderCA : ConstraintLayout {
 
         // set label text
         setHeaderLabel()
+        // set label text color
+        setHeaderTextColor()
         // show back button
         setBackButton()
         // show icon
@@ -124,7 +129,6 @@ class LPHeaderCA : ConstraintLayout {
         addElevation()
 
         txtSearchAutoComplete.handleOnClearIconClick()
-//        txtSearchAutoComplete.handleOnSearchIconClick()
         enableSearchView()
         setSearchHint()
         // enable or disable text label
@@ -139,7 +143,6 @@ class LPHeaderCA : ConstraintLayout {
         setErrorText()
 
     }
-
     fun getTextFromSearch() : String {
         return txtSearchAutoComplete.text.toString()
     }
@@ -164,13 +167,28 @@ class LPHeaderCA : ConstraintLayout {
         txtHeaderLabel.text = textLabel ?: this.textLabel
     }
 
+    fun setHeaderTextColor(textColor : Int? = null){
+        if (textColor != null){
+            txtHeaderLabel.setTextColor(textColor)
+        } else {
+            when (this.textLabelColor){
+                0 -> txtHeaderLabel.setTextColor(resources.getColor(R.color.shades5))
+                1 -> txtHeaderLabel.setTextColor(resources.getColor(R.color.white))
+            }
+        }
+    }
+
     fun setBackButton(
         enableBackButton: Boolean? = null,
         enableTextLabel: Boolean? = null,
         backButtonImage: Int? = null
     ) {
         imgBtnBackHeader.isVisible = enableBackButton ?: this.enableBackButton
-        imgBtnBackHeader.setImageResource(backButtonImage ?: this.backButtonImage)
+        if (backButtonImage != null){
+            imgBtnBackHeader.setImageResource(backButtonImage)
+        } else {
+            imgBtnBackHeader.setImageDrawable(this.backButtonImage)
+        }
         if (enableBackButton ?: this.enableBackButton && enableTextLabel ?: this.enableTextLabel) {
             val set = ConstraintSet()
             set.clone(clHeader)
@@ -192,23 +210,31 @@ class LPHeaderCA : ConstraintLayout {
     fun setIconButton(
         showFirstIcon: Boolean? = null,
         showSecondIcon: Boolean? = null,
-        firsIconImage: Int? = null,
+        firstIconImage: Int? = null,
         secondIconImage: Int? = null,
         firstIconListener: ((View) -> Unit)? = null,
         secondIconListener: ((View) -> Unit)? = null
     ) {
         if (showFirstIcon ?: this.showFirstIcon) {
             imgBtnIcon1.isVisible = showFirstIcon ?: this.showFirstIcon
-            imgBtnIcon1.setImageResource(firsIconImage ?: this.firstIconImage)
             imgBtnIcon1.setOnClickListener {
                 firstIconListener?.invoke(it)
+            }
+            if (firstIconImage != null){
+                imgBtnIcon1.setImageResource(firstIconImage)
+            } else {
+                imgBtnIcon1.setImageDrawable(this.firstIconImage)
             }
         }
         if (showSecondIcon ?: this.showSecondButton && showFirstIcon ?: this.showFirstIcon) {
             imgBtnIcon2.isVisible = showSecondIcon ?: this.showSecondButton
-            imgBtnIcon2.setImageResource(secondIconImage ?: this.secondIconImage)
             imgBtnIcon2.setOnClickListener {
                 secondIconListener?.invoke(it)
+            }
+            if (secondIconImage != null){
+                imgBtnIcon1.setImageResource(secondIconImage)
+            } else {
+                imgBtnIcon1.setImageDrawable(this.secondIconImage)
             }
         }
     }
@@ -256,7 +282,7 @@ class LPHeaderCA : ConstraintLayout {
             set.applyTo(clHeader)
         }
         txtSearchAutoComplete.setClearIcon(
-            searchImage ?: this@LPHeaderCA.imageSearch,
+            searchImage ?: R.drawable.ics_o_search,
             enableSearch ?: this@LPHeaderCA.enableSearch
         )
         txtSearchAutoComplete.addTextChangedListener(object : TextWatcher {
@@ -265,11 +291,10 @@ class LPHeaderCA : ConstraintLayout {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 txtSearchAutoComplete.setClearIcon(
-                    startDrawable = searchImage ?: this@LPHeaderCA.imageSearch,
+                    startDrawable = searchImage ?: R.drawable.ics_o_search,
                     isEnabled = enableSearch ?: this@LPHeaderCA.enableSearch
                 )
             }
-
             override fun afterTextChanged(p0: Editable?) {
             }
         })
@@ -283,7 +308,8 @@ class LPHeaderCA : ConstraintLayout {
         enableTextLabel: Boolean? = null,
         enableBackButton: Boolean? = null,
         enableIcon1: Boolean? = null,
-        enableIcon2: Boolean? = null
+        enableIcon2: Boolean? = null,
+        searchImage: Int? = null
     ) {
         if (!(enableTextLabel ?: this.enableTextLabel)) {
             clHeaderSearchEditText.isVisible = true
@@ -511,11 +537,10 @@ class LPHeaderCA : ConstraintLayout {
 
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                     txtSearchAutoComplete.setClearIcon(
-                        startDrawable = this@LPHeaderCA.imageSearch,
+                        startDrawable = searchImage?: R.drawable.ics_o_search,
                         isEnabled = !(enableTextLabel ?: this@LPHeaderCA.enableTextLabel)
                     )
                 }
-
                 override fun afterTextChanged(p0: Editable?) {
                 }
             })
@@ -558,7 +583,11 @@ class LPHeaderCA : ConstraintLayout {
             imgScanListener?.invoke(it)
         }
         if (enableScanImage ?: this.enableScanImage) {
-            imgBtnScanHeader.setImageResource(imageScanner ?: this.imgScanImage)
+            if (imageScanner != null){
+                imgBtnScanHeader.setImageResource(imageScanner)
+            } else {
+                imgBtnScanHeader.setImageDrawable(this.imgScanImage)
+            }
             val set = ConstraintSet()
             set.clone(clHeader)
             set.connect(

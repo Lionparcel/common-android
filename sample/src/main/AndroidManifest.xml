@@ -10,8 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
         <activity
+            android:name=".header.HeaderDASampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".header.HeaderCASampleActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".header.HeaderSampleActivity"
             android:exported="false" />

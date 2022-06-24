@@ -14,7 +14,7 @@ class HeaderCASampleActivity : AppCompatActivity() {
         setContentView(R.layout.activity_header_casample)
 
         findViewById<LPHeaderCA>(R.id.header_txt_btn_1).setIconButton(
-            firsIconImage = R.drawable.ics_o_profile,
+            firstIconImage = R.drawable.ics_o_profile,
             secondIconImage = R.drawable.ic_ics_o_close
         )
         findViewById<LPHeaderCA>(R.id.header_txt_btn_1).setTextButton(
