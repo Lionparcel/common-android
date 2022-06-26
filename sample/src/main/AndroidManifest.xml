@@ -17,7 +17,7 @@
             android:exported="true" />
         <activity
             android:name=".header.HeaderSampleActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".form.TextAreaSampleActivity"
             android:exported="true" />
