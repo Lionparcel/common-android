@@ -20,6 +20,7 @@ import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.isVisible
 import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.form.LPAutoCompleteTextView
+import com.lionparcel.commonandroid.form.utils.AutoCompleteArrayAdapter
 
 @Suppress("DEPRECATION")
 @SuppressLint("UseCompatLoadingForDrawables")
@@ -161,6 +162,12 @@ class LPHeaderDA : ConstraintLayout {
                 return false
             }
         })
+    }
+
+    fun <T> searchArrayText(arrayList : ArrayList<T>) {
+        val arrayAdapter = AutoCompleteArrayAdapter(context, arrayList)
+        txtSearchAutoComplete.threshold = 0
+        txtSearchAutoComplete.setAdapter(arrayAdapter)
     }
 
     fun setHeaderLabel(textLabel: String? = null) {

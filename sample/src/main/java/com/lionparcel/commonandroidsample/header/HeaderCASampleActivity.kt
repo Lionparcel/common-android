@@ -23,5 +23,6 @@ class HeaderCASampleActivity : AppCompatActivity() {
         findViewById<LPHeaderCA>(R.id.header_txt_btn_1).searchTextFromKeyboard(
             searchListener = {findViewById<TextView>(R.id.txt_header_string1).text = findViewById<LPHeaderCA>(R.id.header_txt_btn_1).getTextFromSearch()}
         )
+        findViewById<LPHeaderCA>(R.id.header_txt_btn_1).searchArrayText(arrayListOf("January", "February", "March", "April", "May", "June"))
     }
 }
