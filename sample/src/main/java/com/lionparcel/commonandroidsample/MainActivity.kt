@@ -6,6 +6,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.lionparcel.commonandroidsample.button.ButtonSampleActivity
 import com.lionparcel.commonandroidsample.form.FormComponentSampleActivity
+import com.lionparcel.commonandroidsample.label.LabelSampleActivity
 import com.lionparcel.commonandroidsample.loading.LoadingComponentSampleActivity
 import com.lionparcel.commonandroidsample.modal.ModalComponentSampleActivity
 import com.lionparcel.commonandroidsample.popup.PopupComponentSampleActivity
@@ -41,6 +42,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.button_to_popupSampleActivity).setOnClickListener {
             startActivity(Intent(this, PopupComponentSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_labelSampleActivity).setOnClickListener {
+            startActivity(Intent(this, LabelSampleActivity::class.java))
         }
     }
 }

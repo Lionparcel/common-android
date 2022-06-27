@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LPLabel">
+        <attr name="textTitle" format="string"/>
+        <attr name="labelColor">
+            <enum name="onePack" value="0"/>
+            <enum name="regPack" value="1"/>
+            <enum name="jagoPack" value="2"/>
+            <enum name="docuPack" value="3"/>
+            <enum name="sameDay" value="4"/>
+            <enum name="deliveryOrder" value="5"/>
+            <enum name="bundle" value="6"/>
+            <enum name="bigPack" value="7"/>
+            <enum name="inactive" value="8"/>
+        </attr>
+        <attr name="labelBackgroundStyle">
+            <enum name="fill" value="0"/>
+            <enum name="outline" value="1"/>
+        </attr>
+        <attr name="enableImage" format="boolean"/>
+        <attr name="imageIcon" format="reference"/>
+        <attr name="labelSize">
+            <enum name="largeSize" value="0"/>
+            <enum name="mediumSize" value="1"/>
+            <enum name="smallSize" value="2"/>
+            <enum name="shortSize" value="3"/>
+        </attr>
+    </declare-styleable>
+</resources>

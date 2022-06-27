@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="aqua1">#EAFCFF</color>
+    <color name="aqua5">#51B6D5</color>
     <color name="black20">#33000000</color>
     <color name="black50">#80000000</color>
     <color name="black70">#B3000000</color>
@@ -7,6 +9,7 @@
     <color name="blue3">#5E9AF8</color>
     <color name="blue4">#4185F7</color>
     <color name="blue5">#2468F6</color>
+    <color name="brown6">#786453</color>
     <color name="green1">#E3FCEF</color>
     <color name="green4">#7ACB90</color>
     <color name="green5">#36B37E</color>
@@ -34,6 +37,7 @@
     <color name="purple5">#6257BA</color>
     <color name="red2">#FEADAD</color>
     <color name="red3">#FF7474</color>
+    <color name="sawo1">#F7E4D2</color>
     <color name="shades1">#EBECF0</color>
     <color name="shades2">#D4D5D8</color>
     <color name="shades3">#A7A8AA</color>
