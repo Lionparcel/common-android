@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Commonandroid">
         <activity
             android:name=".label.LabelSampleActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".popup.PopupComponentSampleActivity"
             android:exported="true" />

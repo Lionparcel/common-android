@@ -16,6 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_medium"
+        android:gravity="center_vertical"
         tools:text="Label Text"
         tools:visibility="visible"
         tools:textAppearance="@style/Subtitle2Medium"

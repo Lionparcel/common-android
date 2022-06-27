@@ -179,27 +179,34 @@ class LPLabel : LinearLayout {
             0 -> {
                 txtLabel.textSize = 14F
                 llLabelParent.setPadding((20 * scale + 0.5F).toInt(), 1, (20 * scale + 0.5F).toInt(), 1)
+                txtLabel.layoutParams.height = (23 * scale + 0.5F).toInt()
                 imgIconLabel.layoutParams.height = (16 * scale + 0.5F).toInt()
                 imgIconLabel.layoutParams.width = (16 * scale + 0.5F).toInt()
-                imgIconLabel.requestLayout()
+                requestLayout()
             }
             1 -> {
                 txtLabel.textSize = 12F
                 llLabelParent.setPadding((16 * scale + 0.5F).toInt(), 1, (16 * scale + 0.5F).toInt(), 1)
+                txtLabel.layoutParams.height = (20 * scale + 0.5F).toInt()
                 imgIconLabel.layoutParams.height = (12 * scale + 0.5F).toInt()
                 imgIconLabel.layoutParams.width = (12 * scale + 0.5F).toInt()
+                requestLayout()
             }
             2 -> {
                 txtLabel.textSize = 10F
                 llLabelParent.setPadding((12 * scale + 0.5F).toInt(), 1, (12 * scale + 0.5F).toInt(), 1)
+                txtLabel.layoutParams.height = (17 * scale + 0.5F).toInt()
                 imgIconLabel.layoutParams.height = (12 * scale + 0.5F).toInt()
                 imgIconLabel.layoutParams.width = (12 * scale + 0.5F).toInt()
+                requestLayout()
             }
             3 -> {
                 txtLabel.textSize = 10F
                 llLabelParent.setPadding((4 * scale + 0.5F).toInt(), 1, (4 * scale + 0.5F).toInt(), 1)
+                txtLabel.layoutParams.height = (20 * scale + 0.5F).toInt()
                 imgIconLabel.layoutParams.height = (12 * scale + 0.5F).toInt()
                 imgIconLabel.layoutParams.width = (12 * scale + 0.5F).toInt()
+                requestLayout()
             }
         }
     }
