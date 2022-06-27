@@ -239,19 +239,18 @@ class LPHeaderCA : ConstraintLayout {
                 secondIconListener?.invoke(it)
             }
             if (secondIconImage != null){
-                imgBtnIcon1.setImageResource(secondIconImage)
+                imgBtnIcon2.setImageResource(secondIconImage)
             } else {
-                imgBtnIcon1.setImageDrawable(this.secondIconImage)
+                imgBtnIcon2.setImageDrawable(this.secondIconImage)
             }
         }
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     fun addElevation(addElevation: Boolean? = null) {
         if (addElevation ?: this.addElevation) {
             clHeader.setPadding(1, 1, 1, 1)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                clHeader.elevation = 4F
+                clHeader.elevation = 1F
             }
             clHeader.background = resources.getDrawable(R.drawable.bg_header_background)
         }
