@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
-            android:text="Search Only"
+            android:text="Basic"
             android:textAlignment="center"
             android:textAppearance="@style/H5Bold" />
 
@@ -148,7 +148,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
-            app:enableSearchView="true"
+            app:headerStyle="with_search"
             app:headerLabel="Payment"
             app:searchHint="Search your item" />
 
@@ -156,7 +156,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
-            app:enableSearchView="true"
+            app:headerStyle="with_search"
             app:headerLabel="Medium Page Title"
             app:searchHint="Search your item"
             app:showBackButton="true" />
@@ -165,7 +165,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
-            app:enableSearchView="true"
+            app:headerStyle="with_search"
             app:headerLabel="Medium Page Title"
             app:searchHint="Search your item"
             app:showFirstIconButton="true" />
@@ -174,7 +174,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
-            app:enableSearchView="true"
+            app:headerStyle="with_search"
             app:headerLabel="Medium Page Title"
             app:searchHint="Search your item"
             app:showBackButton="true"
@@ -184,7 +184,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
-            app:enableSearchView="true"
+            app:headerStyle="with_search"
             app:headerLabel="Medium Page Title"
             app:searchHint="Search your item"
             app:showFirstIconButton="true"
@@ -194,7 +194,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
-            app:enableSearchView="true"
+            app:headerStyle="with_search"
             app:headerLabel="Medium Page Title"
             app:searchHint="Search your item"
             app:showBackButton="true"
@@ -205,7 +205,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
-            app:enableSearchView="true"
+            app:headerStyle="with_search"
             app:headerLabel="Medium Page Title"
             app:searchHint="Search your item"
             app:showBackButton="true"
@@ -217,7 +217,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
             app:addElevation="true"
-            app:enableSearchView="true"
+            app:headerStyle="with_search"
             app:headerLabel="Payment"
             app:searchHint="Search your item" />
 
@@ -226,7 +226,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
             app:addElevation="true"
-            app:enableSearchView="true"
+            app:headerStyle="with_search"
             app:headerLabel="Medium Page Title"
             app:searchHint="Search your item"
             app:showBackButton="true" />
@@ -236,7 +236,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
             app:addElevation="true"
-            app:enableSearchView="true"
+            app:headerStyle="with_search"
             app:headerLabel="Medium Page Title"
             app:searchHint="Search your item"
             app:showFirstIconButton="true" />
@@ -246,7 +246,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
             app:addElevation="true"
-            app:enableSearchView="true"
+            app:headerStyle="with_search"
             app:headerLabel="Medium Page Title"
             app:searchHint="Search your item"
             app:showBackButton="true"
@@ -257,7 +257,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
             app:addElevation="true"
-            app:enableSearchView="true"
+            app:headerStyle="with_search"
             app:headerLabel="Medium Page Title"
             app:searchHint="Search your item"
             app:showFirstIconButton="true"
@@ -268,7 +268,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
             app:addElevation="true"
-            app:enableSearchView="true"
+            app:headerStyle="with_search"
             app:headerLabel="Medium Page Title"
             app:searchHint="Search your item"
             app:showBackButton="true"
@@ -280,7 +280,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
             app:addElevation="true"
-            app:enableSearchView="true"
+            app:headerStyle="with_search"
             app:headerLabel="Medium Page Title"
             app:searchHint="Search your item"
             app:showBackButton="true"
@@ -299,14 +299,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
-            app:enableTextLabel="false"
+            app:headerStyle="search_only"
             app:searchHint="Search your item" />
 
         <com.lionparcel.commonandroid.header.LPHeaderDA
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
-            app:enableTextLabel="false"
+            app:headerStyle="search_only"
             app:searchHint="Search your item"
             app:showBackButton="true" />
 
@@ -315,7 +315,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
             app:addElevation="true"
-            app:enableTextLabel="false"
+            app:headerStyle="search_only"
             app:searchHint="Search your item" />
 
         <com.lionparcel.commonandroid.header.LPHeaderDA
@@ -323,7 +323,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
             app:addElevation="true"
-            app:enableTextLabel="false"
+            app:headerStyle="search_only"
             app:searchHint="Search your item"
             app:showBackButton="true" />
 

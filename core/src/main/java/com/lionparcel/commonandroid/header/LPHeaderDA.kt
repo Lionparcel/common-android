@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.os.Build
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
@@ -26,6 +25,12 @@ import com.lionparcel.commonandroid.form.utils.AutoCompleteArrayAdapter
 @SuppressLint("UseCompatLoadingForDrawables")
 class LPHeaderDA : ConstraintLayout {
 
+    companion object STYLE {
+        const val BASIC = 0
+        const val WITH_SEARCH = 1
+        const val SEARCH_ONLY = 2
+    }
+
     private var textLabel: String
     private var enableBackButton: Boolean
     private var backButtonImage: Drawable
@@ -37,9 +42,8 @@ class LPHeaderDA : ConstraintLayout {
     private var rightButtonIcon: Drawable
     private var rightButtonText: String
     private var addElevation: Boolean
-    private var enableSearch: Boolean
+    private var headerStyle: Int
     private var searchHint: String
-    private var enableTextLabel: Boolean
     private var enableAssistiveText: Boolean
     private var assistiveText: String
     private var enableErrorText: Boolean
@@ -79,8 +83,9 @@ class LPHeaderDA : ConstraintLayout {
                 backButtonImage =
                     getDrawable(
                         R.styleable.LPHeaderDA_backButtonImage
-                    )?: resources.getDrawable(
-                        R.drawable.ics_o_arrow_left_header)
+                    ) ?: resources.getDrawable(
+                        R.drawable.ics_o_arrow_left_header
+                    )
                 showFirstIcon = getBoolean(R.styleable.LPHeaderDA_showFirstIconButton, false)
                 firstIconImage = getDrawable(
                     R.styleable.LPHeaderDA_firstIconImage
@@ -94,12 +99,12 @@ class LPHeaderDA : ConstraintLayout {
                     )
                 showRightButton = getBoolean(R.styleable.LPHeaderDA_showRightButton, false)
                 rightButtonIcon =
-                    getDrawable(R.styleable.LPHeaderDA_rightButtonIcon)?: resources.getDrawable(R.drawable.ics_f_flash_on)
+                    getDrawable(R.styleable.LPHeaderDA_rightButtonIcon)
+                        ?: resources.getDrawable(R.drawable.ics_f_flash_on)
                 rightButtonText = getString(R.styleable.LPHeaderDA_rightButtonText).setString()
                 addElevation = getBoolean(R.styleable.LPHeaderDA_addElevation, false)
-                enableSearch = getBoolean(R.styleable.LPHeaderDA_enableSearchView, false)
+                headerStyle = getInt(R.styleable.LPHeaderDA_headerStyle, 0)
                 searchHint = getString(R.styleable.LPHeaderDA_searchHint).setString()
-                enableTextLabel = getBoolean(R.styleable.LPHeaderDA_enableTextLabel, true)
                 enableAssistiveText = getBoolean(R.styleable.LPHeaderDA_enableAssistiveText, false)
                 assistiveText = getString(R.styleable.LPHeaderDA_assistiveText).setString()
                 enableErrorText = getBoolean(R.styleable.LPHeaderDA_enableErrorText, false)
@@ -121,6 +126,8 @@ class LPHeaderDA : ConstraintLayout {
         txtAssistiveHeader = findViewById(R.id.txt_assistive_header_da)
         txtErrorHeader = findViewById(R.id.txt_error_header_da)
 
+        // set header style
+        setHeaderStyle()
         // set label text
         setHeaderLabel()
         // show back button
@@ -133,15 +140,259 @@ class LPHeaderDA : ConstraintLayout {
         addElevation()
 
         txtSearchAutoComplete.handleOnClearIconClick()
-        enableSearchView()
         setSearchHint()
-        // enable or disable text label
-        enableTextLabel()
         // set assistive text
         setAssistiveText()
         //set error text
         setErrorText()
 
+    }
+
+    private fun setHeaderStyle(
+        headerStyle: Int? = null,
+        searchImage: Int? = null
+    ) {
+        val set = ConstraintSet()
+        val scale = resources.displayMetrics.density
+        when (headerStyle ?: this.headerStyle) {
+            // Text (Basic)
+            0 -> {
+                clHeaderSearchEditText.isVisible = false
+                txtHeaderLabel.isVisible = true
+                if (this.enableBackButton) {
+                    set.clone(clHeader)
+                    set.connect(
+                        R.id.txt_header_label_da,
+                        ConstraintSet.START,
+                        R.id.img_btn_back_header_da,
+                        ConstraintSet.END,
+                        (12 * scale + 0.5F).toInt()
+                    )
+                    set.applyTo(clHeader)
+                } else {
+                    set.clone(clHeader)
+                    set.connect(
+                        R.id.txt_header_label_da,
+                        ConstraintSet.START,
+                        R.id.cl_header_da,
+                        ConstraintSet.START,
+                        (16 * scale + 0.5F).toInt()
+                    )
+                    set.applyTo(clHeader)
+                }
+                set.clone(clHeader)
+                set.connect(
+                    R.id.txt_header_label_da,
+                    ConstraintSet.TOP,
+                    R.id.cl_header_da,
+                    ConstraintSet.TOP,
+                    (16 * scale + 0.5F).toInt()
+                )
+                set.connect(
+                    R.id.txt_header_label_da,
+                    ConstraintSet.BOTTOM,
+                    R.id.cl_header_da,
+                    ConstraintSet.BOTTOM,
+                    (16 * scale + 0.5F).toInt()
+                )
+                set.applyTo(clHeader)
+            }
+            // With Search
+            1 -> {
+                clHeaderSearchEditText.isVisible = true
+                txtHeaderLabel.isVisible = true
+                if (this.enableBackButton) {
+                    set.clone(clHeader)
+                    set.connect(
+                        R.id.txt_header_label_da,
+                        ConstraintSet.START,
+                        R.id.img_btn_back_header_da,
+                        ConstraintSet.END,
+                        (12 * scale + 0.5F).toInt()
+                    )
+                    set.applyTo(clHeader)
+                } else {
+                    set.clone(clHeader)
+                    set.connect(
+                        R.id.txt_header_label_da,
+                        ConstraintSet.START,
+                        R.id.cl_header_da,
+                        ConstraintSet.START,
+                        (16 * scale + 0.5F).toInt()
+                    )
+                    set.applyTo(clHeader)
+                }
+                set.clone(clHeader)
+                set.connect(
+                    R.id.txt_header_label_da,
+                    ConstraintSet.TOP,
+                    R.id.cl_header_da,
+                    ConstraintSet.TOP,
+                    (16 * scale + 0.5F).toInt()
+                )
+                set.connect(
+                    R.id.txt_header_label_da,
+                    ConstraintSet.BOTTOM,
+                    R.id.cl_header_search_edit_text_da,
+                    ConstraintSet.TOP,
+                    (16 * scale + 0.5F).toInt()
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text_da,
+                    ConstraintSet.TOP,
+                    R.id.txt_header_label_da,
+                    ConstraintSet.BOTTOM,
+                    0
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text_da,
+                    ConstraintSet.BOTTOM,
+                    R.id.cl_header_da,
+                    ConstraintSet.BOTTOM,
+                    (16 * scale + 0.5F).toInt()
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text_da,
+                    ConstraintSet.START,
+                    R.id.cl_header_da,
+                    ConstraintSet.START,
+                    (14 * scale + 0.5F).toInt()
+                )
+                set.connect(
+                    R.id.cl_header_search_edit_text_da,
+                    ConstraintSet.END,
+                    R.id.cl_header_da,
+                    ConstraintSet.END,
+                    (14 * scale + 0.5F).toInt()
+                )
+                set.connect(
+                    R.id.img_btn_back_header_da,
+                    ConstraintSet.BOTTOM,
+                    R.id.cl_header_search_edit_text_da,
+                    ConstraintSet.TOP
+                )
+                set.connect(
+                    R.id.img_btn_info_1_da,
+                    ConstraintSet.BOTTOM,
+                    R.id.cl_header_search_edit_text_da,
+                    ConstraintSet.TOP
+                )
+                set.connect(
+                    R.id.img_btn_info_2_da,
+                    ConstraintSet.BOTTOM,
+                    R.id.cl_header_search_edit_text_da,
+                    ConstraintSet.TOP
+                )
+                set.connect(
+                    R.id.btn_flash_da,
+                    ConstraintSet.BOTTOM,
+                    R.id.cl_header_search_edit_text_da,
+                    ConstraintSet.TOP
+                )
+                set.applyTo(clHeader)
+            }
+            // Search Only
+            2 -> {
+                clHeaderSearchEditText.isVisible = true
+                txtHeaderLabel.isVisible = false
+                if (!this.enableBackButton && !this.showFirstIcon && !this.showSecondButton && !this.showRightButton
+                ) {
+                    set.clear(R.id.cl_header_search_edit_text)
+                    set.clone(clHeader)
+                    set.connect(
+                        R.id.cl_header_search_edit_text_da,
+                        ConstraintSet.TOP,
+                        R.id.cl_header_da,
+                        ConstraintSet.TOP,
+                        (16 * scale + 0.5F).toInt()
+                    )
+                    set.connect(
+                        R.id.cl_header_search_edit_text_da,
+                        ConstraintSet.BOTTOM,
+                        R.id.cl_header_da,
+                        ConstraintSet.BOTTOM,
+                        (16 * scale + 0.5F).toInt()
+                    )
+                    set.connect(
+                        R.id.cl_header_search_edit_text_da,
+                        ConstraintSet.START,
+                        R.id.cl_header_da,
+                        ConstraintSet.START,
+                        (16 * scale + 0.5F).toInt()
+                    )
+                    set.connect(
+                        R.id.cl_header_search_edit_text_da,
+                        ConstraintSet.END,
+                        R.id.cl_header_da,
+                        ConstraintSet.END,
+                        (16 * scale + 0.5F).toInt()
+                    )
+                    set.applyTo(clHeader)
+                }
+                if (this.enableBackButton && !this.showFirstIcon && !this.showSecondButton && !this.showRightButton
+                ) {
+                    set.clone(clHeader)
+                    set.connect(
+                        R.id.cl_header_search_edit_text_da,
+                        ConstraintSet.TOP,
+                        R.id.cl_header_da,
+                        ConstraintSet.TOP,
+                        (16 * scale + 0.5F).toInt()
+                    )
+                    set.connect(
+                        R.id.cl_header_search_edit_text_da,
+                        ConstraintSet.BOTTOM,
+                        R.id.cl_header_da,
+                        ConstraintSet.BOTTOM,
+                        (16 * scale + 0.5F).toInt()
+                    )
+                    set.connect(
+                        R.id.cl_header_search_edit_text_da,
+                        ConstraintSet.START,
+                        R.id.img_btn_back_header_da,
+                        ConstraintSet.END,
+                        (12 * scale + 0.5F).toInt()
+                    )
+                    set.connect(
+                        R.id.cl_header_search_edit_text_da,
+                        ConstraintSet.END,
+                        R.id.cl_header_da,
+                        ConstraintSet.END,
+                        (16 * scale + 0.5F).toInt()
+                    )
+                    set.constrainWidth(R.id.cl_header_search_edit_text_da, ConstraintSet.PARENT_ID)
+                    set.applyTo(clHeader)
+                }
+            }
+        }
+        txtSearchAutoComplete.setClearIcon(
+            searchImage ?: R.drawable.ics_o_search_shades3,
+            true
+        )
+        txtSearchAutoComplete.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                txtSearchAutoComplete.setClearIcon(
+                    startDrawable = searchImage ?: R.drawable.ics_o_search_shades3,
+                    isEnabled = true
+                )
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+            }
+        })
+        invalidate()
+        requestLayout()
+    }
+
+    fun setHeaderStyle(style: Int) {
+        setHeaderStyle(headerStyle = style)
+    }
+
+    fun setSearchImage(image: Int) {
+        setHeaderStyle(searchImage = image)
     }
 
     fun getTextFromSearch(): String {
@@ -164,7 +415,7 @@ class LPHeaderDA : ConstraintLayout {
         })
     }
 
-    fun <T> searchArrayText(arrayList : ArrayList<T>) {
+    fun <T> searchArrayText(arrayList: ArrayList<T>) {
         val arrayAdapter = AutoCompleteArrayAdapter(context, arrayList)
         txtSearchAutoComplete.threshold = 0
         txtSearchAutoComplete.setAdapter(arrayAdapter)
@@ -175,27 +426,13 @@ class LPHeaderDA : ConstraintLayout {
     }
 
     fun setBackButton(
-        enableBackButton: Boolean? = null,
-        enableTextLabel: Boolean? = null,
         backButtonImage: Int? = null
     ) {
-        imgBtnBackHeader.isVisible = enableBackButton ?: this.enableBackButton
-        if (backButtonImage != null){
+        imgBtnBackHeader.isVisible = this.enableBackButton
+        if (backButtonImage != null) {
             imgBtnBackHeader.setImageResource(backButtonImage)
         } else {
             imgBtnBackHeader.setImageDrawable(this.backButtonImage)
-        }
-        if (enableBackButton ?: this.enableBackButton && enableTextLabel ?: this.enableTextLabel) {
-            val set = ConstraintSet()
-            set.clone(clHeader)
-            set.connect(
-                R.id.txt_header_label_da,
-                ConstraintSet.START,
-                R.id.img_btn_back_header_da,
-                ConstraintSet.END,
-                12
-            )
-            set.applyTo(clHeader)
         }
         imgBtnBackHeader.setOnClickListener {
             val context = context as Activity
@@ -204,15 +441,13 @@ class LPHeaderDA : ConstraintLayout {
     }
 
     fun setIconButton(
-        showFirstIcon: Boolean? = null,
-        showSecondIcon: Boolean? = null,
         firstIconImage: Int? = null,
         secondIconImage: Int? = null,
         firstIconListener: ((View) -> Unit)? = null,
         secondIconListener: ((View) -> Unit)? = null
     ) {
-        if (showFirstIcon ?: this.showFirstIcon) {
-            imgBtnIcon1.isVisible = showFirstIcon ?: this.showFirstIcon
+        if (this.showFirstIcon) {
+            imgBtnIcon1.isVisible = this.showFirstIcon
             imgBtnIcon1.setOnClickListener {
                 firstIconListener?.invoke(it)
             }
@@ -221,9 +456,11 @@ class LPHeaderDA : ConstraintLayout {
             } else {
                 imgBtnIcon1.setImageDrawable(this.firstIconImage)
             }
+        } else {
+            imgBtnIcon1.isVisible = this.showFirstIcon
         }
-        if (showSecondIcon ?: this.showSecondButton && showFirstIcon ?: this.showFirstIcon) {
-            imgBtnIcon2.isVisible = showSecondIcon ?: this.showSecondButton
+        if (this.showSecondButton && this.showFirstIcon) {
+            imgBtnIcon2.isVisible = this.showSecondButton
             imgBtnIcon2.setOnClickListener {
                 secondIconListener?.invoke(it)
             }
@@ -232,24 +469,28 @@ class LPHeaderDA : ConstraintLayout {
             } else {
                 imgBtnIcon2.setImageDrawable(this.secondIconImage)
             }
+        } else {
+            imgBtnIcon2.isVisible = this.showSecondButton
         }
     }
 
     fun setRightButton(
-        showButton: Boolean? = null,
         buttonIcon: Int? = null,
         textButton: String? = null,
         buttonListener: ((View) -> Unit)? = null
     ) {
-        if (showButton ?: this.showRightButton) {
-            rightButton.isVisible = showButton ?: this.showRightButton
-        }
-        if (buttonIcon != null){
+        rightButton.isVisible = this.showRightButton
+        if (buttonIcon != null) {
             rightButton.setCompoundDrawablesRelativeWithIntrinsicBounds(
                 buttonIcon, 0, 0, 0
             )
         } else {
-            rightButton.setCompoundDrawablesRelativeWithIntrinsicBounds(this.rightButtonIcon, null, null, null)
+            rightButton.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                this.rightButtonIcon,
+                null,
+                null,
+                null
+            )
         }
         rightButton.text = textButton ?: this.rightButtonText
         rightButton.setOnClickListener {
@@ -260,181 +501,24 @@ class LPHeaderDA : ConstraintLayout {
     fun addElevation(addElevation: Boolean? = null) {
         if (addElevation ?: this.addElevation) {
             clHeader.setPadding(1, 1, 1, 1)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                clHeader.elevation = 1F
-            }
-            clHeader.background = resources.getDrawable(R.drawable.bg_header_background)
+            clHeader.background = resources.getDrawable(R.drawable.bg_header_shadow)
         }
-    }
-
-    fun enableSearchView(enableSearch: Boolean? = null, searchImage: Int? = null) {
-        clHeaderSearchEditText.isVisible = enableSearch ?: this.enableSearch
-        if (enableSearch ?: this.enableSearch) {
-            val set = ConstraintSet()
-            set.clone(clHeader)
-            set.connect(
-                R.id.txt_header_label_da,
-                ConstraintSet.BOTTOM,
-                R.id.cl_header_search_edit_text_da,
-                ConstraintSet.TOP
-            )
-            set.connect(
-                R.id.img_btn_back_header_da,
-                ConstraintSet.BOTTOM,
-                R.id.cl_header_search_edit_text_da,
-                ConstraintSet.TOP
-            )
-            set.connect(
-                R.id.img_btn_info_1_da,
-                ConstraintSet.BOTTOM,
-                R.id.cl_header_search_edit_text_da,
-                ConstraintSet.TOP
-            )
-            set.connect(
-                R.id.img_btn_info_2_da,
-                ConstraintSet.BOTTOM,
-                R.id.cl_header_search_edit_text_da,
-                ConstraintSet.TOP
-            )
-            set.connect(
-                R.id.btn_flash_da,
-                ConstraintSet.BOTTOM,
-                R.id.cl_header_search_edit_text_da,
-                ConstraintSet.TOP
-            )
-            set.applyTo(clHeader)
-        }
-        txtSearchAutoComplete.setClearIcon(
-            searchImage ?: R.drawable.ics_o_search_shades3,
-            enableSearch ?: this.enableSearch
-        )
-        txtSearchAutoComplete.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                txtSearchAutoComplete.setClearIcon(
-                    startDrawable = searchImage ?: R.drawable.ics_o_search_shades3,
-                    isEnabled = enableSearch ?: this@LPHeaderDA.enableSearch
-                )
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-            }
-        })
     }
 
     fun setSearchHint(hint: String? = null) {
         txtSearchAutoComplete.hint = hint ?: this.searchHint
     }
 
-    fun enableTextLabel(
-        enableTextLabel: Boolean? = null,
-        enableBackButton: Boolean? = null,
-        imageSearch : Int? = null
-    ) {
-        if (!(enableTextLabel ?: this.enableTextLabel)) {
-            clHeaderSearchEditText.isVisible = true
-            txtHeaderLabel.isVisible = false
-            if (!(enableTextLabel ?: this.enableTextLabel) && !(enableBackButton
-                    ?: this.enableBackButton) && !this.showFirstIcon && !this.showSecondButton && !this.showRightButton
-            ) {
-                val set = ConstraintSet()
-                set.clear(R.id.cl_header_search_edit_text)
-                set.clone(clHeader)
-                set.connect(
-                    R.id.cl_header_search_edit_text_da,
-                    ConstraintSet.TOP,
-                    R.id.cl_header_da,
-                    ConstraintSet.TOP,
-                    16
-                )
-                set.connect(
-                    R.id.cl_header_search_edit_text_da,
-                    ConstraintSet.BOTTOM,
-                    R.id.cl_header_da,
-                    ConstraintSet.BOTTOM,
-                    16
-                )
-                set.connect(
-                    R.id.cl_header_search_edit_text_da,
-                    ConstraintSet.START,
-                    R.id.cl_header_da,
-                    ConstraintSet.START
-                )
-                set.connect(
-                    R.id.cl_header_search_edit_text_da,
-                    ConstraintSet.END,
-                    R.id.cl_header_da,
-                    ConstraintSet.END
-                )
-                set.applyTo(clHeader)
-            }
-            if (!(enableTextLabel
-                    ?: this.enableTextLabel) && enableBackButton ?: this.enableBackButton && !this.showFirstIcon && !this.showSecondButton && !this.showRightButton
-            ) {
-                val set = ConstraintSet()
-                set.clone(clHeader)
-                set.connect(
-                    R.id.cl_header_search_edit_text_da,
-                    ConstraintSet.TOP,
-                    R.id.cl_header_da,
-                    ConstraintSet.TOP,
-                    16
-                )
-                set.connect(
-                    R.id.cl_header_search_edit_text_da,
-                    ConstraintSet.BOTTOM,
-                    R.id.cl_header_da,
-                    ConstraintSet.BOTTOM,
-                    16
-                )
-                set.connect(
-                    R.id.cl_header_search_edit_text_da,
-                    ConstraintSet.START,
-                    R.id.img_btn_back_header_da,
-                    ConstraintSet.END,
-                    12
-                )
-                set.connect(
-                    R.id.cl_header_search_edit_text_da,
-                    ConstraintSet.END,
-                    R.id.cl_header_da,
-                    ConstraintSet.END
-                )
-                set.constrainWidth(R.id.cl_header_search_edit_text_da, ConstraintSet.PARENT_ID)
-                set.applyTo(clHeader)
-            }
-            invalidate()
-            requestLayout()
-            txtSearchAutoComplete.addTextChangedListener(object : TextWatcher {
-                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                }
-
-                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                    txtSearchAutoComplete.setClearIcon(
-                        startDrawable = imageSearch?: R.drawable.ics_o_search_shades3,
-                        isEnabled = !(enableTextLabel ?: this@LPHeaderDA.enableTextLabel)
-                    )
-                }
-
-                override fun afterTextChanged(p0: Editable?) {
-                }
-            })
-        }
-
-    }
-
     fun setAssistiveText(enableAssistiveText: Boolean? = null, assistiveText: String? = null) {
+        txtAssistiveHeader.isVisible = enableAssistiveText ?: this.enableAssistiveText
         if (enableAssistiveText ?: this.enableAssistiveText) {
-            txtAssistiveHeader.isVisible = enableAssistiveText ?: this.enableAssistiveText
             txtAssistiveHeader.text = assistiveText ?: this.assistiveText
         }
     }
 
     fun setErrorText(enableErrorText: Boolean? = null, errorText: String? = null) {
+        txtErrorHeader.isVisible = enableErrorText ?: this.enableErrorText
         if (enableErrorText ?: this.enableErrorText) {
-            txtErrorHeader.isVisible = enableErrorText ?: this.enableErrorText
             txtErrorHeader.text = errorText ?: this.errorText
         }
     }
