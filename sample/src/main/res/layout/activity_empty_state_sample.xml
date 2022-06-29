@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".emptystate.EmptyStateSampleActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/dp_40"
+        android:paddingTop="@dimen/dp_24">
+
+        <com.lionparcel.commonandroid.emptystate.LPEmptyState
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:showIllustration="true"
+            app:showTitleText="true"
+            app:textTitle="Your Heading Title Here"
+            app:textBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+            app:showPrimaryButton="true"
+            app:textPrimaryButton="Primary Button"
+            app:showSecondaryButton="true"
+            app:textSecondaryButton="Secondary Button"/>
+
+        <com.lionparcel.commonandroid.emptystate.LPEmptyState
+            android:layout_marginTop="@dimen/dp_24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:showIllustration="true"
+            app:imageIllustration="@drawable/ill_spot_error"
+            app:showTitleText="true"
+            app:textTitle="Terjadi kesalahan!"
+            app:textBody="Oops! Halaman gagal dimuat. Klik &quot; Muat Ulang &quot; untuk memperbarui halaman"
+            app:showPrimaryButton="true"
+            app:textPrimaryButton="Muat Ulang"/>
+
+    </LinearLayout>
+
+</ScrollView>

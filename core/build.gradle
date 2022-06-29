@@ -13,6 +13,7 @@ def moduleDirs = [
     'popup',
     'loading',
     'snackbartoast',
+    'emptystate',
     'header'
 ]
 
