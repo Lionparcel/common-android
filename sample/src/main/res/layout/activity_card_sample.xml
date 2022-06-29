@@ -22,6 +22,7 @@
             app:buttonText="Optional Button"/>
 
         <com.lionparcel.commonandroid.card.LPCard
+            android:id="@+id/card_solid"
             android:layout_marginTop="@dimen/dp_8"
             android:layout_width="312dp"
             android:layout_height="wrap_content"
@@ -32,6 +33,7 @@
             app:buttonText="Optional Button"/>
 
         <com.lionparcel.commonandroid.card.LPCard
+            android:id="@+id/card_banner"
             android:layout_marginTop="@dimen/dp_8"
             android:layout_width="312dp"
             android:layout_height="wrap_content"

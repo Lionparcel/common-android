@@ -12,5 +12,7 @@
         <attr name="cardSubtitle" format="string"/>
         <attr name="cardsContent" format="string"/>
         <attr name="buttonText" format="string"/>
+        <attr name="solidStyleColor" format="reference"/>
+        <attr name="bannerStyleBackground" format="reference"/>
     </declare-styleable>
 </resources>
