@@ -6,13 +6,14 @@ plugins {
 
 def moduleHomeDir = 'src/main/java/com/lionparcel/commonandroid/'
 def moduleDirs = [
-    'modal',
-    'walkthrough',
-    'button',
-    'form',
-    'popup',
-    'loading',
-    'snackbartoast'
+        'modal',
+        'walkthrough',
+        'button',
+        'form',
+        'popup',
+        'loading',
+        'snackbartoast',
+        'card'
 ]
 
 android {

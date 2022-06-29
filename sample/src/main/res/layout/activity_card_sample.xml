@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".card.CardSampleActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_16">
+
+        <com.lionparcel.commonandroid.card.LPCard
+            android:layout_width="312dp"
+            android:layout_height="wrap_content"
+            app:cardStyle="shadow"
+            app:cardTitle="Your Title Text Here"
+            app:cardSubtitle="Secondary Text"
+            app:cardsContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            app:buttonText="Optional Button"/>
+
+        <com.lionparcel.commonandroid.card.LPCard
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_width="312dp"
+            android:layout_height="wrap_content"
+            app:cardStyle="solid"
+            app:cardTitle="Your Title Text Here"
+            app:cardSubtitle="Secondary Text"
+            app:cardsContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            app:buttonText="Optional Button"/>
+
+        <com.lionparcel.commonandroid.card.LPCard
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_width="312dp"
+            android:layout_height="wrap_content"
+            app:cardStyle="banner"
+            app:cardTitle="Your Title Text Here"
+            app:cardSubtitle="Secondary Text"
+            app:cardsContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            app:buttonText="Optional Button"/>
+
+        <com.lionparcel.commonandroid.card.LPCard
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_width="312dp"
+            android:layout_height="wrap_content"
+            app:cardStyle="border"
+            app:cardTitle="Your Title Text Here"
+            app:cardSubtitle="Secondary Text"
+            app:cardsContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            app:buttonText="Optional Button"/>
+
+        <com.lionparcel.commonandroid.card.LPCard
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_width="312dp"
+            android:layout_height="wrap_content"
+            app:cardStyle="list"
+            app:cardTitle="Your Title Text Here"
+            app:cardSubtitle="Secondary Text"
+            app:cardsContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            app:buttonText="Optional Button"/>
+
+    </LinearLayout>
+
+</ScrollView>
