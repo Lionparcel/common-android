@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/ll_empty_state">
+    
+    <ImageView
+        android:id="@+id/iv_empty_state_illustration"
+        android:layout_width="@dimen/dp_224"
+        android:layout_height="@dimen/dp_190"
+        android:layout_marginBottom="@dimen/spacing_m"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:src="@drawable/ill_spot_search"/>
+
+    <TextView
+        android:id="@+id/tv_empty_state_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textSize="@dimen/sp_14"
+        android:textColor="@color/shades5"
+        android:layout_marginBottom="@dimen/spacing_xs"
+        android:gravity="center"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:text="Your Heading Title Here"/>
+
+    <TextView
+        android:id="@+id/tv_empty_state_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Body3Regular"
+        android:textColor="@color/shades4"
+        android:gravity="center"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"/>
+
+    <Button
+        android:id="@+id/btn_empty_state_primary"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_m"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:text="Primary Button"/>
+
+    <Button
+        android:id="@+id/btn_empty_state_secondary"
+        style="@style/LPRoundedRedBorderMediumButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_m"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:text="Secondary Button"/>
+
+</LinearLayout>
