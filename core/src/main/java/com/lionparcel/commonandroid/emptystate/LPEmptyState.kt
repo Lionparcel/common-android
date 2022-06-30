@@ -1,5 +1,6 @@
 package com.lionparcel.commonandroid.emptystate
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
@@ -12,6 +13,8 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import com.lionparcel.commonandroid.R
 
+@Suppress("DEPRECATION")
+@SuppressLint("UseCompatLoadingForDrawables")
 class LPEmptyState : LinearLayout{
 
     private var showIllustration : Boolean
@@ -49,9 +52,9 @@ class LPEmptyState : LinearLayout{
             0
         ).apply {
             try {
-                showIllustration = getBoolean(R.styleable.LPEmptyState_showIllustration, false)
+                showIllustration = getBoolean(R.styleable.LPEmptyState_showIllustration, true)
                 imageIllustration = getDrawable(R.styleable.LPEmptyState_imageIllustration)?: resources.getDrawable(R.drawable.ill_spot_search)
-                showTitle = getBoolean(R.styleable.LPEmptyState_showTitleText, false)
+                showTitle = getBoolean(R.styleable.LPEmptyState_showTitleText, true)
                 textTitle = getString(R.styleable.LPEmptyState_textTitle).setString()
                 textBody = getString(R.styleable.LPEmptyState_textBody).setString()
                 showPrimaryButton = getBoolean(R.styleable.LPEmptyState_showPrimaryButton, false)
@@ -70,22 +73,23 @@ class LPEmptyState : LinearLayout{
         btnEmptyStatePrimary = findViewById(R.id.btn_empty_state_primary)
         btnEmptyStateSecondary = findViewById(R.id.btn_empty_state_secondary)
 
+        // show illustration
         showIllustration()
-
+        // set illustration image
         setIllustrationImage()
-
+        // show title
         showTitle()
-
+        // set text title
         setTextTitle()
-
+        // set text body
         setTextBody()
-
+        // show primary button
         showPrimaryButton()
-
+        // set text primary button
         setTextPrimaryButton()
-
+        // show secondary button
         showSecondaryButton()
-
+        // set text secondary button
         setTextSecondaryButton()
     }
 
