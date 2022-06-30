@@ -34,7 +34,7 @@
                 android:id="@+id/ivClose"
                 android:layout_width="@dimen/spacing_l"
                 android:layout_height="@dimen/spacing_l"
-                app:srcCompat="@drawable/ics_o_close_shades5"
+                app:srcCompat="@drawable/ics_o_close"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:contentDescription="@string/general_image_content_description" />

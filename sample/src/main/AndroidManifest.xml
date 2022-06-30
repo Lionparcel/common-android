@@ -10,7 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
         <activity
-            android:name=".popup.PopupComponentSampleActivity"
+            android:name=".header.HeaderDASampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".header.HeaderCASampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".header.HeaderSampleActivity"
             android:exported="true" />
         <activity
             android:name=".form.TextAreaSampleActivity"

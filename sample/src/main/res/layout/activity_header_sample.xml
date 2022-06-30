@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="@dimen/dp_24"
+    tools:context=".header.HeaderSampleActivity">
+
+    <Button
+        android:id="@+id/btn_header_ca"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Header Customer App Sample"
+        tools:ignore="HardcodedText"/>
+
+    <Button
+        android:id="@+id/btn_header_da"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Header Driver App Sample"
+        tools:ignore="HardcodedText"/>
+
+</LinearLayout>

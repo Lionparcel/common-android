@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LPHeaderCA">
+        <attr name="headerLabel" format="string"/>
+        <attr name="textLabelColor">
+            <enum name="def" value="0"/>
+            <enum name="bisa_belanja" value="1"/>
+        </attr>
+        <attr name="showBackButton" format="boolean"/>
+        <attr name="backButtonImage" format="reference"/>
+        <attr name="backButtonColor">
+            <enum name="def" value="0"/>
+            <enum name="bisa_belanja" value="1"/>
+        </attr>
+        <attr name="showFirstIconButton" format="boolean"/>
+        <attr name="firstIconImage" format="reference"/>
+        <attr name="showSecondIconButton" format="boolean"/>
+        <attr name="secondIconImage" format="reference"/>
+        <attr name="addElevation" format="boolean"/>
+        <attr name="headerStyle">
+            <enum name="basic" value="0"/>
+            <enum name="with_search" value="1"/>
+            <enum name="search_only" value="2"/>
+        </attr>
+        <attr name="searchHint" format="string"/>
+        <attr name="enableTextButton" format="boolean"/>
+        <attr name="txtButtonText" format="string"/>
+        <attr name="enableScanImage" format="boolean"/>
+        <attr name="imageScan" format="reference"/>
+        <attr name="enableAssistiveText" format="boolean"/>
+        <attr name="assistiveText" format="string"/>
+        <attr name="enableErrorText" format="boolean"/>
+        <attr name="errorTextHeader" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="LPHeaderDA">
+        <attr name="headerLabel"/>
+        <attr name="showBackButton" />
+        <attr name="backButtonImage" />
+        <attr name="showFirstIconButton" />
+        <attr name="firstIconImage" />
+        <attr name="showSecondIconButton"/>
+        <attr name="secondIconImage" />
+        <attr name="showRightButton" format="boolean"/>
+        <attr name="rightButtonIcon" format="reference"/>
+        <attr name="rightButtonText" format="string"/>
+        <attr name="addElevation" />
+        <attr name="headerStyle"/>
+        <attr name="searchHint" />
+        <attr name="enableAssistiveText" />
+        <attr name="assistiveText" />
+        <attr name="enableErrorText" />
+        <attr name="errorTextHeader"/>
+    </declare-styleable>
+</resources>
