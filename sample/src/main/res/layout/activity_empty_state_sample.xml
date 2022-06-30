@@ -16,8 +16,6 @@
         <com.lionparcel.commonandroid.emptystate.LPEmptyState
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:showIllustration="true"
-            app:showTitleText="true"
             app:textTitle="Your Heading Title Here"
             app:textBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
             app:showPrimaryButton="true"
@@ -29,9 +27,7 @@
             android:layout_marginTop="@dimen/dp_24"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:showIllustration="true"
             app:imageIllustration="@drawable/ill_spot_error"
-            app:showTitleText="true"
             app:textTitle="Terjadi kesalahan!"
             app:textBody="Oops! Halaman gagal dimuat. Klik &quot; Muat Ulang &quot; untuk memperbarui halaman"
             app:showPrimaryButton="true"
@@ -41,9 +37,23 @@
             android:layout_marginTop="@dimen/dp_24"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:showIllustration="true"
-            app:showTitleText="true"
             app:textTitle="Your Heading Title Here"
+            app:textBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor" />
+
+        <com.lionparcel.commonandroid.emptystate.LPEmptyState
+            android:layout_marginTop="@dimen/dp_24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:showIllustration="false"
+            app:textTitle="Your Heading Title Here"
+            app:textBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor" />
+
+        <com.lionparcel.commonandroid.emptystate.LPEmptyState
+            android:layout_marginTop="@dimen/dp_24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:showIllustration="false"
+            app:showTitleText="false"
             app:textBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor" />
 
     </LinearLayout>
