@@ -29,6 +29,11 @@
             <enum name="failed_bold" value="7"/>
             <enum name="def" value="8"/>
         </attr>
+        <attr name="backgroundMembershipType">
+            <enum name="basic" value="0"/>
+            <enum name="reguler" value="1"/>
+            <enum name="premium" value="2"/>
+        </attr>
         <attr name="labelBackgroundStyle">
             <enum name="fill" value="0"/>
             <enum name="outline" value="1"/>
