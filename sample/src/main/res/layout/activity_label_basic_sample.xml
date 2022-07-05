@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".label.LabelBasicSampleActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_8">
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:labelType="basic"
+            app:backgroundBasicType="normal"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="mediumSize"
+            app:enableIconBefore="true"
+            app:backgroundBasicType="normal"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="smallSize"
+            app:backgroundBasicType="normal"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:enableIconBefore="true"
+            app:backgroundBasicType="normal"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="mediumSize"
+            app:backgroundBasicType="normal"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="smallSize"
+            app:backgroundBasicType="normal"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:backgroundBasicType="warning"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="mediumSize"
+            app:enableIconBefore="true"
+            app:backgroundBasicType="warning"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="smallSize"
+            app:backgroundBasicType="warning"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:enableIconBefore="true"
+            app:backgroundBasicType="warning"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="mediumSize"
+            app:backgroundBasicType="warning"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="smallSize"
+            app:backgroundBasicType="warning"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:backgroundBasicType="warning_bold"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="mediumSize"
+            app:enableIconBefore="true"
+            app:backgroundBasicType="warning_bold"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="smallSize"
+            app:backgroundBasicType="warning_bold"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:enableIconBefore="true"
+            app:backgroundBasicType="warning_bold"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="mediumSize"
+            app:backgroundBasicType="warning_bold"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="smallSize"
+            app:backgroundBasicType="warning_bold"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:backgroundBasicType="success"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="mediumSize"
+            app:enableIconBefore="true"
+            app:backgroundBasicType="success"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="smallSize"
+            app:backgroundBasicType="success"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:enableIconBefore="true"
+            app:backgroundBasicType="success"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="mediumSize"
+            app:backgroundBasicType="success"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="smallSize"
+            app:backgroundBasicType="success"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:backgroundBasicType="danger"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="mediumSize"
+            app:enableIconBefore="true"
+            app:backgroundBasicType="danger"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="smallSize"
+            app:backgroundBasicType="danger"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:enableIconBefore="true"
+            app:backgroundBasicType="danger"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="mediumSize"
+            app:backgroundBasicType="danger"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="smallSize"
+            app:backgroundBasicType="danger"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:backgroundBasicType="danger_bold"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="mediumSize"
+            app:enableIconBefore="true"
+            app:backgroundBasicType="danger_bold"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="smallSize"
+            app:backgroundBasicType="danger_bold"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:enableIconBefore="true"
+            app:backgroundBasicType="danger_bold"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="mediumSize"
+            app:backgroundBasicType="danger_bold"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="smallSize"
+            app:backgroundBasicType="danger_bold"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:backgroundBasicType="failed"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="mediumSize"
+            app:enableIconBefore="true"
+            app:backgroundBasicType="failed"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="smallSize"
+            app:backgroundBasicType="failed"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:enableIconBefore="true"
+            app:backgroundBasicType="failed"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="mediumSize"
+            app:backgroundBasicType="failed"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="smallSize"
+            app:backgroundBasicType="failed"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:backgroundBasicType="failed_bold"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="mediumSize"
+            app:enableIconBefore="true"
+            app:backgroundBasicType="failed_bold"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="smallSize"
+            app:backgroundBasicType="failed_bold"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:enableIconBefore="true"
+            app:backgroundBasicType="failed_bold"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="mediumSize"
+            app:backgroundBasicType="failed_bold"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="smallSize"
+            app:backgroundBasicType="failed_bold"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:backgroundBasicType="def"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="mediumSize"
+            app:enableIconBefore="true"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="smallSize"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:enableIconBefore="true"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="mediumSize"
+            app:backgroundBasicType="def"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+        <com.lionparcel.commonandroid.label.LPLabel
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:labelType="basic"
+            app:labelSize="smallSize"
+            app:labelBackgroundStyle="outline"
+            app:textTitle="Label Text"/>
+
+    </LinearLayout>
+
+</ScrollView>
