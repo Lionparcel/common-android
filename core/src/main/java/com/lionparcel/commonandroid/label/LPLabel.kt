@@ -10,6 +10,7 @@ import android.graphics.drawable.shapes.RoundRectShape
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -572,35 +573,37 @@ class LPLabel : LinearLayout {
                     TypedValue.COMPLEX_UNIT_SP,
                     resources.getDimension(R.dimen.sp_14) / scale
                 )
-                txtLabel.layoutParams.height = (21 * scale + 0.5F).toInt()
+                txtLabel.layoutParams.height = (21 * scale).toInt()
                 when (backgroundType) {
                     0 -> {
                         llLabelParent.setPadding(
-                            (8 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt(),
-                            (8 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt()
+                            (8 * scale).toInt(),
+                            (1 * scale).toInt(),
+                            (8 * scale).toInt(),
+                            (1 * scale).toInt()
                         )
+                        imgIconLabelBefore.layoutParams.height = (16 * scale).toInt()
+                        imgIconLabelBefore.layoutParams.width = (16 * scale).toInt()
                     }
                     1 -> {
                         llLabelParent.setPadding(
-                            (20 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt(),
-                            (20 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt()
+                            (20 * scale).toInt(),
+                            (1 * scale).toInt(),
+                            (20 * scale).toInt(),
+                            (1 * scale).toInt()
                         )
-                        imgIconLabelAfter.layoutParams.height = (16 * scale + 0.5F).toInt()
-                        imgIconLabelAfter.layoutParams.width = (16 * scale + 0.5F).toInt()
+                        imgIconLabelAfter.layoutParams.height = (16 * scale).toInt()
+                        imgIconLabelAfter.layoutParams.width = (16 * scale).toInt()
                     }
                     2 -> {
                         llLabelParent.setPadding(
-                            (20 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt(),
-                            (20 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt()
+                            (20 * scale).toInt(),
+                            (1 * scale).toInt(),
+                            (20 * scale).toInt(),
+                            (1 * scale).toInt()
                         )
-                        imgIconLabelAfter.layoutParams.height = (16 * scale + 0.5F).toInt()
-                        imgIconLabelAfter.layoutParams.width = (16 * scale + 0.5F).toInt()
+                        imgIconLabelAfter.layoutParams.height = (16 * scale).toInt()
+                        imgIconLabelAfter.layoutParams.width = (16 * scale).toInt()
                     }
                 }
                 requestLayout()
@@ -610,35 +613,37 @@ class LPLabel : LinearLayout {
                     TypedValue.COMPLEX_UNIT_SP,
                     resources.getDimension(R.dimen.sp_12) / scale
                 )
-                txtLabel.layoutParams.height = (18 * scale + 0.5F).toInt()
+                txtLabel.layoutParams.height = (18 * scale).toInt()
                 when (backgroundType){
                     0 -> {
                         llLabelParent.setPadding(
-                            (4 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt(),
-                            (4 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt()
+                            (4 * scale).toInt(),
+                            (1 * scale).toInt(),
+                            (4 * scale).toInt(),
+                            (1 * scale).toInt()
                         )
+                        imgIconLabelBefore.layoutParams.height = (12 * scale).toInt()
+                        imgIconLabelBefore.layoutParams.width = (12 * scale).toInt()
                     }
                     1 -> {
                         llLabelParent.setPadding(
-                            (16 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt(),
-                            (16 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt()
+                            (16 * scale).toInt(),
+                            (1 * scale).toInt(),
+                            (16 * scale).toInt(),
+                            (1 * scale).toInt()
                         )
-                        imgIconLabelAfter.layoutParams.height = (12 * scale + 0.5F).toInt()
-                        imgIconLabelAfter.layoutParams.width = (12 * scale + 0.5F).toInt()
+                        imgIconLabelAfter.layoutParams.height = (12 * scale).toInt()
+                        imgIconLabelAfter.layoutParams.width = (12 * scale).toInt()
                     }
                     2 -> {
                         llLabelParent.setPadding(
-                            (16 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt(),
-                            (16 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt()
+                            (16 * scale).toInt(),
+                            (1 * scale).toInt(),
+                            (16 * scale).toInt(),
+                            (1 * scale).toInt()
                         )
-                        imgIconLabelAfter.layoutParams.height = (12 * scale + 0.5F).toInt()
-                        imgIconLabelAfter.layoutParams.width = (12 * scale + 0.5F).toInt()
+                        imgIconLabelAfter.layoutParams.height = (12 * scale).toInt()
+                        imgIconLabelAfter.layoutParams.width = (12 * scale).toInt()
                     }
                 }
                 requestLayout()
@@ -648,35 +653,37 @@ class LPLabel : LinearLayout {
                     TypedValue.COMPLEX_UNIT_SP,
                     resources.getDimension(R.dimen.sp_10) / scale
                 )
-                txtLabel.layoutParams.height = (15 * scale + 0.5F).toInt()
+                txtLabel.layoutParams.height = (15 * scale).toInt()
                 when (backgroundType) {
                     0 -> {
                         llLabelParent.setPadding(
-                            (4 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt(),
-                            (4 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt()
+                            (4 * scale).toInt(),
+                            (1 * scale).toInt(),
+                            (4 * scale).toInt(),
+                            (1 * scale).toInt()
                         )
+                        imgIconLabelBefore.layoutParams.height = (12 * scale).toInt()
+                        imgIconLabelBefore.layoutParams.width = (12 * scale).toInt()
                     }
                     1 -> {
                         llLabelParent.setPadding(
-                            (12 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt(),
-                            (12 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt()
+                            (12 * scale).toInt(),
+                            (1 * scale).toInt(),
+                            (12 * scale).toInt(),
+                            (1 * scale).toInt()
                         )
-                        imgIconLabelAfter.layoutParams.height = (12 * scale + 0.5F).toInt()
-                        imgIconLabelAfter.layoutParams.width = (12 * scale + 0.5F).toInt()
+                        imgIconLabelAfter.layoutParams.height = (12 * scale).toInt()
+                        imgIconLabelAfter.layoutParams.width = (12 * scale).toInt()
                     }
                     2 -> {
                         llLabelParent.setPadding(
-                            (12 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt(),
-                            (12 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt()
+                            (12 * scale).toInt(),
+                            (1 * scale).toInt(),
+                            (12 * scale).toInt(),
+                            (1 * scale).toInt()
                         )
-                        imgIconLabelAfter.layoutParams.height = (12 * scale + 0.5F).toInt()
-                        imgIconLabelAfter.layoutParams.width = (12 * scale + 0.5F).toInt()
+                        imgIconLabelAfter.layoutParams.height = (12 * scale).toInt()
+                        imgIconLabelAfter.layoutParams.width = (12 * scale).toInt()
                     }
                 }
                 requestLayout()
@@ -686,35 +693,37 @@ class LPLabel : LinearLayout {
                     TypedValue.COMPLEX_UNIT_SP,
                     resources.getDimension(R.dimen.sp_10) / scale
                 )
-                txtLabel.layoutParams.height = (15 * scale + 0.5F).toInt()
+                txtLabel.layoutParams.height = (15 * scale).toInt()
                 when (backgroundType) {
                     0 -> {
                         llLabelParent.setPadding(
-                            (4 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt(),
-                            (4 * scale + 0.5F).toInt(),
-                            (1 * scale + 0.5F).toInt()
+                            (4 * scale).toInt(),
+                            (1 * scale).toInt(),
+                            (4 * scale).toInt(),
+                            (1 * scale).toInt()
                         )
+                        imgIconLabelBefore.layoutParams.height = (12 * scale).toInt()
+                        imgIconLabelBefore.layoutParams.width = (12 * scale).toInt()
                     }
                     1 -> {
                         llLabelParent.setPadding(
-                            (4 * scale + 0.5F).toInt(),
-                            (2.5 * scale + 0.5F).toInt(),
-                            (4 * scale + 0.5F).toInt(),
-                            (2.5 * scale + 0.5F).toInt()
+                            (4 * scale).toInt(),
+                            (2.5 * scale).toInt(),
+                            (4 * scale).toInt(),
+                            (2.5 * scale).toInt()
                         )
-                        imgIconLabelAfter.layoutParams.height = (12 * scale + 0.5F).toInt()
-                        imgIconLabelAfter.layoutParams.width = (12 * scale + 0.5F).toInt()
+                        imgIconLabelAfter.layoutParams.height = (12 * scale).toInt()
+                        imgIconLabelAfter.layoutParams.width = (12 * scale).toInt()
                     }
                     2-> {
                         llLabelParent.setPadding(
-                            (4 * scale + 0.5F).toInt(),
-                            (2.5 * scale + 0.5F).toInt(),
-                            (4 * scale + 0.5F).toInt(),
-                            (2.5 * scale + 0.5F).toInt()
+                            (4 * scale).toInt(),
+                            (2.5 * scale).toInt(),
+                            (4 * scale).toInt(),
+                            (2.5 * scale).toInt()
                         )
-                        imgIconLabelAfter.layoutParams.height = (12 * scale + 0.5F).toInt()
-                        imgIconLabelAfter.layoutParams.width = (12 * scale + 0.5F).toInt()
+                        imgIconLabelAfter.layoutParams.height = (12 * scale).toInt()
+                        imgIconLabelAfter.layoutParams.width = (12 * scale).toInt()
                     }
                 }
                 requestLayout()
@@ -747,6 +756,12 @@ class LPLabel : LinearLayout {
             imgIconLabelBefore.setImageResource(image)
         } else {
             imgIconLabelBefore.setImageDrawable(this.imageIconBefore)
+        }
+    }
+
+    fun labelClickListener(listener: ((View) -> Unit)){
+        llLabelParent.setOnClickListener {
+            listener.invoke(it)
         }
     }
 }
