@@ -66,4 +66,11 @@
         android:layout_height="wrap_content"
         android:text="Header Component Sample"/>
 
+    <Button
+        android:id="@+id/button_to_listingSampleActivity"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Listing Component Sample"/>
+
 </LinearLayout>
