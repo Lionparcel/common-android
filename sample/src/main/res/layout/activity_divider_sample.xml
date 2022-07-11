@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/dp_8"
+    android:gravity="center"
+    tools:context=".divider.DividerSampleActivity">
+
+    <com.lionparcel.commonandroid.divider.LPDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.lionparcel.commonandroid.divider.LPDivider
+        android:layout_marginTop="@dimen/dp_24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:dividerStyle="bloc_line"/>
+
+    <com.lionparcel.commonandroid.divider.LPDivider
+        android:layout_marginTop="@dimen/dp_24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:dividerStyle="subtitle_text"
+        app:dividerText="Divider Text"/>
+
+    <com.lionparcel.commonandroid.divider.LPDivider
+        android:layout_marginTop="@dimen/dp_24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:dividerStyle="label_text"
+        app:dividerText="Your divider text here"/>
+
+    <com.lionparcel.commonandroid.divider.LPDivider
+        android:layout_marginTop="@dimen/dp_24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:dividerStyle="center_text"
+        app:dividerText="Divider Text"/>
+
+    <com.lionparcel.commonandroid.divider.LPDivider
+        android:layout_marginTop="@dimen/dp_24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:dividerStyle="label_text"
+        app:dividerText="Your divider text here"/>
+</LinearLayout>

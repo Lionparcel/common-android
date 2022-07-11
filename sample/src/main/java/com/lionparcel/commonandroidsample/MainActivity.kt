@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.lionparcel.commonandroidsample.button.ButtonSampleActivity
+import com.lionparcel.commonandroidsample.divider.DividerSampleActivity
 import com.lionparcel.commonandroidsample.form.FormComponentSampleActivity
 import com.lionparcel.commonandroidsample.header.HeaderSampleActivity
 import com.lionparcel.commonandroidsample.loading.LoadingComponentSampleActivity
@@ -41,6 +42,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.button_to_headerSampleActivity).setOnClickListener {
             startActivity(Intent(this, HeaderSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_dividerSampleActivity).setOnClickListener {
+            startActivity(Intent(this, DividerSampleActivity::class.java))
         }
     }
 }
