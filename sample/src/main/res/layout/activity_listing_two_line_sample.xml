@@ -1,0 +1,104 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".listing.ListingTwoLineSampleActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_8">
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:listStyle="two_line"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_2_rb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:iconStart="radio_button"
+            app:listStyle="two_line"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_2_cb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:iconStart="check_box"
+            app:listStyle="two_line"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_2_remove"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:iconStart="remove_button"
+            app:listStyle="two_line"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_2_ic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:iconStart="icon"
+            app:listStyle="two_line"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_2_sw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:iconEnd="toggle_button"
+            app:listStyle="two_line"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_2_re"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:iconEnd="remove_button"
+            app:listStyle="two_line"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_2_ice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:iconEnd="icon"
+            app:listStyle="two_line"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_2_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:iconEnd="button"
+            app:buttonText="Kirim"
+            app:listStyle="two_line"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_2_icse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:iconStart="icon"
+            app:iconEnd="icon"
+            app:listStyle="two_line"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_2_div"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:iconStart="icon"
+            app:iconEnd="icon"
+            app:addListDivider="true"
+            app:listStyle="two_line"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_2_sw1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:iconEnd="toggle_button"
+            app:addListDivider="true"
+            app:listStyle="two_line"/>
+
+    </LinearLayout>
+
+</ScrollView>

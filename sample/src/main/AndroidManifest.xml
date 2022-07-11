@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
         <activity
+            android:name=".listing.ListingWithThumbnailSampleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".listing.ListingTwoLineSampleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".listing.ListingOneLineSampleActivity"
+            android:exported="false" />
+        <activity
             android:name=".listing.ListingSampleActivity"
             android:exported="false" />
         <activity
