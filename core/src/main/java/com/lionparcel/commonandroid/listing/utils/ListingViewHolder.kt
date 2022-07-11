@@ -4,9 +4,13 @@ import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.widget.RecyclerView
 import com.lionparcel.commonandroid.R
+import com.lionparcel.commonandroid.form.utils.setRegularFont
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.lp_layout_listing_items.*
 
@@ -18,6 +22,26 @@ class ListingViewHolder(override val containerView: View) : RecyclerView.ViewHol
             val layoutInflater = LayoutInflater.from(parent.context)
             val view = layoutInflater.inflate(R.layout.lp_layout_listing_items, parent, false)
             return ListingViewHolder(view)
+        }
+    }
+    private fun setListingStyle(listingStyle: Int){
+        when (listingStyle) {
+            0 -> {
+                ll_listing_thumbnail.isVisible = false
+                txt_listing_sub_title.isVisible = false
+                txt_listing_title.setRegularFont()
+            }
+            1 -> {
+                ll_listing_icon_start.updateLayoutParams<ConstraintLayout.LayoutParams> {
+                    this.bottomToBottom = ConstraintLayout.LayoutParams.UNSET
+                }
+                ll_listing_thumbnail.isVisible = false
+                txt_listing_sub_title.isVisible = true
+            }
+            2 -> {
+                ll_listing_thumbnail.isVisible = true
+                txt_listing_sub_title.isVisible = true
+            }
         }
     }
 
@@ -106,20 +130,7 @@ class ListingViewHolder(override val containerView: View) : RecyclerView.ViewHol
         iconStartImage : Drawable,
         iconEndImage : Drawable
     ) {
-        when (listingStyle) {
-            0 -> {
-                ll_listing_thumbnail.isVisible = false
-                txt_listing_sub_title.isVisible = false
-            }
-            1 -> {
-                ll_listing_thumbnail.isVisible = false
-                txt_listing_sub_title.isVisible = true
-            }
-            2 -> {
-                ll_listing_thumbnail.isVisible = true
-                txt_listing_sub_title.isVisible = true
-            }
-        }
+        setListingStyle(listingStyle)
         setIconStartVisibility(iconStart)
         setIconEndVisibility(iconEnd)
         setListOutline(listDivider)
