@@ -13,7 +13,8 @@ def moduleDirs = [
     'popup',
     'loading',
     'snackbartoast',
-    'header'
+    'header',
+    'stepper'
 ]
 
 android {
