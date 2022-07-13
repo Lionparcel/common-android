@@ -112,14 +112,17 @@ class LPCard : LinearLayout {
 
     fun setCardSubtitle(subtitle: String? = null) {
         txtCardSubtitle.text = subtitle ?: this.cardSubtitle
+        txtCardSubtitle.isVisible = txtCardSubtitle.text != ""
     }
 
     fun setCardContent(content: String? = null) {
         txtCardContent.text = content ?: this.cardContent
+        txtCardContent.isVisible = txtCardContent.text != ""
     }
 
     fun setButtonText(text: String? = null) {
         btnCardRed.text = text ?: this.btnText
+        btnCardRed.isVisible = btnCardRed.text != ""
     }
 
     fun buttonListener(listener : ((View) -> Unit)){

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false">
+
+    <ImageButton
+        android:id="@+id/img_btn_back_header"
+        android:contentDescription="@string/general_image_content_description"
+        android:layout_width="@dimen/spacing_xl"
+        android:layout_height="@dimen/spacing_xl"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/spacing_xl"
+        android:background="@color/transparent"
+        android:visibility="gone"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/cl_header"
+        app:layout_constraintStart_toStartOf="@+id/cl_header"
+        app:layout_constraintTop_toTopOf="@+id/cl_header"
+        tools:src="@drawable/ic_o_arrow_left_alt"/>
+
+    <TextView
+        android:id="@+id/txt_header_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_xl"
+        android:layout_marginTop="@dimen/spacing_m"
+        android:layout_marginBottom="@dimen/spacing_m"
+        android:textAppearance="@style/H5Bold"
+        android:textColor="@color/shades5"
+        app:layout_constraintBottom_toBottomOf="@+id/cl_header"
+        app:layout_constraintStart_toStartOf="@+id/cl_header"
+        app:layout_constraintTop_toTopOf="@+id/cl_header"
+        tools:text="Medium Page Title" />
+
+    <ImageButton
+        android:id="@+id/img_btn_info_2"
+        android:layout_width="@dimen/spacing_xl"
+        android:layout_height="@dimen/spacing_xl"
+        android:layout_marginEnd="@dimen/spacing_l"
+        android:background="@color/transparent"
+        android:contentDescription="@string/general_image_content_description"
+        android:visibility="gone"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@id/cl_header"
+        app:layout_constraintEnd_toStartOf="@id/img_btn_info_1"
+        app:layout_constraintTop_toTopOf="@id/cl_header"
+        tools:src="@drawable/ics_o_info_circle"/>
+
+    <ImageButton
+        android:id="@+id/img_btn_info_1"
+        android:layout_width="@dimen/spacing_xl"
+        android:layout_height="@dimen/spacing_xl"
+        android:layout_marginEnd="@dimen/spacing_xl"
+        android:background="@color/transparent"
+        android:contentDescription="@string/general_image_content_description"
+        android:visibility="gone"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@id/cl_header"
+        app:layout_constraintEnd_toEndOf="@+id/cl_header"
+        app:layout_constraintTop_toTopOf="@id/cl_header"
+        tools:src="@drawable/ics_o_info_circle" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_header_search_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginStart="@dimen/spacing_xl"
+        android:layout_marginEnd="@dimen/spacing_xl"
+        android:layout_marginBottom="@dimen/spacing_m"
+        android:background="@drawable/bg_header_search_rounded"
+        android:paddingVertical="@dimen/spacing_xs"
+        android:paddingHorizontal="@dimen/spacing_s"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/cl_header"
+        app:layout_constraintEnd_toEndOf="@+id/cl_header"
+        app:layout_constraintStart_toStartOf="@+id/cl_header"
+        app:layout_constraintTop_toBottomOf="@id/txt_header_label">
+
+        <com.lionparcel.commonandroid.form.LPAutoCompleteTextView
+            android:id="@+id/txt_search_autocomplete"
+            style="@style/HeaderSearchAutoCompleteTextView"
+            android:layout_width="@dimen/spacing_none"
+            android:layout_height="match_parent"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:drawableStart="@drawable/ics_o_search"
+            tools:hint="Search" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/txt_btn_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_xl"
+        android:textAppearance="@style/Body3Semibold"
+        android:textColor="@color/interpack6"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@+id/cl_header_search_edit_text"
+        app:layout_constraintBottom_toBottomOf="@+id/cl_header_search_edit_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Your Button"/>
+
+    <ImageButton
+        android:id="@+id/img_btn_scan_header"
+        android:layout_width="@dimen/spacing_xl"
+        android:layout_height="@dimen/spacing_xl"
+        android:layout_marginStart="@dimen/spacing_xl"
+        android:contentDescription="@string/general_image_content_description"
+        android:background="@color/transparent"
+        android:visibility="gone"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cl_header_search_edit_text"
+        app:layout_constraintBottom_toBottomOf="@+id/cl_header_search_edit_text"/>
+
+    <TextView
+        android:id="@+id/txt_assistive_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xs"
+        android:layout_marginStart="@dimen/spacing_xl"
+        android:layout_marginEnd="@dimen/spacing_xl"
+        android:textAppearance="@style/Subtitle4Regular"
+        android:textColor="@color/shades3"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/cl_header_search_edit_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/txt_error_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xs"
+        android:layout_marginStart="@dimen/spacing_xl"
+        android:layout_marginEnd="@dimen/spacing_xl"
+        android:textAppearance="@style/Subtitle4Regular"
+        android:textColor="@color/interpack6"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/cl_header_search_edit_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

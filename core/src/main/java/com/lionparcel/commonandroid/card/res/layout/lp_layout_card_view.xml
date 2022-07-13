@@ -5,13 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:background="@drawable/bg_card_parent">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/spacing_m"
+        android:paddingVertical="@dimen/spacing_m"
         android:paddingHorizontal="@dimen/spacing_l">
 
         <TextView
@@ -44,20 +45,20 @@
         <Button
             android:id="@+id/btn_card_red"
             style="@style/LPRoundedRedMediumButtonStyle"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textSize="@dimen/sp_12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_l"
-            android:layout_marginBottom="@dimen/spacing_m"
             tools:text="Optional Button"/>
 
-        <View
-            android:id="@+id/vw_card_border_bottom"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_1"
-            android:background="@color/shades1"
-            android:visibility="gone"/>
-
-
     </LinearLayout>
+
+    <View
+        android:id="@+id/vw_card_border_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/shades1"
+        android:visibility="visible"/>
 
 </LinearLayout>

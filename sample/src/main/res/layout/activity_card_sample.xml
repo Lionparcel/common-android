@@ -28,7 +28,6 @@
             android:layout_height="wrap_content"
             app:cardStyle="solid"
             app:cardTitle="Your Title Text Here"
-            app:cardSubtitle="Secondary Text"
             app:cardsContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             app:buttonText="Optional Button"/>
 
@@ -50,8 +49,7 @@
             app:cardStyle="border"
             app:cardTitle="Your Title Text Here"
             app:cardSubtitle="Secondary Text"
-            app:cardsContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            app:buttonText="Optional Button"/>
+            app:cardsContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
 
         <com.lionparcel.commonandroid.card.LPCard
             android:layout_marginTop="@dimen/dp_8"
