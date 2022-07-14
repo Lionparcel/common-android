@@ -65,6 +65,7 @@
     <dimen name="dp_190">190dp</dimen>
     <dimen name="dp_210">210dp</dimen>
     <dimen name="dp_224">224dp</dimen>
+    <dimen name="dp_312">312dp</dimen>
 
     <dimen name="minus_dp_5">-5dp</dimen>
     <dimen name="minus_dp_15">-15dp</dimen>

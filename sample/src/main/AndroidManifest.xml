@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
         <activity
+            android:name=".card.CardSampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".popup.PopupComponentSampleActivity"
             android:exported="true" />
         <activity

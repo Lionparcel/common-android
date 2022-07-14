@@ -6,6 +6,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.lionparcel.commonandroidsample.button.ButtonSampleActivity
 import com.lionparcel.commonandroidsample.emptystate.EmptyStateSampleActivity
+import com.lionparcel.commonandroidsample.card.CardSampleActivity
 import com.lionparcel.commonandroidsample.form.FormComponentSampleActivity
 import com.lionparcel.commonandroidsample.header.HeaderSampleActivity
 import com.lionparcel.commonandroidsample.loading.LoadingComponentSampleActivity
@@ -52,6 +53,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.button_to_emptystateSampleActivity).setOnClickListener {
             startActivity(Intent(this, EmptyStateSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_cardSampleActivity).setOnClickListener {
+            startActivity(Intent(this, CardSampleActivity::class.java))
         }
     }
 }
