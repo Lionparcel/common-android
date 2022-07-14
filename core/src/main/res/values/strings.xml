@@ -28,4 +28,8 @@ di pergunakan dengan sebagai mana mestinya</string>
     <string name="stepper_number_subtitle_one">Permintaan klaim telah dikirim</string>
     <string name="stepper_number_subtitle_two">Pemeriksaan klaim paket</string>
     <string name="stepper_number_subtitle_three">Hasil keputusan dari tim internal</string>
+    <string name="stepper_icon_title_one">Paket sudah diproses</string>
+    <string name="stepper_icon_title_two">Berangkat dari kota asal</string>
+    <string name="stepper_icon_title_three">Pengantaran ke alamat</string>
+    <string name="stepper_icon_title_four">Sampai di tujuan</string>
 </resources>

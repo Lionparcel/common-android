@@ -26,4 +26,11 @@
         <attr name="secondSubtitle" format="string"/>
         <attr name="thirdSubtitle" format="string"/>
     </declare-styleable>
+    <declare-styleable name="LPStepperIcon">
+        <attr name="stepperText"/>
+        <attr name="firstTitle"/>
+        <attr name="secondTitle"/>
+        <attr name="thirdTitle"/>
+        <attr name="fourthTitle" format="string"/>
+    </declare-styleable>
 </resources>
