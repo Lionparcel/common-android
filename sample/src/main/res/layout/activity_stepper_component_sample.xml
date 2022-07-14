@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".stepper.StepperSampleActivity">
+
+    <Button
+        android:id="@+id/btn_stepper_dot"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stepper Dot Sample"/>
+
+    <Button
+        android:id="@+id/btn_stepper_number"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stepper Number Sample"/>
+
+    <Button
+        android:id="@+id/btn_stepper_icon"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stepper Icon Sample"/>
+
+</LinearLayout>

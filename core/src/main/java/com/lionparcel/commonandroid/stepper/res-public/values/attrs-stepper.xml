@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LPStepperDot">
+        <attr name="stepperOrientation" format="enum">
+            <enum name="vertical" value="0"/>
+            <enum name="horizontal" value="1"/>
+        </attr>
+        <attr name="stepperDirection" format="enum">
+            <enum name="normal" value="0"/>
+            <enum name="reverse" value="1"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="LPStepperNumber">
+        <attr name="stepperText" format="enum">
+            <enum name="with_text" value="0"/>
+            <enum name="without_text" value="1"/>
+        </attr>
+        <attr name="stepperNumberCount" format="enum">
+            <enum name="three" value="0"/>
+            <enum name="two" value="1"/>
+        </attr>
+        <attr name="firstTitle" format="string"/>
+        <attr name="secondTitle" format="string"/>
+        <attr name="thirdTitle" format="string"/>
+        <attr name="firstSubtitle" format="string"/>
+        <attr name="secondSubtitle" format="string"/>
+        <attr name="thirdSubtitle" format="string"/>
+    </declare-styleable>
+</resources>
