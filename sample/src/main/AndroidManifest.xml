@@ -11,19 +11,19 @@
         android:theme="@style/Theme.Commonandroid">
         <activity
             android:name=".stepper.StepperCarouselSampleActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".stepper.StepperIconSampleActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".stepper.StepperNumberSampleActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".stepper.StepperDotSampleActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".stepper.StepperSampleActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".header.HeaderDASampleActivity"
             android:exported="true" />

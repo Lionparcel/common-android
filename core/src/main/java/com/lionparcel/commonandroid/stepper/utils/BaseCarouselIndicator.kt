@@ -2,7 +2,6 @@ package com.lionparcel.commonandroid.stepper.utils
 
 import android.content.Context
 import android.database.DataSetObserver
-import android.graphics.Color
 import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
@@ -18,10 +17,6 @@ abstract class BaseCarouselIndicator @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
-
-//    enum class Color(val dotColor: Int) {
-//        NORMAL(ContextCompat.getColor(context, R.color.pensive5))
-//    }
 
     @JvmField
     protected val dots = ArrayList<ImageView>()

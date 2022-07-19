@@ -1,6 +1,7 @@
 package com.lionparcel.commonandroidsample.stepper
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.lionparcel.commonandroid.stepper.LPStepperCarousel
@@ -13,9 +14,9 @@ class StepperCarouselSampleActivity : AppCompatActivity() {
         setContentView(R.layout.activity_stepper_carousel_sample)
 
         val imageList = arrayListOf(
+            R.drawable.img_stepper_success,
             R.drawable.spot_illustration,
-            R.drawable.spot_illustration,
-            R.drawable.spot_illustration
+            R.drawable.img_stepper_failed
         )
         val viewPager = findViewById<ViewPager>(R.id.iv_view_pager_1)
         val stepperCarousel = findViewById<LPStepperCarousel>(R.id.lp_stepper_carousel_1)

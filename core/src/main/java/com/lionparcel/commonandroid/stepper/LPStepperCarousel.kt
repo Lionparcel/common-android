@@ -3,6 +3,7 @@ package com.lionparcel.commonandroid.stepper
 import android.animation.ArgbEvaluator
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,8 +23,8 @@ class LPStepperCarousel @JvmOverloads constructor(
     private var linearLayout: LinearLayout? = null
     private var stepperWidthFactor: Float = 3f
     private var progressMode: Boolean = false
-    private var stepperSize : Int
-    private var stepperColor : Int
+    private var stepperSize: Int
+    private var stepperColor: Int
 
     var selectedStepperColor: Int = 0
         set(value) {
@@ -91,11 +92,11 @@ class LPStepperCarousel @JvmOverloads constructor(
             1 -> dotsSize.toInt() - 1
             else -> 0
         }
-        params.setMargins(dotsSpacing.toInt(), 0, dotsSpacing.toInt(), 0 )
+        params.setMargins(dotsSpacing.toInt(), 0, dotsSpacing.toInt(), 0)
         val background = StepperGradientDrawable()
         background.cornerRadius = dotsCornerRadius
         if (isInEditMode) {
-            background.setColor(if ( 0 == index) selectedStepperColor else dotsColor)
+            background.setColor(if (0 == index) selectedStepperColor else dotsColor)
         } else {
             background.setColor(if (pager!!.currentItem == index) selectedStepperColor else dotsColor)
         }
@@ -109,6 +110,7 @@ class LPStepperCarousel @JvmOverloads constructor(
 
         dots.add(imageView)
         linearLayout!!.addView(stepper)
+        linearLayout!!.layoutDirection = LAYOUT_DIRECTION_RTL
     }
 
     override fun removeDot(index: Int) {
@@ -128,23 +130,29 @@ class LPStepperCarousel @JvmOverloads constructor(
             ) {
                 val selectedDot = dots[selectedPosition]
 
-                val selectedDotWidth = (dotsSize + dotsSize * (stepperWidthFactor - 1) * (1 - positionOffset)).toInt()
+                val selectedDotWidth =
+                    (dotsSize + dotsSize * (stepperWidthFactor - 1) * (1 - positionOffset)).toInt()
                 selectedDot.setWidth(selectedDotWidth)
 
                 if (dots.isInBounds(nextPosition)) {
                     val nextDot = dots[nextPosition]
 
-                    val nextDotWidth = (dotsSize + dotsSize * (stepperWidthFactor - 1) * positionOffset).toInt()
+                    val nextDotWidth =
+                        (dotsSize + dotsSize * (stepperWidthFactor - 1) * positionOffset).toInt()
                     nextDot.setWidth(nextDotWidth)
 
                     val selectedDotBackground = selectedDot.background as StepperGradientDrawable
                     val nextDotBackground = nextDot.background as StepperGradientDrawable
 
                     if (selectedStepperColor != dotsColor) {
-                        val selectedColor = argbEvaluator.evaluate(positionOffset, selectedStepperColor,
-                            dotsColor) as Int
-                        val nextColor = argbEvaluator.evaluate(positionOffset, dotsColor,
-                            selectedStepperColor) as Int
+                        val selectedColor = argbEvaluator.evaluate(
+                            positionOffset, selectedStepperColor,
+                            dotsColor
+                        ) as Int
+                        val nextColor = argbEvaluator.evaluate(
+                            positionOffset, dotsColor,
+                            selectedStepperColor
+                        ) as Int
 
                         nextDotBackground.setColor(nextColor)
 
@@ -155,7 +163,6 @@ class LPStepperCarousel @JvmOverloads constructor(
                         }
                     }
                 }
-
 
                 invalidate()
             }
