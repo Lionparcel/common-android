@@ -19,5 +19,8 @@ class StepperSampleActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_stepper_icon).setOnClickListener {
             startActivity(Intent(this, StepperIconSampleActivity::class.java))
         }
+        findViewById<Button>(R.id.btn_stepper_carousel).setOnClickListener {
+            startActivity(Intent(this, StepperCarouselSampleActivity::class.java))
+        }
     }
 }

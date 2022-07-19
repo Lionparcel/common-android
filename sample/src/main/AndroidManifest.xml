@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
         <activity
+            android:name=".stepper.StepperCarouselSampleActivity"
+            android:exported="false" />
+        <activity
             android:name=".stepper.StepperIconSampleActivity"
             android:exported="false" />
         <activity

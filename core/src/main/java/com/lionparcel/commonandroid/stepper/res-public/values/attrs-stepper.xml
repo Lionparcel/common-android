@@ -33,4 +33,15 @@
         <attr name="thirdTitle"/>
         <attr name="fourthTitle" format="string"/>
     </declare-styleable>
+    <declare-styleable name="LPStepperCarousel">
+        <attr name="stepperSize" format="enum">
+            <enum name="large" value="0"/>
+            <enum name="small" value="1"/>
+        </attr>
+        <attr name="stepperColor" format="enum">
+            <enum name="normal" value="0"/>
+            <enum name="inverted" value="1"/>
+        </attr>
+        <attr name="progressMode" format="boolean"/>
+    </declare-styleable>
 </resources>

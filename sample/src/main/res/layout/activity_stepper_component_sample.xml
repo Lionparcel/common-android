@@ -29,4 +29,11 @@
         android:layout_height="wrap_content"
         android:text="Stepper Icon Sample"/>
 
+    <Button
+        android:id="@+id/btn_stepper_carousel"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stepper Carousel Sample"/>
+
 </LinearLayout>
