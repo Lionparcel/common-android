@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Commonandroid">
         <activity
             android:name=".divider.DividerSampleActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".header.HeaderDASampleActivity"
             android:exported="true" />
