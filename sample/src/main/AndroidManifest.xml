@@ -13,6 +13,15 @@
             android:name=".divider.DividerSampleActivity"
             android:exported="true" />
         <activity
+            android:name=".card.CardSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".popup.PopupComponentSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".emptystate.EmptyStateSampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".header.HeaderDASampleActivity"
             android:exported="true" />
         <activity

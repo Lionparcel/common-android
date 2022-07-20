@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll_card_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_card_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/spacing_m"
+        android:paddingHorizontal="@dimen/spacing_l">
+
+        <TextView
+            android:id="@+id/txt_card_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/shades7"
+            tools:text="Your Title Text Here"/>
+
+        <TextView
+            android:id="@+id/txt_card_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Body3Regular"
+            android:textColor="@color/shades3"
+            android:layout_marginTop="@dimen/spacing_xxs"
+            tools:text="Secondary Text"/>
+
+        <TextView
+            android:id="@+id/txt_card_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Body3Regular"
+            android:textColor="@color/shades5"
+            android:layout_marginTop="@dimen/spacing_xs"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+
+        <Button
+            android:id="@+id/btn_card_red"
+            style="@style/LPRoundedRedMediumButtonStyle"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textSize="@dimen/sp_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_l"
+            tools:text="Optional Button"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/vw_card_border_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/shades1"
+        android:visibility="visible"/>
+
+</LinearLayout>
