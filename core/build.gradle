@@ -15,7 +15,8 @@ def moduleDirs = [
     'snackbartoast',
     'emptystate',
     'header',
-    'card'
+    'card',
+    'divider'
 ]
 
 android {
