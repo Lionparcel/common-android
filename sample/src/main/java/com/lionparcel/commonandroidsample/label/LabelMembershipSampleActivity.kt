@@ -10,7 +10,7 @@ class LabelMembershipSampleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_label_membership_sample)
 
-        findViewById<LPLabel>(R.id.label_member_1).labelClickListener {
+        findViewById<LPLabel>(R.id.label_member_1).setOnClickListener {
             finish()
         }
     }
