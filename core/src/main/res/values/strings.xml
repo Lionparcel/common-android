@@ -18,4 +18,13 @@ di pergunakan dengan sebagai mana mestinya</string>
     <string name="text_area_hint">Type your placeholder text here </string>
 
     <string name="error_information">Your error information here</string>
+
+    <string name="navbar_title_home">Beranda</string>
+    <string name="navbar_title_track">Paketmu</string>
+    <string name="navbar_title_helpdesk">Bantuan</string>
+    <string name="navbar_title_payment">Bayar</string>
+    <string name="navbar_title_account">Akun</string>
+    <string name="navbar_title_history">Riwayat</string>
+    <string name="navbar_title_sync">Sync Data</string>
+    <string name="navbar_title_earning">Penghasilan</string>
 </resources>

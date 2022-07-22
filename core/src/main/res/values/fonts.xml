@@ -342,4 +342,16 @@
     <item name="fontStyle">normal</item>
     <item name="android:textSize">10sp</item>
   </style>
+
+  <style name="BottomNavigationViewSelectedTextStyle">
+    <item name="android:fontFamily">@font/poppins_regular</item>
+    <item name="android:textSize">@dimen/sp_10</item>
+    <item name="android:textColor">@color/interpack6</item>
+  </style>
+
+  <style name="BottomNavigationViewTextStyle">
+    <item name="android:fontFamily">@font/poppins_regular</item>
+    <item name="android:textSize">@dimen/sp_10</item>
+    <item name="android:textColor">@color/shades3</item>
+  </style>
 </resources>

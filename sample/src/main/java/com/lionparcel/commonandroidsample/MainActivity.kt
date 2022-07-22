@@ -11,6 +11,7 @@ import com.lionparcel.commonandroidsample.form.FormComponentSampleActivity
 import com.lionparcel.commonandroidsample.header.HeaderSampleActivity
 import com.lionparcel.commonandroidsample.loading.LoadingComponentSampleActivity
 import com.lionparcel.commonandroidsample.modal.ModalComponentSampleActivity
+import com.lionparcel.commonandroidsample.navbar.NavbarSampleActivity
 import com.lionparcel.commonandroidsample.popup.PopupComponentSampleActivity
 import com.lionparcel.commonandroidsample.toastsnackbar.SnackbarSampleActivity
 import com.lionparcel.commonandroidsample.toastsnackbar.ToastSampleActivity
@@ -56,6 +57,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.button_to_cardSampleActivity).setOnClickListener {
             startActivity(Intent(this, CardSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_navbarSampleActivity).setOnClickListener {
+            startActivity(Intent(this, NavbarSampleActivity::class.java))
         }
     }
 }

@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
         <activity
+            android:name=".navbar.NavbarCASampleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".navbar.NavbarSampleActivity"
+            android:exported="false" />
+        <activity
             android:name=".card.CardSampleActivity"
             android:exported="true" />
         <activity
