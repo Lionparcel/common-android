@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="LPLabel">
-        <attr name="textTitle" format="string"/>
+        <attr name="textTitle"/>
         <attr name="labelType">
             <enum name="basic" value="0"/>
             <enum name="product" value="1"/>

@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
         <activity
+            android:name=".divider.DividerSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".card.CardSampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".label.LabelMembershipSampleActivity"
             android:exported="true" />
         <activity
@@ -23,6 +29,18 @@
             android:exported="true" />
         <activity
             android:name=".popup.PopupComponentSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".emptystate.EmptyStateSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".header.HeaderDASampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".header.HeaderCASampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".header.HeaderSampleActivity"
             android:exported="true" />
         <activity
             android:name=".form.TextAreaSampleActivity"

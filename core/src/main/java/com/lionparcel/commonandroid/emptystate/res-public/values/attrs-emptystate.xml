@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LPEmptyState">
+        <attr name="showIllustration" format="boolean"/>
+        <attr name="imageIllustration" format="reference"/>
+        <attr name="showTitleText" format="boolean"/>
+        <attr name="textTitle" format="string"/>
+        <attr name="textBody" format="string"/>
+        <attr name="showPrimaryButton" format="boolean"/>
+        <attr name="textPrimaryButton" format="string"/>
+        <attr name="showSecondaryButton" format="boolean"/>
+        <attr name="textSecondaryButton" format="string"/>
+    </declare-styleable>
+</resources>
