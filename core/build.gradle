@@ -16,7 +16,8 @@ def moduleDirs = [
     'emptystate',
     'header',
     'card',
-    'divider'
+    'divider',
+    'tag'
 ]
 
 android {
