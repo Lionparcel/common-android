@@ -17,7 +17,7 @@
         android:layout_height="@dimen/dp_18"
         android:contentDescription="@string/general_image_content_description"
         android:layout_marginEnd="@dimen/spacing_xs"
-        tools:src="@drawable/ics_f_close_circle"/>
+        tools:src="@drawable/ics_f_check_circle"/>
 
     <TextView
         android:id="@+id/tvSingleTag"

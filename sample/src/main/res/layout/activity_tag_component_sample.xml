@@ -9,7 +9,24 @@
     tools:context=".tag.TagComponentSampleActivity">
 
     <com.lionparcel.commonandroid.tag.LPTag
+        android:id="@+id/lp_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_tag"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_tag_no_icon"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 </LinearLayout>
