@@ -19,6 +19,18 @@
             android:name=".card.CardSampleActivity"
             android:exported="true" />
         <activity
+            android:name=".label.LabelMembershipSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".label.LabelBasicSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".label.LabelProductSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".label.LabelSampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".popup.PopupComponentSampleActivity"
             android:exported="true" />
         <activity
