@@ -14,6 +14,7 @@ import com.lionparcel.commonandroidsample.label.LabelSampleActivity
 import com.lionparcel.commonandroidsample.loading.LoadingComponentSampleActivity
 import com.lionparcel.commonandroidsample.modal.ModalComponentSampleActivity
 import com.lionparcel.commonandroidsample.popup.PopupComponentSampleActivity
+import com.lionparcel.commonandroidsample.tag.TagComponentSampleActivity
 import com.lionparcel.commonandroidsample.toastsnackbar.SnackbarSampleActivity
 import com.lionparcel.commonandroidsample.toastsnackbar.ToastSampleActivity
 import com.lionparcel.commonandroidsample.walktrough.WalkThroughSampleActivity
@@ -61,6 +62,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.button_to_labelSampleActivity).setOnClickListener {
             startActivity(Intent(this, LabelSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_tagSampleActivity).setOnClickListener {
+            startActivity(Intent(this, TagComponentSampleActivity::class.java))
         }
     }
 }

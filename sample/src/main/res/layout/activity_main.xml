@@ -105,6 +105,13 @@
             android:layout_height="wrap_content"
             android:text="Label Component Sample" />
 
+        <Button
+            android:id="@+id/button_to_tagSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tag Component Sample" />
+
     </LinearLayout>
 
 </ScrollView>
