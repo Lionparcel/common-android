@@ -4,8 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.lionparcel.commonandroid.listing.LPListing
-import com.lionparcel.commonandroid.listing.utils.ListData
 import com.lionparcel.commonandroidsample.R
 
 class ListingSampleActivity : AppCompatActivity() {

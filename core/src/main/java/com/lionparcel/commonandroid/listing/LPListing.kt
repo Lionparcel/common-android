@@ -5,41 +5,45 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.widget.LinearLayout
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import android.view.View
+import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import com.lionparcel.commonandroid.R
-import com.lionparcel.commonandroid.listing.utils.ListData
-import com.lionparcel.commonandroid.listing.utils.ListingAdapter
+import com.lionparcel.commonandroid.form.utils.setRegularFont
 
 @Suppress("DEPRECATION")
 @SuppressLint("UseCompatLoadingForDrawables")
-class LPListing : LinearLayout {
+class LPListing : ConstraintLayout {
 
-    private var listingStyle : Int
-    private var listDivider : Boolean
-    private var iconStart : Int
-    private var iconEnd : Int
-    private var buttonText : String
-    private var iconStartImage : Drawable
-    private var iconEndImage : Drawable
+    private var listingStyle: Int
+    private var listDivider: Boolean
+    private var iconStart: Int
+    private var iconEnd: Int
+    private var buttonText: String
+    private var iconStartImage: Drawable
+    private var iconEndImage: Drawable
 
-    private val rvListing : RecyclerView
-    private val listingAdapter by lazy {
-        ListingAdapter(
-            emptyList(),
-            0,
-            0,
-            false,
-            0,
-            "",
-            resources.getDrawable(R.drawable.ic_f_star),
-            resources.getDrawable(R.drawable.ic_o_chevron_right)
-        )
-    }
-    private var listData : ArrayList<ListData> = arrayListOf()
+    private val llIconStart : LinearLayout
+    private val llThumbnail : LinearLayout
+    private val txtTitle : TextView
+    private val txtSubtitle : TextView
+    private val ivThumbnail : ImageView
+    private val ivIconStart : ImageView
+    private val ivIconEnd : ImageView
+    private val ivCloseStart : ImageView
+    private val ivCloseEnd : ImageView
+    private val btnEnd : Button
+    private val divider : View
 
     private fun String?.setString() = this ?: ""
+
+    val checkBox : CheckBox
+    val radioButton : RadioButton
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
+    val switchEnd : Switch
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet? = null) : this(context, attrs, 0)
@@ -49,7 +53,7 @@ class LPListing : LinearLayout {
         defStyleAttr
     ) {
         val layoutInflater = LayoutInflater.from(context)
-        layoutInflater.inflate(R.layout.lp_layout_listing, this, true)
+        layoutInflater.inflate(R.layout.lp_layout_listing_items, this, true)
         context.theme.obtainStyledAttributes(
             attrs,
             R.styleable.LPListing,
@@ -62,32 +66,192 @@ class LPListing : LinearLayout {
                 iconStart = getInt(R.styleable.LPListing_iconStart, 0)
                 iconEnd = getInt(R.styleable.LPListing_iconEnd, 0)
                 buttonText = getString(R.styleable.LPListing_buttonText).setString()
-                iconStartImage = getDrawable(R.styleable.LPListing_iconStartImage)?: resources.getDrawable(R.drawable.ic_f_star)
-                iconEndImage = getDrawable(R.styleable.LPListing_iconEndImage)?: resources.getDrawable(R.drawable.ic_o_chevron_right)
+                iconStartImage = getDrawable(R.styleable.LPListing_iconStartImage)
+                    ?: resources.getDrawable(R.drawable.ic_f_star)
+                iconEndImage = getDrawable(R.styleable.LPListing_iconEndImage)
+                    ?: resources.getDrawable(R.drawable.ic_o_chevron_right)
             } finally {
                 recycle()
             }
         }
+        llIconStart = findViewById(R.id.ll_listing_icon_start)
+        llThumbnail = findViewById(R.id.ll_listing_thumbnail)
+        txtTitle = findViewById(R.id.txt_listing_title)
+        txtSubtitle = findViewById(R.id.txt_listing_sub_title)
+        ivThumbnail = findViewById(R.id.iv_thumbnail_listing)
+        ivIconStart = findViewById(R.id.iv_icon_listing_start)
+        ivIconEnd = findViewById(R.id.iv_icon_listing_end)
+        ivCloseStart = findViewById(R.id.iv_close_listing_start)
+        ivCloseEnd = findViewById(R.id.iv_close_listing_end)
+        btnEnd = findViewById(R.id.btn_listing_end)
+        checkBox = findViewById(R.id.cb_listing_start)
+        radioButton = findViewById(R.id.rb_listing_start)
+        switchEnd = findViewById(R.id.sw_listing_end)
+        divider = findViewById(R.id.vw_listing_divider_bottom)
 
-        rvListing = findViewById(R.id.rv_listing)
+        setListingStyle(listingStyle)
+        setIconStartVisibility(iconStart)
+        setIconEndVisibility(iconEnd)
+        setListOutline(listDivider)
+        ivIconStart.setImageDrawable(iconStartImage)
+        ivIconEnd.setImageDrawable(iconEndImage)
+        btnEnd.text = buttonText
 
-        rvListing.adapter = listingAdapter
-        rvListing.layoutManager = LinearLayoutManager(context)
-        rvListing.isNestedScrollingEnabled = false
-        listingAdapter.listingStyle = listingStyle
-        listingAdapter.iconStart = iconStart
-        listingAdapter.listDivider = listDivider
-        listingAdapter.iconEnd = iconEnd
-        listingAdapter.buttonText = buttonText
-        listingAdapter.iconStartImage = iconStartImage
-        listingAdapter.iconEndImage = iconEndImage
+        radioButton.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                this.background = ContextCompat.getDrawable(context, R.color.pensive5)
+            } else {
+                this.background = ContextCompat.getDrawable(context, R.color.transparent)
+            }
+        }
+
+        checkBox.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                this.background = ContextCompat.getDrawable(context, R.color.pensive5)
+            } else {
+                this.background = ContextCompat.getDrawable(context, R.color.transparent)
+            }
+        }
+
+        switchEnd.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                this.background = ContextCompat.getDrawable(context, R.color.pensive5)
+            } else {
+                this.background = ContextCompat.getDrawable(context, R.color.transparent)
+            }
+        }
     }
 
-    fun listingAdapter(id: ArrayList<Int>, title : ArrayList<String>, subtitle : ArrayList<String>, thumbnail : ArrayList<Int>){
-        for (i in 0 until id.count()){
-            listData.add(ListData(title[i], subtitle[i], thumbnail[i]))
+    private fun setListingStyle(listingStyle: Int) {
+        when (listingStyle) {
+            0 -> {
+                llThumbnail.isVisible = false
+                txtSubtitle.isVisible = false
+                txtTitle.setRegularFont()
+            }
+            1 -> {
+                when (iconStart) {
+                    1 ->
+                        llIconStart.updateLayoutParams<LayoutParams> {
+                            this.bottomToBottom = LayoutParams.UNSET
+                        }
+                    2 -> llIconStart.updateLayoutParams<LayoutParams> {
+                        this.bottomToBottom = LayoutParams.UNSET
+                    }
+                }
+                llThumbnail.isVisible = false
+                txtSubtitle.isVisible = true
+            }
+            2 -> {
+                llThumbnail.isVisible = true
+                txtSubtitle.isVisible = true
+            }
         }
-        listingAdapter.items = listData
-        listingAdapter.notifyDataSetChanged()
+    }
+
+    private fun setIconStartVisibility(iconStart: Int) {
+        when (iconStart) {
+            0 -> {
+                llIconStart.isVisible = false
+            }
+            1 -> {
+                llIconStart.isVisible = true
+                radioButton.isVisible = true
+                checkBox.isVisible = false
+                ivCloseStart.isVisible = false
+                ivIconStart.isVisible = false
+            }
+            2 -> {
+                llIconStart.isVisible = true
+                radioButton.isVisible = false
+                checkBox.isVisible = true
+                ivCloseStart.isVisible = false
+                ivIconStart.isVisible = false
+            }
+            3 -> {
+                llIconStart.isVisible = true
+                radioButton.isVisible = false
+                checkBox.isVisible = false
+                ivCloseStart.isVisible = true
+                ivIconStart.isVisible = false
+            }
+            4 -> {
+                llIconStart.isVisible = true
+                radioButton.isVisible = false
+                checkBox.isVisible = false
+                ivCloseStart.isVisible = false
+                ivIconStart.isVisible = true
+            }
+        }
+    }
+
+    private fun setListOutline(listDivider: Boolean) {
+        divider.isVisible = listDivider
+    }
+
+    private fun setIconEndVisibility(iconEnd: Int) {
+        when (iconEnd) {
+            0 -> {
+                switchEnd.isVisible = false
+                ivCloseEnd.isVisible = false
+                ivIconEnd.isVisible = false
+                btnEnd.isVisible = false
+            }
+            1 -> {
+                switchEnd.isVisible = true
+                ivCloseEnd.isVisible = false
+                ivIconEnd.isVisible = false
+                btnEnd.isVisible = false
+            }
+            2 -> {
+                switchEnd.isVisible = false
+                ivCloseEnd.isVisible = true
+                ivIconEnd.isVisible = false
+                btnEnd.isVisible = false
+            }
+            3 -> {
+                switchEnd.isVisible = false
+                ivCloseEnd.isVisible = false
+                ivIconEnd.isVisible = true
+                btnEnd.isVisible = false
+            }
+            4 -> {
+                switchEnd.isVisible = false
+                ivCloseEnd.isVisible = false
+                ivIconEnd.isVisible = false
+                btnEnd.isVisible = true
+            }
+        }
+    }
+
+    // PUBLIC METHOD
+    fun setListingTitle(title: String) {
+        txtTitle.text = title
+    }
+
+    fun setListingSubtitle(subtitle: String) {
+        txtSubtitle.text = subtitle
+    }
+
+    fun setListingThumbnail(thumbnail: Int) {
+        ivThumbnail.setImageResource(thumbnail)
+    }
+
+    fun setButtonOnClickListener(listener: (View) -> Unit) {
+        btnEnd.setOnClickListener {
+            listener.invoke(it)
+        }
+    }
+
+    fun setCloseStartClickListener(listener: (View) -> Unit) {
+        ivCloseStart.setOnClickListener {
+            listener.invoke(it)
+        }
+    }
+
+    fun setCloseEndClickListener(listener: (View) -> Unit) {
+        ivCloseEnd.setOnClickListener {
+            listener.invoke(it)
+        }
     }
 }
