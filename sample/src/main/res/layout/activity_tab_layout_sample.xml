@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/dp_16"
+    tools:context=".tab.TabLayoutSampleActivity">
+
+    <com.lionparcel.commonandroid.tab.LPTabLayout
+        android:id="@+id/lp_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_xl"
+        app:tabMode="fixed"
+        app:tabPadding="@dimen/spacing_m"
+        app:tabMinWidth="156dp" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

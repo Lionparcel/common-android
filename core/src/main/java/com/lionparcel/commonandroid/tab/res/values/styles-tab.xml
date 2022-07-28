@@ -2,7 +2,7 @@
 <resources>
     <style name="TextAppearance.App.Widget.Tab.Active" parent="TextAppearance.Base.Widget.Tab.Active"/>
 
-    <style name="TextAppearance.App.Widget.Tab.Inactive" parent="TextAppearance.Base.Widget.Tab.Active"/>
+    <style name="TextAppearance.App.Widget.Tab.Inactive" parent="TextAppearance.Base.Widget.Tab.Inactive"/>
 
     <!-- Tab Active -->
     <style name="TextAppearance.Base.Widget.Tab.Active" parent="TextAppearance.AppCompat">
