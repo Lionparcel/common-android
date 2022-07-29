@@ -13,6 +13,7 @@ import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.form.utils.setRegularFont
+import kotlin.math.roundToInt
 
 @Suppress("DEPRECATION")
 @SuppressLint("UseCompatLoadingForDrawables")
@@ -286,5 +287,18 @@ class LPListing : ConstraintLayout {
 
     fun setListOutline(listDivider: Boolean) {
         divider.isVisible = listDivider
+    }
+
+    fun setEnabledView(enable: Boolean) {
+        if (!enable) this.alpha = 0.5F
+        this.isEnabled = enable
+        radioButton.isEnabled = enable
+        checkBox.isEnabled = enable
+        ivCloseStart.isEnabled = enable
+        ivCloseEnd.isEnabled = enable
+        switchEnd.isEnabled = enable
+        btnEnd.isEnabled = enable
+        invalidate()
+        requestLayout()
     }
 }
