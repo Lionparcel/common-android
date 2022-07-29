@@ -35,3 +35,7 @@ fun TextView.setSemiBoldSpannable(
     }
     text = spannableString
 }
+
+fun TextView.setRegularFont() {
+    typeface = ResourcesCompat.getFont(context, R.font.poppins_regular)
+}

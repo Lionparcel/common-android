@@ -37,6 +37,18 @@
             android:name=".emptystate.EmptyStateSampleActivity"
             android:exported="true" />
         <activity
+            android:name=".listing.ListingWithThumbnailSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".listing.ListingTwoLineSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".listing.ListingOneLineSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".listing.ListingSampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".header.HeaderDASampleActivity"
             android:exported="true" />
         <activity
