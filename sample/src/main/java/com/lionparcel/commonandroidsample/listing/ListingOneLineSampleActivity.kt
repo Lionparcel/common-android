@@ -11,6 +11,9 @@ class ListingOneLineSampleActivity : AppCompatActivity() {
         setContentView(R.layout.activity_listing_one_line_sample)
         findViewById<LPListing>(R.id.listing_1).apply {
             setListingTitle("January")
+            setOnClickListener {
+
+            }
         }
         findViewById<LPListing>(R.id.listing_1_rb).apply {
             setListingTitle("January")

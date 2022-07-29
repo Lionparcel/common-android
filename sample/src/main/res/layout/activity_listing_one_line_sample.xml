@@ -15,7 +15,8 @@
         <com.lionparcel.commonandroid.listing.LPListing
             android:id="@+id/listing_1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            app:backgroundColorEffect="false"/>
 
         <com.lionparcel.commonandroid.listing.LPListing
             android:id="@+id/listing_1_rb"

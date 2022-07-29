@@ -24,5 +24,6 @@
         <attr name="buttonText" format="string"/>
         <attr name="iconStartImage" format="reference"/>
         <attr name="iconEndImage" format="reference"/>
+        <attr name="backgroundColorEffect" format="boolean"/>
     </declare-styleable>
 </resources>

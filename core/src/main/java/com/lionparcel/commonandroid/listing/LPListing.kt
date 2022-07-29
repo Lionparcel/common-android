@@ -25,6 +25,7 @@ class LPListing : ConstraintLayout {
     private var buttonText: String
     private var iconStartImage: Drawable
     private var iconEndImage: Drawable
+    private var backgroundColorEffect : Boolean
 
     private val llIconStart : LinearLayout
     private val llThumbnail : LinearLayout
@@ -70,6 +71,7 @@ class LPListing : ConstraintLayout {
                     ?: resources.getDrawable(R.drawable.ic_f_star)
                 iconEndImage = getDrawable(R.styleable.LPListing_iconEndImage)
                     ?: resources.getDrawable(R.drawable.ic_o_chevron_right)
+                backgroundColorEffect = getBoolean(R.styleable.LPListing_backgroundColorEffect, true)
             } finally {
                 recycle()
             }
@@ -93,32 +95,38 @@ class LPListing : ConstraintLayout {
         setIconStartVisibility(iconStart)
         setIconEndVisibility(iconEnd)
         setListOutline(listDivider)
+        setListingBackground()
         ivIconStart.setImageDrawable(iconStartImage)
         ivIconEnd.setImageDrawable(iconEndImage)
         btnEnd.text = buttonText
-
-        radioButton.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                this.background = ContextCompat.getDrawable(context, R.color.pensive5)
-            } else {
-                this.background = ContextCompat.getDrawable(context, R.color.transparent)
+    }
+    private fun setListingBackground() {
+        if (backgroundColorEffect) {
+            radioButton.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    this.background = ContextCompat.getDrawable(context, R.color.pensive5)
+                } else {
+                    this.background = ContextCompat.getDrawable(context, R.color.transparent)
+                }
             }
-        }
 
-        checkBox.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                this.background = ContextCompat.getDrawable(context, R.color.pensive5)
-            } else {
-                this.background = ContextCompat.getDrawable(context, R.color.transparent)
+            checkBox.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    this.background = ContextCompat.getDrawable(context, R.color.pensive5)
+                } else {
+                    this.background = ContextCompat.getDrawable(context, R.color.transparent)
+                }
             }
-        }
 
-        switchEnd.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                this.background = ContextCompat.getDrawable(context, R.color.pensive5)
-            } else {
-                this.background = ContextCompat.getDrawable(context, R.color.transparent)
+            switchEnd.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    this.background = ContextCompat.getDrawable(context, R.color.pensive5)
+                } else {
+                    this.background = ContextCompat.getDrawable(context, R.color.transparent)
+                }
             }
+        } else {
+            this.background = ContextCompat.getDrawable(context, R.color.transparent)
         }
     }
 
