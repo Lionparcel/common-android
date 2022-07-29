@@ -18,6 +18,22 @@ import com.lionparcel.commonandroid.form.utils.setRegularFont
 @SuppressLint("UseCompatLoadingForDrawables")
 class LPListing : ConstraintLayout {
 
+    enum class StartIcon(val type : Int){
+        NO_ICON(0),
+        RADIO_BUTTON(1),
+        CHECK_BOX(2),
+        CLOSE_START(3),
+        ICON_START(4)
+    }
+
+    enum class EndIcon(val type : Int){
+        NO_ICON(0),
+        SWITCH(1),
+        CLOSE_END(2),
+        ICON_END(3),
+        BUTTON_END(4)
+    }
+
     private var listingStyle: Int
     private var listDivider: Boolean
     private var iconStart: Int
@@ -138,15 +154,6 @@ class LPListing : ConstraintLayout {
                 txtTitle.setRegularFont()
             }
             1 -> {
-                when (iconStart) {
-                    1 ->
-                        llIconStart.updateLayoutParams<LayoutParams> {
-                            this.bottomToBottom = LayoutParams.UNSET
-                        }
-                    2 -> llIconStart.updateLayoutParams<LayoutParams> {
-                        this.bottomToBottom = LayoutParams.UNSET
-                    }
-                }
                 llThumbnail.isVisible = false
                 txtSubtitle.isVisible = true
             }
@@ -168,6 +175,11 @@ class LPListing : ConstraintLayout {
                 checkBox.isVisible = false
                 ivCloseStart.isVisible = false
                 ivIconStart.isVisible = false
+                when (listingStyle) {
+                    1 -> llIconStart.updateLayoutParams<LayoutParams> {
+                        this.bottomToBottom = LayoutParams.UNSET
+                    }
+                }
             }
             2 -> {
                 llIconStart.isVisible = true
@@ -175,6 +187,11 @@ class LPListing : ConstraintLayout {
                 checkBox.isVisible = true
                 ivCloseStart.isVisible = false
                 ivIconStart.isVisible = false
+                when (listingStyle) {
+                    1 -> llIconStart.updateLayoutParams<LayoutParams> {
+                        this.bottomToBottom = LayoutParams.UNSET
+                    }
+                }
             }
             3 -> {
                 llIconStart.isVisible = true
@@ -191,10 +208,6 @@ class LPListing : ConstraintLayout {
                 ivIconStart.isVisible = true
             }
         }
-    }
-
-    private fun setListOutline(listDivider: Boolean) {
-        divider.isVisible = listDivider
     }
 
     private fun setIconEndVisibility(iconEnd: Int) {
@@ -261,5 +274,17 @@ class LPListing : ConstraintLayout {
         ivCloseEnd.setOnClickListener {
             listener.invoke(it)
         }
+    }
+
+    fun iconStartVisibility(visibility: StartIcon) {
+        setIconStartVisibility(visibility.type)
+    }
+
+    fun iconEndVisibility(visibility: EndIcon) {
+        setIconEndVisibility(visibility.type)
+    }
+
+    fun setListOutline(listDivider: Boolean) {
+        divider.isVisible = listDivider
     }
 }

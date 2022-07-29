@@ -28,6 +28,7 @@ class ListingTwoLineSampleActivity : AppCompatActivity() {
         findViewById<LPListing>(R.id.listing_2_ic).apply {
             setListingTitle("January")
             setListingSubtitle("2001")
+            iconStartVisibility(LPListing.StartIcon.RADIO_BUTTON)
         }
         findViewById<LPListing>(R.id.listing_2_sw).apply {
             setListingTitle("January")
