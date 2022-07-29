@@ -10,10 +10,15 @@ def moduleDirs = [
     'walkthrough',
     'button',
     'form',
+    'label',
     'popup',
     'loading',
     'snackbartoast',
+    'emptystate',
     'header',
+    'card',
+    'divider',
+    'tag',
     'listing'
 ]
 

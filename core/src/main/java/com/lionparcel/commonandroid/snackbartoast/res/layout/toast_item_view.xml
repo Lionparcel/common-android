@@ -55,7 +55,7 @@
             android:layout_width="@dimen/dp_20"
             android:layout_height="@dimen/dp_20"
             android:contentDescription="@string/general_image_content_description"
-            app:srcCompat="@drawable/ics_o_close"
+            app:srcCompat="@drawable/ics_o_close_shades5"
             android:visibility="gone"
             android:layout_marginStart="@dimen/spacing_s"
             android:layout_gravity="center_vertical"

@@ -1,76 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="@dimen/spacing_xs"
+    android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button_to_formcomponentsampleactivity"
-        style="@style/RedPaleSalmonButtonStyle"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Form Component Sample" />
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_xs">
 
-    <Button
-        android:id="@+id/button_to_loadingcomponentsampleactivity"
-        style="@style/RedPaleSalmonButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_5"
-        android:text="Loading Component Sample"/>
+        <Button
+            android:id="@+id/button_to_formcomponentsampleactivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Form Component Sample" />
 
-    <Button
-        android:id="@+id/button_to_modalComponentSampleactivity"
-        style="@style/RedPaleSalmonButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_5"
-        android:text="Modal Component Sample"/>
+        <Button
+            android:id="@+id/button_to_loadingcomponentsampleactivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="Loading Component Sample" />
 
-    <Button
-        android:id="@+id/button_to_walkthroughsampleactivity"
-        style="@style/RedPaleSalmonButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="WalkThrough Component Sample"/>
+        <Button
+            android:id="@+id/button_to_modalComponentSampleactivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="Modal Component Sample" />
 
-    <Button
-        android:id="@+id/button_to_toastSampleActivity"
-        style="@style/RedPaleSalmonButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Toast Component Sample"/>
+        <Button
+            android:id="@+id/button_to_walkthroughsampleactivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WalkThrough Component Sample" />
 
-    <Button
-        android:id="@+id/button_to_snackbarSampleActivity"
-        style="@style/RedPaleSalmonButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Snackbar Component Sample"/>
+        <Button
+            android:id="@+id/button_to_toastSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toast Component Sample" />
 
-    <Button
-        android:id="@+id/button_to_buttonSampleActivity"
-        style="@style/RedPaleSalmonButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button Component Sample"/>
+        <Button
+            android:id="@+id/button_to_snackbarSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Snackbar Component Sample" />
 
-    <Button
-        android:id="@+id/button_to_headerSampleActivity"
-        style="@style/RedPaleSalmonButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Header Component Sample"/>
+        <Button
+            android:id="@+id/button_to_buttonSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button Component Sample" />
 
-    <Button
-        android:id="@+id/button_to_listingSampleActivity"
-        style="@style/RedPaleSalmonButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Listing Component Sample"/>
+        <Button
+            android:id="@+id/button_to_popupSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Popup Component Sample" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/button_to_headerSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Header Component Sample" />
+
+        <Button
+            android:id="@+id/button_to_emptystateSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Empty State Component Sample" />
+
+        <Button
+            android:id="@+id/button_to_cardSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Card Component Sample" />
+
+        <Button
+            android:id="@+id/button_to_dividerSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Divider Component Sample" />
+
+        <Button
+            android:id="@+id/button_to_labelSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Label Component Sample" />
+
+        <Button
+            android:id="@+id/button_to_tagSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tag Component Sample" />
+
+        <Button
+            android:id="@+id/button_to_listingSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Listing Component Sample" />
+
+    </LinearLayout>
+
+</ScrollView>

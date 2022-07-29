@@ -10,6 +10,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
         <activity
+            android:name=".tag.TagComponentSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".divider.DividerSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".card.CardSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".label.LabelMembershipSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".label.LabelBasicSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".label.LabelProductSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".label.LabelSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".popup.PopupComponentSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".emptystate.EmptyStateSampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".listing.ListingWithThumbnailSampleActivity"
             android:exported="true" />
         <activity
