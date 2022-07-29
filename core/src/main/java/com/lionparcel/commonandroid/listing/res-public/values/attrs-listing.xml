@@ -7,21 +7,21 @@
             <enum name="with_thumbnail" value="2"/>
         </attr>
         <attr name="addListDivider" format="boolean"/>
-        <attr name="iconStart" format="enum">
+        <attr name="setIconStart" format="enum">
             <enum name="none" value="0"/>
             <enum name="radio_button" value="1"/>
             <enum name="check_box" value="2"/>
             <enum name="remove_button" value="3"/>
             <enum name="icon" value="4"/>
         </attr>
-        <attr name="iconEnd" format="enum">
+        <attr name="setIconEnd" format="enum">
             <enum name="none" value="0"/>
             <enum name="toggle_button" value="1"/>
             <enum name="remove_button" value="2"/>
             <enum name="icon" value="3"/>
             <enum name="button" value="4"/>
         </attr>
-        <attr name="buttonText" format="string"/>
+        <attr name="buttonText"/>
         <attr name="iconStartImage" format="reference"/>
         <attr name="iconEndImage" format="reference"/>
         <attr name="backgroundColorEffect" format="boolean"/>

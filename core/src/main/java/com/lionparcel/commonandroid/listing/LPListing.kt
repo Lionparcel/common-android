@@ -80,8 +80,8 @@ class LPListing : ConstraintLayout {
             try {
                 listingStyle = getInt(R.styleable.LPListing_listStyle, 0)
                 listDivider = getBoolean(R.styleable.LPListing_addListDivider, false)
-                iconStart = getInt(R.styleable.LPListing_iconStart, 0)
-                iconEnd = getInt(R.styleable.LPListing_iconEnd, 0)
+                iconStart = getInt(R.styleable.LPListing_setIconStart, 0)
+                iconEnd = getInt(R.styleable.LPListing_setIconEnd, 0)
                 buttonText = getString(R.styleable.LPListing_buttonText).setString()
                 iconStartImage = getDrawable(R.styleable.LPListing_iconStartImage)
                     ?: resources.getDrawable(R.drawable.ic_f_star)

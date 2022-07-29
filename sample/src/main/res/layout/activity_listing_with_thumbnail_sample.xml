@@ -22,56 +22,56 @@
             android:id="@+id/listing_3_rb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:iconStart="radio_button"
+            app:setIconStart="radio_button"
             app:listStyle="with_thumbnail"/>
 
         <com.lionparcel.commonandroid.listing.LPListing
             android:id="@+id/listing_3_cb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:iconStart="check_box"
+            app:setIconStart="check_box"
             app:listStyle="with_thumbnail"/>
 
         <com.lionparcel.commonandroid.listing.LPListing
             android:id="@+id/listing_3_remove"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:iconStart="remove_button"
+            app:setIconStart="remove_button"
             app:listStyle="with_thumbnail"/>
 
         <com.lionparcel.commonandroid.listing.LPListing
             android:id="@+id/listing_3_ic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:iconStart="icon"
+            app:setIconStart="icon"
             app:listStyle="with_thumbnail"/>
 
         <com.lionparcel.commonandroid.listing.LPListing
             android:id="@+id/listing_3_sw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:iconEnd="toggle_button"
+            app:setIconEnd="toggle_button"
             app:listStyle="with_thumbnail"/>
 
         <com.lionparcel.commonandroid.listing.LPListing
             android:id="@+id/listing_3_re"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:iconEnd="remove_button"
+            app:setIconEnd="remove_button"
             app:listStyle="with_thumbnail"/>
 
         <com.lionparcel.commonandroid.listing.LPListing
             android:id="@+id/listing_3_ice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:iconEnd="icon"
+            app:setIconEnd="icon"
             app:listStyle="with_thumbnail"/>
 
         <com.lionparcel.commonandroid.listing.LPListing
             android:id="@+id/listing_3_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:iconEnd="button"
+            app:setIconEnd="button"
             app:buttonText="Kirim"
             app:listStyle="with_thumbnail"/>
 
@@ -79,16 +79,16 @@
             android:id="@+id/listing_3_icse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:iconStart="icon"
-            app:iconEnd="icon"
+            app:setIconStart="icon"
+            app:setIconEnd="icon"
             app:listStyle="with_thumbnail"/>
 
         <com.lionparcel.commonandroid.listing.LPListing
             android:id="@+id/listing_3_div"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:iconStart="icon"
-            app:iconEnd="icon"
+            app:setIconStart="icon"
+            app:setIconEnd="icon"
             app:addListDivider="true"
             app:listStyle="with_thumbnail"/>
 
@@ -96,7 +96,7 @@
             android:id="@+id/listing_3_sw1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:iconEnd="toggle_button"
+            app:setIconEnd="toggle_button"
             app:addListDivider="true"
             app:listStyle="with_thumbnail"/>
 
