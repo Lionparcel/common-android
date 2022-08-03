@@ -1,64 +1,66 @@
 package com.lionparcel.commonandroid.navbar
 
 import android.content.Context
+import android.content.res.Resources
 import android.util.AttributeSet
 import android.view.MenuItem
+import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.updateLayoutParams
 import androidx.viewpager.widget.ViewPager
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.navbar.utils.BaseNavigationBarView
 import com.lionparcel.commonandroid.navbar.utils.CANavbarMenu
+import kotlinx.android.synthetic.main.lp_layout_navbar_badge_number.view.*
 
-class LPNavbarCA : BaseNavigationBarView {
+class LPNavbarCA @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttrs: Int = 0
+) : BaseNavigationBarView(context, attrs, defStyleAttrs) {
 
-    private var bottomNavigationView: BottomNavigationView? = null
     private var style: Int
 
     var viewPager: ViewPager? = null
 
-    constructor(context: Context) : this(context, null)
-
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
-    ) {
-        context.theme.obtainStyledAttributes(
+    init {
+        context.obtainStyledAttributes(
             attrs,
-            R.styleable.LPNavbarCA,
-            0,
-            0
-        ).apply {
+            R.styleable.LPNavbarCA).apply {
             try {
                 style = getInt(R.styleable.LPNavbarCA_navbarStyle, 0)
             } finally {
                 recycle()
             }
         }
-        this.apply {
-            background = ContextCompat.getDrawable(context, setBackground)
-            setPadding(0, paddingVertical.toInt(), 0, paddingVertical.toInt())
-            itemIconSize = iconSize.toInt()
-            itemIconTintList = ContextCompat.getColorStateList(context, iconTint)
-            itemTextAppearanceActive = activeTextAppearance
-            itemTextAppearanceInactive = inactiveTextAppearance
+        background = ContextCompat.getDrawable(context, setBackground)
+        setPadding(
+            0,
+            paddingVertical.toInt(),
+            0,
+            paddingVertical.toInt()
+        )
+        itemIconSize = iconSize.toInt()
+        itemIconTintList = ContextCompat.getColorStateList(context, iconTint)
+        itemTextAppearanceActive = activeTextAppearance
+        itemTextAppearanceInactive = inactiveTextAppearance
+        when (style) {
+            0 -> this.inflateMenu(R.menu.menu_navbar_ca_default)
+            1 -> this.inflateMenu(R.menu.menu_navbar_ca_long)
         }
     }
 
     private fun resetIconMenu() {
         when (style) {
             0 -> {
-                this.inflateMenu(R.menu.menu_navbar_ca_default)
                 setIconMenu(this, R.id.navHome, R.drawable.ics_o_home)
                 setIconMenu(this, R.id.navPayment, R.drawable.ics_o_payment)
                 setIconMenu(this, R.id.navTrack, R.drawable.ics_o_box_alt)
                 setIconMenu(this, R.id.navAccount, R.drawable.ics_o_profile)
             }
             1 -> {
-                this.inflateMenu(R.menu.menu_navbar_ca_long)
                 setIconMenu(this, R.id.navHome, R.drawable.ics_o_home)
                 setIconMenu(this, R.id.navPayment, R.drawable.ics_o_payment)
                 setIconMenu(this, R.id.navHelpdesk, R.drawable.ics_o_helpdesk)
@@ -129,11 +131,39 @@ class LPNavbarCA : BaseNavigationBarView {
     }
 
     fun initSelectedIconMenu() {
-        when (this.selectedItemId) {
-            R.id.navHome -> setIconMenu(this, R.id.navHome, R.drawable.ics_f_home)
-            R.id.navTrack -> setIconMenu(this, R.id.navTrack, R.drawable.ics_f_box_alt)
-            R.id.navPayment -> setIconMenu(this, R.id.navPayment, R.drawable.ics_f_payment)
-            R.id.navAccount -> setIconMenu(this, R.id.navAccount, R.drawable.ics_f_profile)
+        when (style) {
+            0 ->
+                when (this.selectedItemId) {
+                    R.id.navHome -> setIconMenu(this, R.id.navHome, R.drawable.ics_f_home)
+                    R.id.navTrack -> setIconMenu(this, R.id.navTrack, R.drawable.ics_f_box_alt)
+                    R.id.navPayment -> setIconMenu(this, R.id.navPayment, R.drawable.ics_f_payment)
+                    R.id.navAccount -> setIconMenu(this, R.id.navAccount, R.drawable.ics_f_profile)
+                }
+            1 -> when (this.selectedItemId) {
+                R.id.navHome -> setIconMenu(this, R.id.navHome, R.drawable.ics_f_home)
+                R.id.navTrack -> setIconMenu(this, R.id.navTrack, R.drawable.ics_f_box_alt)
+                R.id.navHelpdesk -> setIconMenu(this, R.id.navHelpdesk, R.drawable.ics_f_helpdesk)
+                R.id.navPayment -> setIconMenu(this, R.id.navPayment, R.drawable.ics_f_payment)
+                R.id.navAccount -> setIconMenu(this, R.id.navAccount, R.drawable.ics_f_profile)
+            }
+        }
+    }
+
+    fun addDotBadge(menuItemIndex : Int) {
+        val menuBottomNavBar = this.getChildAt(0) as BottomNavigationMenuView
+        val menuItem =  menuBottomNavBar.getChildAt(menuItemIndex) as BottomNavigationItemView
+        menuItem.addView(dotBadge(context, this))
+    }
+
+    fun addNumberBadge(menuItemIndex: Int) {
+        val menuBottomNavBar = this.getChildAt(0) as BottomNavigationMenuView
+        val menuItem =  menuBottomNavBar.getChildAt(menuItemIndex) as BottomNavigationItemView
+        val screenWidth = Resources.getSystem().displayMetrics.widthPixels
+        val menuItemPadding = ((screenWidth/4) - 24.toDp()) /2
+        val badgeMarginStart = menuItemPadding + 4.toDp()
+        menuItem.addView(numberBadge(context, this))
+        cl_navbar_red_badge_number.updateLayoutParams<FrameLayout.LayoutParams> {
+            marginStart = badgeMarginStart
         }
     }
 

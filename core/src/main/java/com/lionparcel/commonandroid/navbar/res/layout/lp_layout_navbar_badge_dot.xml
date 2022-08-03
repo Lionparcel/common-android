@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="@dimen/dp_8"
+        android:layout_height="@dimen/dp_8"
+        android:layout_marginTop="@dimen/spacing_xxs"
+        android:layout_marginStart="@dimen/spacing_s"
+        android:contentDescription="@string/general_image_content_description"
+        android:layout_gravity="top|center_horizontal"
+        android:src="@drawable/bg_navbar_red_badge_dot"
+        android:foregroundGravity="center"/>
+
+</FrameLayout>

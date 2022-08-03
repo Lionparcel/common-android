@@ -7,7 +7,7 @@
         </attr>
     </declare-styleable>
     <declare-styleable name="LPNavbarDA">
-
+        <attr name="navbarStyle"/>
     </declare-styleable>
     <declare-styleable name="LPNavbarTA">
 
