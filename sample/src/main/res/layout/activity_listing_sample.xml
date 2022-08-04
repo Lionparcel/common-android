@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".listing.ListingSampleActivity">
+
+    <Button
+        android:id="@+id/btn_toListingOneLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="Listing One Line Component"/>
+
+    <Button
+        android:id="@+id/btn_toListingTwoLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="Listing Two Line Component"/>
+
+
+    <Button
+        android:id="@+id/btn_toListingWithThumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="Listing With Thumbnail Component"/>
+
+</LinearLayout>

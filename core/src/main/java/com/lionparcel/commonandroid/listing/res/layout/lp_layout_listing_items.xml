@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/cl_listing_items"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_selector_listing_pensive1"
+    android:paddingHorizontal="@dimen/spacing_xl">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/spacing_s"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/ll_listing_icon_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible">
+
+            <RadioButton
+                android:id="@+id/rb_listing_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/ic_selector_radio_button_red_20"
+                android:visibility="gone"
+                tools:visibility="visible"/>
+
+            <CheckBox
+                android:id="@+id/cb_listing_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/ic_selector_checkbox_red_20"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/iv_close_listing_start"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                android:src="@drawable/ics_f_close_circle"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/iv_icon_listing_start"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                android:visibility="gone"/>
+
+            <View
+                android:layout_width="@dimen/dp_16"
+                android:layout_height="@dimen/spacing_none"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_listing_thumbnail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ll_listing_icon_start"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/iv_thumbnail_listing"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
+                android:background="@drawable/bg_listing_thumbnail_rounded_12"
+                android:clipToOutline="true"
+                tools:src="@color/yellow4"/>
+
+            <View
+                android:layout_width="@dimen/dp_16"
+                android:layout_height="@dimen/spacing_none"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_listing_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Subtitle3Semibold"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textColor="@color/shades5"
+            app:layout_constraintStart_toEndOf="@id/ll_listing_thumbnail"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="List Item Title"/>
+
+        <TextView
+            android:id="@+id/txt_listing_sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Body3Regular"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/shades3"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/spacing_xxs"
+            app:layout_constraintStart_toEndOf="@id/ll_listing_thumbnail"
+            app:layout_constraintTop_toBottomOf="@id/txt_listing_title"
+            tools:visibility="visible"
+            tools:text="Secondary text"/>
+
+        <Switch
+            android:id="@+id/sw_listing_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:thumb="@drawable/bg_switch_thumb"
+            android:track="@drawable/bg_switch_track"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_close_listing_end"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:src="@drawable/ics_f_close_circle"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_icon_listing_end"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Button
+            android:id="@+id/btn_listing_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/LPDefaultThemeButton"
+            android:minWidth="@dimen/dp_40"
+            android:minHeight="@dimen/dp_23"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textSize="@dimen/sp_10"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Button"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/vw_listing_divider_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/shades1"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

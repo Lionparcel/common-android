@@ -13,9 +13,11 @@ import com.lionparcel.commonandroidsample.divider.DividerSampleActivity
 import com.lionparcel.commonandroidsample.form.FormComponentSampleActivity
 import com.lionparcel.commonandroidsample.header.HeaderSampleActivity
 import com.lionparcel.commonandroidsample.label.LabelSampleActivity
+import com.lionparcel.commonandroidsample.listing.ListingSampleActivity
 import com.lionparcel.commonandroidsample.loading.LoadingComponentSampleActivity
 import com.lionparcel.commonandroidsample.modal.ModalComponentSampleActivity
 import com.lionparcel.commonandroidsample.popup.PopupComponentSampleActivity
+import com.lionparcel.commonandroidsample.tag.TagComponentSampleActivity
 import com.lionparcel.commonandroidsample.tab.TabLayoutSampleActivity
 import com.lionparcel.commonandroidsample.toastsnackbar.SnackbarSampleActivity
 import com.lionparcel.commonandroidsample.toastsnackbar.ToastSampleActivity
@@ -64,6 +66,12 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.button_to_labelSampleActivity).setOnClickListener {
             startActivity(Intent(this, LabelSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_tagSampleActivity).setOnClickListener {
+            startActivity(Intent(this, TagComponentSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_listingSampleActivity).setOnClickListener {
+            startActivity(Intent(this, ListingSampleActivity::class.java))
         }
         findViewById<Button>(R.id.button_to_tabSampleActivity).setOnClickListener {
             startActivity(Intent(this, TabLayoutSampleActivity::class.java))

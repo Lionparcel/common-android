@@ -18,6 +18,9 @@ def moduleDirs = [
     'header',
     'card',
     'divider',
+    'tag',
+    'listing',
+    'divider',
     'tab'
 ]
 
