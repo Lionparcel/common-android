@@ -11,6 +11,7 @@ import com.lionparcel.commonandroid.tab.utils.BasePagerAdapter
 class TabSampleAdapter(
     private val context: Context,
     fragmentManager: FragmentManager,
+    private val itemCount : Int,
     private val tabLayout: LPTabLayout,
     private val showRedBadge: () -> Boolean?
 ) : BasePagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
@@ -18,18 +19,22 @@ class TabSampleAdapter(
     companion object {
         const val ONGOING = 0
         const val HISTORY = 1
+        const val PAYLATER = 2
+        const val TAB = 3
     }
 
     override fun getTabView(position: Int, root: ViewGroup): View {
         return tabLayout.setLayout(context, root, position, this, HISTORY, showRedBadge)
     }
 
-    override fun getCount(): Int = 2
+    override fun getCount(): Int = itemCount
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
             ONGOING -> OngoingFragment()
             HISTORY -> HistoryFragment()
+            PAYLATER -> PaylaterFragment()
+            TAB -> TabFragment()
             else -> throwIndexOutOfBounds(position)
         }
     }
@@ -38,6 +43,8 @@ class TabSampleAdapter(
         return when (position) {
             ONGOING -> "Aktif"
             HISTORY -> "Riwayat"
+            PAYLATER -> "Paylater"
+            TAB -> "Tab"
             else -> throwIndexOutOfBounds(position)
         }
     }

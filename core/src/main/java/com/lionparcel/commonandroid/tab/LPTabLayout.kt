@@ -24,7 +24,6 @@ class LPTabLayout @JvmOverloads constructor(
         setSelectedTabIndicatorHeight((scale * 4).toInt())
         tabRippleColor = ContextCompat.getColorStateList(context, R.color.transparent)
         background = ContextCompat.getDrawable(context, R.color.transparent)
-        tabMode = MODE_FIXED
         setSelectedTabIndicatorColor(ContextCompat.getColor(context, R.color.interpack6))
         setSelectedTabIndicator(ContextCompat.getDrawable(context, R.drawable.bg_tab_indicator_interpack6))
     }
@@ -38,6 +37,7 @@ class LPTabLayout @JvmOverloads constructor(
                     (layoutParams as LinearLayout.LayoutParams).apply {
                         rightMargin =
                             if (index == adapter.count - 1) 0 else (resources.displayMetrics.density * 20F).toInt()
+                        minimumWidth = (resources.displayMetrics.density * 98).toInt()
                     }
             }
         }
@@ -68,6 +68,4 @@ class LPTabLayout @JvmOverloads constructor(
                 ?.setTextAppearance(context, tabStyleRes)
         }
     }
-
-
 }
