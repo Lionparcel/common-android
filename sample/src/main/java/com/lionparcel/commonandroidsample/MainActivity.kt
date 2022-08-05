@@ -1,9 +1,11 @@
 package com.lionparcel.commonandroidsample
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.multidex.MultiDex
 import com.lionparcel.commonandroidsample.button.ButtonSampleActivity
 import com.lionparcel.commonandroidsample.emptystate.EmptyStateSampleActivity
 import com.lionparcel.commonandroidsample.card.CardSampleActivity
@@ -16,6 +18,7 @@ import com.lionparcel.commonandroidsample.loading.LoadingComponentSampleActivity
 import com.lionparcel.commonandroidsample.modal.ModalComponentSampleActivity
 import com.lionparcel.commonandroidsample.popup.PopupComponentSampleActivity
 import com.lionparcel.commonandroidsample.tag.TagComponentSampleActivity
+import com.lionparcel.commonandroidsample.tab.TabLayoutSampleActivity
 import com.lionparcel.commonandroidsample.toastsnackbar.SnackbarSampleActivity
 import com.lionparcel.commonandroidsample.toastsnackbar.ToastSampleActivity
 import com.lionparcel.commonandroidsample.walktrough.WalkThroughSampleActivity
@@ -70,5 +73,13 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.button_to_listingSampleActivity).setOnClickListener {
             startActivity(Intent(this, ListingSampleActivity::class.java))
         }
+        findViewById<Button>(R.id.button_to_tabSampleActivity).setOnClickListener {
+            startActivity(Intent(this, TabLayoutSampleActivity::class.java))
+        }
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(newBase)
+        MultiDex.install(this)
     }
 }

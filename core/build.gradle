@@ -19,7 +19,9 @@ def moduleDirs = [
     'card',
     'divider',
     'tag',
-    'listing'
+    'listing',
+    'divider',
+    'tab'
 ]
 
 android {

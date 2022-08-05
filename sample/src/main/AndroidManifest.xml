@@ -13,6 +13,18 @@
             android:name=".tag.TagComponentSampleActivity"
             android:exported="true" />
         <activity
+            android:name=".tab.TabScrollSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".tab.TabThreeColumnSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".tab.TabTwoColumnSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".tab.TabLayoutSampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".divider.DividerSampleActivity"
             android:exported="true" />
         <activity

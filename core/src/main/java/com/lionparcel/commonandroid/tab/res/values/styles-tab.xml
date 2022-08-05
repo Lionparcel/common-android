@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextAppearance.App.Widget.Tab.Active" parent="TextAppearance.Base.Widget.Tab.Active"/>
+
+    <style name="TextAppearance.App.Widget.Tab.Inactive" parent="TextAppearance.Base.Widget.Tab.Inactive"/>
+
+    <!-- Tab Active -->
+    <style name="TextAppearance.Base.Widget.Tab.Active" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:textColor">@color/interpack6</item>
+    </style>
+    <!-- Tab Inactive -->
+    <style name="TextAppearance.Base.Widget.Tab.Inactive" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:textColor">@color/shades5</item>
+    </style>
+</resources>
