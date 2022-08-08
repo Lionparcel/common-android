@@ -3,6 +3,7 @@ package com.lionparcel.commonandroid.navbar
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MenuItem
+import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import com.lionparcel.commonandroid.R
@@ -23,11 +24,11 @@ class LPNavbarDA @JvmOverloads constructor(
         background = ContextCompat.getDrawable(context, setBackground)
         setPadding(
             0,
-            (resources.displayMetrics.density * paddingVertical).toInt(),
+            paddingVertical.toInt(),
             0,
-            (resources.displayMetrics.density * paddingVertical).toInt()
+            paddingVertical.toInt()
         )
-        itemIconSize = (resources.displayMetrics.density * iconSize).toInt()
+        itemIconSize = iconSize.toInt()
         itemIconTintList = ContextCompat.getColorStateList(context, iconTint)
         itemTextAppearanceActive = activeTextAppearance
         itemTextAppearanceInactive = inactiveTextAppearance
