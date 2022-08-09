@@ -21,7 +21,8 @@ def moduleDirs = [
     'tag',
     'listing',
     'divider',
-    'tab'
+    'tab',
+    'tooltip'
 ]
 
 android {
@@ -38,6 +39,9 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
+    buildFeatures{
+        viewBinding true
+    }
     buildTypes {
         release {
             minifyEnabled false
