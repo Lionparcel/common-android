@@ -25,19 +25,6 @@ class StepperCarouselSampleActivity : AppCompatActivity() {
 
         viewPager.adapter = ViewPagerAdapter(this, imageList)
         stepperCarousel.setViewPager(viewPager)
-        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
-            ) {
-            }
-
-            override fun onPageSelected(position: Int) {}
-
-            override fun onPageScrollStateChanged(state: Int) {}
-
-        })
         viewPager2.adapter = ViewPagerAdapter(this, imageList)
         stepperCarousel2.setViewPager(viewPager2)
     }
