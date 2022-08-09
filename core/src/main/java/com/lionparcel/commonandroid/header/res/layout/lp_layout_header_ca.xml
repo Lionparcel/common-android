@@ -103,6 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/spacing_xl"
         android:textAppearance="@style/Body3Semibold"
+        android:fontFamily="@font/poppins_semi_bold"
         android:textColor="@color/interpack6"
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="@+id/cl_header_search_edit_text"
