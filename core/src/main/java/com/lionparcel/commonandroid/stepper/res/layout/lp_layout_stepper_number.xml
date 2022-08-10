@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/cl_stepper_number"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+        <LinearLayout
+            android:id="@+id/ll_stepper_number_first_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_36"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/vw_stepper_number_line_1">
+
+            <TextView
+                android:id="@+id/tv_stepper_number_first"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:textSize="@dimen/sp_14"
+                android:paddingTop="@dimen/dp_1"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/interpack6"
+                android:gravity="center"
+                android:background="@drawable/bg_stepper_number_inactive"
+                android:text="@string/stepper_number_one"/>
+
+            <ImageView
+                android:id="@+id/iv_stepper_number_first"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:contentDescription="@string/general_image_content_description"
+                android:src="@drawable/img_stepper_success"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/ll_stepper_number_first_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/spacing_xs"
+            app:layout_constraintTop_toBottomOf="@id/ll_stepper_number_first_icon"
+            app:layout_constraintStart_toStartOf="@id/ll_stepper_number_first_icon"
+            app:layout_constraintEnd_toEndOf="@id/ll_stepper_number_first_icon">
+
+            <TextView
+                android:id="@+id/tv_stepper_number_title_first"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/sp_10"
+                android:textColor="@color/shades5"
+                tools:text="Title Name"/>
+
+            <TextView
+                android:id="@+id/tv_stepper_number_subtitle_first"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:maxWidth="@dimen/dp_96"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/sp_10"
+                android:textColor="@color/shades3"
+                tools:text="Permintaan klaim telah dikirim"/>
+            
+        </LinearLayout>
+
+    <View
+        android:id="@+id/vw_stepper_number_line_1"
+        android:layout_width="@dimen/spacing_none"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/pensive1"
+        android:layout_marginStart="@dimen/spacing_xs"
+        android:layout_marginEnd="@dimen/spacing_xs"
+        app:layout_constraintTop_toTopOf="@id/ll_stepper_number_first_icon"
+        app:layout_constraintBottom_toBottomOf="@id/ll_stepper_number_first_icon"
+        app:layout_constraintStart_toEndOf="@id/ll_stepper_number_first_icon"
+        app:layout_constraintEnd_toStartOf="@id/ll_stepper_number_second_icon"/>
+
+    <LinearLayout
+        android:id="@+id/ll_stepper_number_second_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/vw_stepper_number_line_1"
+        app:layout_constraintEnd_toStartOf="@id/vw_stepper_number_line_2">
+
+        <TextView
+            android:id="@+id/tv_stepper_number_second"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:textSize="@dimen/sp_14"
+            android:paddingTop="@dimen/dp_1"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/interpack6"
+            android:gravity="center"
+            android:background="@drawable/bg_stepper_number_inactive"
+            android:text="@string/stepper_number_two"/>
+
+        <ImageView
+            android:id="@+id/iv_stepper_number_second"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:contentDescription="@string/general_image_content_description"
+            android:src="@drawable/img_stepper_success"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_stepper_number_second_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/spacing_xs"
+        app:layout_constraintTop_toBottomOf="@id/ll_stepper_number_second_icon"
+        app:layout_constraintStart_toStartOf="@id/ll_stepper_number_second_icon"
+        app:layout_constraintEnd_toEndOf="@id/ll_stepper_number_second_icon">
+
+        <TextView
+            android:id="@+id/tv_stepper_number_title_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textSize="@dimen/sp_10"
+            android:textColor="@color/shades5"
+            android:gravity="center_horizontal"
+            tools:text="Title Name"/>
+
+        <TextView
+            android:id="@+id/tv_stepper_number_subtitle_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/sp_10"
+            android:textColor="@color/shades3"
+            android:gravity="center_horizontal"
+            android:maxWidth="@dimen/dp_96"
+            tools:text="Pemeriksaan klaim paket"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/vw_stepper_number_line_2"
+        android:layout_width="@dimen/spacing_none"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/pensive1"
+        android:layout_marginStart="@dimen/spacing_xs"
+        android:layout_marginEnd="@dimen/spacing_xs"
+        app:layout_constraintTop_toTopOf="@id/ll_stepper_number_second_icon"
+        app:layout_constraintBottom_toBottomOf="@id/ll_stepper_number_second_icon"
+        app:layout_constraintStart_toEndOf="@id/ll_stepper_number_second_icon"
+        app:layout_constraintEnd_toStartOf="@id/ll_stepper_number_third_icon"/>
+
+    <LinearLayout
+        android:id="@+id/ll_stepper_number_third_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_36"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/vw_stepper_number_line_2"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tv_stepper_number_third"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:textSize="@dimen/sp_14"
+            android:paddingTop="@dimen/dp_1"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/interpack6"
+            android:gravity="center"
+            android:background="@drawable/bg_stepper_number_inactive"
+            android:text="@string/stepper_number_three"/>
+
+        <ImageView
+            android:id="@+id/iv_stepper_number_third"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:contentDescription="@string/general_image_content_description"
+            android:src="@drawable/img_stepper_success"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_stepper_number_third_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/spacing_xs"
+        app:layout_constraintTop_toBottomOf="@id/ll_stepper_number_third_icon"
+        app:layout_constraintStart_toStartOf="@id/ll_stepper_number_third_icon"
+        app:layout_constraintEnd_toEndOf="@id/ll_stepper_number_third_icon">
+
+        <TextView
+            android:id="@+id/tv_stepper_number_title_third"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textSize="@dimen/sp_10"
+            android:textColor="@color/shades5"
+            android:gravity="center_horizontal"
+            tools:text="Title Name"/>
+
+        <TextView
+            android:id="@+id/tv_stepper_number_subtitle_third"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/sp_10"
+            android:textColor="@color/shades3"
+            android:gravity="center_horizontal"
+            android:maxWidth="@dimen/dp_96"
+            tools:text="Hasil keputusan dari tim internal"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

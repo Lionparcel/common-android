@@ -18,4 +18,18 @@ di pergunakan dengan sebagai mana mestinya</string>
     <string name="text_area_hint">Type your placeholder text here </string>
 
     <string name="error_information">Your error information here</string>
+
+    <string name="stepper_number_one">1</string>
+    <string name="stepper_number_two">2</string>
+    <string name="stepper_number_three">3</string>
+    <string name="stepper_number_title_one">Pengajuan</string>
+    <string name="stepper_number_title_two">Pengecekan</string>
+    <string name="stepper_number_title_three">Penyelesaian</string>
+    <string name="stepper_number_subtitle_one">Permintaan klaim telah dikirim</string>
+    <string name="stepper_number_subtitle_two">Pemeriksaan klaim paket</string>
+    <string name="stepper_number_subtitle_three">Hasil keputusan dari tim internal</string>
+    <string name="stepper_icon_title_one">Paket sudah diproses</string>
+    <string name="stepper_icon_title_two">Berangkat dari kota asal</string>
+    <string name="stepper_icon_title_three">Pengantaran ke alamat</string>
+    <string name="stepper_icon_title_four">Sampai di tujuan</string>
 </resources>
