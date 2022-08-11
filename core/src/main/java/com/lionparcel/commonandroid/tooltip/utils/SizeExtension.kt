@@ -1,5 +1,7 @@
 package com.lionparcel.commonandroid.tooltip.utils
 
+import android.app.Activity
+import android.content.Context
 import android.content.res.Resources
 import android.util.TypedValue
 import kotlin.math.roundToInt
@@ -17,3 +19,6 @@ internal val Float.dp: Float
         this,
         Resources.getSystem().displayMetrics
     )
+
+internal val Context.isFinishing: Boolean
+    @JvmSynthetic inline get() = this is Activity && this.isFinishing

@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.os.Looper
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
@@ -16,6 +17,7 @@ import androidx.lifecycle.LifecycleObserver
 import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.databinding.LpLayoutTooltipBodyBinding
 import com.lionparcel.commonandroid.tooltip.utils.dp
+import com.lionparcel.commonandroid.tooltip.utils.isFinishing
 
 @DslMarker
 internal annotation class TooltipInlineDsl
@@ -71,6 +73,14 @@ class LPTooltip(
         }
     }
 
+    private fun getMinArrowPosition(): Float {
+        return (builder.arrowSize.toFloat() * builder.arrowAlignAnchorPaddingRatio) + builder.arrowAlignAnchorPadding
+    }
+
+    private fun getDoubleArrowSize(): Int {
+        return builder.arrowSize * 2
+    }
+
     private fun initializeBackground() {
         with(binding.tooltipCard) {
             alpha = builder.alpha
@@ -89,6 +99,23 @@ class LPTooltip(
         }
     }
 
+    private fun canShowTooltipWindow(anchor: View): Boolean {
+        return !isShowing && !destroyed && !context.isFinishing && bodyWindow.contentView.parent == null && ViewCompat.isAttachedToWindow(
+            anchor
+        )
+    }
+
+    private inline fun show(vararg anchor: View, crossinline block: () -> Unit) {
+        val mainAnchor = anchor[0]
+        if (canShowTooltipWindow(mainAnchor)) {
+            mainAnchor.post {
+                canShowTooltipWindow(mainAnchor).takeIf { it } ?: return@post
+
+                this.builder.pre
+            }
+        }
+    }
+
     @TooltipInlineDsl
     class Builder(private val context: Context) {
 
@@ -96,12 +123,22 @@ class LPTooltip(
         @set:JvmSynthetic
         var alpha: Float = 1F
 
+        @set:JvmSynthetic
+        var arrowAlignAnchorPadding: Int = 0
+
+        @set:JvmSynthetic
+        var arrowAlignAnchorPaddingRatio: Float = 2.5F
+
+        @Px
+        @set:JvmSynthetic
+        var arrowSize: Int = 12.dp
+
         @ColorInt
         @set:JvmSynthetic
         var backgroundColor: Int = R.color.shades5
 
         @set:JvmSynthetic
-        var backgroundDrawable : Drawable? = null
+        var backgroundDrawable: Drawable? = null
 
         @Px
         @set:JvmSynthetic
