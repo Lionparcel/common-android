@@ -22,7 +22,8 @@ def moduleDirs = [
     'listing',
     'divider',
     'tab',
-    'stepper'
+    'stepper',
+    'progressbar'
 ]
 
 android {
@@ -38,7 +39,9 @@ android {
         consumerProguardFiles "consumer-rules.pro"
         vectorDrawables.useSupportLibrary = true
     }
-
+    buildFeatures {
+        viewBinding true
+    }
     buildTypes {
         release {
             minifyEnabled false
