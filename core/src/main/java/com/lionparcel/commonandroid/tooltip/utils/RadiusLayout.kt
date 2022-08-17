@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Path
 import android.graphics.RectF
 import android.util.AttributeSet
+import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.annotation.Px
 
@@ -12,7 +13,7 @@ class RadiusLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttrs : Int = 0
-) : LinearLayout(context, attrs, defStyleAttrs){
+) : FrameLayout(context, attrs, defStyleAttrs){
 
     private val path = Path()
 

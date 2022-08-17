@@ -126,6 +126,13 @@
             android:layout_height="wrap_content"
             android:text="Tab Component Sample" />
 
+        <Button
+            android:id="@+id/button_to_tooltipSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tooltip Component Sample" />
+
     </LinearLayout>
 
 </ScrollView>

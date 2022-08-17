@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
         <activity
+            android:name=".tooltip.TooltipComponentSampleActivity"
+            android:exported="false" />
+        <activity
             android:name=".tag.TagComponentSampleActivity"
             android:exported="true" />
         <activity
