@@ -216,12 +216,12 @@ class LPStepperNumber : ConstraintLayout {
             StepperNumberState.FINISHED -> {
                 ivStepperNumberFirst.isVisible = true
                 tvStepperNumberFirst.isVisible = false
-                ivStepperNumberFirst.setImageResource(R.drawable.img_stepper_success)
+                ivStepperNumberFirst.setImageResource(R.drawable.ic_stepper_badge_success)
             }
             StepperNumberState.FAILED -> {
                 ivStepperNumberFirst.isVisible = true
                 tvStepperNumberFirst.isVisible = false
-                ivStepperNumberFirst.setImageResource(R.drawable.img_stepper_failed)
+                ivStepperNumberFirst.setImageResource(R.drawable.ic_stepper_badge_failed_number)
             }
         }
     }
@@ -259,12 +259,12 @@ class LPStepperNumber : ConstraintLayout {
             StepperNumberState.FINISHED -> {
                 ivStepperNumberSecond.isVisible = true
                 tvStepperNumberSecond.isVisible = false
-                ivStepperNumberSecond.setImageResource(R.drawable.img_stepper_success)
+                ivStepperNumberSecond.setImageResource(R.drawable.ic_stepper_badge_success)
             }
             StepperNumberState.FAILED -> {
                 ivStepperNumberSecond.isVisible = true
                 tvStepperNumberSecond.isVisible = false
-                ivStepperNumberSecond.setImageResource(R.drawable.img_stepper_failed)
+                ivStepperNumberSecond.setImageResource(R.drawable.ic_stepper_badge_failed_number)
             }
         }
     }
@@ -302,12 +302,12 @@ class LPStepperNumber : ConstraintLayout {
             StepperNumberState.FINISHED -> {
                 ivStepperNumberThird.isVisible = true
                 tvStepperNumberThird.isVisible = false
-                ivStepperNumberThird.setImageResource(R.drawable.img_stepper_success)
+                ivStepperNumberThird.setImageResource(R.drawable.ic_stepper_badge_success)
             }
             StepperNumberState.FAILED -> {
                 ivStepperNumberThird.isVisible = true
                 tvStepperNumberThird.isVisible = false
-                ivStepperNumberThird.setImageResource(R.drawable.img_stepper_failed)
+                ivStepperNumberThird.setImageResource(R.drawable.ic_stepper_badge_failed_number)
             }
         }
     }

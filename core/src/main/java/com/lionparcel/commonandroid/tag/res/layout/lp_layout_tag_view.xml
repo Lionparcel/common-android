@@ -22,11 +22,12 @@
     <TextView
         android:id="@+id/tvSingleTag"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/dp_18"
         android:gravity="center"
         android:fontFamily="@font/poppins_semi_bold"
         android:textSize="@dimen/sp_12"
         android:textColor="@color/shades5"
+        android:includeFontPadding="false"
         tools:text="Paket Untukmu"/>
 
 </LinearLayout>

@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/cl_listing_items"
+    android:id="@+id/cl_listing_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/bg_selector_listing_pensive1"
@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="@dimen/spacing_s"
+        android:id="@+id/cl_listing_item"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,6 +96,7 @@
             style="@style/Subtitle3Semibold"
             android:fontFamily="@font/poppins_semi_bold"
             android:textColor="@color/shades5"
+            android:includeFontPadding="false"
             app:layout_constraintStart_toEndOf="@id/ll_listing_thumbnail"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="List Item Title"/>
@@ -110,6 +112,7 @@
             android:layout_marginTop="@dimen/spacing_xxs"
             app:layout_constraintStart_toEndOf="@id/ll_listing_thumbnail"
             app:layout_constraintTop_toBottomOf="@id/txt_listing_title"
+            android:includeFontPadding="false"
             tools:visibility="visible"
             tools:text="Secondary text"/>
 
