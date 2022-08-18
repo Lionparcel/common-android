@@ -1,4 +1,4 @@
-package com.lionparcel.services.consumer.view.common.widget.indicator
+package com.lionparcel.commonandroid.walkthrough.widget.indicator
 
 import android.content.Context
 import android.util.AttributeSet
@@ -6,7 +6,6 @@ import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lionparcel.commonandroid.R
-import com.lionparcel.commonandroid.walkthrough.widget.indicator.PositionIndicatorAdapter
 
 class PositionIndicatorView : FrameLayout {
 

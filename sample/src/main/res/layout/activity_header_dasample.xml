@@ -273,7 +273,9 @@
             app:searchHint="Search your item"
             app:showBackButton="true"
             app:showFirstIconButton="true"
-            app:showSecondIconButton="true" />
+            app:showSecondIconButton="true"
+            app:enableAssistiveText="true"
+            app:assistiveText="@string/general_message"/>
 
         <com.lionparcel.commonandroid.header.LPHeaderDA
             android:layout_width="match_parent"
@@ -285,7 +287,9 @@
             app:searchHint="Search your item"
             app:showBackButton="true"
             app:showRightButton="true"
-            app:rightButtonText="FLash"/>
+            app:rightButtonText="FLash"
+            app:enableErrorText="true"
+            app:errorTextHeader="@string/error_information"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -316,7 +320,7 @@
             android:layout_marginTop="@dimen/dp_4"
             app:addElevation="true"
             app:headerStyle="search_only"
-            app:searchHint="Search your item" />
+            app:searchHint="Search your item"/>
 
         <com.lionparcel.commonandroid.header.LPHeaderDA
             android:layout_width="match_parent"
@@ -325,7 +329,7 @@
             app:addElevation="true"
             app:headerStyle="search_only"
             app:searchHint="Search your item"
-            app:showBackButton="true" />
+            app:showBackButton="true"/>
 
     </LinearLayout>
 

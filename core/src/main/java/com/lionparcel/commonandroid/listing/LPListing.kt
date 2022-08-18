@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
@@ -44,6 +45,7 @@ class LPListing : ConstraintLayout {
     private var iconEndImage: Drawable
     private var backgroundColorEffect : Boolean
 
+    private val clListingItem : ConstraintLayout
     private val llIconStart : LinearLayout
     private val llThumbnail : LinearLayout
     private val txtTitle : TextView
@@ -93,6 +95,7 @@ class LPListing : ConstraintLayout {
                 recycle()
             }
         }
+        clListingItem = findViewById(R.id.cl_listing_item)
         llIconStart = findViewById(R.id.ll_listing_icon_start)
         llThumbnail = findViewById(R.id.ll_listing_thumbnail)
         txtTitle = findViewById(R.id.txt_listing_title)
@@ -150,9 +153,18 @@ class LPListing : ConstraintLayout {
     private fun setListingStyle(listingStyle: Int) {
         when (listingStyle) {
             0 -> {
+                val set = ConstraintSet()
                 llThumbnail.isVisible = false
                 txtSubtitle.isVisible = false
                 txtTitle.setRegularFont()
+                set.clone(clListingItem)
+                set.connect(
+                    R.id.txt_listing_title,
+                    ConstraintSet.BOTTOM,
+                    ConstraintSet.PARENT_ID,
+                    ConstraintSet.BOTTOM
+                )
+                set.applyTo(clListingItem)
             }
             1 -> {
                 llThumbnail.isVisible = false
