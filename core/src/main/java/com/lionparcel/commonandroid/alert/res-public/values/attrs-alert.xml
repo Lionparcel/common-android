@@ -5,5 +5,9 @@
             <enum name="medium" value="0"/>
             <enum name="small" value="1"/>
         </attr>
+        <attr name="alertStyle" format="enum">
+            <enum name="text_only" value="0"/>
+            <enum name="with_title" value="1"/>
+        </attr>
     </declare-styleable>
 </resources>

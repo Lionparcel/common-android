@@ -26,4 +26,49 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_8"/>
 
+    <com.lionparcel.commonandroid.alert.LPAlert
+        android:id="@+id/lp_alert_small_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        app:alertSize="small"/>
+
+    <com.lionparcel.commonandroid.alert.LPAlert
+        android:id="@+id/lp_alert_small_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        app:alertSize="small"/>
+
+    <com.lionparcel.commonandroid.alert.LPAlert
+        android:id="@+id/lp_alert_small_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        app:alertSize="small"/>
+
+    <com.lionparcel.commonandroid.alert.LPAlert
+        android:id="@+id/lp_alert_title_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        app:alertSize="medium"
+        app:alertStyle="with_title"/>
+
+    <com.lionparcel.commonandroid.alert.LPAlert
+        android:id="@+id/lp_alert_title_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        app:alertSize="medium"
+        app:alertStyle="with_title"/>
+
+    <com.lionparcel.commonandroid.alert.LPAlert
+        android:id="@+id/lp_alert_title_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        app:alertSize="medium"
+        app:alertStyle="with_title"/>
+
 </LinearLayout>
