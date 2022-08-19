@@ -3,7 +3,9 @@ package com.lionparcel.commonandroid.alert
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
@@ -122,6 +124,13 @@ class LPAlert @JvmOverloads constructor(
                 ImageViewCompat.setImageTintList(binding.iconStartAlert, resources.getColorStateList(R.color.interpack6))
                 ImageViewCompat.setImageTintList(binding.iconEndAlert, resources.getColorStateList(R.color.interpack6))
             }
+            AlertState.BLOC_INFO -> {
+                binding.llAlert.background = ContextCompat.getDrawable(context, R.drawable.bg_alert_bloc_info)
+                binding.titleAlert.setTextColor(resources.getColor(R.color.white))
+                binding.contentAlert.setTextColor(resources.getColor(R.color.white))
+                ImageViewCompat.setImageTintList(binding.iconStartAlert, resources.getColorStateList(R.color.white))
+                ImageViewCompat.setImageTintList(binding.iconEndAlert, resources.getColorStateList(R.color.white))
+            }
         }
     }
 
@@ -133,28 +142,51 @@ class LPAlert @JvmOverloads constructor(
         binding.contentAlert.text = text
     }
 
-    fun setStartIcon(icon: Int = R.drawable.ics_f_warning_circle, isVisible: Boolean = true) {
+    fun setStartIcon(icon: Int = R.drawable.ics_f_warning_circle, isVisible: Boolean = true, isBlocInfo: Boolean = false) {
         if (isVisible) {
             binding.iconStartAlert.visibility = VISIBLE
         } else {
             binding.iconStartAlert.visibility = GONE
         }
-        binding.iconStartAlert.setImageResource(icon)
+        if (isBlocInfo) {
+            binding.iconStartAlert.setImageResource(R.drawable.ics_f_announce)
+        } else {
+            binding.iconStartAlert.setImageResource(icon)
+        }
     }
 
-    fun setEndIcon(icon: Int = R.drawable.ic_o_chevron_right, isVisible: Boolean = true) {
+    fun setEndIcon(icon: Int = R.drawable.ic_o_chevron_right, isVisible: Boolean = true, isBlocInfo: Boolean = false) {
         if (isVisible) {
             binding.iconEndAlert.visibility = VISIBLE
         } else {
             binding.iconEndAlert.visibility = GONE
         }
-        binding.iconEndAlert.setImageResource(icon)
+        if (isBlocInfo) {
+            val scale = resources.displayMetrics.density
+            binding.iconEndAlert.apply {
+                val params = this.layoutParams as LayoutParams
+                setImageResource(R.drawable.ics_o_close)
+                layoutParams.height = (20 * scale).toInt()
+                layoutParams.width = (20 * scale).toInt()
+                params.setMargins((12 * scale).toInt(), 0,0, 0)
+                params.gravity = Gravity.TOP
+                layoutParams = params
+            }
+        } else {
+            binding.iconEndAlert.setImageResource(icon)
+        }
     }
 
     fun setSemiBoldSpannable(content: CharSequence, targetString: String) {
         when (style) {
             0 -> binding.titleAlert.setSemiBoldSpannable(content, targetString)
             1 -> binding.contentAlert.setSemiBoldSpannable(content, targetString)
+        }
+    }
+
+    fun setEndIconClickListener(listener: (View) -> Unit) {
+        binding.iconEndAlert.setOnClickListener {
+            listener.invoke(it)
         }
     }
 }

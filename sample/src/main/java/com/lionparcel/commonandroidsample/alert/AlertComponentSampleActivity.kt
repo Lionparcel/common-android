@@ -2,6 +2,7 @@ package com.lionparcel.commonandroidsample.alert
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.lionparcel.commonandroid.alert.LPAlert
 import com.lionparcel.commonandroid.alert.utils.AlertState
 import com.lionparcel.commonandroidsample.R
@@ -59,6 +60,22 @@ class AlertComponentSampleActivity : AppCompatActivity() {
             setTextContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi duis iaculis viverra quam.")
             setSemiBoldSpannable("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi duis iaculis viverra quam.", "adipiscing")
             setEndIcon()
+        }
+
+        findViewById<LPAlert>(R.id.lp_alert_bloc_info_1).apply {
+            setAlertState(AlertState.BLOC_INFO)
+            setTextTitle("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+            setStartIcon(isBlocInfo = true)
+            setEndIcon(isBlocInfo = true)
+            setEndIconClickListener {
+                this.isVisible = false
+            }
+        }
+        findViewById<LPAlert>(R.id.lp_alert_bloc_info_2).apply {
+            setAlertState(AlertState.BLOC_INFO)
+            setTextTitle("Vitae sed elementum lacus.")
+            setTextContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi duis iaculis viverra quam.")
+            setStartIcon(isBlocInfo = true)
         }
     }
 }
