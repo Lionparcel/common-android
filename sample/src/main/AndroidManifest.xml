@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
         <activity
+            android:name=".accordion.AccordionComponentSampleActivity"
+            android:exported="false" />
+        <activity
             android:name=".progressbar.ProgressBarSampleActivity"
             android:exported="true" />
         <activity
