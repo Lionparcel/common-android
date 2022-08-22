@@ -39,3 +39,7 @@ fun TextView.setSemiBoldSpannable(
 fun TextView.setRegularFont() {
     typeface = ResourcesCompat.getFont(context, R.font.poppins_regular)
 }
+
+fun TextView.setSemiBoldFont() {
+    typeface = ResourcesCompat.getFont(context, R.font.poppins_semi_bold)
+}

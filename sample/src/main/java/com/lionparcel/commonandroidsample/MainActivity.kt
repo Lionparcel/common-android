@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.multidex.MultiDex
+import com.lionparcel.commonandroidsample.alert.AlertComponentSampleActivity
 import com.lionparcel.commonandroidsample.button.ButtonSampleActivity
 import com.lionparcel.commonandroidsample.emptystate.EmptyStateSampleActivity
 import com.lionparcel.commonandroidsample.card.CardSampleActivity
@@ -83,6 +84,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.button_to_progressBarSampleActivity).setOnClickListener {
             startActivity(Intent(this, ProgressBarSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_alertSampleActivity).setOnClickListener {
+            startActivity(Intent(this, AlertComponentSampleActivity::class.java))
         }
     }
 
