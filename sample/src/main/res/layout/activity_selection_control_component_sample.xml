@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/dp_8"
+    tools:context=".selectioncontrol.SelectionControlComponentSampleActivity">
+
+    <TextView
+        style="@style/H4SemiBold"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Radio Button"
+        tools:ignore="HardcodedText"
+        android:layout_marginVertical="@dimen/spacing_xs"/>
+
+    <TextView
+        style="@style/Subtitle4Semibold"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="20dp"
+        tools:ignore="HardcodedText"
+        android:layout_marginVertical="@dimen/spacing_xs"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.lionparcel.commonandroid.selectioncontrol.LPRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"/>
+
+        <com.lionparcel.commonandroid.selectioncontrol.LPRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_l"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <com.lionparcel.commonandroid.selectioncontrol.LPRadioButton
+            android:id="@+id/lpRadioButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:layout_marginStart="@dimen/spacing_xxl"/>
+
+        <com.lionparcel.commonandroid.selectioncontrol.LPRadioButton
+            android:id="@+id/lpRadioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_l"/>
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/Subtitle4Semibold"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="16dp"
+        tools:ignore="HardcodedText"
+        android:layout_marginVertical="@dimen/spacing_xs"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.lionparcel.commonandroid.selectioncontrol.LPRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:radioButtonSize="dp_16"
+            android:checked="true"/>
+
+        <com.lionparcel.commonandroid.selectioncontrol.LPRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_l"
+            android:clickable="true"
+            android:focusable="true"
+            app:radioButtonSize="dp_16" />
+
+        <com.lionparcel.commonandroid.selectioncontrol.LPRadioButton
+            android:id="@+id/lpRadioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:layout_marginStart="@dimen/spacing_xxl"
+            app:radioButtonSize="dp_16"/>
+
+        <com.lionparcel.commonandroid.selectioncontrol.LPRadioButton
+            android:id="@+id/lpRadioButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_l"
+            app:radioButtonSize="dp_16"/>
+
+    </LinearLayout>
+
+</LinearLayout>
