@@ -6,4 +6,10 @@
             <enum name="dp_16" value="1"/>
         </attr>
     </declare-styleable>
+    <declare-styleable name="LPCheckBox">
+        <attr name="checkBoxSize" format="enum">
+            <enum name="dp_20" value="0"/>
+            <enum name="dp_16" value="1"/>
+        </attr>
+    </declare-styleable>
 </resources>

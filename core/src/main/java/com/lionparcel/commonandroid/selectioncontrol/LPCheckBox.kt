@@ -2,44 +2,43 @@ package com.lionparcel.commonandroid.selectioncontrol
 
 import android.content.Context
 import android.util.AttributeSet
-import androidx.appcompat.widget.AppCompatRadioButton
+import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.core.content.ContextCompat
 import com.lionparcel.commonandroid.R
 
-class LPRadioButton @JvmOverloads constructor(
+class LPCheckBox @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-) : AppCompatRadioButton(context, attrs, defStyleAttr) {
+) : AppCompatCheckBox(context, attrs, defStyleAttr) {
 
     private var size: Int
 
     init {
         context.theme.obtainStyledAttributes(
             attrs,
-            R.styleable.LPRadioButton,
+            R.styleable.LPCheckBox,
             0,
             0
         ).apply {
             try {
-                size = getInt(R.styleable.LPRadioButton_radioButtonSize, 0)
+                size = getInt(R.styleable.LPCheckBox_checkBoxSize, 0)
             } finally {
                 recycle()
             }
         }
-        setRadioButtonSize()
+        setCheckBoxSize()
     }
 
-    private fun setRadioButtonSize() {
+    private fun setCheckBoxSize() {
         when (size) {
             0 -> this.buttonDrawable =
-                ContextCompat.getDrawable(context, R.drawable.ic_selector_radio_button_red_20)
+                ContextCompat.getDrawable(context, R.drawable.ic_selector_checkbox_red_20)
             1 -> this.buttonDrawable =
-                ContextCompat.getDrawable(context, R.drawable.ic_selector_radio_button_red_16)
+                ContextCompat.getDrawable(context, R.drawable.ic_selector_checkbox_red_16)
         }
     }
 
-    fun disableRadioButton() {
+    fun disableCheckBox() {
         this.alpha = 0.5F
         this.isEnabled = false
     }
-
 }
