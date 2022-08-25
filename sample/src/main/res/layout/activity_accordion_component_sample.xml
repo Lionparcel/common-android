@@ -1,100 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingHorizontal="@dimen/dp_8"
     tools:context=".accordion.AccordionComponentSampleActivity">
 
-    <com.lionparcel.commonandroid.accordion.LPAccordion
-        android:id="@+id/lp_accordion_m_1"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_s"/>
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/dp_8">
 
-    <com.lionparcel.commonandroid.accordion.LPAccordion
-        android:id="@+id/lp_accordion_m_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:accordionSize="medium"
-        android:layout_marginTop="@dimen/spacing_s"/>
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_m_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_s"
+            app:accordionExpandContent="with_text"/>
 
-    <com.lionparcel.commonandroid.accordion.LPAccordion
-        android:id="@+id/lp_accordion_m_3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:accordionSize="small"
-        android:layout_marginTop="@dimen/spacing_s"/>
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_m_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionSize="medium"
+            android:layout_marginTop="@dimen/spacing_s"
+            app:accordionExpandContent="with_text"/>
 
-    <com.lionparcel.commonandroid.accordion.LPAccordion
-        android:id="@+id/lp_accordion_l_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:accordionMargin="spacing_large"
-        android:layout_marginTop="@dimen/spacing_s"/>
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_m_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionSize="small"
+            android:layout_marginTop="@dimen/spacing_s"
+            app:accordionExpandContent="with_text"/>
 
-    <com.lionparcel.commonandroid.accordion.LPAccordion
-        android:id="@+id/lp_accordion_l_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:accordionSize="medium"
-        app:accordionMargin="spacing_large"
-        android:layout_marginTop="@dimen/spacing_s"/>
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_l_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionMargin="spacing_large"
+            android:layout_marginTop="@dimen/spacing_s"/>
 
-    <com.lionparcel.commonandroid.accordion.LPAccordion
-        android:id="@+id/lp_accordion_l_3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:accordionSize="small"
-        app:accordionMargin="spacing_large"
-        android:layout_marginTop="@dimen/spacing_s"/>
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_l_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionSize="medium"
+            app:accordionMargin="spacing_large"
+            app:accordionExpandContent="with_text"
+            android:layout_marginTop="@dimen/spacing_s"/>
 
-    <com.lionparcel.commonandroid.accordion.LPAccordion
-        android:id="@+id/lp_accordion_xl_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:accordionMargin="spacing_extra_large"
-        android:layout_marginTop="@dimen/spacing_s"/>
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_l_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionSize="small"
+            app:accordionMargin="spacing_large"
+            android:layout_marginTop="@dimen/spacing_s"/>
 
-    <com.lionparcel.commonandroid.accordion.LPAccordion
-        android:id="@+id/lp_accordion_xl_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:accordionSize="medium"
-        app:accordionMargin="spacing_extra_large"
-        android:layout_marginTop="@dimen/spacing_s"/>
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_xl_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionMargin="spacing_extra_large"
+            android:layout_marginTop="@dimen/spacing_s"/>
 
-    <com.lionparcel.commonandroid.accordion.LPAccordion
-        android:id="@+id/lp_accordion_xl_3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:accordionSize="small"
-        app:accordionMargin="spacing_extra_large"
-        android:layout_marginTop="@dimen/spacing_s"/>
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_xl_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionSize="medium"
+            app:accordionMargin="spacing_extra_large"
+            app:accordionExpandContent="with_text"
+            android:layout_marginTop="@dimen/spacing_s"/>
 
-    <com.lionparcel.commonandroid.accordion.LPAccordion
-        android:id="@+id/lp_accordion_no_border_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:accordionStyle="no_border"
-        android:layout_marginTop="@dimen/spacing_s"/>
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_xl_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionSize="small"
+            app:accordionMargin="spacing_extra_large"
+            android:layout_marginTop="@dimen/spacing_s"/>
 
-    <com.lionparcel.commonandroid.accordion.LPAccordion
-        android:id="@+id/lp_accordion_no_border_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:accordionSize="medium"
-        app:accordionStyle="no_border"
-        android:layout_marginTop="@dimen/spacing_s"/>
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_no_border_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionStyle="no_border"
+            android:layout_marginTop="@dimen/spacing_s"/>
 
-    <com.lionparcel.commonandroid.accordion.LPAccordion
-        android:id="@+id/lp_accordion_no_border_3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:accordionSize="small"
-        app:accordionStyle="no_border"
-        android:layout_marginTop="@dimen/spacing_s"/>
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_no_border_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionSize="medium"
+            app:accordionStyle="no_border"
+            app:accordionExpandContent="with_text"
+            android:layout_marginTop="@dimen/spacing_s"/>
 
-</LinearLayout>
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_no_border_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionSize="small"
+            app:accordionStyle="no_border"
+            android:layout_marginTop="@dimen/spacing_s"/>
+
+    </LinearLayout>
+
+</ScrollView>

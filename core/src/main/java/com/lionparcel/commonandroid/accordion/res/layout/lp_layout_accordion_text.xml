@@ -56,4 +56,60 @@
         android:background="@color/pensive4"
         android:layout_alignBottom="@id/clAccordionText" />
 
+    <View
+        android:id="@+id/vwDivider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/transparent"
+        android:layout_alignBottom="@id/clAccordionText" />
+
+    <LinearLayout
+        android:id="@+id/clAccordionContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/spacing_m"
+        android:layout_alignTop="@id/vwDivider"
+        android:orientation="vertical"
+        android:visibility="visible"
+        tools:paddingHorizontal="@dimen/spacing_m">
+
+        <TextView
+            android:id="@+id/tvAccordionContentTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:textColor="@color/shades5"
+            tools:text="@string/general_message"
+            tools:textSize="@dimen/sp_14" />
+
+
+        <View
+            android:id="@+id/vwAccordionContentDivider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_s"
+            android:background="@color/transparent"/>
+
+        <TextView
+            android:id="@+id/tvAccordionContentText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:textColor="@color/shades5"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. A, vel sit interdum in aliquet nisi. Molestie massa egestas cum vehicula felis gravida. Id hendrerit quis ornare venenatis congue habitant placerat facilisi pulvinar. Donec molestie egestas ac magna."
+            tools:textSize="@dimen/sp_12" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/vwLineContentBottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/pensive4"
+        android:visibility="gone"
+        android:layout_alignBottom="@id/clAccordionContent" />
+
 </RelativeLayout>
