@@ -19,6 +19,7 @@ import com.lionparcel.commonandroidsample.loading.LoadingComponentSampleActivity
 import com.lionparcel.commonandroidsample.modal.ModalComponentSampleActivity
 import com.lionparcel.commonandroidsample.popup.PopupComponentSampleActivity
 import com.lionparcel.commonandroidsample.progressbar.ProgressBarSampleActivity
+import com.lionparcel.commonandroidsample.selectioncontrol.SelectionControlComponentSampleActivity
 import com.lionparcel.commonandroidsample.tag.TagComponentSampleActivity
 import com.lionparcel.commonandroidsample.tab.TabLayoutSampleActivity
 import com.lionparcel.commonandroidsample.stepper.StepperSampleActivity
@@ -87,6 +88,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.button_to_alertSampleActivity).setOnClickListener {
             startActivity(Intent(this, AlertComponentSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_selectionControlSampleActivity).setOnClickListener {
+            startActivity(Intent(this, SelectionControlComponentSampleActivity::class.java))
         }
     }
 
