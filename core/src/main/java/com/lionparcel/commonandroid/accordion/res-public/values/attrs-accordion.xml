@@ -14,7 +14,6 @@
         <attr name="accordionStyle" format="enum">
             <enum name="border" value="0"/>
             <enum name="no_border" value="1"/>
-            <enum name="text_button" value="2"/>
         </attr>
         <attr name="accordionExpandContent" format="enum">
             <enum name="without_text" value="0"/>

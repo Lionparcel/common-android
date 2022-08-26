@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Commonandroid">
         <activity
             android:name=".accordion.AccordionComponentSampleActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".progressbar.ProgressBarSampleActivity"
             android:exported="true" />
