@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
         <activity
+            android:name=".selectioncontrol.SelectionControlComponentSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".alert.AlertComponentSampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".accordion.AccordionComponentSampleActivity"
             android:exported="true" />
         <activity

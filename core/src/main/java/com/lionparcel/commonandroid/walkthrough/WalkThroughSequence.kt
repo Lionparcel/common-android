@@ -6,7 +6,9 @@ import android.os.Looper
 class WalkThroughSequence {
 
     private val walkThroughBuilderList = ArrayList<WalkThroughBuilder>()
-    private var beforeShowingListener: (position: Int) -> Unit = {}
+    private var beforeShowingListener: (position: Int, walkThrough: WalkThrough) -> Unit = { _,_ ->
+
+    }
     private var eachSequenceDelay: Long = 0
     private var skipListener: WalkThroughSkipListener? = null
 
@@ -36,7 +38,7 @@ class WalkThroughSequence {
         return this
     }
 
-    fun addBeforeShowingListener(beforeShowingListener: (position: Int) -> Unit): WalkThroughSequence {
+    fun addBeforeShowingListener(beforeShowingListener: (position: Int, walkThrough: WalkThrough) -> Unit): WalkThroughSequence {
         this.beforeShowingListener = beforeShowingListener
         return this
     }
@@ -58,8 +60,7 @@ class WalkThroughSequence {
                 else -> WalkThrough.SequencePosition.MIDDLE
             }
         }
-        beforeShowingListener.invoke(position)
-        return walkThroughBuilderList[position].sequenceListener(object :
+        val walkThrough = walkThroughBuilderList[position].sequenceListener(object :
             WalkThroughSequenceListener {
             override fun onGetCurrentPosition() = position
 
@@ -81,6 +82,8 @@ class WalkThroughSequence {
             .walkThroughSequenceIndex(position, walkThroughBuilderList.size)
             .skipListener(skipListener)
             .show()
+        beforeShowingListener.invoke(position, walkThrough)
+        return walkThrough
     }
 
     private fun checkWalkThroughAutoNext(position: Int) {
@@ -117,8 +120,7 @@ class WalkThroughSequence {
                 else -> WalkThrough.SequencePosition.MIDDLE
             }
         }
-        beforeShowingListener.invoke(position)
-        return walkThroughBuilderList[position].sequenceListener(object :
+        val walkThrough = walkThroughBuilderList[position].sequenceListener(object :
             WalkThroughSequenceListener {
             override fun onGetCurrentPosition() = position
 
@@ -139,6 +141,8 @@ class WalkThroughSequence {
         })
             .skipListener(skipListener)
             .show()
+        beforeShowingListener.invoke(position, walkThrough)
+        return walkThrough
     }
 
     fun skipListener(skip: () -> Unit): WalkThroughSequence {
