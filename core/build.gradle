@@ -25,7 +25,8 @@ def moduleDirs = [
     'stepper',
     'progressbar',
     'alert',
-    'selectioncontrol'
+    'selectioncontrol',
+    'accordion'
 ]
 
 android {
