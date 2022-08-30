@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.multidex.MultiDex
 import com.lionparcel.commonandroidsample.accordion.AccordionComponentSampleActivity
 import com.lionparcel.commonandroidsample.alert.AlertComponentSampleActivity
+import com.lionparcel.commonandroidsample.badge.BadgeComponentSampleActivity
 import com.lionparcel.commonandroidsample.button.ButtonSampleActivity
 import com.lionparcel.commonandroidsample.emptystate.EmptyStateSampleActivity
 import com.lionparcel.commonandroidsample.card.CardSampleActivity
@@ -96,6 +97,10 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.button_to_accordionSampleActivity).setOnClickListener {
             startActivity(Intent(this, AccordionComponentSampleActivity::class.java))
         }
+        findViewById<Button>(R.id.button_to_badgeSampleActivity).setOnClickListener {
+            startActivity(Intent(this, BadgeComponentSampleActivity::class.java))
+        }
+
     }
 
     override fun attachBaseContext(newBase: Context?) {
