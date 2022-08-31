@@ -16,4 +16,8 @@
         </attr>
         <attr name="isStrokeOutside" format="boolean"/>
     </declare-styleable>
+    <declare-styleable name="LPBadgeText">
+        <attr name="badgeColor"/>
+        <attr name="isStrokeOutside"/>
+    </declare-styleable>
 </resources>

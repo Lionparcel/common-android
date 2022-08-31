@@ -29,9 +29,11 @@ abstract class BaseBadgeComponent @JvmOverloads constructor(
             R.styleable.LPBadgeNumber_badgeColor,
             R.styleable.LPBadgeNumber_isStrokeOutside
         ),
-//        TEXT(
-//
-//        )
+        TEXT(
+            R.styleable.LPBadgeText,
+            R.styleable.LPBadgeText_badgeColor,
+            R.styleable.LPBadgeText_isStrokeOutside
+        )
     }
 
     private var binding: LpLayoutBadgeViewBinding =

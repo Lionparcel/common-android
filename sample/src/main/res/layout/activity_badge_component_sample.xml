@@ -100,4 +100,27 @@
 
     </LinearLayout>
 
+    <TextView
+        style="@style/H4SemiBold"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Badge Text"
+        tools:ignore="HardcodedText"
+        android:layout_marginVertical="@dimen/spacing_xs"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/spacing_xs"
+        android:gravity="center_vertical">
+
+        <com.lionparcel.commonandroid.badge.LPBadgeText
+            android:id="@+id/lpBadgeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:badgeColor="primary"/>
+
+    </LinearLayout>
+
 </LinearLayout>
