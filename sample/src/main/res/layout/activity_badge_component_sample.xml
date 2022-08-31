@@ -49,4 +49,55 @@
 
     </LinearLayout>
 
+    <TextView
+        style="@style/H4SemiBold"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Badge Number"
+        tools:ignore="HardcodedText"
+        android:layout_marginVertical="@dimen/spacing_xs"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/spacing_xs"
+        android:gravity="center_vertical">
+
+        <com.lionparcel.commonandroid.badge.LPBadgeNumber
+            android:id="@+id/lpBadgeNumber1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.lionparcel.commonandroid.badge.LPBadgeNumber
+            android:id="@+id/lpBadgeNumber2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:badgeColor="primary"
+            android:layout_marginStart="@dimen/spacing_xxs"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_xxs"
+            android:layout_marginStart="@dimen/spacing_xxs"
+            android:background="@color/interpack6">
+
+            <com.lionparcel.commonandroid.badge.LPBadgeNumber
+                android:id="@+id/lpBadgeNumber3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:badgeColor="inverted"/>
+
+        </FrameLayout>
+
+        <com.lionparcel.commonandroid.badge.LPBadgeNumber
+            android:id="@+id/lpBadgeNumber4"
+            android:layout_marginStart="@dimen/spacing_xxs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:badgeColor="yellow_alt"/>
+
+    </LinearLayout>
+
 </LinearLayout>

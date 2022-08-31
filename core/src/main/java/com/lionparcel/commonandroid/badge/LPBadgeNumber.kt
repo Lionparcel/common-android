@@ -13,4 +13,8 @@ class LPBadgeNumber @JvmOverloads constructor(
 
     override val type: Type
         get() = Type.NUMBER
+
+    fun setNumber(number: String) {
+        setText(number)
+    }
 }
