@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minWidth="@dimen/dp_16"
+    android:paddingTop="@dimen/dp_1"
+    android:paddingHorizontal="@dimen/spacing_xxs">
+    
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/tvBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_16"
+        android:includeFontPadding="false"
+        android:textSize="@dimen/sp_10"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+        tools:text="5"/>
+
+</FrameLayout>

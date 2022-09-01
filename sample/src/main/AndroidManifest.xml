@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
         <activity
+            android:name=".badge.BadgeComponentSampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".selectioncontrol.SelectionControlComponentSampleActivity"
             android:exported="true" />
         <activity
