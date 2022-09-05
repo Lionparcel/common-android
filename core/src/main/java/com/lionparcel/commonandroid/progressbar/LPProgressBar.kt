@@ -3,7 +3,6 @@ package com.lionparcel.commonandroid.progressbar
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import androidx.annotation.IntRange
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import com.lionparcel.commonandroid.R
@@ -56,11 +55,19 @@ class LPProgressBar @JvmOverloads constructor(
         binding.flIndicatorFix.isVisible = withStatus
     }
 
-    fun setProgress(@IntRange(from = 0, to = 100)progress: Int) {
+    fun setProgress(progress: Int) {
         binding.progressBar.progress = progress
-        val layoutParams: LayoutParams = binding.llIndicatorDynamic.layoutParams as LayoutParams
-        layoutParams.horizontalBias = progress/100F
-        if (progress > 90) {
+    }
+
+    fun setDynamicIndicatorProgress(progress: Float) {
+        val params = binding.llIndicatorDynamic.layoutParams as LayoutParams
+        if (progress > 100F) {
+            params.horizontalBias = 100F/100F
+        } else {
+            params.horizontalBias = progress/100F
+        }
+        binding.llIndicatorDynamic.layoutParams = params
+        if (progress > 90F) {
             binding.flIndicatorFix.isVisible = false
         }
     }
