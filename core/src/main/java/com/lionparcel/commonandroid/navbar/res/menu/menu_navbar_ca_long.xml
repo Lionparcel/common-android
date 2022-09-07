@@ -9,7 +9,7 @@
     <item
         android:id="@+id/navTrack"
         android:title="@string/navbar_title_track"
-        android:icon="@drawable/ics_o_box_alt"/>
+        android:icon="@drawable/ics_o_box_alt_1"/>
 
     <item android:id="@+id/navHelpdesk"
         android:title="@string/navbar_title_helpdesk"

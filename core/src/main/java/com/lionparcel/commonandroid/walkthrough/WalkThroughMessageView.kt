@@ -20,7 +20,7 @@ import androidx.core.view.isVisible
 import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.walkthrough.utils.DensityUtils
 import com.lionparcel.commonandroid.walkthrough.utils.ScreenUtils
-import com.lionparcel.services.consumer.view.common.widget.indicator.PositionIndicatorView
+import com.lionparcel.commonandroid.walkthrough.widget.indicator.PositionIndicatorView
 import java.lang.ref.WeakReference
 import kotlin.math.roundToInt
 

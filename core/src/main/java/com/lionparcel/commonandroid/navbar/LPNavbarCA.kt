@@ -57,14 +57,14 @@ class LPNavbarCA @JvmOverloads constructor(
             0 -> {
                 setIconMenu(this, R.id.navHome, R.drawable.ics_o_home)
                 setIconMenu(this, R.id.navPayment, R.drawable.ics_o_payment)
-                setIconMenu(this, R.id.navTrack, R.drawable.ics_o_box_alt)
+                setIconMenu(this, R.id.navTrack, R.drawable.ics_o_box_alt_1)
                 setIconMenu(this, R.id.navAccount, R.drawable.ics_o_profile)
             }
             1 -> {
                 setIconMenu(this, R.id.navHome, R.drawable.ics_o_home)
                 setIconMenu(this, R.id.navPayment, R.drawable.ics_o_payment)
                 setIconMenu(this, R.id.navHelpdesk, R.drawable.ics_o_helpdesk)
-                setIconMenu(this, R.id.navTrack, R.drawable.ics_o_box_alt)
+                setIconMenu(this, R.id.navTrack, R.drawable.ics_o_box_alt_1)
                 setIconMenu(this, R.id.navAccount, R.drawable.ics_o_profile)
             }
         }

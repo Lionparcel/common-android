@@ -10,12 +10,24 @@ def moduleDirs = [
     'walkthrough',
     'button',
     'form',
+    'label',
     'popup',
     'loading',
     'snackbartoast',
     'emptystate',
     'header',
     'card',
+    'divider',
+    'tag',
+    'listing',
+    'divider',
+    'tab',
+    'stepper',
+    'progressbar',
+    'alert',
+    'selectioncontrol',
+    'accordion',
+    'badge',
     'navbar'
 ]
 
@@ -25,14 +37,16 @@ android {
     defaultConfig {
         minSdk 18
         targetSdk 31
-        versionCode 1
-        versionName "1.0"
+        versionCode 6
+        versionName "1.0.5"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
         vectorDrawables.useSupportLibrary = true
     }
-
+    buildFeatures {
+        viewBinding true
+    }
     buildTypes {
         release {
             minifyEnabled false

@@ -3,7 +3,6 @@ package com.lionparcel.commonandroid.navbar
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MenuItem
-import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import com.lionparcel.commonandroid.R
@@ -38,7 +37,7 @@ class LPNavbarDA @JvmOverloads constructor(
     private fun resetIconMenu() {
         setIconMenu(this, R.id.navHome, R.drawable.ics_o_home)
         setIconMenu(this, R.id.navPayment, R.drawable.ics_o_payment)
-        setIconMenu(this, R.id.navTrack, R.drawable.ics_o_box_alt)
+        setIconMenu(this, R.id.navTrack, R.drawable.ics_o_box_alt_1)
         setIconMenu(this, R.id.navAccount, R.drawable.ics_o_profile)
     }
 

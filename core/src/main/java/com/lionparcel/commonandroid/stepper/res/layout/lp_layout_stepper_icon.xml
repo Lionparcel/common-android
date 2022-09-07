@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/iv_stepper_icon_first_icon"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginStart="@dimen/spacing_m"
+        android:background="@drawable/bg_stepper_icon_active_with_badge"
+        android:scaleType="center"
+        android:src="@drawable/ics_o_box_alt_1"
+        android:contentDescription="@string/general_image_content_description"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/vw_stepper_icon_line_one"/>
+
+    <ImageView
+        android:id="@+id/iv_stepper_icon_first_badge"
+        android:layout_width="@dimen/dp_16"
+        android:layout_height="@dimen/dp_16"
+        android:src="@drawable/ic_stepper_badge_success"
+        android:contentDescription="@string/general_image_content_description"
+        app:layout_constraintEnd_toEndOf="@id/iv_stepper_icon_first_icon"
+        app:layout_constraintBottom_toBottomOf="@id/iv_stepper_icon_first_icon"/>
+
+    <TextView
+        android:id="@+id/tv_stepper_icon_first_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_s"
+        android:maxWidth="@dimen/dp_72"
+        android:textAppearance="@style/Subtitle4Semibold"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textColor="@color/shades5"
+        android:textSize="@dimen/sp_10"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/iv_stepper_icon_first_icon"
+        app:layout_constraintStart_toStartOf="@id/iv_stepper_icon_first_icon"
+        app:layout_constraintEnd_toEndOf="@id/iv_stepper_icon_first_icon"
+        tools:text="Paket sudah diproses"/>
+
+    <View
+        android:id="@+id/vw_stepper_icon_line_one"
+        android:layout_width="@dimen/spacing_none"
+        android:layout_height="@dimen/dp_2"
+        android:background="@drawable/bg_stepper_icon_line"
+        app:layout_constraintStart_toEndOf="@id/iv_stepper_icon_first_icon"
+        app:layout_constraintEnd_toStartOf="@id/iv_stepper_icon_second_icon"
+        app:layout_constraintTop_toTopOf="@id/iv_stepper_icon_first_icon"
+        app:layout_constraintBottom_toBottomOf="@id/iv_stepper_icon_first_icon"/>
+
+    <ImageView
+        android:id="@+id/iv_stepper_icon_second_icon"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:background="@drawable/bg_stepper_icon_active"
+        android:scaleType="center"
+        android:src="@drawable/ics_o_sti_delivery_truck"
+        android:contentDescription="@string/general_image_content_description"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/vw_stepper_icon_line_one"
+        app:layout_constraintEnd_toStartOf="@id/vw_stepper_icon_line_two"/>
+
+    <ImageView
+        android:id="@+id/iv_stepper_icon_second_badge"
+        android:layout_width="@dimen/dp_16"
+        android:layout_height="@dimen/dp_16"
+        android:src="@drawable/ic_stepper_badge_success"
+        android:visibility="gone"
+        android:contentDescription="@string/general_image_content_description"
+        app:layout_constraintEnd_toEndOf="@id/iv_stepper_icon_second_icon"
+        app:layout_constraintBottom_toBottomOf="@id/iv_stepper_icon_second_icon"/>
+
+    <TextView
+        android:id="@+id/tv_stepper_icon_second_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_s"
+        android:maxWidth="@dimen/dp_72"
+        android:textAppearance="@style/Subtitle4Semibold"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textColor="@color/shades5"
+        android:textSize="@dimen/sp_10"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/iv_stepper_icon_second_icon"
+        app:layout_constraintStart_toStartOf="@id/iv_stepper_icon_second_icon"
+        app:layout_constraintEnd_toEndOf="@id/iv_stepper_icon_second_icon"
+        tools:text="Berangkat dari kota asal"/>
+
+    <View
+        android:id="@+id/vw_stepper_icon_line_two"
+        android:layout_width="@dimen/spacing_none"
+        android:layout_height="@dimen/dp_2"
+        android:background="@color/transparent"
+        app:layout_constraintStart_toEndOf="@id/iv_stepper_icon_second_icon"
+        app:layout_constraintEnd_toStartOf="@id/iv_stepper_icon_third_icon"
+        app:layout_constraintTop_toTopOf="@id/iv_stepper_icon_second_icon"
+        app:layout_constraintBottom_toBottomOf="@id/iv_stepper_icon_second_icon"/>
+
+    <ImageView
+        android:id="@+id/iv_stepper_icon_third_icon"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:background="@drawable/bg_stepper_icon_inactive"
+        android:scaleType="center"
+        android:src="@drawable/ics_f_pickup"
+        android:contentDescription="@string/general_image_content_description"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/vw_stepper_icon_line_two"
+        app:layout_constraintEnd_toStartOf="@id/vw_stepper_icon_line_three"/>
+
+    <ImageView
+        android:id="@+id/iv_stepper_icon_third_badge"
+        android:layout_width="@dimen/dp_16"
+        android:layout_height="@dimen/dp_16"
+        android:src="@drawable/ic_stepper_badge_success"
+        android:visibility="gone"
+        android:contentDescription="@string/general_image_content_description"
+        app:layout_constraintEnd_toEndOf="@id/iv_stepper_icon_third_icon"
+        app:layout_constraintBottom_toBottomOf="@id/iv_stepper_icon_third_icon"/>
+
+    <TextView
+        android:id="@+id/tv_stepper_icon_third_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_s"
+        android:maxWidth="@dimen/dp_72"
+        android:textAppearance="@style/Subtitle4Semibold"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textColor="@color/shades5"
+        android:textSize="@dimen/sp_10"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/iv_stepper_icon_third_icon"
+        app:layout_constraintStart_toStartOf="@id/iv_stepper_icon_third_icon"
+        app:layout_constraintEnd_toEndOf="@id/iv_stepper_icon_third_icon"
+        tools:text="Pengantaran ke alamat"/>
+
+    <View
+        android:id="@+id/vw_stepper_icon_line_three"
+        android:layout_width="@dimen/spacing_none"
+        android:layout_height="@dimen/dp_2"
+        android:background="@color/transparent"
+        app:layout_constraintStart_toEndOf="@id/iv_stepper_icon_third_icon"
+        app:layout_constraintEnd_toStartOf="@id/iv_stepper_icon_fourth_icon"
+        app:layout_constraintTop_toTopOf="@id/iv_stepper_icon_third_icon"
+        app:layout_constraintBottom_toBottomOf="@id/iv_stepper_icon_third_icon"/>
+
+    <ImageView
+        android:id="@+id/iv_stepper_icon_fourth_icon"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginEnd="@dimen/spacing_m"
+        android:background="@drawable/bg_stepper_icon_inactive"
+        android:scaleType="center"
+        android:src="@drawable/ics_o_delivery_received"
+        android:contentDescription="@string/general_image_content_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/vw_stepper_icon_line_three"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_stepper_icon_fourth_badge"
+        android:layout_width="@dimen/dp_16"
+        android:layout_height="@dimen/dp_16"
+        android:src="@drawable/ic_stepper_badge_success"
+        android:visibility="gone"
+        android:contentDescription="@string/general_image_content_description"
+        app:layout_constraintEnd_toEndOf="@id/iv_stepper_icon_fourth_icon"
+        app:layout_constraintBottom_toBottomOf="@id/iv_stepper_icon_fourth_icon"/>
+
+    <TextView
+        android:id="@+id/tv_stepper_icon_fourth_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_s"
+        android:maxWidth="@dimen/dp_72"
+        android:textAppearance="@style/Subtitle4Semibold"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textColor="@color/shades5"
+        android:textSize="@dimen/sp_10"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/iv_stepper_icon_fourth_icon"
+        app:layout_constraintStart_toStartOf="@id/iv_stepper_icon_fourth_icon"
+        app:layout_constraintEnd_toEndOf="@id/iv_stepper_icon_fourth_icon"
+        tools:text="Sampai di tujuan"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
