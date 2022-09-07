@@ -12,7 +12,7 @@
         android:layout_marginStart="@dimen/spacing_m"
         android:background="@drawable/bg_stepper_icon_active_with_badge"
         android:scaleType="center"
-        android:src="@drawable/ics_o_box_alt_1"
+        android:src="@drawable/ics_o_box_alt"
         android:contentDescription="@string/general_image_content_description"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
