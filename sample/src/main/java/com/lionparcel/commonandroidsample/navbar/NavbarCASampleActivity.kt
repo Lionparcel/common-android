@@ -18,7 +18,7 @@ class NavbarCASampleActivity : AppCompatActivity() {
         btmNavbar.viewPager = viewPager
         btmNavbar.setOnNavigationItemSelectedListener(btmNavbar::handleNavigation)
         btmNavbar.initSelectedIconMenu()
-        btmNavbar.addDotBadge(CANavbarMenu.TRACK.ordinal)
-        btmNavbar.addNumberBadge(CANavbarMenu.PAYMENT.ordinal)
+//        btmNavbar.addDotBadge(CANavbarMenu.PAYMENT.ordinal)
+        btmNavbar.addNumberBadge(CANavbarMenu.HELPDESK.ordinal, "20")
     }
 }

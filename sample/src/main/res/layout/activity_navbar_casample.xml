@@ -19,7 +19,7 @@
         android:id="@+id/btm_navbar_ca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:navbarStyle="five_icon"
+        app:navbarStyle="four_icon"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

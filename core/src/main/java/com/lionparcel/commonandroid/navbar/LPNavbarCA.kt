@@ -155,16 +155,17 @@ class LPNavbarCA @JvmOverloads constructor(
         menuItem.addView(dotBadge(context, this))
     }
 
-    fun addNumberBadge(menuItemIndex: Int) {
+    fun addNumberBadge(menuItemIndex: Int, number: String) {
         val menuBottomNavBar = this.getChildAt(0) as BottomNavigationMenuView
         val menuItem =  menuBottomNavBar.getChildAt(menuItemIndex) as BottomNavigationItemView
         val screenWidth = Resources.getSystem().displayMetrics.widthPixels
         val menuItemPadding = ((screenWidth/4) - 24.toDp()) /2
-        val badgeMarginStart = menuItemPadding + 4.toDp()
+        val badgeMarginStart = menuItemPadding + 14.toDp()
         menuItem.addView(numberBadge(context, this))
-        cl_navbar_red_badge_number.updateLayoutParams<FrameLayout.LayoutParams> {
+        navbar_red_badge_number.updateLayoutParams<FrameLayout.LayoutParams> {
             marginStart = badgeMarginStart
         }
+        navbar_red_badge_number.setNumber(number)
     }
 
 

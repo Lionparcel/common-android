@@ -4,14 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
+    <com.lionparcel.commonandroid.badge.LPBadgeDot
         android:layout_width="@dimen/dp_8"
         android:layout_height="@dimen/dp_8"
         android:layout_marginTop="@dimen/spacing_xxs"
         android:layout_marginStart="@dimen/spacing_s"
-        android:contentDescription="@string/general_image_content_description"
         android:layout_gravity="top|center_horizontal"
-        android:src="@drawable/bg_navbar_red_badge_dot"
         android:foregroundGravity="center"/>
 
 </FrameLayout>
