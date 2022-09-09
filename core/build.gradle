@@ -27,7 +27,8 @@ def moduleDirs = [
     'alert',
     'selectioncontrol',
     'accordion',
-    'badge'
+    'badge',
+    'popupbanner'
 ]
 
 android {
@@ -104,4 +105,6 @@ dependencies {
     //flex
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
 
+    //Picasso
+    implementation "com.squareup.picasso:picasso:2.5.2"
 }

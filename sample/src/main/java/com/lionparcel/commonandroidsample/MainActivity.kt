@@ -20,6 +20,7 @@ import com.lionparcel.commonandroidsample.listing.ListingSampleActivity
 import com.lionparcel.commonandroidsample.loading.LoadingComponentSampleActivity
 import com.lionparcel.commonandroidsample.modal.ModalComponentSampleActivity
 import com.lionparcel.commonandroidsample.popup.PopupComponentSampleActivity
+import com.lionparcel.commonandroidsample.popupbanner.PopupBannerSampleActivity
 import com.lionparcel.commonandroidsample.progressbar.ProgressBarSampleActivity
 import com.lionparcel.commonandroidsample.selectioncontrol.SelectionControlComponentSampleActivity
 import com.lionparcel.commonandroidsample.tag.TagComponentSampleActivity
@@ -99,6 +100,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.button_to_badgeSampleActivity).setOnClickListener {
             startActivity(Intent(this, BadgeComponentSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_popupBannerSampleActivity).setOnClickListener {
+            startActivity(Intent(this, PopupBannerSampleActivity::class.java))
         }
 
     }

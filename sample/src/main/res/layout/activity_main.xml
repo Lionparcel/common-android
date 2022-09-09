@@ -168,6 +168,13 @@
             android:layout_height="wrap_content"
             android:text="Badge Component Sample" />
 
+        <Button
+            android:id="@+id/button_to_popupBannerSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Popup Banner Component Sample" />
+
     </LinearLayout>
 
 </ScrollView>
