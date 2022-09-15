@@ -1,6 +1,7 @@
 package com.lionparcel.commonandroid.dropdown
 
 import android.content.Context
+import android.graphics.Rect
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.AttributeSet
@@ -9,6 +10,7 @@ import android.widget.AdapterView
 import android.widget.Spinner
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.os.bundleOf
+import androidx.core.widget.TextViewCompat
 import com.jakewharton.rxbinding2.widget.RxAdapterView
 import com.jakewharton.rxbinding2.widget.RxTextView
 import com.lionparcel.commonandroid.R
@@ -34,6 +36,10 @@ class LPDropdown @JvmOverloads constructor(
 
     private var currentPosition: Int = -1
 
+    private var isCollapsed: Boolean = true
+
+    private var iconStart: Int? = null
+
     var fireValidation: (() -> Unit)? = null
 
     private val adapter = DropdownAdapter(context, mutableList) {
@@ -46,6 +52,7 @@ class LPDropdown @JvmOverloads constructor(
         context.obtainStyledAttributes(attrs, R.styleable.LPDropdown).apply {
             try {
                 setHintText(getResourceId(R.styleable.LPDropdown_android_hint, 0))
+                iconStart = getResourceId(R.styleable.LPDropdown_android_drawableStart, 0)
             } finally {
                 recycle()
             }
@@ -111,6 +118,8 @@ class LPDropdown @JvmOverloads constructor(
         fireValidation?.let {
             if (!hasWindowFocus) it()
         }
+        if (getEditText().text.isNullOrEmpty()) isCollapsed = !isCollapsed else isCollapsed = false
+        changeIcon()
     }
 
     private fun setText(s: CharSequence?) {
@@ -126,4 +135,20 @@ class LPDropdown @JvmOverloads constructor(
     }
 
     private fun Disposable.collect() = compositeDisposable.add(this)
+
+    private fun changeIcon() {
+        if (isCollapsed) TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(
+            lpActDropdown,
+            iconStart ?: 0,
+            0,
+            R.drawable.ics_o_chevron_up,
+            0
+        ) else TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(
+            lpActDropdown,
+            iconStart ?: 0,
+            0,
+            R.drawable.ics_o_chevron_down,
+            0
+        )
+    }
 }

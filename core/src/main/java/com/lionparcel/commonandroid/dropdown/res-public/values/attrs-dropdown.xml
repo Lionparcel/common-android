@@ -2,5 +2,6 @@
 <resources>
     <declare-styleable name="LPDropdown">
         <attr name="android:hint"/>
+        <attr name="android:drawableStart"/>
     </declare-styleable>
 </resources>

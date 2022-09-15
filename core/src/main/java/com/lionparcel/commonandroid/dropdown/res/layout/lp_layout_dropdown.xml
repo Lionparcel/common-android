@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:focusable="false"
             android:focusableInTouchMode="false"
-            app:drawableEndCompat="@drawable/ics_o_chevron_down"/>
+            android:drawablePadding="@dimen/spacing_xs"/>
 
     </com.lionparcel.commonandroid.form.LPTextInputLayout>
 
@@ -28,6 +28,7 @@
         android:layout_height="@dimen/spacing_none"
         android:background="@color/transparent"
         android:spinnerMode="dropdown"
+        android:dropDownVerticalOffset="56dp"
         app:layout_constraintBottom_toBottomOf="@id/lpDropdownTextInputLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

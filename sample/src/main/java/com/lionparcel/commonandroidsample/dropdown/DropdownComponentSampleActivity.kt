@@ -9,7 +9,8 @@ class DropdownComponentSampleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dropdown_component_sample)
-        val months = arrayListOf("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
+        val months = arrayListOf("January", "February", "March", "April", "May")
         findViewById<LPDropdown>(R.id.dropDown1).setData(months)
+        findViewById<LPDropdown>(R.id.dropDown2).setData(months)
     }
 }

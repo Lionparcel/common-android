@@ -4,9 +4,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:paddingStart="@dimen/spacing_m"
-    android:paddingEnd="@dimen/spacing_m"
-    android:paddingTop="@dimen/spacing_xs">
+    android:paddingHorizontal="@dimen/spacing_xl"
+    android:paddingVertical="@dimen/spacing_s">
 
     <TextView
         android:id="@+id/lpDropdownSpinnerText"
@@ -16,6 +15,7 @@
         android:textSize="@dimen/sp_12"
         android:textColor="@color/shades5"
         android:fontFamily="@font/poppins_regular"
+        android:includeFontPadding="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="List Item"/>
