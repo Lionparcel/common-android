@@ -4,4 +4,8 @@
         <attr name="android:hint"/>
         <attr name="android:drawableStart"/>
     </declare-styleable>
+    <declare-styleable name="LPDropdownOutlined">
+        <attr name="android:hint"/>
+        <attr name="android:drawableStart"/>
+    </declare-styleable>
 </resources>

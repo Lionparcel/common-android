@@ -1,37 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
-    <com.lionparcel.commonandroid.form.LPTextInputLayout
-        android:id="@+id/lpDropdownTextInputLayout"
+    <LinearLayout
+        android:id="@+id/llDropdown"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.lionparcel.commonandroid.form.LPAutoCompleteTextView
-            android:id="@+id/lpActDropdown"
+        <com.lionparcel.commonandroid.form.LPTextInputLayout
+            android:id="@+id/lpDropdownTextInputLayout"
+            style="@style/LPTextInputLayoutExposed"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/poppins_regular"
+            android:layout_height="wrap_content">
+
+            <com.lionparcel.commonandroid.form.LPAutoCompleteTextView
+                android:id="@+id/lpActDropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_14"
+                android:drawablePadding="@dimen/spacing_xs"
+                android:fontFamily="@font/poppins_regular"
+                android:focusable="false"
+                android:focusableInTouchMode="false" />
+
+        </com.lionparcel.commonandroid.form.LPTextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lpDropdownTextInputLayoutOutlined"
+            style="@style/LPTextInputLayoutExposed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:drawablePadding="@dimen/spacing_xs"/>
+            app:hintEnabled="false"
+            android:visibility="gone">
 
-    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+            <com.lionparcel.commonandroid.form.LPAutoCompleteTextView
+                android:id="@+id/lpActDropdownOutlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:drawablePadding="@dimen/spacing_xs"
+                android:textSize="@dimen/sp_14"
+                android:focusable="false"
+                android:focusableInTouchMode="false" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
 
     <Spinner
         android:id="@+id/lpDropdownSpinner"
         android:layout_width="match_parent"
         android:layout_height="@dimen/spacing_none"
         android:background="@color/transparent"
-        android:spinnerMode="dropdown"
         android:dropDownVerticalOffset="56dp"
-        app:layout_constraintBottom_toBottomOf="@id/lpDropdownTextInputLayout"
-        app:layout_constraintStart_toStartOf="parent"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="@id/llDropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
