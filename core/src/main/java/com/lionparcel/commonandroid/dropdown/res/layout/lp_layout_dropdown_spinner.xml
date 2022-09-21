@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/lpDropdownSpinnerText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxLines="1"
         android:textSize="@dimen/sp_12"
@@ -19,5 +19,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="List Item"/>
+
+    <ImageView
+        android:id="@+id/ivDropdownCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_xxs"
+        android:contentDescription="@string/general_image_content_description"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_ics_o_check"
+        app:layout_constraintStart_toEndOf="@id/lpDropdownSpinnerText"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

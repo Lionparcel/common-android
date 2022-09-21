@@ -12,8 +12,14 @@ class DropdownComponentSampleActivity : AppCompatActivity() {
         setContentView(R.layout.activity_dropdown_component_sample)
         val months = arrayListOf("January", "February", "March", "April", "May")
         findViewById<LPDropdown>(R.id.dropDown1).setData(months)
-        findViewById<LPDropdown>(R.id.dropDown2).setData(months)
+        findViewById<LPDropdown>(R.id.dropDown2).apply {
+            setData(months)
+            getInputLayout().error = "This not an error text"
+        }
         findViewById<LPDropdownOutlined>(R.id.dropDown3).setData(months)
-        findViewById<LPDropdownOutlined>(R.id.dropDown4).setData(months)
+        findViewById<LPDropdownOutlined>(R.id.dropDown4).apply {
+            setData(months)
+            getInputLayout().error = "This not an error text"
+        }
     }
 }

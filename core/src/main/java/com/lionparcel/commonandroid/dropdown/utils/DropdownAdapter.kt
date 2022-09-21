@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import com.lionparcel.commonandroid.R
 import kotlinx.android.synthetic.main.lp_layout_dropdown_spinner.view.*
 
@@ -30,6 +31,7 @@ class DropdownAdapter<T>(
         else
             R.font.poppins_regular
         )
+        view.ivDropdownCheck.isVisible = values[position] == values[selectedItemPosition.invoke()]
         return view
     }
 
