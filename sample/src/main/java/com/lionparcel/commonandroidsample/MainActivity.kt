@@ -13,6 +13,7 @@ import com.lionparcel.commonandroidsample.button.ButtonSampleActivity
 import com.lionparcel.commonandroidsample.emptystate.EmptyStateSampleActivity
 import com.lionparcel.commonandroidsample.card.CardSampleActivity
 import com.lionparcel.commonandroidsample.divider.DividerSampleActivity
+import com.lionparcel.commonandroidsample.dropdown.DropdownComponentSampleActivity
 import com.lionparcel.commonandroidsample.form.FormComponentSampleActivity
 import com.lionparcel.commonandroidsample.header.HeaderSampleActivity
 import com.lionparcel.commonandroidsample.label.LabelSampleActivity
@@ -103,6 +104,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.button_to_popupBannerSampleActivity).setOnClickListener {
             startActivity(Intent(this, PopupBannerSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_dropdownSampleActivity).setOnClickListener {
+            startActivity(Intent(this, DropdownComponentSampleActivity::class.java))
         }
 
     }
