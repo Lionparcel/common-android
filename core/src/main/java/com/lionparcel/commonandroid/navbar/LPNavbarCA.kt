@@ -12,6 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.navbar.utils.BaseNavigationBarView
+import com.lionparcel.commonandroid.navbar.utils.CANavbarLongMenu
 import com.lionparcel.commonandroid.navbar.utils.CANavbarMenu
 import kotlinx.android.synthetic.main.lp_layout_navbar_badge_number.view.*
 
@@ -72,34 +73,46 @@ class LPNavbarCA @JvmOverloads constructor(
 
     private fun goToHomePage(menuItem: MenuItem): Boolean {
         menuItem.setIcon(R.drawable.ics_f_home)
-        viewPager!!.setCurrentItem(CANavbarMenu.HOME.ordinal, true)
+        when (style) {
+            0 -> viewPager!!.setCurrentItem(CANavbarMenu.HOME.ordinal, true)
+            1 -> viewPager!!.setCurrentItem(CANavbarLongMenu.HOME.ordinal, true)
+        }
         return true
     }
 
     private fun goToPaymentPage(menuItem: MenuItem): Boolean {
         menuItem.setIcon(R.drawable.ics_f_payment)
-        viewPager!!.setCurrentItem(CANavbarMenu.PAYMENT.ordinal, true)
+        when (style) {
+            0 -> viewPager!!.setCurrentItem(CANavbarMenu.PAYMENT.ordinal, true)
+            1 -> viewPager!!.setCurrentItem(CANavbarLongMenu.PAYMENT.ordinal, true)
+        }
         return true
 
     }
 
     private fun goToHelpdeskPage(menuItem: MenuItem): Boolean {
         menuItem.setIcon(R.drawable.ics_f_helpdesk)
-        viewPager!!.setCurrentItem(CANavbarMenu.HELPDESK.ordinal, true)
+        viewPager!!.setCurrentItem(CANavbarLongMenu.HELPDESK.ordinal, true)
         return true
 
     }
 
     private fun goToTrackPage(menuItem: MenuItem): Boolean {
         menuItem.setIcon(R.drawable.ics_f_box_alt)
-        viewPager!!.setCurrentItem(CANavbarMenu.TRACK.ordinal, true)
+        when (style) {
+            0 -> viewPager!!.setCurrentItem(CANavbarMenu.TRACK.ordinal, true)
+            1 -> viewPager!!.setCurrentItem(CANavbarLongMenu.TRACK.ordinal, true)
+        }
         return true
 
     }
 
     private fun goToProfilePage(menuItem: MenuItem): Boolean {
         menuItem.setIcon(R.drawable.ics_f_profile)
-        viewPager!!.setCurrentItem(CANavbarMenu.PROFILE.ordinal, true)
+        when (style) {
+            0 -> viewPager!!.setCurrentItem(CANavbarMenu.PROFILE.ordinal, true)
+            1 -> viewPager!!.setCurrentItem(CANavbarLongMenu.PROFILE.ordinal, true)
+        }
         return true
 
     }
@@ -118,11 +131,11 @@ class LPNavbarCA @JvmOverloads constructor(
             }
             1 -> {
                 when (item.itemId) {
-                    CANavbarMenu.HOME.menuRes -> goToHomePage(item)
-                    CANavbarMenu.TRACK.menuRes -> goToTrackPage(item)
-                    CANavbarMenu.PAYMENT.menuRes -> goToPaymentPage(item)
-                    CANavbarMenu.PROFILE.menuRes -> goToProfilePage(item)
-                    CANavbarMenu.HELPDESK.menuRes -> goToHelpdeskPage(item)
+                    CANavbarLongMenu.HOME.menuRes -> goToHomePage(item)
+                    CANavbarLongMenu.TRACK.menuRes -> goToTrackPage(item)
+                    CANavbarLongMenu.PAYMENT.menuRes -> goToPaymentPage(item)
+                    CANavbarLongMenu.PROFILE.menuRes -> goToProfilePage(item)
+                    CANavbarLongMenu.HELPDESK.menuRes -> goToHelpdeskPage(item)
                     else -> false
                 }
             }
@@ -160,7 +173,12 @@ class LPNavbarCA @JvmOverloads constructor(
         val menuItem =  menuBottomNavBar.getChildAt(menuItemIndex) as BottomNavigationItemView
         val screenWidth = Resources.getSystem().displayMetrics.widthPixels
         val menuItemPadding = ((screenWidth/4) - 24.toDp()) /2
-        val badgeMarginStart = menuItemPadding + 14.toDp()
+        val badgeMargin = when (style) {
+            0 -> 14
+            1 -> 4
+            else -> 14
+        }
+        val badgeMarginStart = menuItemPadding + badgeMargin.toDp()
         menuItem.addView(numberBadge(context, this))
         navbar_red_badge_number.updateLayoutParams<FrameLayout.LayoutParams> {
             marginStart = badgeMarginStart

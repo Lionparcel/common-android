@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
 import com.lionparcel.commonandroid.navbar.LPNavbarCA
+import com.lionparcel.commonandroid.navbar.utils.CANavbarLongMenu
 import com.lionparcel.commonandroid.navbar.utils.CANavbarMenu
 import com.lionparcel.commonandroidsample.R
 import com.lionparcel.commonandroidsample.navbar.utils.NavbarViewPagerAdapter
@@ -18,7 +19,7 @@ class NavbarCASampleActivity : AppCompatActivity() {
         btmNavbar.viewPager = viewPager
         btmNavbar.setOnNavigationItemSelectedListener(btmNavbar::handleNavigation)
         btmNavbar.initSelectedIconMenu()
-//        btmNavbar.addDotBadge(CANavbarMenu.PAYMENT.ordinal)
-        btmNavbar.addNumberBadge(CANavbarMenu.HELPDESK.ordinal, "20")
+        btmNavbar.addDotBadge(CANavbarMenu.PROFILE.ordinal)
+        btmNavbar.addNumberBadge(CANavbarMenu.PAYMENT.ordinal, "20")
     }
 }
