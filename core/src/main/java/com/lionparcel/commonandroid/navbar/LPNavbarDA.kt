@@ -15,11 +15,20 @@ class LPNavbarDA @JvmOverloads constructor(
     defStyleAttrs: Int = 0
 ) : BaseNavigationBarView(context, attrs, defStyleAttrs) {
 
+    private var style: Int
+
     var viewPager: ViewPager? = null
 
-    var idHome : Int? = null
-
     init {
+        context.obtainStyledAttributes(
+            attrs,
+            R.styleable.LPNavbarDA).apply {
+            try {
+                style = getInt(R.styleable.LPNavbarDA_navbarStyle, 0)
+            } finally {
+                recycle()
+            }
+        }
         background = ContextCompat.getDrawable(context, setBackground)
         setPadding(
             0,
@@ -31,7 +40,11 @@ class LPNavbarDA @JvmOverloads constructor(
         itemIconTintList = ContextCompat.getColorStateList(context, iconTint)
         itemTextAppearanceActive = activeTextAppearance
         itemTextAppearanceInactive = inactiveTextAppearance
-        this.inflateMenu(R.menu.menu_navbar_ca_default)
+        when (style) {
+            0 -> this.inflateMenu(R.menu.menu_navbar_da_default)
+            1 -> this.inflateMenu(R.menu.menu_navbar_da_long)
+        }
+
     }
 
     private fun resetIconMenu() {
