@@ -1,14 +1,12 @@
 package com.lionparcel.commonandroidsample.navbar
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.lionparcel.commonandroid.navbar.LPNavbarCA
 import com.lionparcel.commonandroid.navbar.utils.CANavbarLongMenu
-import com.lionparcel.commonandroid.navbar.utils.CANavbarMenu
 import com.lionparcel.commonandroidsample.R
 import com.lionparcel.commonandroidsample.navbar.utils.NavbarLongViewPagerAdapter
-import com.lionparcel.commonandroidsample.navbar.utils.NavbarViewPagerAdapter
 
 class NavbarCALongSampleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

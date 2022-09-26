@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.Resources
 import android.util.AttributeSet
 import android.view.MenuItem
+import android.view.View
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.updateLayoutParams
@@ -23,6 +24,14 @@ class LPNavbarCA @JvmOverloads constructor(
 ) : BaseNavigationBarView(context, attrs, defStyleAttrs) {
 
     private var style: Int
+
+    private val dotBadge: View by lazy {
+        dotBadge(context, this)
+    }
+
+    private val numberBadge: View by lazy {
+        numberBadge(context, this)
+    }
 
     var viewPager: ViewPager? = null
 
@@ -165,7 +174,17 @@ class LPNavbarCA @JvmOverloads constructor(
     fun addDotBadge(menuItemIndex : Int) {
         val menuBottomNavBar = this.getChildAt(0) as BottomNavigationMenuView
         val menuItem =  menuBottomNavBar.getChildAt(menuItemIndex) as BottomNavigationItemView
-        menuItem.addView(dotBadge(context, this))
+        if (dotBadge.parent == null){
+            menuItem.addView(dotBadge)
+        }
+    }
+
+    fun removeDotBadge(menuItemIndex: Int) {
+        val menuBottomNavBar = this.getChildAt(0) as BottomNavigationMenuView
+        val menuItem =  menuBottomNavBar.getChildAt(menuItemIndex) as BottomNavigationItemView
+        if (dotBadge.parent != null){
+            menuItem.removeView(dotBadge)
+        }
     }
 
     fun addNumberBadge(menuItemIndex: Int, number: String) {
@@ -179,11 +198,21 @@ class LPNavbarCA @JvmOverloads constructor(
             else -> 14
         }
         val badgeMarginStart = menuItemPadding + badgeMargin.toDp()
-        menuItem.addView(numberBadge(context, this))
+        if (numberBadge.parent == null){
+            menuItem.addView(numberBadge)
+        }
         navbar_red_badge_number.updateLayoutParams<FrameLayout.LayoutParams> {
             marginStart = badgeMarginStart
         }
         navbar_red_badge_number.setNumber(number)
+    }
+
+    fun removeNumberBadge(menuItemIndex: Int) {
+        val menuBottomNavBar = this.getChildAt(0) as BottomNavigationMenuView
+        val menuItem =  menuBottomNavBar.getChildAt(menuItemIndex) as BottomNavigationItemView
+        if (numberBadge.parent != null){
+            menuItem.removeView(numberBadge)
+        }
     }
 
     override val type: Type
