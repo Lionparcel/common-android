@@ -30,6 +30,13 @@
         android:text="Navbar DA Component"/>
 
     <Button
+        android:id="@+id/btn_navbar_da_long"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Navbar DA Five Icon Component"/>
+
+    <Button
         android:id="@+id/btn_navbar_ta"
         style="@style/RedPaleSalmonButtonStyle"
         android:layout_width="wrap_content"
