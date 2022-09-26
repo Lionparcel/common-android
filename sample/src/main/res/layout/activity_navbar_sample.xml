@@ -16,6 +16,13 @@
         android:text="Navbar CA Component"/>
 
     <Button
+        android:id="@+id/btn_navbar_ca_long"
+        style="@style/RedPaleSalmonButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Navbar CA Five Icon Component"/>
+
+    <Button
         android:id="@+id/btn_navbar_da"
         style="@style/RedPaleSalmonButtonStyle"
         android:layout_width="wrap_content"
