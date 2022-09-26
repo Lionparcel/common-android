@@ -16,3 +16,18 @@ enum class CANavbarLongMenu(val menuRes: Int) {
     PAYMENT(R.id.navPayment),
     PROFILE(R.id.navAccount)
 }
+
+enum class DANavbarMenu(val menuRes: Int) {
+    HOME(R.id.navHome),
+    HISTORY(R.id.navHistory),
+    SYNC(R.id.navSync),
+    PROFILE(R.id.navAccount)
+}
+
+enum class DANavbarLongMenu(val menuRes: Int) {
+    HOME(R.id.navHome),
+    HISTORY(R.id.navHistory),
+    SYNC(R.id.navSync),
+    EARNING(R.id.navEarning),
+    PROFILE(R.id.navAccount)
+}

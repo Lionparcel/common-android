@@ -186,7 +186,6 @@ class LPNavbarCA @JvmOverloads constructor(
         navbar_red_badge_number.setNumber(number)
     }
 
-
     override val type: Type
         get() = Type.CA
 }
