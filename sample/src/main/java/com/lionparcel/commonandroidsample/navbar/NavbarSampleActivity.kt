@@ -22,5 +22,8 @@ class NavbarSampleActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_navbar_da_long).setOnClickListener {
             startActivity(Intent(this, NavbarDALongSampleActivity::class.java))
         }
+        findViewById<Button>(R.id.btn_navbar_ta).setOnClickListener {
+            startActivity(Intent(this, NavbarTASampleActivity::class.java))
+        }
     }
 }

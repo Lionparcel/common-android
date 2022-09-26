@@ -31,3 +31,10 @@ enum class DANavbarLongMenu(val menuRes: Int) {
     EARNING(R.id.navEarning),
     PROFILE(R.id.navAccount)
 }
+
+enum class TANavbarMenu(val menuRes: Int) {
+    HOME(R.id.navHome),
+    HISTORY(R.id.navHistory),
+    SYNC(R.id.navSync),
+    PROFILE(R.id.navAccount)
+}
