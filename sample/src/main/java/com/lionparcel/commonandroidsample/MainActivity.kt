@@ -13,6 +13,7 @@ import com.lionparcel.commonandroidsample.button.ButtonSampleActivity
 import com.lionparcel.commonandroidsample.emptystate.EmptyStateSampleActivity
 import com.lionparcel.commonandroidsample.card.CardSampleActivity
 import com.lionparcel.commonandroidsample.divider.DividerSampleActivity
+import com.lionparcel.commonandroidsample.dropdown.DropdownComponentSampleActivity
 import com.lionparcel.commonandroidsample.form.FormComponentSampleActivity
 import com.lionparcel.commonandroidsample.header.HeaderSampleActivity
 import com.lionparcel.commonandroidsample.label.LabelSampleActivity
@@ -21,6 +22,7 @@ import com.lionparcel.commonandroidsample.loading.LoadingComponentSampleActivity
 import com.lionparcel.commonandroidsample.modal.ModalComponentSampleActivity
 import com.lionparcel.commonandroidsample.navbar.NavbarSampleActivity
 import com.lionparcel.commonandroidsample.popup.PopupComponentSampleActivity
+import com.lionparcel.commonandroidsample.popupbanner.PopupBannerSampleActivity
 import com.lionparcel.commonandroidsample.progressbar.ProgressBarSampleActivity
 import com.lionparcel.commonandroidsample.selectioncontrol.SelectionControlComponentSampleActivity
 import com.lionparcel.commonandroidsample.tag.TagComponentSampleActivity
@@ -100,6 +102,12 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.button_to_badgeSampleActivity).setOnClickListener {
             startActivity(Intent(this, BadgeComponentSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_popupBannerSampleActivity).setOnClickListener {
+            startActivity(Intent(this, PopupBannerSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_dropdownSampleActivity).setOnClickListener {
+            startActivity(Intent(this, DropdownComponentSampleActivity::class.java))
         }
         findViewById<Button>(R.id.button_to_navbarSampleActivity).setOnClickListener {
             startActivity(Intent(this, NavbarSampleActivity::class.java))
