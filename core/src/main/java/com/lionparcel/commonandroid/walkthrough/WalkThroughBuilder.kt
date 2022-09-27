@@ -31,6 +31,7 @@ class WalkThroughBuilder(activity: Activity) {
     internal var walkThroughSequenceIndex: Int = 1
     internal var walkThroughSequenceTotal: Int = 1
     internal var skipListener: WalkThroughSkipListener? = null
+    internal var finishListener: WalkThroughFinishListener? = null
     internal var beatingAnimation: Boolean = true
     internal var dim: Boolean = true
     internal var autoNext: Boolean = false
@@ -102,6 +103,11 @@ class WalkThroughBuilder(activity: Activity) {
 
     fun skipListener(skipListener: WalkThroughSkipListener?): WalkThroughBuilder {
         this.skipListener = skipListener
+        return this
+    }
+
+    fun finishListener(finishListener: WalkThroughFinishListener?): WalkThroughBuilder {
+        this.finishListener = finishListener
         return this
     }
 

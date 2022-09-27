@@ -51,6 +51,7 @@ open class WalkThrough(builder: WalkThroughBuilder) {
     private val contentListener = builder.walkThroughMessageListener
     private val sequenceListener = builder.walkThroughSequenceListener
     private val skipListener = builder.skipListener
+    private val finishListener = builder.finishListener
     private val sequencePosition = builder.sequencePosition
     private val walkThroughSequenceIndex: Int = builder.walkThroughSequenceIndex
     private val walkThroughSequenceTotal: Int = builder.walkThroughSequenceTotal
@@ -407,7 +408,7 @@ open class WalkThrough(builder: WalkThroughBuilder) {
                 }
 
                 override fun onFinish() {
-                    skipListener?.onSkip()
+                    finishListener?.onFinish()
                     this@WalkThrough.finishSequence()
                 }
 

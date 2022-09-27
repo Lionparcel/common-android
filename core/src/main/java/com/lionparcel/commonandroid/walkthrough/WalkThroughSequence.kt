@@ -11,6 +11,7 @@ class WalkThroughSequence {
     }
     private var eachSequenceDelay: Long = 0
     private var skipListener: WalkThroughSkipListener? = null
+    private var finishListener: WalkThroughFinishListener? = null
 
     init {
         walkThroughBuilderList.clear()
@@ -81,6 +82,7 @@ class WalkThroughSequence {
         })
             .walkThroughSequenceIndex(position, walkThroughBuilderList.size)
             .skipListener(skipListener)
+            .finishListener(finishListener)
             .show()
         beforeShowingListener.invoke(position, walkThrough)
         return walkThrough
@@ -140,6 +142,7 @@ class WalkThroughSequence {
             }
         })
             .skipListener(skipListener)
+            .finishListener(finishListener)
             .show()
         beforeShowingListener.invoke(position, walkThrough)
         return walkThrough
@@ -149,6 +152,15 @@ class WalkThroughSequence {
         this.skipListener = object : WalkThroughSkipListener {
             override fun onSkip() {
                 skip.invoke()
+            }
+        }
+        return this
+    }
+
+    fun finishListener(finish: () -> Unit): WalkThroughSequence {
+        this.finishListener = object : WalkThroughFinishListener {
+            override fun onFinish() {
+                finish.invoke()
             }
         }
         return this
