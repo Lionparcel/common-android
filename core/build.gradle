@@ -29,7 +29,8 @@ def moduleDirs = [
     'accordion',
     'badge',
     'popupbanner',
-    'dropdown'
+    'dropdown',
+    'datepicker'
 ]
 
 android {
