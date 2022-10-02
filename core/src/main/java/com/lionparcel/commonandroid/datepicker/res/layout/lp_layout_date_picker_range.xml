@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/transparent">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="@dimen/dp_16"
+        app:cardElevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/mcHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_date_picker_shadow_top"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:paddingBottom="@dimen/spacing_xs">
+
+                    <View
+                        android:id="@+id/vLine"
+                        android:layout_width="@dimen/dp_30"
+                        android:layout_height="@dimen/dp_4"
+                        android:layout_marginTop="@dimen/dp_12"
+                        android:background="@drawable/bg_shades2_rounded_3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tvDatePickerTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:layout_marginTop="@dimen/spacing_s"
+                        android:layout_marginStart="@dimen/spacing_l"
+                        style="@style/Subtitle1Bold"
+                        android:textColor="@color/shades5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/vLine"
+                        tools:text="Title Insert Here"/>
+
+                    <TextView
+                        android:id="@+id/tvClear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:layout_marginEnd="@dimen/spacing_l"
+                        android:fontFamily="@font/poppins_semi_bold"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="@color/interpack6"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvDatePickerTitle"
+                        app:layout_constraintBottom_toBottomOf="@id/tvDatePickerTitle"
+                        tools:text="Clear"/>
+
+                    <LinearLayout
+                        android:id="@+id/llStartEndDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginHorizontal="@dimen/spacing_l"
+                        android:layout_marginTop="@dimen/spacing_m"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/spacing_s"
+                        android:background="@drawable/bg_start_end_pensive1_rounded8"
+                        app:layout_constraintTop_toBottomOf="@id/tvDatePickerTitle">
+
+                        <LinearLayout
+                            android:id="@+id/llStartDate"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+                            android:background="@color/transparent"
+                            android:gravity="center"
+                            android:paddingHorizontal="@dimen/spacing_xxs"
+                            android:paddingVertical="@dimen/spacing_s">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/shades5"
+                                style="@style/Body4Regular"
+                                android:text="@string/date_picker_from_label"/>
+
+                            <TextView
+                                android:id="@+id/tvStartDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:textSize="@dimen/sp_12"
+                                android:textColor="@color/shades5"
+                                android:text="@string/date_picker_title"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:textSize="@dimen/sp_12"
+                            android:textColor="@color/black"
+                            android:text="@string/general_strip"/>
+
+                        <LinearLayout
+                            android:id="@+id/llEndDate"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+                            android:alpha="0.5"
+                            android:gravity="center"
+                            android:paddingHorizontal="@dimen/spacing_xxs"
+                            android:paddingVertical="@dimen/spacing_s">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/shades5"
+                                style="@style/Body4Regular"
+                                android:text="@string/date_picker_end_label"/>
+
+                            <TextView
+                                android:id="@+id/tvEndDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:textSize="@dimen/sp_12"
+                                android:textColor="@color/shades5"
+                                android:text="@string/date_picker_title"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvMonth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semi_bold"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="@color/shades5"
+                        android:layout_marginTop="@dimen/spacing_m"
+                        android:gravity="center"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/llStartEndDate"
+                        tools:text="Sept 2021"/>
+
+                    <ImageView
+                        android:id="@+id/ivChevronUp"
+                        android:layout_width="@dimen/dp_24"
+                        android:layout_height="@dimen/dp_24"
+                        android:contentDescription="@string/general_image_content_description"
+                        app:srcCompat="@drawable/ics_o_chevron_up"
+                        app:layout_constraintTop_toTopOf="@id/tvMonth"
+                        app:layout_constraintBottom_toBottomOf="@id/tvMonth"
+                        app:layout_constraintEnd_toStartOf="@id/ivChevronDown"/>
+
+                    <ImageView
+                        android:id="@+id/ivChevronDown"
+                        android:layout_width="@dimen/dp_24"
+                        android:layout_height="@dimen/dp_24"
+                        android:contentDescription="@string/general_image_content_description"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@id/ivChevronUp"
+                        app:layout_constraintTop_toTopOf="@id/ivChevronUp"
+                        app:srcCompat="@drawable/ics_o_chevron_down"/>
+
+                    <include
+                        layout="@layout/lp_date_picker_day_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_xxs"
+                        app:layout_constraintTop_toBottomOf="@id/tvMonth"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.kizitonwose.calendarview.CalendarView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:clipToPadding="false"
+                android:paddingBottom="@dimen/spacing_l"
+                app:cv_scrollMode="paged"
+                app:cv_dayViewResource="@layout/lp_date_picker_day"
+                app:layout_constraintHeight_default="wrap"
+                app:layout_constraintBottom_toTopOf="@id/mcBtnChoose"
+                app:layout_constraintTop_toBottomOf="@id/mcHeader"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/mcBtnChoose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_date_picker_shadow_bottom_button"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+
+                <com.lionparcel.commonandroid.button.LPButton
+                    android:id="@+id/btnChoose"
+                    style="@style/LPRoundedRedLargeButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_xl"
+                    android:layout_marginVertical="@dimen/spacing_m"
+                    android:text="@string/general_select"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
