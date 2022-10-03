@@ -43,7 +43,9 @@ di pergunakan dengan sebagai mana mestinya</string>
     <string name="date_picker_friday_label">Jum</string>
     <string name="date_picker_saturday_label">Sab</string>
     <string name="date_picker_sunday_label">Min</string>
+    <string name="date_picker_error_message">Tanggal yang kamu pilih lenih dari 30 hari</string>
 
     <string name="general_select">Pilih</string>
     <string name="general_strip">-</string>
+    <string name="general_reset">Atur Ulang</string>
 </resources>
