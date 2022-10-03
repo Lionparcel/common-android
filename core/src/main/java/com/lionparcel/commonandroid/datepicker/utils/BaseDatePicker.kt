@@ -17,7 +17,9 @@ abstract class BaseDatePicker: BottomSheetDialogFragment() {
 
     private val compositeDisposable = CompositeDisposable()
 
-    protected abstract fun getContentResource(): Int
+    protected open fun getContentResource(): Int = -1
+
+    override fun getTheme(): Int = R.style.DatePickerDialogTheme
 
     override fun onCreateView(
         inflater: LayoutInflater,

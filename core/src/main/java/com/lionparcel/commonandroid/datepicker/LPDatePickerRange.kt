@@ -131,9 +131,9 @@ class LPDatePickerRange: BaseDatePicker() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = LpLayoutDatePickerRangeBinding.inflate(inflater, container, false)
-        return binding.parent
+        return binding.root
     }
 
     override fun initViews() {

@@ -51,7 +51,7 @@
                         android:textColor="@color/shades5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/vLine"
-                        tools:text="Title Insert Here"/>
+                        android:text="@string/date_picker_title"/>
 
                     <TextView
                         android:id="@+id/tvClear"
@@ -65,7 +65,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@id/tvDatePickerTitle"
                         app:layout_constraintBottom_toBottomOf="@id/tvDatePickerTitle"
-                        tools:text="Clear"/>
+                        android:text="@string/date_picker_clear_label"/>
 
                     <LinearLayout
                         android:id="@+id/llStartEndDate"

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/spacing_m"
+    android:paddingHorizontal="@dimen/spacing_xl"
+    tools:context=".datepicker.DatePickerSampleActivity">
+
+    <LinearLayout
+        android:id="@+id/llDatePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_xs"
+        android:background="@drawable/bg_card_border">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ics_f_warning_circle"/>
+
+        <TextView
+            android:id="@+id/tvDatePick"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/shades5"
+            android:layout_marginStart="@dimen/spacing_xs"
+            tools:text="01 Sep 2021 - 07 Sep 2021"/>
+
+    </LinearLayout>
+
+</LinearLayout>
