@@ -127,10 +127,10 @@ class LPDatePickerSingle: BaseDatePicker() {
     }
 
     private fun setDaySize() {
-        val size = ScreenUtils.getScreenWidthCompat(requireActivity()) / 7
+        val size = (ScreenUtils.getScreenWidthCompat(requireActivity()) / 7 ) - 6
         binding.calendarView.apply {
             daySize = Size(size, size)
-            setMonthPadding(marginStart, monthPaddingTop, marginEnd, monthPaddingBottom)
+            setMonthPadding(6.toDp(), monthPaddingTop, 6.toDp(), monthPaddingBottom)
             layoutParams.width = ScreenUtils.getScreenWidthCompat(requireActivity())
         }
     }
