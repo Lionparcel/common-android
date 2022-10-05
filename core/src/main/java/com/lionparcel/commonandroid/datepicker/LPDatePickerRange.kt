@@ -24,7 +24,7 @@ import com.lionparcel.commonandroid.databinding.LpDatePickerDayBinding
 import com.lionparcel.commonandroid.databinding.LpLayoutDatePickerRangeBinding
 import com.lionparcel.commonandroid.datepicker.utils.*
 import com.lionparcel.commonandroid.snackbartoast.MessageType
-import com.lionparcel.commonandroid.snackbartoast.showSnackbarSmallIconNoClose
+import com.lionparcel.commonandroid.snackbartoast.showToastSmallIconNoClose
 import com.lionparcel.commonandroid.walkthrough.utils.ScreenUtils
 import com.lionparcel.commonandroid.walkthrough.utils.toDp
 import java.time.DayOfWeek
@@ -332,10 +332,10 @@ class LPDatePickerRange: BaseDatePicker() {
                             date
                         ) + 1) > MAX_RANGE_DATE_SELECTED && isNotSameMonth
                     ) {
-                        requireContext().showSnackbarSmallIconNoClose(
+                        requireContext().showToastSmallIconNoClose(
                             this.binding.parent,
                             getString(R.string.date_picker_error_message),
-                            R.drawable.ics_f_warning_circle_yellow6,
+                            R.drawable.ics_f_warning_circle_white,
                             MessageType.ERROR
                         )
                         return
