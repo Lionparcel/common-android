@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.*
+import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.kizitonwose.calendarview.model.CalendarDay
 import com.kizitonwose.calendarview.model.DayOwner
@@ -290,11 +291,13 @@ class LPDatePickerRange: BaseDatePicker() {
         with(binding) {
             calendarView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    ImageViewCompat.setImageTintList(ivChevronDown, ResourcesCompat.getColorStateList(resources, R.color.shades5, null))
                     ivChevronDown.isEnabled =
                         calendarView.findFirstVisibleMonth()?.month != today?.monthValue
                     ivChevronDown.alpha = if (binding.ivChevronDown.isEnabled) {
                         ENABLE_ALPHA_VALUE
                     } else DISABLE_ALPHA_VALUE
+                    ImageViewCompat.setImageTintList(ivChevronUp, ResourcesCompat.getColorStateList(resources, R.color.shades5, null))
                     ivChevronUp.isEnabled = recyclerView.canScrollVertically(-1)
                     ivChevronUp.alpha = if (binding.ivChevronUp.isEnabled) {
                         ENABLE_ALPHA_VALUE

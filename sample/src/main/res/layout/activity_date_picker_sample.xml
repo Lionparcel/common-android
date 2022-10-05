@@ -9,6 +9,12 @@
     android:paddingHorizontal="@dimen/spacing_xl"
     tools:context=".datepicker.DatePickerSampleActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/H5Bold"
+        android:text="Date Range Picker"/>
+
     <LinearLayout
         android:id="@+id/llDatePicker"
         android:layout_width="match_parent"
