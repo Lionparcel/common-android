@@ -12,6 +12,7 @@ import com.lionparcel.commonandroidsample.badge.BadgeComponentSampleActivity
 import com.lionparcel.commonandroidsample.button.ButtonSampleActivity
 import com.lionparcel.commonandroidsample.emptystate.EmptyStateSampleActivity
 import com.lionparcel.commonandroidsample.card.CardSampleActivity
+import com.lionparcel.commonandroidsample.datepicker.DatePickerSampleActivity
 import com.lionparcel.commonandroidsample.divider.DividerSampleActivity
 import com.lionparcel.commonandroidsample.dropdown.DropdownComponentSampleActivity
 import com.lionparcel.commonandroidsample.form.FormComponentSampleActivity
@@ -108,7 +109,9 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.button_to_dropdownSampleActivity).setOnClickListener {
             startActivity(Intent(this, DropdownComponentSampleActivity::class.java))
         }
-
+        findViewById<Button>(R.id.button_to_datePickerSampleActivity).setOnClickListener {
+            startActivity(Intent(this, DatePickerSampleActivity::class.java))
+        }
     }
 
     override fun attachBaseContext(newBase: Context?) {

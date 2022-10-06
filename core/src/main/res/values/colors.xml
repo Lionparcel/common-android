@@ -2,6 +2,7 @@
 <resources>
     <color name="aqua1">#EAFCFF</color>
     <color name="aqua5">#51B6D5</color>
+    <color name="black">#000000</color>
     <color name="black20">#33000000</color>
     <color name="black50">#80000000</color>
     <color name="black70">#B3000000</color>

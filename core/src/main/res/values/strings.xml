@@ -32,4 +32,21 @@ di pergunakan dengan sebagai mana mestinya</string>
     <string name="stepper_icon_title_two">Berangkat dari kota asal</string>
     <string name="stepper_icon_title_three">Pengantaran ke alamat</string>
     <string name="stepper_icon_title_four">Sampai di tujuan</string>
+    
+    <string name="date_picker_from_label">Dari</string>
+    <string name="date_picker_end_label">Sampai</string>
+    <string name="date_picker_title">Pilih Tanggal</string>
+    <string name="date_picker_monday_label">Sen</string>
+    <string name="date_picker_tuesday_label">Sel</string>
+    <string name="date_picker_wednesday_label">Rab</string>
+    <string name="date_picker_thursday_label">Kam</string>
+    <string name="date_picker_friday_label">Jum</string>
+    <string name="date_picker_saturday_label">Sab</string>
+    <string name="date_picker_sunday_label">Min</string>
+    <string name="date_picker_error_message">Tanggal yang kamu pilih lenih dari 30 hari</string>
+    <string name="date_picker_clear_label">Atur Ulang</string>
+
+    <string name="general_select">Pilih</string>
+    <string name="general_strip">-</string>
+    <string name="general_reset">Atur Ulang</string>
 </resources>
