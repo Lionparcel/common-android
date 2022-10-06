@@ -51,7 +51,7 @@
                         android:textColor="@color/shades5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/vLine"
-                        android:text="@string/date_picker_title"/>
+                        tools:text="@string/date_picker_title"/>
 
                     <TextView
                         android:id="@+id/tvClear"
@@ -65,7 +65,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@id/tvDatePickerTitle"
                         app:layout_constraintBottom_toBottomOf="@id/tvDatePickerTitle"
-                        android:text="@string/date_picker_clear_label"/>
+                        tools:text="@string/date_picker_clear_label"/>
 
                     <LinearLayout
                         android:id="@+id/llStartEndDate"
@@ -217,9 +217,9 @@
                     style="@style/LPRoundedRedLargeButtonStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/spacing_xl"
+                    android:layout_marginHorizontal="@dimen/spacing_l"
                     android:layout_marginVertical="@dimen/spacing_m"
-                    android:text="@string/general_select"/>
+                    tools:text="@string/general_select"/>
 
             </com.google.android.material.card.MaterialCardView>
 

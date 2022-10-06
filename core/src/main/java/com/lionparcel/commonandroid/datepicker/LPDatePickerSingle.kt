@@ -2,6 +2,7 @@ package com.lionparcel.commonandroid.datepicker
 
 import android.content.res.Resources
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,9 +30,9 @@ import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-class LPDatePickerSingle: BaseDatePicker() {
+class LPDatePickerSingle : BaseDatePicker() {
 
-    inner class DayViewContainer(view: View): ViewContainer(view) {
+    inner class DayViewContainer(view: View) : ViewContainer(view) {
         lateinit var day: CalendarDay
         val binding = LpDatePickerDayBinding.bind(view)
 
@@ -50,17 +51,25 @@ class LPDatePickerSingle: BaseDatePicker() {
         fun newInstance(
             selectedDate: LocalDate,
             onChooseButtonClicked: (LocalDate) -> Unit,
+            title: String? = null,
+            btnTitle: String? = null
         ) = LPDatePickerSingle().apply {
             this.selectedDate = selectedDate
             this.onChooseButtonClicked = onChooseButtonClicked
+            this.title = title
+            this.btnTitle = btnTitle
         }
 
         fun newInstanceOptional(
             selectedDate: LocalDate?,
             onChooseButtonClickedOptional: (LocalDate?) -> Unit,
+            title: String? = null,
+            btnTitle: String? = null
         ) = LPDatePickerSingle().apply {
             this.selectedDate = selectedDate
             this.onChooseButtonClickedOptional = onChooseButtonClickedOptional
+            this.title = title
+            this.btnTitle = btnTitle
         }
     }
 
@@ -69,6 +78,8 @@ class LPDatePickerSingle: BaseDatePicker() {
     private val monthTittleFormatter = DateTimeFormatter.ofPattern("MMM")
     private var onChooseButtonClicked: ((LocalDate) -> Unit)? = null
     private var onChooseButtonClickedOptional: ((LocalDate?) -> Unit)? = null
+    private var title: String? = null
+    private var btnTitle: String? = null
 
     private val dayOfWeek by lazy {
         arrayOf(
@@ -104,6 +115,8 @@ class LPDatePickerSingle: BaseDatePicker() {
         val maxHeight = (0.99F * Resources.getSystem().displayMetrics.heightPixels).toInt()
         getLayoutBehaviour().peekHeight = maxHeight
         with(binding) {
+            tvDatePickerTitle.text = title ?: getString(R.string.date_picker_title)
+            btnChoose.text = btnTitle ?: getString(R.string.general_select)
             ivClose.setOnClickListener {
                 dismiss()
             }
@@ -127,12 +140,13 @@ class LPDatePickerSingle: BaseDatePicker() {
     }
 
     private fun setDaySize() {
-        val size = (ScreenUtils.getScreenWidthCompat(requireActivity()) / 7 ) - 6
+        val size = (ScreenUtils.getScreenWidthCompat(requireActivity()) / 7) - 4
         binding.calendarView.apply {
             daySize = Size(size, size)
-            setMonthPadding(6.toDp(), monthPaddingTop, 6.toDp(), monthPaddingBottom)
+            setMonthPadding(4.toDp(), monthPaddingTop, 4.toDp(), monthPaddingBottom)
             layoutParams.width = ScreenUtils.getScreenWidthCompat(requireActivity())
         }
+        Log.e("Date", size.toString())
     }
 
     private fun setupCalendarView() {
@@ -177,7 +191,13 @@ class LPDatePickerSingle: BaseDatePicker() {
                     DayOwner.THIS_MONTH -> {
                         tvDay.text = day.day.toString()
                         if (day.date.isAfter(today)) {
-                            tvDay.setTextColor(ResourcesCompat.getColor(resources, R.color.shades3, null))
+                            tvDay.setTextColor(
+                                ResourcesCompat.getColor(
+                                    resources,
+                                    R.color.shades3,
+                                    null
+                                )
+                            )
                         } else {
                             setStateSelectedDateThisMonth(container, day)
                         }
@@ -197,9 +217,21 @@ class LPDatePickerSingle: BaseDatePicker() {
                     vRoundBackground.setBackgroundResource(R.drawable.bg_date_picker_single_selected)
                 }
                 day.date == today -> {
-                    tvDay.setTextColor(ResourcesCompat.getColor(resources, R.color.interpack6, null))
+                    tvDay.setTextColor(
+                        ResourcesCompat.getColor(
+                            resources,
+                            R.color.interpack6,
+                            null
+                        )
+                    )
                 }
-                else -> tvDay.setTextColor(ResourcesCompat.getColor(resources, R.color.shades5, null))
+                else -> tvDay.setTextColor(
+                    ResourcesCompat.getColor(
+                        resources,
+                        R.color.shades5,
+                        null
+                    )
+                )
             }
         }
     }
@@ -260,7 +292,8 @@ class LPDatePickerSingle: BaseDatePicker() {
     }
 
     private fun changeStateButtonChoose() {
-        binding.btnChoose.isEnabled = if (onChooseButtonClickedOptional == null) selectedDate != null else true
+        binding.btnChoose.isEnabled =
+            if (onChooseButtonClickedOptional == null) selectedDate != null else true
     }
 
     private fun onScrollNextMonth() {

@@ -60,13 +60,19 @@ class LPDatePickerRange: BaseDatePicker() {
             endDate: LocalDate?,
             onChooseButtonClicked: (LocalDate, LocalDate?) -> Unit,
             isUseLimit: Boolean = false,
-            intervalDay: Long? = 0L
+            intervalDay: Long? = 0L,
+            title: String? = null,
+            clearTitle: String? = null,
+            btnTitle: String? = null
         ) = LPDatePickerRange().apply {
             this.startDate = startDate
             this.endDate = endDate
             this.onChooseButtonClicked = onChooseButtonClicked
             this.isUseLimit = isUseLimit
             intervalDay?.let { this.intervalDay = it }
+            this.title = title
+            this.clearTitle = clearTitle
+            this.btnTitle = btnTitle
         }
 
         fun newInstanceOptional(
@@ -74,13 +80,19 @@ class LPDatePickerRange: BaseDatePicker() {
             endDate: LocalDate?,
             onChooseButtonClickedOptional: (LocalDate?, LocalDate?) -> Unit,
             isUseLimit: Boolean = false,
-            intervalDay: Long? = 0L
+            intervalDay: Long? = 0L,
+            title: String? = null,
+            clearTitle: String? = null,
+            btnTitle: String? = null
         ) = LPDatePickerRange().apply {
             this.startDate = startDate
             this.endDate = endDate
             this.onChooseButtonClickedOptional = onChooseButtonClickedOptional
             this.isUseLimit = isUseLimit
             intervalDay?.let { this.intervalDay = it }
+            this.title = title
+            this.clearTitle = clearTitle
+            this.btnTitle = btnTitle
         }
     }
 
@@ -93,6 +105,9 @@ class LPDatePickerRange: BaseDatePicker() {
     private var onChooseButtonClicked: ((LocalDate, LocalDate?) -> Unit)? = null
     private var onChooseButtonClickedOptional: ((LocalDate?, LocalDate?) -> Unit)? = null
     private var isUseLimit = false
+    private var title: String? = null
+    private var clearTitle: String? = null
+    private var btnTitle: String? = null
 
     private val dayOfWeek by lazy {
         arrayOf(
@@ -142,6 +157,9 @@ class LPDatePickerRange: BaseDatePicker() {
         val maxHeight = (0.99F * Resources.getSystem().displayMetrics.heightPixels).toInt()
         getLayoutBehaviour().peekHeight = maxHeight
         with(binding) {
+            tvDatePickerTitle.text = title ?: getString(R.string.date_picker_title)
+            tvClear.text = clearTitle ?: getString(R.string.date_picker_clear_label)
+            btnChoose.text = btnTitle ?: getString(R.string.general_select)
             if (isUseLimit) {
                 tvClear.text = getString(R.string.general_reset)
             }
