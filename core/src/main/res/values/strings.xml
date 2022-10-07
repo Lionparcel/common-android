@@ -32,7 +32,7 @@ di pergunakan dengan sebagai mana mestinya</string>
     <string name="stepper_icon_title_two">Berangkat dari kota asal</string>
     <string name="stepper_icon_title_three">Pengantaran ke alamat</string>
     <string name="stepper_icon_title_four">Sampai di tujuan</string>
-    
+
     <string name="date_picker_from_label">Dari</string>
     <string name="date_picker_end_label">Sampai</string>
     <string name="date_picker_title">Pilih Tanggal</string>
@@ -49,4 +49,13 @@ di pergunakan dengan sebagai mana mestinya</string>
     <string name="general_select">Pilih</string>
     <string name="general_strip">-</string>
     <string name="general_reset">Atur Ulang</string>
+
+    <string name="navbar_title_home">Beranda</string>
+    <string name="navbar_title_track">Paketmu</string>
+    <string name="navbar_title_helpdesk">Bantuan</string>
+    <string name="navbar_title_payment">Bayar</string>
+    <string name="navbar_title_account">Akun</string>
+    <string name="navbar_title_history">Riwayat</string>
+    <string name="navbar_title_sync">Sync Data</string>
+    <string name="navbar_title_earning">Penghasilan</string>
 </resources>

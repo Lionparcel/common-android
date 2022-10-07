@@ -21,6 +21,7 @@ import com.lionparcel.commonandroidsample.label.LabelSampleActivity
 import com.lionparcel.commonandroidsample.listing.ListingSampleActivity
 import com.lionparcel.commonandroidsample.loading.LoadingComponentSampleActivity
 import com.lionparcel.commonandroidsample.modal.ModalComponentSampleActivity
+import com.lionparcel.commonandroidsample.navbar.NavbarSampleActivity
 import com.lionparcel.commonandroidsample.popup.PopupComponentSampleActivity
 import com.lionparcel.commonandroidsample.popupbanner.PopupBannerSampleActivity
 import com.lionparcel.commonandroidsample.progressbar.ProgressBarSampleActivity
@@ -111,6 +112,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.button_to_datePickerSampleActivity).setOnClickListener {
             startActivity(Intent(this, DatePickerSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_navbarSampleActivity).setOnClickListener {
+            startActivity(Intent(this, NavbarSampleActivity::class.java))
         }
     }
 
