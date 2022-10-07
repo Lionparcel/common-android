@@ -30,6 +30,7 @@ def moduleDirs = [
     'badge',
     'popupbanner',
     'dropdown',
+    'datepicker',
     'navbar'
 ]
 
@@ -39,12 +40,13 @@ android {
     defaultConfig {
         minSdk 18
         targetSdk 31
-        versionCode 7
-        versionName "1.0.6"
+        versionCode 8
+        versionName "1.0.7"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
     }
     buildFeatures {
         viewBinding true
@@ -56,6 +58,8 @@ android {
         }
     }
     compileOptions {
+        // Flag to enable support for the new language APIs
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -111,4 +115,8 @@ dependencies {
 
     //Picasso
     implementation "com.squareup.picasso:picasso:2.5.2"
+
+    //CalendarView
+    implementation "com.github.kizitonwose:CalendarView:1.0.4"
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.0'
 }
