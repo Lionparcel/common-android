@@ -2,19 +2,24 @@ package com.lionparcel.commonandroid.alert
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.TextPaint
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.widget.ImageViewCompat
 import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.alert.utils.AlertState
 import com.lionparcel.commonandroid.databinding.LpLayoutAlertBinding
-import com.lionparcel.commonandroid.form.utils.setRegularFont
-import com.lionparcel.commonandroid.form.utils.setSemiBoldFont
-import com.lionparcel.commonandroid.form.utils.setSemiBoldSpannable
+import com.lionparcel.commonandroid.form.utils.*
 
 class LPAlert @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttrs: Int = 0
@@ -177,10 +182,25 @@ class LPAlert @JvmOverloads constructor(
         }
     }
 
-    fun setSemiBoldSpannable(content: CharSequence, targetString: String) {
+    fun setTextBoldSpannable(content: CharSequence,vararg targetString: String) {
         when (style) {
-            0 -> binding.titleAlert.setSemiBoldSpannable(content, targetString)
-            1 -> binding.contentAlert.setSemiBoldSpannable(content, targetString)
+            0 -> binding.titleAlert.setBoldSpannable(content, *targetString)
+            1 -> binding.contentAlert.setBoldSpannable(content, *targetString)
+        }
+    }
+
+    fun setTextClickAndBoldSpannable(text: String,vararg clickableText: String, listener: (View) -> Unit) {
+        when (style) {
+            0 -> {
+                binding.titleAlert.setBoldClickable(text, *clickableText, listener = listener)
+                binding.titleAlert.movementMethod = LinkMovementMethod.getInstance()
+
+            }
+            1 -> {
+                binding.contentAlert.setBoldClickable(text, *clickableText, listener = listener)
+                binding.contentAlert.movementMethod = LinkMovementMethod.getInstance()
+
+            }
         }
     }
 
