@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LPNavbarCA">
+        <attr name="navbarStyle" format="enum">
+            <enum name="four_icon" value="0"/>
+            <enum name="five_icon" value="1"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="LPNavbarDA">
+        <attr name="navbarStyle"/>
+    </declare-styleable>
+    <declare-styleable name="LPNavbarTA">
+
+    </declare-styleable>
+</resources>

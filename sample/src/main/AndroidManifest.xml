@@ -21,6 +21,15 @@
             android:name=".popupbanner.PopupBannerSampleActivity"
             android:exported="true" />
         <activity
+            android:name=".navbar.NavbarTASampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".navbar.NavbarDALongSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".navbar.NavbarCALongSampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".badge.BadgeComponentSampleActivity"
             android:exported="true" />
         <activity
@@ -52,6 +61,15 @@
             android:exported="true" />
         <activity
             android:name=".divider.DividerSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".navbar.NavbarDASampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".navbar.NavbarCASampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".navbar.NavbarSampleActivity"
             android:exported="true" />
         <activity
             android:name=".card.CardSampleActivity"
