@@ -29,7 +29,8 @@ class ModalComponentSampleActivity : AppCompatActivity() {
                 "LP BASIC 1 BUTTON",
                 LPModalDialogFragment.lpModalBasic1Button(
                     "Title Insert Here",
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                    "Prime Button"
                 )
             )
         }
@@ -38,7 +39,9 @@ class ModalComponentSampleActivity : AppCompatActivity() {
             "LP BASIC 2 BUTTON",
             LPModalDialogFragment.lpModalBasic2Button(
                 "Title Insert Here",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                "Primary Button",
+                "Second Button"
             )
         )
         }
@@ -47,7 +50,9 @@ class ModalComponentSampleActivity : AppCompatActivity() {
                 "LP BASIC 2 BUTTON ALT",
                 LPModalDialogFragment.lpModalBasic2ButtonAlt(
                     "Title Insert Here",
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                    "Primary Button",
+                    "Secondary Button"
                 )
             )
         }
@@ -66,6 +71,7 @@ class ModalComponentSampleActivity : AppCompatActivity() {
             LPModalDialogFragment.lpModalBasicFilter(
                 "Title Insert Here",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                "Button",
                 listItem = listOf("List Item Title 1","List Item Title 2","List Item Title 3","List Item Title 4"),
                 selectedItem = 1
             )
@@ -77,7 +83,8 @@ class ModalComponentSampleActivity : AppCompatActivity() {
             LPModalDialogFragment.lpModalIllustration1Button(
                 "Title Insert Here",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-                image = R.drawable.spot_illustration
+                "Primary Button",
+                image = R.drawable.spot_illustration,
             )
         )
         }
@@ -87,6 +94,8 @@ class ModalComponentSampleActivity : AppCompatActivity() {
             LPModalDialogFragment.lpModalIllustration2Button(
                 "Title Insert Here",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                "Primary Button",
+                "Secondary Button",
                 image = R.drawable.spot_illustration
             )
         )
@@ -97,6 +106,8 @@ class ModalComponentSampleActivity : AppCompatActivity() {
             LPModalDialogFragment.lpModalIllustration2ButtonAlt(
                 "Title Insert Here",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                "Primary Button",
+                "Secondary Button",
                 image = R.drawable.spot_illustration
             )
         )

@@ -32,6 +32,8 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         private const val BASIC_TITLE_GENERAL = "BASIC_TITLE_GENERAL"
         private const val BASIC_SUB_TITLE_GENERAL = "BASIC_SUB_TITLE_GENERAL"
         private const val ILLUSTRATION_IMAGE = "ILLUSTRATION_IMAGE"
+        private const val BASIC_PRIMARY_BUTTON = "BASIC_PRIMARY_BUTTON"
+        private const val BASIC_SECONDARY_BUTTON = "BASIC_SECONDARY_BUTTON"
 
         fun lpModalBasicTextOnly(title: String, content: String) =
             LPModalDialogFragment(TypeModal.BASIC_TEXT_ONLY).apply {
@@ -41,32 +43,37 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
                 )
             }
 
-        fun lpModalBasic1Button(title: String, content: String, btnPrimaryListener: View.OnClickListener? = null) =
+        fun lpModalBasic1Button(title: String, content: String, primaryButtonTitle: String, btnPrimaryListener: View.OnClickListener? = null) =
             LPModalDialogFragment(TypeModal.BASIC_1_BUTTON).apply {
                 primaryListener = btnPrimaryListener?: View.OnClickListener{ dialog?.dismiss() }
                 arguments = bundleOf(
                     BASIC_TITLE_GENERAL to title,
-                    BASIC_SUB_TITLE_GENERAL to content
+                    BASIC_SUB_TITLE_GENERAL to content,
+                    BASIC_PRIMARY_BUTTON to primaryButtonTitle
                 )
             }
 
-        fun lpModalBasic2Button(title: String, content: String, btnPrimaryListener: View.OnClickListener? = null, btnSecondListener: View.OnClickListener? = null) =
+        fun lpModalBasic2Button(title: String, content: String, primaryButtonTitle: String, secondaryButtonTitle: String, btnPrimaryListener: View.OnClickListener? = null, btnSecondListener: View.OnClickListener? = null) =
             LPModalDialogFragment(TypeModal.BASIC_2_BUTTON).apply {
                 primaryListener = btnPrimaryListener?: View.OnClickListener{ dialog?.dismiss() }
                 secondListener = btnSecondListener?: View.OnClickListener{ dialog?.dismiss() }
                 arguments = bundleOf(
                     BASIC_TITLE_GENERAL to title,
-                    BASIC_SUB_TITLE_GENERAL to content
+                    BASIC_SUB_TITLE_GENERAL to content,
+                    BASIC_PRIMARY_BUTTON to primaryButtonTitle,
+                    BASIC_SECONDARY_BUTTON to secondaryButtonTitle
                 )
             }
 
-        fun lpModalBasic2ButtonAlt(title: String, content: String, btnPrimaryListener: View.OnClickListener? = null, btnSecondListener: View.OnClickListener? = null) =
+        fun lpModalBasic2ButtonAlt(title: String, content: String, primaryButtonTitle: String, secondaryButtonTitle: String, btnPrimaryListener: View.OnClickListener? = null, btnSecondListener: View.OnClickListener? = null) =
             LPModalDialogFragment(TypeModal.BASIC_2_BUTTON_ALT).apply {
                 primaryListener = btnPrimaryListener?: View.OnClickListener{ dialog?.dismiss() }
                 secondListener = btnSecondListener?: View.OnClickListener{ dialog?.dismiss() }
                 arguments = bundleOf(
                     BASIC_TITLE_GENERAL to title,
-                    BASIC_SUB_TITLE_GENERAL to content
+                    BASIC_SUB_TITLE_GENERAL to content,
+                    BASIC_PRIMARY_BUTTON to primaryButtonTitle,
+                    BASIC_SECONDARY_BUTTON to secondaryButtonTitle
                 )
             }
 
@@ -80,7 +87,7 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
                 )
             }
 
-        fun lpModalBasicFilter(title: String, content: String, btnPrimaryListener: View.OnClickListener? = null, resetListener: View.OnClickListener? = null, listItem: List<String>, selectedItem: Int) =
+        fun lpModalBasicFilter(title: String, content: String, primaryButtonTitle: String, btnPrimaryListener: View.OnClickListener? = null, resetListener: View.OnClickListener? = null, listItem: List<String>, selectedItem: Int) =
             LPModalDialogFragment(TypeModal.BASIC_FILTER_MODAL).apply {
                 this.resetListener = resetListener?: View.OnClickListener{ dialog?.dismiss() }
                 primaryListener = btnPrimaryListener?: View.OnClickListener { dialog?.dismiss() }
@@ -89,38 +96,44 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
                 arguments = bundleOf(
                     BASIC_TITLE_GENERAL to title,
                     BASIC_SUB_TITLE_GENERAL to content,
+                    BASIC_PRIMARY_BUTTON to primaryButtonTitle
                 )
             }
 
-        fun lpModalIllustration1Button(title: String, content: String, btnPrimaryListener: View.OnClickListener? = null, image: Int) =
+        fun lpModalIllustration1Button(title: String, content: String, primaryButtonTitle: String, btnPrimaryListener: View.OnClickListener? = null, image: Int) =
             LPModalDialogFragment(TypeModal.ILLUSTRATION_1_BUTTON).apply {
                 primaryListener = btnPrimaryListener?: View.OnClickListener{ dialog?.dismiss() }
                 arguments = bundleOf(
                     BASIC_TITLE_GENERAL to title,
                     BASIC_SUB_TITLE_GENERAL to content,
-                    ILLUSTRATION_IMAGE to image
+                    ILLUSTRATION_IMAGE to image,
+                    BASIC_PRIMARY_BUTTON to primaryButtonTitle
                 )
             }
 
-        fun lpModalIllustration2Button(title: String, content: String, btnPrimaryListener: View.OnClickListener? = null, btnSecondListener: View.OnClickListener? = null, image: Int) =
+        fun lpModalIllustration2Button(title: String, content: String, primaryButtonTitle: String, secondaryButtonTitle: String, btnPrimaryListener: View.OnClickListener? = null, btnSecondListener: View.OnClickListener? = null, image: Int) =
             LPModalDialogFragment(TypeModal.ILLUSTRATION_2_BUTTON).apply {
                 primaryListener = btnPrimaryListener?: View.OnClickListener{ dialog?.dismiss() }
                 secondListener = btnSecondListener?: View.OnClickListener{ dialog?.dismiss() }
                 arguments = bundleOf(
                     BASIC_TITLE_GENERAL to title,
                     BASIC_SUB_TITLE_GENERAL to content,
-                    ILLUSTRATION_IMAGE to image
+                    ILLUSTRATION_IMAGE to image,
+                    BASIC_PRIMARY_BUTTON to primaryButtonTitle,
+                    BASIC_SECONDARY_BUTTON to secondaryButtonTitle
                 )
             }
 
-        fun lpModalIllustration2ButtonAlt(title: String, content: String, btnPrimaryListener: View.OnClickListener? = null, btnSecondListener: View.OnClickListener? = null, image: Int) =
+        fun lpModalIllustration2ButtonAlt(title: String, content: String, primaryButtonTitle: String, secondaryButtonTitle: String, btnPrimaryListener: View.OnClickListener? = null, btnSecondListener: View.OnClickListener? = null, image: Int) =
             LPModalDialogFragment(TypeModal.ILLUSTRATION_2_BUTTON_ALT).apply {
                 primaryListener = btnPrimaryListener?: View.OnClickListener{ dialog?.dismiss() }
                 secondListener = btnSecondListener?: View.OnClickListener{ dialog?.dismiss() }
                 arguments = bundleOf(
                     BASIC_TITLE_GENERAL to title,
                     BASIC_SUB_TITLE_GENERAL to content,
-                    ILLUSTRATION_IMAGE to image
+                    ILLUSTRATION_IMAGE to image,
+                    BASIC_PRIMARY_BUTTON to primaryButtonTitle,
+                    BASIC_SECONDARY_BUTTON to secondaryButtonTitle
                 )
             }
     }
@@ -182,6 +195,9 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         arguments?.getString(BASIC_SUB_TITLE_GENERAL)?.let { data ->
             content?.text = data
         }
+        arguments?.getString(BASIC_PRIMARY_BUTTON)?.let { data ->
+            primaryButton?.text = data
+        }
     }
 
     private fun prepareViewBasic2Button() {
@@ -210,6 +226,12 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         }
         arguments?.getString(BASIC_SUB_TITLE_GENERAL)?.let { data ->
             content?.text = data
+        }
+        arguments?.getString(BASIC_PRIMARY_BUTTON)?.let { data ->
+            primaryButton?.text = data
+        }
+        arguments?.getString(BASIC_SECONDARY_BUTTON)?.let { data ->
+            secondButton?.text = data
         }
     }
 
@@ -286,20 +308,28 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         arguments?.getString(BASIC_TITLE_GENERAL)?.let { data ->
             title?.text = data
         }
+        arguments?.getString(BASIC_PRIMARY_BUTTON)?.let { data ->
+            primaryButton?.text = data
+        }
     }
 
     private fun prepareViewIllustration1Button() {
         val title = view?.findViewById<TextView>(R.id.tvIllustrationTitleGeneral)
         val subtitle = view?.findViewById<TextView>(R.id.tvSubtitleGeneral)
+        val close = view?.findViewById<ImageView>(R.id.ivCloseModal)
         val primaryButton = view?.findViewById<Button>(R.id.btnSinglePrimary)
         val image = view?.findViewById<ImageView>(R.id.ivIllustrationGeneral)
         title?.isVisible = true
         subtitle?.isVisible = true
         image?.isVisible = true
+        close?.isVisible = true
         subtitle?.gravity = Gravity.CENTER
         primaryButton?.isVisible = true
         primaryButton?.setOnClickListener {
             primaryListener?.onClick(it)
+        }
+        close?.setOnClickListener {
+            dismiss()
         }
         arguments?.getString(BASIC_TITLE_GENERAL)?.let { data ->
             title?.text = data
@@ -308,6 +338,9 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
             ?.let { value ->
                 image?.setImageResource(value)
             }
+        arguments?.getString(BASIC_PRIMARY_BUTTON)?.let { data ->
+            primaryButton?.text = data
+        }
     }
 
     private fun prepareViewIllustration2Button() {
@@ -343,6 +376,12 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
             ?.let { value ->
                 image?.setImageResource(value)
             }
+        arguments?.getString(BASIC_PRIMARY_BUTTON)?.let { data ->
+            primaryButton?.text = data
+        }
+        arguments?.getString(BASIC_SECONDARY_BUTTON)?.let { data ->
+            secondButton?.text = data
+        }
     }
 
     private fun prepareViewIllustration2ButtonAlt() {
@@ -378,6 +417,12 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
             ?.let { value ->
                 image?.setImageResource(value)
             }
+        arguments?.getString(BASIC_PRIMARY_BUTTON)?.let { data ->
+            primaryButton?.text = data
+        }
+        arguments?.getString(BASIC_SECONDARY_BUTTON)?.let { data ->
+            secondButton?.text = data
+        }
     }
 
 }
