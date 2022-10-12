@@ -7,6 +7,7 @@
     tools:context=".alert.AlertComponentSampleActivity">
 
     <LinearLayout
+        android:id="@+id/llAlertParent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingVertical="@dimen/dp_8"

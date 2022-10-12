@@ -1,10 +1,12 @@
 package com.lionparcel.commonandroidsample.alert
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.lionparcel.commonandroid.alert.LPAlert
 import com.lionparcel.commonandroid.alert.utils.AlertState
+import com.lionparcel.commonandroid.snackbartoast.MessageType
+import com.lionparcel.commonandroid.snackbartoast.showSnackbarBasicNoClose
 import com.lionparcel.commonandroidsample.R
 
 class AlertComponentSampleActivity : AppCompatActivity() {
@@ -14,13 +16,15 @@ class AlertComponentSampleActivity : AppCompatActivity() {
         findViewById<LPAlert>(R.id.lp_alert).apply {
             setAlertState(AlertState.NORMAL)
             setTextTitle("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-            setSemiBoldSpannable("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "consectetur")
+            setTextBoldSpannable("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "consectetur")
             setStartIcon()
             setEndIcon()
         }
         findViewById<LPAlert>(R.id.lp_alert_2).apply {
             setAlertState(AlertState.WARNING)
-            setTextTitle("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+            setTextClickAndBoldSpannable("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "adipiscing elit.") {
+                clickable()
+            }
             setEndIcon()
         }
         findViewById<LPAlert>(R.id.lp_alert_3).apply {
@@ -57,8 +61,9 @@ class AlertComponentSampleActivity : AppCompatActivity() {
         findViewById<LPAlert>(R.id.lp_alert_title_3).apply {
             setAlertState(AlertState.DANGER)
             setTextTitle("Vitae sed elementum lacus.")
-            setTextContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi duis iaculis viverra quam.")
-            setSemiBoldSpannable("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi duis iaculis viverra quam.", "adipiscing")
+            setTextClickAndBoldSpannable("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi duis iaculis viverra quam.", clickableText = arrayOf("viverra", "consectetur")){
+                clickable()
+            }
             setEndIcon()
         }
 
@@ -77,5 +82,9 @@ class AlertComponentSampleActivity : AppCompatActivity() {
             setTextContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi duis iaculis viverra quam.")
             setStartIcon(isBlocInfo = true)
         }
+    }
+
+    private fun clickable() {
+        showSnackbarBasicNoClose(findViewById(R.id.llAlertParent), "This can be clicked", MessageType.SUCCESS)
     }
 }
