@@ -119,4 +119,7 @@ dependencies {
     //CalendarView
     implementation "com.github.kizitonwose:CalendarView:1.0.4"
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.0'
+
+    // Wheel Picker
+    implementation "cn.aigestudio.wheelpicker:WheelPicker:1.1.3"
 }

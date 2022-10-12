@@ -38,4 +38,12 @@
         android:drawableStart="@drawable/ics_o_profile"
         android:layout_marginHorizontal="@dimen/spacing_m"/>
 
+    <com.lionparcel.commonandroid.button.LPButton
+        android:id="@+id/btnWheelPickerSample"
+        android:layout_marginTop="@dimen/spacing_xl"
+        android:layout_marginHorizontal="@dimen/spacing_m"
+        android:text="Wheel Picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/spacing_l"
+    android:paddingBottom="@dimen/spacing_l"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <View
+        android:id="@+id/vLine"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_12"
+        android:background="@drawable/bg_shades2_rounded_3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvWheelPickerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Body1Bold"
+        android:textColor="@color/shades5"
+        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/spacing_s"
+        app:layout_constraintTop_toBottomOf="@id/vLine"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Title Insert Here"/>
+
+    <ImageView
+        android:id="@+id/ivWheelPickerClose"
+        android:layout_width="@dimen/dp_24"
+        android:layout_height="@dimen/dp_24"
+        android:layout_marginTop="@dimen/spacing_s"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vLine"
+        app:srcCompat="@drawable/ic_ics_o_close"/>
+
+    <com.aigestudio.wheelpicker.WheelPicker
+        android:id="@+id/wheelPicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        app:wheel_cyclic="true"
+        app:wheel_atmospheric="true"
+        app:wheel_item_text_size="@dimen/sp_16"
+        app:wheel_visible_item_count="4"
+        app:wheel_curtain="true"
+        app:wheel_curtain_color="@color/pensive1_40"
+        app:wheel_indicator_size="@dimen/dp_1"
+        app:wheel_item_text_color="@color/shades3"
+        app:wheel_item_space="@dimen/spacing_xxs"
+        app:wheel_selected_item_text_color="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/tvWheelPickerTitle"/>
+
+    <com.lionparcel.commonandroid.button.LPButton
+        android:id="@+id/btnWheelPicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_m"
+        style="@style/LPRoundedRedLargeButtonStyle"
+        app:layout_constraintTop_toBottomOf="@id/wheelPicker"
+        tools:text="Primary Button"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

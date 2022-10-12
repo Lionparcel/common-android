@@ -2,8 +2,11 @@ package com.lionparcel.commonandroidsample.dropdown
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.lionparcel.commonandroid.button.LPButton
 import com.lionparcel.commonandroid.dropdown.LPDropdown
 import com.lionparcel.commonandroid.dropdown.LPDropdownOutlined
+import com.lionparcel.commonandroid.dropdown.LPWheelPicker
+import com.lionparcel.commonandroid.modal.showCustomModal
 import com.lionparcel.commonandroidsample.R
 
 class DropdownComponentSampleActivity : AppCompatActivity() {
@@ -20,6 +23,19 @@ class DropdownComponentSampleActivity : AppCompatActivity() {
         findViewById<LPDropdownOutlined>(R.id.dropDown4).apply {
             setData(months)
             getInputLayout().error = "This not an error text"
+        }
+        findViewById<LPButton>(R.id.btnWheelPickerSample).setOnClickListener {
+            showCustomModal(
+                supportFragmentManager,
+                "WHEEL_PICKER",
+                LPWheelPicker.newInstance(
+                    "Pick One!",
+                    "Get this!",
+                    months
+                ) {
+
+                }
+            )
         }
     }
 }

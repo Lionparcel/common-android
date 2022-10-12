@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="WheelPickerTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/pensive1</item>
+        <item name="colorControlNormal">@color/transparent</item>
+
+        <item name="android:textColorPrimary">@color/shades5</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+    </style>
+
+</resources>
