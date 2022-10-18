@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LPCountdownText">
+        <attr name="counterSize" format="enum">
+            <enum name="small" value="0"/>
+            <enum name="medium" value="1"/>
+            <enum name="xl" value="2"/>
+        </attr>
+        <attr name="counterBackground" format="enum">
+            <enum name="normal" value="0"/>
+            <enum name="transparant" value="1"/>
+            <enum name="inverted" value="2"/>
+        </attr>
+    </declare-styleable>
+</resources>

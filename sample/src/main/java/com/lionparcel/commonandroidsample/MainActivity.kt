@@ -12,6 +12,7 @@ import com.lionparcel.commonandroidsample.badge.BadgeComponentSampleActivity
 import com.lionparcel.commonandroidsample.button.ButtonSampleActivity
 import com.lionparcel.commonandroidsample.emptystate.EmptyStateSampleActivity
 import com.lionparcel.commonandroidsample.card.CardSampleActivity
+import com.lionparcel.commonandroidsample.counterinfo.CounterInfoSampleActivity
 import com.lionparcel.commonandroidsample.datepicker.DatePickerSampleActivity
 import com.lionparcel.commonandroidsample.divider.DividerSampleActivity
 import com.lionparcel.commonandroidsample.dropdown.DropdownComponentSampleActivity
@@ -115,6 +116,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.button_to_navbarSampleActivity).setOnClickListener {
             startActivity(Intent(this, NavbarSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_counterInfoSampleActivity).setOnClickListener {
+            startActivity(Intent(this, CounterInfoSampleActivity::class.java))
         }
     }
 
