@@ -12,4 +12,10 @@
             <enum name="inverted" value="2"/>
         </attr>
     </declare-styleable>
+    <declare-styleable name="LPCountdownCircle">
+
+    </declare-styleable>
+    <declare-styleable name="LPCountdownBlocBar">
+
+    </declare-styleable>
 </resources>

@@ -425,6 +425,18 @@
 
         </LinearLayout>
 
+        <com.lionparcel.commonandroid.counterinfo.LPCountdownCircle
+            android:id="@+id/countdownCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"/>
+
+        <com.lionparcel.commonandroid.counterinfo.LPCountdownBlocBar
+            android:id="@+id/countdownBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"/>
+
     </LinearLayout>
 
 </ScrollView>
