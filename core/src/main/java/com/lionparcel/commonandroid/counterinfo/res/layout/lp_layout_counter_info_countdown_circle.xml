@@ -11,10 +11,12 @@
         android:layout_height="@dimen/dp_24"
         android:progressDrawable="@drawable/bg_countdown_circle"
         android:indeterminateOnly="false"
+        android:scaleX="-1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:progress="80"/>
 
     <TextView
         android:id="@+id/tvCountdownCircle"
@@ -29,6 +31,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="2j"/>
+        tools:text="2j"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

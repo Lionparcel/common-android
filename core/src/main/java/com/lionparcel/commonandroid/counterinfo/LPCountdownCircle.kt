@@ -13,6 +13,10 @@ class LPCountdownCircle @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
+    companion object {
+        const val MAX_TIME_IN_MILLS = 7_200_000.00
+    }
+
     private val binding: LpLayoutCounterInfoCountdownCircleBinding =
         LpLayoutCounterInfoCountdownCircleBinding.inflate(
             LayoutInflater.from(context),
@@ -34,6 +38,15 @@ class LPCountdownCircle @JvmOverloads constructor(
             }
         }
         binding.root
+    }
+
+    fun setTime(millisUntilFinished: Long, maxTimeInMillis: Double = MAX_TIME_IN_MILLS) {
+        val progress = ((millisUntilFinished / maxTimeInMillis) * 100).toInt()
+        getCircleTimer().progress = progress
+    }
+
+    fun setTextTimer(time: String) {
+        getTextTimer().text = time
     }
 
     fun getCircleTimer(): ProgressBar = binding.pbCountdownTimer

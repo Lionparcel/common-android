@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.counterinfo.utils.CountdownTextState
+import com.lionparcel.commonandroid.counterinfo.utils.TimeViewUtils
 import com.lionparcel.commonandroid.databinding.LpLayoutCounterInfoCountdownTextBinding
 
 class LPCountdownText @JvmOverloads constructor(
@@ -78,6 +79,10 @@ class LPCountdownText @JvmOverloads constructor(
             CountdownTextState.NORMAL -> getCounterTextView().setTextColor(ResourcesCompat.getColor(resources, R.color.shades5, null))
             CountdownTextState.DANGER -> getCounterTextView().setTextColor(ResourcesCompat.getColor(resources, R.color.interpack6, null))
         }
+    }
+
+    fun setTime(countDownTime: Long) {
+        getCounterTextView().text = TimeViewUtils.setCountDownTimeTextWithHours(countDownTime)
     }
 
     fun getCounterTextView(): TextView = binding.tvCountDownText

@@ -425,17 +425,88 @@
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_m"
+            android:text="Countdown Circle"
+            android:layout_marginTop="@dimen/dp_8"
+            android:textAppearance="@style/H4Bold" />
+
         <com.lionparcel.commonandroid.counterinfo.LPCountdownCircle
             android:id="@+id/countdownCircle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_8"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_m"
+            android:text="Countdown Bloc Bar"
+            android:layout_marginTop="@dimen/dp_8"
+            android:textAppearance="@style/H4Bold" />
+
         <com.lionparcel.commonandroid.counterinfo.LPCountdownBlocBar
             android:id="@+id/countdownBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_8"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_m"
+            android:text="Timer"
+            android:layout_marginTop="@dimen/dp_8"
+            android:textAppearance="@style/H4Bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_s"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/shades5"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="14 : 21 WIB"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="end"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:includeFontPadding="false"
+                    android:textSize="@dimen/sp_10"
+                    android:textColor="@color/shades5"
+                    android:text="17 Agustus 2021"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:textSize="@dimen/sp_10"
+                    android:textColor="@color/shades5"
+                    android:text="14 : 21 WIB"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 
