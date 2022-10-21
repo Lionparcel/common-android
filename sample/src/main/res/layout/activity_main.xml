@@ -196,6 +196,13 @@
             android:layout_height="wrap_content"
             android:text="Navbar Component Sample" />
 
+        <Button
+            android:id="@+id/button_to_counterInfoSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Counter Info Component Sample" />
+
     </LinearLayout>
 
 </ScrollView>

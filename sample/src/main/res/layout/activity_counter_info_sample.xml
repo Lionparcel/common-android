@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".counterinfo.CounterInfoSampleActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/dp_8"
+        android:paddingVertical="@dimen/dp_8">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_m"
+            android:text="Countdown Text"
+            android:textAppearance="@style/H4Bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_m"
+            android:text="Normal Background"
+            android:textAppearance="@style/Subtitle1Bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_s"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_xxs"
+                    android:text="Small/Normal"
+                    android:textAppearance="@style/Subtitle1Semibold" />
+
+                <com.lionparcel.commonandroid.counterinfo.LPCountdownText
+                    android:id="@+id/ctSmallNormalNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:counterBackground="normal"
+                    app:counterSize="small" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_xxs"
+                    android:text="Small/Danger"
+                    android:textAppearance="@style/Subtitle1Semibold" />
+
+                <com.lionparcel.commonandroid.counterinfo.LPCountdownText
+                    android:id="@+id/ctSmallNormalDanger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:counterBackground="normal"
+                    app:counterSize="small" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_s"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_xxs"
+                    android:text="Medium/Normal"
+                    android:textAppearance="@style/Subtitle1Semibold" />
+
+                <com.lionparcel.commonandroid.counterinfo.LPCountdownText
+                    android:id="@+id/ctMediumNormalNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:counterBackground="normal"
+                    app:counterSize="medium" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_xxs"
+                    android:text="Medium/Danger"
+                    android:textAppearance="@style/Subtitle1Semibold" />
+
+                <com.lionparcel.commonandroid.counterinfo.LPCountdownText
+                    android:id="@+id/ctMediumNormalDanger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:counterBackground="normal"
+                    app:counterSize="medium" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_s"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_xxs"
+                    android:text="XL/Normal"
+                    android:textAppearance="@style/Subtitle1Semibold" />
+
+                <com.lionparcel.commonandroid.counterinfo.LPCountdownText
+                    android:id="@+id/ctXLNormalNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:counterBackground="normal"
+                    app:counterSize="xl" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_xxs"
+                    android:text="XL/Danger"
+                    android:textAppearance="@style/Subtitle1Semibold" />
+
+                <com.lionparcel.commonandroid.counterinfo.LPCountdownText
+                    android:id="@+id/ctXLNormalDanger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:counterBackground="normal"
+                    app:counterSize="xl" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_m"
+            android:text="Transparant Background"
+            android:textAppearance="@style/Subtitle1Bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_s"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_xxs"
+                    android:text="Small/Normal"
+                    android:textAppearance="@style/Subtitle1Semibold" />
+
+                <com.lionparcel.commonandroid.counterinfo.LPCountdownText
+                    android:id="@+id/ctSmallTransparantNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:counterBackground="transparant"
+                    app:counterSize="small" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_xxs"
+                    android:text="Small/Danger"
+                    android:textAppearance="@style/Subtitle1Semibold" />
+
+                <com.lionparcel.commonandroid.counterinfo.LPCountdownText
+                    android:id="@+id/ctSmallTransparantDanger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:counterBackground="transparant"
+                    app:counterSize="small" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_s"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_xxs"
+                    android:text="Medium/Normal"
+                    android:textAppearance="@style/Subtitle1Semibold" />
+
+                <com.lionparcel.commonandroid.counterinfo.LPCountdownText
+                    android:id="@+id/ctMediumTransparantNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:counterBackground="transparant"
+                    app:counterSize="medium" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_xxs"
+                    android:text="Medium/Danger"
+                    android:textAppearance="@style/Subtitle1Semibold" />
+
+                <com.lionparcel.commonandroid.counterinfo.LPCountdownText
+                    android:id="@+id/ctMediumTransparantDanger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:counterBackground="transparant"
+                    app:counterSize="medium" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_s"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_xxs"
+                    android:text="XL/Normal"
+                    android:textAppearance="@style/Subtitle1Semibold" />
+
+                <com.lionparcel.commonandroid.counterinfo.LPCountdownText
+                    android:id="@+id/ctXLTransparantNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:counterBackground="transparant"
+                    app:counterSize="xl" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_xxs"
+                    android:text="XL/Danger"
+                    android:textAppearance="@style/Subtitle1Semibold" />
+
+                <com.lionparcel.commonandroid.counterinfo.LPCountdownText
+                    android:id="@+id/ctXLTransparantDanger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:counterBackground="transparant"
+                    app:counterSize="xl" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_m"
+            android:text="Inverted Background"
+            android:textAppearance="@style/Subtitle1Bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/interpack6"
+            android:layout_marginBottom="@dimen/spacing_s"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_xxs"
+                android:text="Small"
+                android:textColor="@color/white"
+                android:textAppearance="@style/Subtitle1Semibold" />
+
+            <com.lionparcel.commonandroid.counterinfo.LPCountdownText
+                android:id="@+id/ctSmallInverted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:counterBackground="inverted"
+                app:counterSize="small" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/interpack6"
+            android:layout_marginBottom="@dimen/spacing_s"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_xxs"
+                android:text="Medium"
+                android:textColor="@color/white"
+                android:textAppearance="@style/Subtitle1Semibold" />
+
+            <com.lionparcel.commonandroid.counterinfo.LPCountdownText
+                android:id="@+id/ctMediumInverted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:counterBackground="inverted"
+                app:counterSize="medium" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/interpack6"
+            android:layout_marginBottom="@dimen/spacing_s"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_xxs"
+                android:text="XL"
+                android:textColor="@color/white"
+                android:textAppearance="@style/Subtitle1Semibold" />
+
+            <com.lionparcel.commonandroid.counterinfo.LPCountdownText
+                android:id="@+id/ctXLInverted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:counterBackground="inverted"
+                app:counterSize="xl" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_m"
+            android:text="Countdown Circle"
+            android:layout_marginTop="@dimen/dp_8"
+            android:textAppearance="@style/H4Bold" />
+
+        <com.lionparcel.commonandroid.counterinfo.LPCountdownCircle
+            android:id="@+id/countdownCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_m"
+            android:text="Countdown Bloc Bar"
+            android:layout_marginTop="@dimen/dp_8"
+            android:textAppearance="@style/H4Bold" />
+
+        <com.lionparcel.commonandroid.counterinfo.LPCountdownBlocBar
+            android:id="@+id/countdownBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_m"
+            android:text="Timer"
+            android:layout_marginTop="@dimen/dp_8"
+            android:textAppearance="@style/H4Bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_s"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/shades5"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="14 : 21 WIB"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="end"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:includeFontPadding="false"
+                    android:textSize="@dimen/sp_10"
+                    android:textColor="@color/shades5"
+                    android:text="17 Agustus 2021"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:textSize="@dimen/sp_10"
+                    android:textColor="@color/shades5"
+                    android:text="14 : 21 WIB"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
