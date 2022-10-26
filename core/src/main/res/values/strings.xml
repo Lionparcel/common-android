@@ -58,4 +58,6 @@ di pergunakan dengan sebagai mana mestinya</string>
     <string name="navbar_title_history">Riwayat</string>
     <string name="navbar_title_sync">Sync Data</string>
     <string name="navbar_title_earning">Penghasilan</string>
+
+    <string name="general_short_message">Lorem ipsum dolor sit amet</string>
 </resources>
