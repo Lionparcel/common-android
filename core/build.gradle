@@ -32,7 +32,8 @@ def moduleDirs = [
     'dropdown',
     'datepicker',
     'navbar',
-    'counterinfo'
+    'counterinfo',
+    'banner'
 ]
 
 android {

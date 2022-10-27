@@ -9,6 +9,7 @@ import androidx.multidex.MultiDex
 import com.lionparcel.commonandroidsample.accordion.AccordionComponentSampleActivity
 import com.lionparcel.commonandroidsample.alert.AlertComponentSampleActivity
 import com.lionparcel.commonandroidsample.badge.BadgeComponentSampleActivity
+import com.lionparcel.commonandroidsample.banner.BannerComponentSampleActivity
 import com.lionparcel.commonandroidsample.button.ButtonSampleActivity
 import com.lionparcel.commonandroidsample.emptystate.EmptyStateSampleActivity
 import com.lionparcel.commonandroidsample.card.CardSampleActivity
@@ -119,6 +120,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.button_to_counterInfoSampleActivity).setOnClickListener {
             startActivity(Intent(this, CounterInfoSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_bannerSampleActivity).setOnClickListener {
+            startActivity(Intent(this, BannerComponentSampleActivity::class.java))
         }
     }
 
