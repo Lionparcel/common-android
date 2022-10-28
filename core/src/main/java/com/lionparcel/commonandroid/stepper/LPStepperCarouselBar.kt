@@ -1,35 +1,35 @@
 package com.lionparcel.commonandroid.stepper
 
 import android.content.Context
-import android.database.DataSetObserver
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.View
 import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
-import androidx.viewpager.widget.ViewPager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.lionparcel.commonandroid.R
 
 class LPStepperCarouselBar : LinearLayout {
 
-    lateinit var lpViewPager: ViewPager
+    lateinit var lpViewPager: ViewPager2
     private var indicatorMargin = dpToPx(3F)
     private var indicatorWidth = 0
     private var indicatorHeight = dpToPx(4F)
     private var indicatorBackgroundResId = R.drawable.bg_stepper_carousel_bar_active
     private var indicatorUnselectedBackgroundResId = R.drawable.bg_stepper_carousel_bar_inactive
     private var lastPosition = -1
+    private var isBarClickable: Boolean = true
 
-    private val internalPageChangeListener = object : ViewPager.OnPageChangeListener {
+    private val internalPageChangeListener = object : ViewPager2.OnPageChangeCallback() {
         override fun onPageScrolled(
             position: Int,
             positionOffset: Float,
             positionOffsetPixels: Int
-        ) {
-        }
+        ) {}
 
         override fun onPageSelected(position: Int) {
-            if (lpViewPager.adapter == null || lpViewPager.adapter?.count ?: 0 <= 0) return
+            if (lpViewPager.adapter == null || lpViewPager.adapter?.itemCount ?: 0 <= 0) return
             if (lastPosition >= 0) getChildAt(lastPosition)?.setBackgroundResource(
                 indicatorUnselectedBackgroundResId
             )
@@ -40,10 +40,10 @@ class LPStepperCarouselBar : LinearLayout {
         override fun onPageScrollStateChanged(state: Int) {}
     }
 
-    val dataObserver: DataSetObserver = object : DataSetObserver() {
+    private val dataObserver = object : RecyclerView.AdapterDataObserver() {
         override fun onChanged() {
             super.onChanged()
-            val newCount = lpViewPager.adapter?.count ?: 0
+            val newCount = lpViewPager.adapter?.itemCount ?: 0
             val currentCount = childCount
             lastPosition = when {
                 newCount == currentCount -> return
@@ -68,6 +68,7 @@ class LPStepperCarouselBar : LinearLayout {
                 indicatorMargin = getDimensionPixelSize(R.styleable.LPStepperCarouselBar_barSpacing, indicatorMargin)
                 indicatorBackgroundResId = getResourceId(R.styleable.LPStepperCarouselBar_barBackgroundActive, indicatorBackgroundResId)
                 indicatorUnselectedBackgroundResId = getResourceId(R.styleable.LPStepperCarouselBar_barBackgroundInactive, indicatorUnselectedBackgroundResId)
+                isBarClickable = getBoolean(R.styleable.LPStepperCarouselBar_isBarClickable, isBarClickable)
             } finally {
                 recycle()
             }
@@ -76,20 +77,27 @@ class LPStepperCarouselBar : LinearLayout {
         gravity = Gravity.CENTER
     }
 
-    fun setViewPager(viewPager: ViewPager) {
+    fun setViewPager(viewPager: ViewPager2) {
+        if (viewPager.adapter == null) {
+            throw IllegalStateException(
+                "You have to set an adapter to the view pager before " +
+                        "initializing the stepper carousel bar !"
+            )
+        }
         this.lpViewPager = viewPager
         if (lpViewPager.adapter != null) {
             lastPosition = -1
             createIndicator()
-            lpViewPager.removeOnPageChangeListener(internalPageChangeListener)
-            lpViewPager.addOnPageChangeListener(internalPageChangeListener)
+            lpViewPager.unregisterOnPageChangeCallback(internalPageChangeListener)
+            lpViewPager.registerOnPageChangeCallback(internalPageChangeListener)
             internalPageChangeListener.onPageSelected(lpViewPager.currentItem)
+            lpViewPager.adapter!!.registerAdapterDataObserver(dataObserver)
         }
     }
 
     private fun createIndicator() {
         removeAllViews()
-        val count = lpViewPager.adapter?.count ?: 0
+        val count = lpViewPager.adapter?.itemCount ?: 0
         if (count <= 0) return
 
         val currentItem = lpViewPager.currentItem
@@ -106,8 +114,10 @@ class LPStepperCarouselBar : LinearLayout {
     private fun addIndicator(@DrawableRes backgroundDrawableId: Int, index: Int) {
         val indicator = View(context)
         indicator.setBackgroundResource(backgroundDrawableId)
-        indicator.setOnClickListener {
-            lpViewPager.setCurrentItem(index, true)
+        if (isBarClickable) {
+            indicator.setOnClickListener {
+                lpViewPager.setCurrentItem(index, true)
+            }
         }
         addView(indicator, indicatorWidth, indicatorHeight)
         val lp = indicator.layoutParams as LayoutParams

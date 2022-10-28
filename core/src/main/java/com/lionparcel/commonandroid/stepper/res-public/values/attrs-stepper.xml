@@ -49,5 +49,6 @@
         <attr name="barSpacing" format="dimension"/>
         <attr name="barBackgroundActive" format="reference"/>
         <attr name="barBackgroundInactive" format="reference"/>
+        <attr name="isBarClickable" format="boolean"/>
     </declare-styleable>
 </resources>
