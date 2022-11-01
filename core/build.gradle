@@ -42,8 +42,8 @@ android {
     defaultConfig {
         minSdk 18
         targetSdk 31
-        versionCode 10
-        versionName "1.0.9"
+        versionCode 11
+        versionName "1.1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -119,6 +119,6 @@ dependencies {
     implementation "com.squareup.picasso:picasso:2.5.2"
 
     //CalendarView
-    implementation "com.github.kizitonwose:CalendarView:1.0.4"
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.0'
+    implementation "com.github.kizitonwose:Calendar:1.1.0"
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
 }
