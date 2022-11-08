@@ -10,6 +10,24 @@
     <declare-styleable name="LPPasswordLayout">
         <attr name="android:hint" />
     </declare-styleable>
+    <declare-styleable name="LPTextArea">
+        <attr name="android:hint"/>
+        <attr name="android:maxLength"/>
+        <attr name="errorEnabled"/>
+        <attr name="textSupported" format="string"/>
+        <attr name="textError" format="string"/>
+        <attr name="textLabel" format="string"/>
+        <attr name="enabledView" format="boolean"/>
+        <attr name="counterTextEnabled" format="boolean"/>
+        <attr name="supportedTextEnabled" format="boolean"/>
+        <attr name="errorTextEnabled" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="LPAutoCompleteForm">
+        <attr name="android:hint"/>
+        <attr name="enabledEditText" format="boolean"/>
+        <attr name="errorEnabled" format="boolean"/>
+        <attr name="errorText" format="string"/>
+    </declare-styleable>
     <declare-styleable name="LPAttachFile">
         <attr name="textLabel"/>
         <attr name="supportedTextLeft" format="string"/>
@@ -22,10 +40,10 @@
         </attr>
     </declare-styleable>
     <declare-styleable name="LPBulkAttachFile">
-        <attr name="textLabel" format="string"/>
-        <attr name="enabledView" format="boolean"/>
-        <attr name="errorEnabled" format="boolean"/>
-        <attr name="errorText" format="string"/>
+        <attr name="textLabel"/>
+        <attr name="enabledView"/>
+        <attr name="errorEnabled"/>
+        <attr name="errorText"/>
         <attr name="maxPhoto" format="integer"/>
     </declare-styleable>
 </resources>

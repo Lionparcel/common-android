@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/dp_24"
+    tools:context=".stepper.StepperDotSampleActivity">
+
+    <com.lionparcel.commonandroid.stepper.LPStepperDot
+        android:id="@+id/lp_stepper_dot_ver_1"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_40"
+        app:stepperOrientation="vertical"
+        app:stepperDirection="normal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <com.lionparcel.commonandroid.stepper.LPStepperDot
+        android:id="@+id/lp_stepper_dot_ver_2"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_8"
+        app:stepperOrientation="vertical"
+        app:stepperDirection="normal"
+        app:layout_constraintTop_toBottomOf="@id/lp_stepper_dot_ver_1"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <com.lionparcel.commonandroid.stepper.LPStepperDot
+        android:id="@+id/lp_stepper_dot_ver_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        app:stepperOrientation="vertical"
+        app:stepperDirection="normal"
+        app:layout_constraintTop_toBottomOf="@id/lp_stepper_dot_ver_2"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <com.lionparcel.commonandroid.stepper.LPStepperDot
+        android:id="@+id/lp_stepper_dot_ver_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_16"
+        app:stepperOrientation="vertical"
+        app:stepperDirection="reverse"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/lp_stepper_dot_ver_1"/>
+
+    <com.lionparcel.commonandroid.stepper.LPStepperDot
+        android:id="@+id/lp_stepper_dot_ver_5"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_8"
+        app:stepperOrientation="vertical"
+        app:stepperDirection="reverse"
+        app:layout_constraintTop_toBottomOf="@id/lp_stepper_dot_ver_4"
+        app:layout_constraintStart_toStartOf="@id/lp_stepper_dot_ver_4"/>
+
+    <com.lionparcel.commonandroid.stepper.LPStepperDot
+        android:id="@+id/lp_stepper_dot_ver_6"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_8"
+        app:stepperOrientation="vertical"
+        app:stepperDirection="reverse"
+        app:layout_constraintTop_toBottomOf="@id/lp_stepper_dot_ver_5"
+        app:layout_constraintStart_toStartOf="@id/lp_stepper_dot_ver_4"/>
+
+    <com.lionparcel.commonandroid.stepper.LPStepperDot
+        android:id="@+id/lp_stepper_dot_hor_1"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        app:stepperOrientation="horizontal"
+        app:stepperDirection="normal"
+        app:layout_constraintTop_toBottomOf="@id/lp_stepper_dot_ver_3"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <com.lionparcel.commonandroid.stepper.LPStepperDot
+        android:id="@+id/lp_stepper_dot_hor_2"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        app:stepperOrientation="horizontal"
+        app:stepperDirection="normal"
+        app:layout_constraintBottom_toBottomOf="@id/lp_stepper_dot_hor_1"
+        app:layout_constraintStart_toEndOf="@id/lp_stepper_dot_hor_1"/>
+
+    <com.lionparcel.commonandroid.stepper.LPStepperDot
+        android:id="@+id/lp_stepper_dot_hor_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        app:stepperOrientation="horizontal"
+        app:stepperDirection="normal"
+        app:layout_constraintBottom_toBottomOf="@id/lp_stepper_dot_hor_1"
+        app:layout_constraintStart_toEndOf="@id/lp_stepper_dot_hor_2"/>
+
+    <com.lionparcel.commonandroid.stepper.LPStepperDot
+        android:id="@+id/lp_stepper_dot_hor_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        app:stepperOrientation="horizontal"
+        app:stepperDirection="reverse"
+        app:layout_constraintTop_toBottomOf="@id/lp_stepper_dot_hor_1"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <com.lionparcel.commonandroid.stepper.LPStepperDot
+        android:id="@+id/lp_stepper_dot_hor_5"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        app:stepperOrientation="horizontal"
+        app:stepperDirection="reverse"
+        app:layout_constraintBottom_toBottomOf="@id/lp_stepper_dot_hor_4"
+        app:layout_constraintStart_toEndOf="@id/lp_stepper_dot_hor_4"/>
+
+    <com.lionparcel.commonandroid.stepper.LPStepperDot
+        android:id="@+id/lp_stepper_dot_hor_6"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        app:stepperOrientation="horizontal"
+        app:stepperDirection="reverse"
+        app:layout_constraintBottom_toBottomOf="@id/lp_stepper_dot_hor_5"
+        app:layout_constraintStart_toEndOf="@id/lp_stepper_dot_hor_5"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

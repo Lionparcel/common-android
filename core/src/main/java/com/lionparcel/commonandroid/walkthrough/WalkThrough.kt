@@ -46,10 +46,12 @@ open class WalkThrough(builder: WalkThroughBuilder) {
     private val nextRes = builder.nextRes
     private val forceBackButtonVisibility = builder.forceBackButtonVisibility
     private val disableSkipButton = builder.disableSkipButton
+    private val customRoundedCorner = builder.customRoundedCorner
 
     private val contentListener = builder.walkThroughMessageListener
     private val sequenceListener = builder.walkThroughSequenceListener
     private val skipListener = builder.skipListener
+    private val finishListener = builder.finishListener
     private val sequencePosition = builder.sequencePosition
     private val walkThroughSequenceIndex: Int = builder.walkThroughSequenceIndex
     private val walkThroughSequenceTotal: Int = builder.walkThroughSequenceTotal
@@ -406,7 +408,7 @@ open class WalkThrough(builder: WalkThroughBuilder) {
                 }
 
                 override fun onFinish() {
-                    skipListener?.onSkip()
+                    finishListener?.onFinish()
                     this@WalkThrough.finishSequence()
                 }
 
@@ -480,9 +482,7 @@ open class WalkThrough(builder: WalkThroughBuilder) {
             val paint = Paint()
             val rect = Rect(0, 0, width, height)
             val rectF = RectF(rect)
-            val roundPx =
-                activityReference.get()?.resources?.getDimensionPixelSize(R.dimen.walkthrough_round_corner)
-                    ?: 10
+            val roundPx = customRoundedCorner
             paint.isAntiAlias = true
             canvas.drawARGB(0, 0, 0, 0)
             paint.color = color

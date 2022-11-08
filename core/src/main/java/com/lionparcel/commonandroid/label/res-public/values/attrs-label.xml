@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LPLabel">
+        <attr name="textTitle"/>
+        <attr name="labelType">
+            <enum name="basic" value="0"/>
+            <enum name="product" value="1"/>
+            <enum name="membership" value="2"/>
+        </attr>
+        <attr name="backgroundProductType">
+            <enum name="onePack" value="0"/>
+            <enum name="regPack" value="1"/>
+            <enum name="jagoPack" value="2"/>
+            <enum name="docuPack" value="3"/>
+            <enum name="sameDay" value="4"/>
+            <enum name="deliveryOrder" value="5"/>
+            <enum name="bundle" value="6"/>
+            <enum name="bigPack" value="7"/>
+            <enum name="inactive" value="8"/>
+        </attr>
+        <attr name="backgroundBasicType">
+            <enum name="normal" value="0"/>
+            <enum name="warning" value="1"/>
+            <enum name="warning_bold" value="2"/>
+            <enum name="success" value="3"/>
+            <enum name="danger" value="4"/>
+            <enum name="danger_bold" value="5"/>
+            <enum name="failed" value="6"/>
+            <enum name="failed_bold" value="7"/>
+            <enum name="def" value="8"/>
+        </attr>
+        <attr name="backgroundMembershipType">
+            <enum name="basic" value="0"/>
+            <enum name="reguler" value="1"/>
+            <enum name="premium" value="2"/>
+        </attr>
+        <attr name="labelBackgroundStyle">
+            <enum name="fill" value="0"/>
+            <enum name="outline" value="1"/>
+        </attr>
+        <attr name="enableIconAfter" format="boolean"/>
+        <attr name="enableIconBefore" format="boolean"/>
+        <attr name="imageIconAfter" format="reference"/>
+        <attr name="imageIconBefore" format="reference"/>
+        <attr name="labelSize">
+            <enum name="largeSize" value="0"/>
+            <enum name="mediumSize" value="1"/>
+            <enum name="smallSize" value="2"/>
+            <enum name="shortSize" value="3"/>
+        </attr>
+    </declare-styleable>
+</resources>
