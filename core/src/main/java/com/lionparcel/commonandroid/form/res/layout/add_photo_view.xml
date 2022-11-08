@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:paddingVertical="@dimen/dp_16"
+        android:paddingVertical="@dimen/spacing_m"
         tools:ignore="UselessParent"
         tools:visibility="gone">
 
@@ -32,8 +32,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clPhotoDetail"
         android:layout_width="match_parent"
-        android:paddingVertical="@dimen/dp_8"
-        android:paddingHorizontal="@dimen/dp_16"
+        android:paddingVertical="@dimen/spacing_m"
+        android:paddingHorizontal="@dimen/spacing_m"
         android:layout_height="wrap_content"
         android:visibility="gone"
         tools:visibility="visible">
@@ -54,8 +54,8 @@
             android:id="@+id/txtPhotoName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_12"
-            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginStart="@dimen/spacing_s"
+            android:layout_marginTop="@dimen/spacing_xs"
             android:fontFamily="@font/poppins_regular"
             android:textColor="@color/shades5"
             android:textSize="@dimen/sp_12"
@@ -80,7 +80,7 @@
             android:id="@+id/txtPhotoAction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_regular"
+            android:fontFamily="@font/poppins_semi_bold"
             android:text="@string/general_change"
             android:textColor="@color/interpack6"
             android:textSize="@dimen/sp_12"

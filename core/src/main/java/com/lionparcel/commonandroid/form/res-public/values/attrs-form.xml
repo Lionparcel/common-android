@@ -10,11 +10,22 @@
     <declare-styleable name="LPPasswordLayout">
         <attr name="android:hint" />
     </declare-styleable>
-
+    <declare-styleable name="LPAttachFile">
+        <attr name="textLabel"/>
+        <attr name="supportedTextLeft" format="string"/>
+        <attr name="supportedTextRight" format="string"/>
+        <attr name="errorTextRight" format="string"/>
+        <attr name="errorTextLeft" format="string"/>
+        <attr name="textPhotoAction" format="enum">
+            <enum name="ubah" value="0"/>
+            <enum name="hapus" value="1"/>
+        </attr>
+    </declare-styleable>
     <declare-styleable name="LPBulkAttachFile">
         <attr name="textLabel" format="string"/>
         <attr name="enabledView" format="boolean"/>
         <attr name="errorEnabled" format="boolean"/>
         <attr name="errorText" format="string"/>
+        <attr name="maxPhoto" format="integer"/>
     </declare-styleable>
 </resources>

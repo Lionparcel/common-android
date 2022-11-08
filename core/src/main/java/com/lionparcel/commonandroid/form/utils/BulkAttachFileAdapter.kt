@@ -11,15 +11,14 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.lp_bulk_attach_file_image_list.*
 import kotlinx.android.synthetic.main.lp_bulk_attach_file_view.*
 
-class BulkAttachFileAdapter(val listImage : ArrayList<Uri>, var isEnable : Boolean, var isError: Boolean ,private var onItemClicked : ((visibility : Boolean) -> Unit)) :
-    RecyclerView.Adapter<BulkAttachFileAdapter.BulkAttachFileViewHolder>() {
-
-//    private var listImage = mutableListOf<Uri>()
-    private var enableView : Boolean = true
-
-    private var selectedImage : Int = 1
-
-    private var activity : Activity? = null
+class BulkAttachFileAdapter(
+    private val listImage : ArrayList<Uri>,
+    var isEnable : Boolean,
+    var isError: Boolean ,
+    private var onItemClicked : ((visibility : Boolean) -> Unit),
+    private var onPhotoClicked: ((Uri) -> Unit),
+    private var onPhotoDismiss: ((Uri) -> Unit)
+) : RecyclerView.Adapter<BulkAttachFileAdapter.BulkAttachFileViewHolder>() {
 
     private fun deleteImage( position: Int) {
         listImage.removeAt(position)
@@ -49,7 +48,11 @@ class BulkAttachFileAdapter(val listImage : ArrayList<Uri>, var isEnable : Boole
                 ibDeletePreviewBulkAttachFile.setOnClickListener {
                     deleteImage(position)
                     onItemClicked(true)
+                    onPhotoDismiss.invoke(data)
                     notifyDataSetChanged()
+                }
+                ivPreviewBulkAttachFile.setOnClickListener {
+                    onPhotoClicked.invoke(data)
                 }
             }
 

@@ -23,29 +23,32 @@ import com.lionparcel.commonandroid.form.utils.BulkAttachFileAdapter
 import com.lionparcel.commonandroid.form.utils.HorizontalSpaceItemDecoration
 import com.lionparcel.commonandroid.form.utils.ImageUtils
 import com.lionparcel.commonandroid.form.utils.PermissionHelper
-import java.io.File
 
 class LPBulkAttachFile : ConstraintLayout {
 
-    private val adapter : BulkAttachFileAdapter
-    private val clBulkAttachFile : ConstraintLayout
-    private val txtBulkAttachFile : TextView
-    private val llBulkAttachFile : LinearLayout
-    private val rvBulkAttachFile : RecyclerView
-    private val ivAddBulkAttachFile : ImageView
-    private val txtErrorBulkAttachFile : TextView
-    private var textLabel : String
-    private var enableView : Boolean
-    private var errorEnabled : Boolean
-    private var errorText : String
-    private var fileUri: Uri? = null
-    private var listImage = ArrayList<Uri>()
-    private var selectedImage: File? = null
-    var activity : Activity? = null
-    var REQUEST_CODE_CAMERA : Int? = null
-    var REQUEST_CODE_GALLERY : Int? = null
+    private val adapter: BulkAttachFileAdapter
+    private val clBulkAttachFile: ConstraintLayout
+    private val txtBulkAttachFile: TextView
+    private val llBulkAttachFile: LinearLayout
+    private val rvBulkAttachFile: RecyclerView
+    private val ivAddBulkAttachFile: ImageView
+    private val txtErrorBulkAttachFile: TextView
+    private var textLabel: String
+    private var enableView: Boolean
+    private var errorEnabled: Boolean
+    private var errorText: String
+    private var maxPhoto: Int
 
-    val permissions: Array<String> = arrayOf(
+    var fileUri: Uri? = null
+    var listImage = ArrayList<Uri>()
+    var executeSelectImage: ((Array<String>, (Boolean) -> Unit) -> Unit)? = null
+    var onPhotoClicked: ((Uri) -> Unit)? = null
+    var onPhotoDismiss: ((Uri) -> Unit)? = null
+    var activity: Activity? = null
+    var requestCodeCamera: Int? = null
+    var requestCodeGallery: Int? = null
+
+    private val permissions: Array<String> = arrayOf(
         Manifest.permission.CAMERA,
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.WRITE_EXTERNAL_STORAGE
@@ -61,9 +64,7 @@ class LPBulkAttachFile : ConstraintLayout {
         context,
         attrs,
         defStyleAttr
-    )
-
-    {
+    ) {
         val layoutInflater = LayoutInflater.from(context)
         layoutInflater.inflate(R.layout.lp_bulk_attach_file_view, this, true)
         context.theme.obtainStyledAttributes(
@@ -77,6 +78,7 @@ class LPBulkAttachFile : ConstraintLayout {
                 enableView = getBoolean(R.styleable.LPBulkAttachFile_enabledView, true)
                 errorEnabled = getBoolean(R.styleable.LPBulkAttachFile_errorEnabled, false)
                 errorText = getString(R.styleable.LPBulkAttachFile_errorText).setString()
+                maxPhoto = getInt(R.styleable.LPBulkAttachFile_maxPhoto, 4)
             } finally {
                 recycle()
             }
@@ -90,7 +92,14 @@ class LPBulkAttachFile : ConstraintLayout {
         // form label
         txtBulkAttachFile.text = textLabel
         // recyclerview setup
-        adapter = BulkAttachFileAdapter(listImage, enableView, errorEnabled){setVisibilityImagePicker(it)}
+        adapter = BulkAttachFileAdapter(
+            listImage,
+            enableView,
+            errorEnabled,
+            onItemClicked = { setVisibilityImagePicker(it) },
+            onPhotoClicked = { onPhotoClicked?.invoke(it) },
+            onPhotoDismiss = { onPhotoDismiss?.invoke(it) }
+        )
         rvBulkAttachFile.adapter = adapter
         val llm = LinearLayoutManager(context)
         llm.orientation = LinearLayoutManager.HORIZONTAL
@@ -104,7 +113,7 @@ class LPBulkAttachFile : ConstraintLayout {
         setError(errorEnabled)
 
 
-        ivAddBulkAttachFile.setOnClickListener{
+        ivAddBulkAttachFile.setOnClickListener {
             addPackagePhotoOptional()
         }
     }
@@ -127,7 +136,7 @@ class LPBulkAttachFile : ConstraintLayout {
                 activity!!,
                 Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                     .putExtra(MediaStore.EXTRA_OUTPUT, fileUri),
-                REQUEST_CODE_CAMERA!!, null
+                requestCodeCamera!!, null
             )
         }
     }
@@ -139,23 +148,27 @@ class LPBulkAttachFile : ConstraintLayout {
                 Intent(
                     Intent.ACTION_PICK,
                     MediaStore.Images.Media.INTERNAL_CONTENT_URI
-                ).setType("image/*").putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true), Settings.Global.getString(
+                ).setType("image/*").putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true),
+                Settings.Global.getString(
                     activity!!.contentResolver,
                     R.string.claim_form_select_image_title.toString()
                 )
-            ), REQUEST_CODE_GALLERY!!, null
+            ), requestCodeGallery!!, null
         )
-
     }
 
     private fun executeSelectImage(gotoCamera: () -> Unit, gotoGallery: () -> Unit) {
-        PermissionHelper().executeWithAllPermissions(
-            activity = activity!!,
-            permissions = permissions,
-            executable = {
-                handleSelectImage(gotoCamera, gotoGallery)
-            }
-        )
+        if (executeSelectImage != null) {
+            executeSelectImage?.invoke(permissions) { handleSelectImage(gotoCamera, gotoGallery) }
+        } else {
+            PermissionHelper().executeWithAllPermissions(
+                activity = activity!!,
+                permissions = permissions,
+                executable = {
+                    handleSelectImage(gotoCamera, gotoGallery)
+                }
+            )
+        }
     }
 
     private fun handleSelectImage(gotoCamera: () -> Unit, gotoGallery: () -> Unit) {
@@ -176,16 +189,16 @@ class LPBulkAttachFile : ConstraintLayout {
         builder.show()
     }
 
-    fun setImageFromGallery(data : Intent?, maxPhoto : Int? = 4){
-        if (data != null){
-            if (data.clipData != null){
-                if (data.clipData!!.itemCount <= maxPhoto!! && listImage.size + data.clipData!!.itemCount <= maxPhoto){
-                    val x = data!!.clipData!!.itemCount
-                    for (i in 0 until x){
+    private fun setImageFromGallery(data: Intent?) {
+        if (data != null) {
+            if (data.clipData != null) {
+                if (data.clipData!!.itemCount <= maxPhoto && listImage.size + data.clipData!!.itemCount <= maxPhoto) {
+                    val x = data.clipData!!.itemCount
+                    for (i in 0 until x) {
                         val imageUri = data.clipData!!.getItemAt(i).uri
                         listImage.add(imageUri)
                     }
-                    if (listImage.size == maxPhoto){
+                    if (listImage.size == maxPhoto) {
                         setVisibilityImagePicker(false)
                     }
                 }
@@ -197,31 +210,51 @@ class LPBulkAttachFile : ConstraintLayout {
         }
     }
 
-    fun setImageFromCamera() {
+    private fun setImageFromCamera() {
         listImage.add(fileUri!!)
+        if (listImage.size == maxPhoto) {
+            setVisibilityImagePicker(false)
+        }
         adapter.notifyDataSetChanged()
     }
 
-    fun permissionHelper(activity: Activity, requestCode : Int, permissions: Array<out String>, grantResults: IntArray) {
-        return PermissionHelper().onRequestPermissionsResult(activity, requestCode, permissions, grantResults)
+    private fun setVisibilityImagePicker(visibility: Boolean) {
+        ivAddBulkAttachFile.isVisible = visibility
     }
 
-    fun setVisibilityImagePicker(visibility : Boolean) {
-       ivAddBulkAttachFile.isVisible = visibility
+    fun setImageOnActivityResult(requestCode: Int, intent: Intent?) {
+        when (requestCode) {
+            requestCodeCamera -> setImageFromCamera()
+            requestCodeGallery -> setImageFromGallery(intent)
+        }
     }
 
-    fun setEnableView(isEnable : Boolean) {
+    fun permissionHelper(
+        activity: Activity,
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        return PermissionHelper().onRequestPermissionsResult(
+            activity,
+            requestCode,
+            permissions,
+            grantResults
+        )
+    }
+
+    fun setEnableView(isEnable: Boolean) {
         llBulkAttachFile.isEnabled = isEnable
         ivAddBulkAttachFile.isEnabled = isEnable
         rvBulkAttachFile.isEnabled = isEnable
-        val opacity = if(isEnable) 1f else 0.5f
+        val opacity = if (isEnable) 1f else 0.5f
         llBulkAttachFile.alpha = opacity
         adapter.enableClose(isEnable)
         invalidate()
         requestLayout()
     }
 
-    fun setError(isError : Boolean) {
+    fun setError(isError: Boolean) {
         errorEnabled = isError
         ivAddBulkAttachFile.isSelected = isError
         txtErrorBulkAttachFile.isVisible = isError

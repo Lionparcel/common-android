@@ -11,6 +11,7 @@
     <string name="claim_form_page_photo_error">Foto KTP harus dilengkapi</string>
     <string name="form_claim_damaged_or_lost_add_photo_label">Tambah foto</string>
     <string name="general_change">Ubah</string>
+    <string name="general_delete">Hapus</string>
     <string name="form_claim_damaged_or_lost_ktp_photo_label">Foto KTP</string>
     <string name="claim_form_page_photo_ktp_form">form_ktp</string>
     <string name="claim_form_select_image_title">Pilih Gambar</string>

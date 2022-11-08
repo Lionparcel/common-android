@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:id="@+id/clParent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="wrap_content">
 
     <TextView
@@ -40,10 +41,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_regular"
-        android:text="@string/claim_form_page_max_photo"
+        tools:text="@string/claim_form_page_max_photo"
         android:textColor="@color/shades3"
         android:textSize="@dimen/sp_10"
-        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginTop="@dimen/spacing_xxs"
         android:includeFontPadding="false"
         app:layout_constraintStart_toStartOf="@+id/llPhoto"
         app:layout_constraintTop_toBottomOf="@+id/llPhoto" />
@@ -52,9 +53,9 @@
         android:id="@+id/txtPhotoRequiredLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginTop="@dimen/spacing_xxs"
         android:fontFamily="@font/poppins_regular"
-        android:text="@string/form_claim_damaged_or_lost_required_label"
+        tools:text="@string/form_claim_damaged_or_lost_required_label"
         android:textColor="@color/shades3"
         android:textSize="@dimen/sp_10"
         android:includeFontPadding="false"

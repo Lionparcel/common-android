@@ -67,7 +67,7 @@ class PermissionHelper {
             requestedPermissions = permissions
             permissionRequestCode = Random().nextInt(Short.MAX_VALUE.toInt())
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                activity.requestPermissions(permissions, permissionRequestCode as Int)
+                activity?.requestPermissions(permissions, permissionRequestCode as Int)
             }
         }
     }

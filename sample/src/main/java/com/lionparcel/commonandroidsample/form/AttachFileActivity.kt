@@ -2,19 +2,15 @@ package com.lionparcel.commonandroidsample.form
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.BitmapFactory
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.widget.Button
 import android.widget.ImageView
-import androidx.core.net.toFile
-import androidx.core.view.isNotEmpty
-import androidx.core.view.isVisible
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.lionparcel.commonandroid.form.LPAttachFile
 import com.lionparcel.commonandroid.form.LPBulkAttachFile
+import com.lionparcel.commonandroid.form.utils.PermissionHelper
 import com.lionparcel.commonandroidsample.R
-import java.io.File
 
 class AttachFileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,35 +18,44 @@ class AttachFileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_attach_file)
         findViewById<LPAttachFile>(R.id.lpAttachFile).apply {
             activity = this@AttachFileActivity
-            REQUEST_CODE_CAMERA = REQUEST_FROM_CAMERA
-            REQUEST_CODE_GALLERY = REQUEST_FROM_GALLERY
-            txtPhotoAction.text = "Ubah"
-            txtPhotoLabel.text = "Foto 3 x 4"
+            requestCodeCamera = REQUEST_FROM_CAMERA
+            requestCodeGallery = REQUEST_FROM_GALLERY
+            executeSelectImage = { permissions, executable ->
+                PermissionHelper().executeWithAllPermissions(activity = this@AttachFileActivity, permissions = permissions, executable = executable)
+            }
+        }
+        findViewById<Button>(R.id.btn_disable_attach_file).setOnClickListener {
+            findViewById<LPAttachFile>(R.id.lpAttachFile).changeStateEnableAttachFile(false)
         }
         findViewById<LPAttachFile>(R.id.lpAttachFile2).apply {
             activity = this@AttachFileActivity
-            REQUEST_CODE_CAMERA = REQUEST_FROM_CAMERA2
-            REQUEST_CODE_GALLERY = REQUEST_FROM_GALLERY2
-            txtPhotoAction.text = "Hapus"
-            txtPhotoLabel.text = "Foto KTP"
+            requestCodeCamera = REQUEST_FROM_CAMERA2
+            requestCodeGallery = REQUEST_FROM_GALLERY2
+            // On delete action button
+            onResetPhotoCallback = { _, _ ->
+                findViewById<LPAttachFile>(R.id.lpAttachFile2).changeErrorStateViewPhotoField(true)
+            }
         }
         findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile).apply {
             activity = this@AttachFileActivity
-            REQUEST_CODE_CAMERA = REQUEST_FROM_CAMERA3
-            REQUEST_CODE_GALLERY = REQUEST_FROM_GALLERY3
+            requestCodeCamera = REQUEST_FROM_CAMERA3
+            requestCodeGallery = REQUEST_FROM_GALLERY3
+            onPhotoClicked = {
+                Toast.makeText(context, "Berhasil", Toast.LENGTH_LONG).show()
+            }
         }
         findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile1).apply {
             activity = this@AttachFileActivity
-            REQUEST_CODE_CAMERA = REQUEST_FROM_CAMERA4
-            REQUEST_CODE_GALLERY = REQUEST_FROM_GALLERY4
+            requestCodeCamera = REQUEST_FROM_CAMERA4
+            requestCodeGallery = REQUEST_FROM_GALLERY4
         }
         findViewById<Button>(R.id.btn_disable_bulk_attach_file).setOnClickListener {
             findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile1).setEnableView(false)
         }
         findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile2).apply {
             activity = this@AttachFileActivity
-            REQUEST_CODE_CAMERA = REQUEST_FROM_CAMERA5
-            REQUEST_CODE_GALLERY = REQUEST_FROM_GALLERY5
+            requestCodeCamera = REQUEST_FROM_CAMERA5
+            requestCodeGallery = REQUEST_FROM_GALLERY5
         }
         findViewById<Button>(R.id.btn_error_bulk_attach_file).setOnClickListener {
             findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile2).setError(true)
@@ -60,45 +65,25 @@ class AttachFileActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         val imgAttachFile = findViewById<ImageView>(R.id.imgAttachFile)
-        if (requestCode == REQUEST_FROM_CAMERA && resultCode == Activity.RESULT_OK)
+        if (resultCode == Activity.RESULT_OK)
             findViewById<LPAttachFile>(R.id.lpAttachFile).apply {
-                setImageFromCamera()
+                setImageOnActivityResult(requestCode, data)
             }
-        if (requestCode == REQUEST_FROM_GALLERY && resultCode == Activity.RESULT_OK)
-            findViewById<LPAttachFile>(R.id.lpAttachFile).apply {
-                setImageFromGallery(data?.data)
-            }
-        if (requestCode == REQUEST_FROM_CAMERA2 && resultCode == Activity.RESULT_OK)
+        if (resultCode == Activity.RESULT_OK)
             findViewById<LPAttachFile>(R.id.lpAttachFile2).apply {
-                setImageFromCamera()
+                setImageOnActivityResult(requestCode, data)
             }
-        if (requestCode == REQUEST_FROM_GALLERY2 && resultCode == Activity.RESULT_OK)
-            findViewById<LPAttachFile>(R.id.lpAttachFile2).apply {
-                setImageFromGallery(data?.data)
-            }
-        if (requestCode == REQUEST_FROM_CAMERA3 && resultCode == Activity.RESULT_OK)
+        if (resultCode == Activity.RESULT_OK)
             findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile).apply {
-                setImageFromCamera()
+                setImageOnActivityResult(requestCode, data)
             }
-        if (requestCode == REQUEST_FROM_GALLERY3 && resultCode == Activity.RESULT_OK)
-            findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile).apply {
-                setImageFromGallery(data)
-            }
-        if (requestCode == REQUEST_FROM_CAMERA4 && resultCode == Activity.RESULT_OK)
+        if (resultCode == Activity.RESULT_OK)
             findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile1).apply {
-                setImageFromCamera()
+                setImageOnActivityResult(requestCode, data)
             }
-        if (requestCode == REQUEST_FROM_GALLERY4 && resultCode == Activity.RESULT_OK)
-            findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile1).apply {
-                setImageFromGallery(data)
-            }
-        if (requestCode == REQUEST_FROM_CAMERA5 && resultCode == Activity.RESULT_OK)
+        if (resultCode == Activity.RESULT_OK)
             findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile2).apply {
-                setImageFromCamera()
-            }
-        if (requestCode == REQUEST_FROM_GALLERY5 && resultCode == Activity.RESULT_OK)
-            findViewById<LPBulkAttachFile>(R.id.lpBulkAttachFile2).apply {
-                setImageFromGallery(data)
+                setImageOnActivityResult(requestCode, data)
             }
 
     }
@@ -136,15 +121,15 @@ class AttachFileActivity : AppCompatActivity() {
     }
 
     companion object {
-        private val REQUEST_FROM_CAMERA = 1
-        private val REQUEST_FROM_GALLERY = 2
-        private val REQUEST_FROM_CAMERA2 = 3
-        private val REQUEST_FROM_GALLERY2 = 4
-        private val REQUEST_FROM_CAMERA3 = 5
-        private val REQUEST_FROM_GALLERY3 = 6
-        private val REQUEST_FROM_CAMERA4 = 7
-        private val REQUEST_FROM_GALLERY4 = 8
-        private val REQUEST_FROM_CAMERA5 = 9
-        private val REQUEST_FROM_GALLERY5 = 10
+        private const val REQUEST_FROM_CAMERA = 1
+        private const val REQUEST_FROM_GALLERY = 2
+        private const val REQUEST_FROM_CAMERA2 = 3
+        private const val REQUEST_FROM_GALLERY2 = 4
+        private const val REQUEST_FROM_CAMERA3 = 5
+        private const val REQUEST_FROM_GALLERY3 = 6
+        private const val REQUEST_FROM_CAMERA4 = 7
+        private const val REQUEST_FROM_GALLERY4 = 8
+        private const val REQUEST_FROM_CAMERA5 = 9
+        private const val REQUEST_FROM_GALLERY5 = 10
     }
 }
