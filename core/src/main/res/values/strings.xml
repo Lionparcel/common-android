@@ -4,6 +4,30 @@
     <string name="test_private_string_res2">test_private_string_res2</string>
     <string name="test_public_string_res">test_public_string_res</string>
 
+
+    <string name="claim_form_page_photo_ktp">Foto KTP</string>
+    <string name="claim_form_page_select_photo">Ambil foto atau pilih dari galeri</string>
+    <string name="claim_form_page_max_photo">maks: 5 mb (jpg, png)</string>
+    <string name="claim_form_page_photo_error">Foto KTP harus dilengkapi</string>
+    <string name="form_claim_damaged_or_lost_add_photo_label">Tambah foto</string>
+    <string name="general_change">Ubah</string>
+    <string name="general_delete">Hapus</string>
+    <string name="form_claim_damaged_or_lost_ktp_photo_label">Foto KTP</string>
+    <string name="claim_form_page_photo_ktp_form">form_ktp</string>
+    <string name="claim_form_select_image_title">Pilih Gambar</string>
+    <string name="form_claim_damaged_or_lost_required_label">*wajib diisi</string>
+    <string name="form_claim_damaged_or_lost_optional_label">opsional</string>
+
+    <string name="form_claim_damaged_or_lost_package_photo_label">Foto Paket (Maksimal 2 foto)</string>
+    <string-array name="claim_form_select_image_array">
+        <item>Ambil Foto</item>
+        <item>Pilih Dari Galeri</item>
+    </string-array>
+
+    <string name="form_claim_damaged_or_lost_photo_invalid_error">Format gambar tidak sesuai</string>
+    <string name="form_claim_damaged_or_lost_max_spec_photo_label">maks: 5 mb (jpg, png)</string>
+    <string name="form_claim_damaged_or_lost_photo_empty_error">*foto wajib diisi</string>
+
     <string name="form_signature_label">Signature</string>
     <string name="form_signature_add_signature">klik untuk membuat tanda tangan</string>
     <string name="form_signature_required_label">* wajib diisi</string>
