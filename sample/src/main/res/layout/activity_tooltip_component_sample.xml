@@ -7,22 +7,41 @@
     tools:context=".tooltip.TooltipComponentSampleActivity">
 
     <Button
-        android:id="@+id/btnTooltipCenter"
+        android:id="@+id/btnTooltipTopLeft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/LPRoundedRedMediumButtonStyle"
-        android:text="Center"
+        android:text="top left"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <ImageView
-        android:id="@+id/ivTooltip"
-        android:layout_width="@dimen/dp_40"
-        android:layout_height="@dimen/dp_40"
-        android:src="@color/blue3"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/btnTooltipTopCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="center top"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/btnTooltipBottomLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="bottom left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/btnTooltipBottomCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="center bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

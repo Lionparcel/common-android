@@ -1,69 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/tooltip_parent"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:id="@+id/ttContentView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/tooltip_wrapper"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="UselessParent">
+    <RelativeLayout
+        android:id="@+id/ttContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-        <FrameLayout
-            android:id="@+id/tooltip_content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:padding="@dimen/dp_10">
+        <ImageView
+            android:id="@+id/ttTopArrow"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_tooltip_arrow_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-            <com.lionparcel.commonandroid.tooltip.utils.RadiusLayout
-                android:id="@+id/tooltip_card"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:orientation="horizontal"
-                android:gravity="center"
-                tools:background="@color/shades5">
+        <LinearLayout
+            android:id="@+id/ttDialogBox"
+            style="?lpTooltip.tooltipBoxStyle"
+            android:layout_below="@id/ttTopArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/tooltip_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:includeFontPadding="false"
-                    android:textAppearance="@style/Subtitle3Regular"
-                    android:fontFamily="@font/poppins_regular"
-                    android:textSize="@dimen/sp_12"
-                    android:textColor="@color/white"
-                    tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+            <TextView
+                android:id="@+id/ttContent"
+                android:visibility="gone"
+                style="?lpTooltip.bodyTextStyle"
+                tools:text="This is where you can add more detailed information about your exciting new feature."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/tooltip_close"
-                    android:layout_width="@dimen/dp_20"
-                    android:layout_height="@dimen/dp_20"
-                    android:layout_marginStart="@dimen/spacing_l"
-                    app:srcCompat="@drawable/ics_o_close"
-                    android:tint="@color/white"
-                    android:visibility="gone"/>
+            <ImageView
+                android:id="@+id/ttClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/spacing_l"
+                app:srcCompat="@drawable/ics_o_close_20"
+                android:visibility="gone"/>
 
+        </LinearLayout>
 
-            </com.lionparcel.commonandroid.tooltip.utils.RadiusLayout>
+        <ImageView
+            android:id="@+id/ttBottomArrow"
+            android:visibility="gone"
+            android:layout_below="@id/ttDialogBox"
+            app:srcCompat="@drawable/ic_tooltip_arrow_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
 
-        </FrameLayout>
-        
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/tooltip_arrow"
-            android:layout_width="@dimen/dp_20"
-            android:layout_height="@dimen/sp_10"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/tooltip_arrow"
-            android:visibility="gone"/>
-
-    </FrameLayout>
-
-</FrameLayout>
+</RelativeLayout>
