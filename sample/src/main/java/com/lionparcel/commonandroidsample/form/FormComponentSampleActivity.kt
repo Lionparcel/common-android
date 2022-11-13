@@ -35,5 +35,9 @@ class FormComponentSampleActivity : AppCompatActivity() {
             startActivity(Intent(this, AutoCompleteFormSampleActivity::class.java))
         }
 
+
+        findViewById<Button>(R.id.btn_attach_file).setOnClickListener {
+            startActivity(Intent(this, AttachFileActivity::class.java ))
+        }
     }
 }

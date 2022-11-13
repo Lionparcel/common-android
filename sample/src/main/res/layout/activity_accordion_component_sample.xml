@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".accordion.AccordionComponentSampleActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/dp_8">
+
+        <TextView
+            style="@style/H4SemiBold"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Size"
+            tools:ignore="HardcodedText"
+            android:layout_marginVertical="@dimen/spacing_xs"/>
+
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_size_l"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_s"
+            app:accordionExpandContent="with_text"/>
+
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_size_m"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionSize="medium"
+            android:layout_marginTop="@dimen/spacing_s"
+            app:accordionExpandContent="with_text"/>
+
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_size_s"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionSize="small"
+            android:layout_marginTop="@dimen/spacing_s"
+            app:accordionExpandContent="with_text"/>
+
+        <TextView
+            style="@style/H4SemiBold"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Margin"
+            tools:ignore="HardcodedText"
+            android:layout_marginVertical="@dimen/spacing_xs"/>
+
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_spacing_m"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionMargin="spacing_medium"
+            android:layout_marginTop="@dimen/spacing_s"/>
+
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_spacing_l"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionMargin="spacing_large"
+            android:layout_marginTop="@dimen/spacing_s"/>
+
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_spacing_xl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionMargin="spacing_extra_large"
+            android:layout_marginTop="@dimen/spacing_s"/>
+
+        <TextView
+            style="@style/H4SemiBold"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Style"
+            tools:ignore="HardcodedText"
+            android:layout_marginVertical="@dimen/spacing_xs"/>
+
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_border"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionStyle="border"
+            android:layout_marginTop="@dimen/spacing_s"/>
+
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_no_border"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionStyle="no_border"
+            android:layout_marginTop="@dimen/spacing_s"/>
+
+        <TextView
+            style="@style/H4SemiBold"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Expand Content"
+            tools:ignore="HardcodedText"
+            android:layout_marginVertical="@dimen/spacing_xs"/>
+
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_border_without_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionExpandContent="without_text"
+            android:layout_marginTop="@dimen/spacing_s"/>
+
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_no_border_without_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionExpandContent="without_text"
+            app:accordionStyle="no_border"
+            android:layout_marginTop="@dimen/spacing_s"/>
+
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_border_with_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionExpandContent="with_text"
+            android:layout_marginTop="@dimen/spacing_s"/>
+
+        <com.lionparcel.commonandroid.accordion.LPAccordion
+            android:id="@+id/lp_accordion_no_border_with_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:accordionStyle="no_border"
+            app:accordionExpandContent="with_text"
+            android:layout_marginTop="@dimen/spacing_s"/>
+
+    </LinearLayout>
+
+</ScrollView>

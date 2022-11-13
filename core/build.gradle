@@ -22,6 +22,18 @@ def moduleDirs = [
     'listing',
     'divider',
     'tab',
+    'stepper',
+    'progressbar',
+    'alert',
+    'selectioncontrol',
+    'accordion',
+    'badge',
+    'popupbanner',
+    'dropdown',
+    'datepicker',
+    'navbar',
+    'counterinfo',
+    'banner',
     'tooltip'
 ]
 
@@ -31,15 +43,15 @@ android {
     defaultConfig {
         minSdk 18
         targetSdk 31
-        versionCode 1
-        versionName "1.0"
+        versionCode 11
+        versionName "1.1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
     }
-
-    buildFeatures{
+    buildFeatures {
         viewBinding true
     }
     buildTypes {
@@ -49,6 +61,8 @@ android {
         }
     }
     compileOptions {
+        // Flag to enable support for the new language APIs
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -96,9 +110,21 @@ dependencies {
     //Rx
     implementation "io.reactivex.rxjava2:rxjava:2.2.9"
     implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.2.0'
+    implementation 'com.jakewharton.rxbinding2:rxbinding-support-v4:2.2.0'
 
     //flex
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
+
+    //Picasso
+    implementation "com.squareup.picasso:picasso:2.5.2"
+
+    //CalendarView
+    implementation "com.github.kizitonwose:Calendar:1.1.0"
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+
+    //cardView
+    implementation 'androidx.cardview:cardview:1.0.0'
 
     implementation 'androidx.window:window:1.0.0'
 

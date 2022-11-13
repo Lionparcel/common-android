@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/dp_16"
+    android:orientation="vertical"
+    tools:context=".stepper.StepperNumberSampleActivity">
+
+    <com.lionparcel.commonandroid.stepper.LPStepperNumber
+        android:id="@+id/lp_stepper_number_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:secondTitle="Pengiriman"
+        app:secondSubtitle="Paket akan dikirimkan"/>
+
+    <com.lionparcel.commonandroid.stepper.LPStepperNumber
+        android:id="@+id/lp_stepper_number_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:stepperText="without_text"
+        android:layout_marginTop="@dimen/dp_16"/>
+
+    <com.lionparcel.commonandroid.stepper.LPStepperNumber
+        android:id="@+id/lp_stepper_number_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:stepperNumberCount="two"
+        android:layout_marginTop="@dimen/dp_16"/>
+
+    <com.lionparcel.commonandroid.stepper.LPStepperNumber
+        android:id="@+id/lp_stepper_number_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:stepperNumberCount="two"
+        app:stepperText="without_text"
+        android:layout_marginTop="@dimen/dp_16"/>
+
+    <Button
+        android:id="@+id/btn_stepper_sample"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LPRoundedRedLargeButtonStyle"
+        android:text="Stepper"/>
+
+</LinearLayout>

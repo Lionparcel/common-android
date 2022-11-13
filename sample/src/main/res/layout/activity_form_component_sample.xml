@@ -164,5 +164,13 @@
             android:layout_height="wrap_content"
             android:text="Auto Complete Form Sample"
             tools:ignore="HardcodedText"/>
+
+        <Button
+            android:id="@+id/btn_attach_file"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Attach File Sample"
+            tools:ignore="HardcodedText"/>
     </LinearLayout>
 </ScrollView>

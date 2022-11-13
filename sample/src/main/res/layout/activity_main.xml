@@ -127,6 +127,90 @@
             android:text="Tab Component Sample" />
 
         <Button
+            android:id="@+id/button_to_stepperSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stepper Component Sample" />
+
+        <Button
+            android:id="@+id/button_to_progressBarSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Progress Bar Component Sample" />
+
+        <Button
+            android:id="@+id/button_to_alertSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alert Component Sample" />
+
+        <Button
+            android:id="@+id/button_to_selectionControlSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selection Control Component Sample" />
+
+        <Button
+            android:id="@+id/button_to_accordionSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Accordion Bar Component Sample" />
+
+        <Button
+            android:id="@+id/button_to_badgeSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Badge Component Sample" />
+
+        <Button
+            android:id="@+id/button_to_popupBannerSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Popup Banner Component Sample" />
+
+        <Button
+            android:id="@+id/button_to_dropdownSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dropdown Component Sample" />
+
+        <Button
+            android:id="@+id/button_to_datePickerSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date Picker Component Sample" />
+
+        <Button
+            android:id="@+id/button_to_navbarSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Navbar Component Sample" />
+
+        <Button
+            android:id="@+id/button_to_counterInfoSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Counter Info Component Sample" />
+
+        <Button
+            android:id="@+id/button_to_bannerSampleActivity"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Banner Component Sample" />
+
+        <Button
             android:id="@+id/button_to_tooltipSampleActivity"
             style="@style/RedPaleSalmonButtonStyle"
             android:layout_width="wrap_content"

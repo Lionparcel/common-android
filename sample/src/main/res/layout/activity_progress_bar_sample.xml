@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/dp_8"
+    android:paddingHorizontal="@dimen/dp_16"
+    tools:context=".progressbar.ProgressBarSampleActivity">
+
+    <com.lionparcel.commonandroid.progressbar.LPProgressBar
+        android:id="@+id/pbSample1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:withStatus="true"/>
+
+    <com.lionparcel.commonandroid.progressbar.LPProgressBar
+        android:id="@+id/pbSample2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        app:progressSize="medium"
+        app:withStatus="true"/>
+
+    <com.lionparcel.commonandroid.progressbar.LPProgressBar
+        android:id="@+id/pbSample3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        app:progressSize="small"
+        app:withStatus="true"/>
+
+    <com.lionparcel.commonandroid.progressbar.LPProgressBar
+        android:id="@+id/pbSample4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        app:progressSize="large"
+        app:withStatus="false"/>
+
+</LinearLayout>

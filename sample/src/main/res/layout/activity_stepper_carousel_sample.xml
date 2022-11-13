@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".stepper.StepperCarouselSampleActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ll_stepper_carousel_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dp_16"
+            android:gravity="center_horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/iv_view_pager_1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_100"/>
+
+            <com.lionparcel.commonandroid.stepper.LPStepperCarousel
+                android:id="@+id/lp_stepper_carousel_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:stepperColor="normal"
+                app:stepperSize="large"
+                android:paddingTop="@dimen/dp_16"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_stepper_carousel_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dp_16"
+            android:gravity="center_horizontal"
+            android:background="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/ll_stepper_carousel_1"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/iv_view_pager_2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_100"/>
+
+            <com.lionparcel.commonandroid.stepper.LPStepperCarousel
+                android:id="@+id/lp_stepper_carousel_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:stepperColor="inverted"
+                app:stepperSize="small"
+                android:paddingTop="@dimen/dp_16"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dp_16"
+            android:gravity="center_horizontal"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/spacing_m"
+            app:layout_constraintTop_toBottomOf="@+id/ll_stepper_carousel_2"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.lionparcel.commonandroid.stepper.LPStepperCarouselBar
+                android:id="@+id/lp_stepper_carousel_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/iv_view_pager_3"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_100"/>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -6,19 +6,31 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.multidex.MultiDex
+import com.lionparcel.commonandroidsample.accordion.AccordionComponentSampleActivity
+import com.lionparcel.commonandroidsample.alert.AlertComponentSampleActivity
+import com.lionparcel.commonandroidsample.badge.BadgeComponentSampleActivity
+import com.lionparcel.commonandroidsample.banner.BannerComponentSampleActivity
 import com.lionparcel.commonandroidsample.button.ButtonSampleActivity
 import com.lionparcel.commonandroidsample.emptystate.EmptyStateSampleActivity
 import com.lionparcel.commonandroidsample.card.CardSampleActivity
+import com.lionparcel.commonandroidsample.counterinfo.CounterInfoSampleActivity
+import com.lionparcel.commonandroidsample.datepicker.DatePickerSampleActivity
 import com.lionparcel.commonandroidsample.divider.DividerSampleActivity
+import com.lionparcel.commonandroidsample.dropdown.DropdownComponentSampleActivity
 import com.lionparcel.commonandroidsample.form.FormComponentSampleActivity
 import com.lionparcel.commonandroidsample.header.HeaderSampleActivity
 import com.lionparcel.commonandroidsample.label.LabelSampleActivity
 import com.lionparcel.commonandroidsample.listing.ListingSampleActivity
 import com.lionparcel.commonandroidsample.loading.LoadingComponentSampleActivity
 import com.lionparcel.commonandroidsample.modal.ModalComponentSampleActivity
+import com.lionparcel.commonandroidsample.navbar.NavbarSampleActivity
 import com.lionparcel.commonandroidsample.popup.PopupComponentSampleActivity
+import com.lionparcel.commonandroidsample.popupbanner.PopupBannerSampleActivity
+import com.lionparcel.commonandroidsample.progressbar.ProgressBarSampleActivity
+import com.lionparcel.commonandroidsample.selectioncontrol.SelectionControlComponentSampleActivity
 import com.lionparcel.commonandroidsample.tag.TagComponentSampleActivity
 import com.lionparcel.commonandroidsample.tab.TabLayoutSampleActivity
+import com.lionparcel.commonandroidsample.stepper.StepperSampleActivity
 import com.lionparcel.commonandroidsample.toastsnackbar.SnackbarSampleActivity
 import com.lionparcel.commonandroidsample.toastsnackbar.ToastSampleActivity
 import com.lionparcel.commonandroidsample.tooltip.TooltipComponentSampleActivity
@@ -76,6 +88,42 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.button_to_tabSampleActivity).setOnClickListener {
             startActivity(Intent(this, TabLayoutSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_stepperSampleActivity).setOnClickListener {
+            startActivity(Intent(this, StepperSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_progressBarSampleActivity).setOnClickListener {
+            startActivity(Intent(this, ProgressBarSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_alertSampleActivity).setOnClickListener {
+            startActivity(Intent(this, AlertComponentSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_selectionControlSampleActivity).setOnClickListener {
+            startActivity(Intent(this, SelectionControlComponentSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_accordionSampleActivity).setOnClickListener {
+            startActivity(Intent(this, AccordionComponentSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_badgeSampleActivity).setOnClickListener {
+            startActivity(Intent(this, BadgeComponentSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_popupBannerSampleActivity).setOnClickListener {
+            startActivity(Intent(this, PopupBannerSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_dropdownSampleActivity).setOnClickListener {
+            startActivity(Intent(this, DropdownComponentSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_datePickerSampleActivity).setOnClickListener {
+            startActivity(Intent(this, DatePickerSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_navbarSampleActivity).setOnClickListener {
+            startActivity(Intent(this, NavbarSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_counterInfoSampleActivity).setOnClickListener {
+            startActivity(Intent(this, CounterInfoSampleActivity::class.java))
+        }
+        findViewById<Button>(R.id.button_to_bannerSampleActivity).setOnClickListener {
+            startActivity(Intent(this, BannerComponentSampleActivity::class.java))
         }
         findViewById<Button>(R.id.button_to_tooltipSampleActivity).setOnClickListener {
             startActivity(Intent(this, TooltipComponentSampleActivity::class.java))

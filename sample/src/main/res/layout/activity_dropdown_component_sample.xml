@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/spacing_xs"
+    tools:context=".dropdown.DropdownComponentSampleActivity">
+
+    <com.lionparcel.commonandroid.dropdown.LPDropdown
+        android:id="@+id/dropDown1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/text_area_hint"
+        android:layout_marginHorizontal="@dimen/spacing_m"/>
+
+    <com.lionparcel.commonandroid.dropdown.LPDropdown
+        android:id="@+id/dropDown2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/text_area_hint"
+        android:drawableStart="@drawable/ics_o_profile"
+        android:layout_marginHorizontal="@dimen/spacing_m"/>
+
+    <com.lionparcel.commonandroid.dropdown.LPDropdownOutlined
+        android:id="@+id/dropDown3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/text_area_hint"
+        android:layout_marginHorizontal="@dimen/spacing_m"/>
+
+    <com.lionparcel.commonandroid.dropdown.LPDropdownOutlined
+        android:id="@+id/dropDown4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/text_area_hint"
+        android:drawableStart="@drawable/ics_o_profile"
+        android:layout_marginHorizontal="@dimen/spacing_m"/>
+
+</LinearLayout>

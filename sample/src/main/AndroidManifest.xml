@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.lionparcel.commonandroidsample">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,6 +16,45 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Commonandroid">
+        <activity
+            android:name=".banner.BannerComponentSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".counterinfo.CounterInfoSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".datepicker.DatePickerSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".dropdown.DropdownComponentSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".popupbanner.PopupBannerSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".navbar.NavbarTASampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".navbar.NavbarDALongSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".navbar.NavbarCALongSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".badge.BadgeComponentSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".selectioncontrol.SelectionControlComponentSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".alert.AlertComponentSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".accordion.AccordionComponentSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".progressbar.ProgressBarSampleActivity"
+            android:exported="true" />
         <activity
             android:name=".tooltip.TooltipComponentSampleActivity"
             android:exported="true" />
@@ -29,6 +75,15 @@
             android:exported="true" />
         <activity
             android:name=".divider.DividerSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".navbar.NavbarDASampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".navbar.NavbarCASampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".navbar.NavbarSampleActivity"
             android:exported="true" />
         <activity
             android:name=".card.CardSampleActivity"
@@ -64,6 +119,21 @@
             android:name=".listing.ListingSampleActivity"
             android:exported="true" />
         <activity
+            android:name=".stepper.StepperCarouselSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".stepper.StepperIconSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".stepper.StepperNumberSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".stepper.StepperDotSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".stepper.StepperSampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".header.HeaderDASampleActivity"
             android:exported="true" />
         <activity
@@ -94,6 +164,9 @@
             android:name=".toastsnackbar.ToastSampleActivity"
             android:exported="true" />
         <activity
+            android:name=".form.AttachFileActivity"
+            android:exported="true" />
+        <activity
             android:name=".walktrough.WalkThroughSampleActivity"
             android:exported="true" />
         <activity
@@ -118,6 +191,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="common.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                tools:replace="android:resource"/>
+        </provider>
     </application>
 
 </manifest>

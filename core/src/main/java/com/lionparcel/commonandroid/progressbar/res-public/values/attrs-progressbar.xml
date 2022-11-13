@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LPProgressBar">
+        <attr name="progressSize" format="enum">
+            <enum name="large" value="0"/>
+            <enum name="medium" value="1"/>
+            <enum name="small" value="2"/>
+        </attr>
+        <attr name="withStatus" format="boolean"/>
+    </declare-styleable>
+</resources>

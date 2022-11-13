@@ -86,13 +86,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_header_search_edit_text_da"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_38"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_m"
         android:layout_marginEnd="@dimen/spacing_m"
         android:layout_marginBottom="@dimen/spacing_m"
-        android:background="@drawable/bg_header_search_rounded"
-        android:paddingVertical="@dimen/spacing_xs"
-        android:paddingHorizontal="@dimen/spacing_s"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/cl_header_da"
         app:layout_constraintEnd_toEndOf="@+id/cl_header_da"
@@ -103,46 +100,46 @@
             android:id="@+id/txt_search_autocomplete_da"
             style="@style/HeaderSearchAutoCompleteTextView"
             android:layout_width="@dimen/spacing_none"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/dp_38"
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:gravity="center_vertical"
             android:textAppearance="@style/Body2Regular"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingVertical="@dimen/spacing_xs"
+            android:paddingHorizontal="@dimen/spacing_s"
+            android:background="@drawable/bg_header_search_rounded"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:drawableStart="@drawable/ics_o_search_shades3"
             tools:hint="Search" />
 
+        <TextView
+            android:id="@+id/txt_assistive_header_da"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:textAppearance="@style/Subtitle4Regular"
+            android:textColor="@color/shades3"
+            android:visibility="gone"
+            android:lines="1"
+            app:layout_constraintTop_toBottomOf="@id/txt_search_autocomplete_da"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/txt_error_header_da"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:textAppearance="@style/Subtitle4Regular"
+            android:textColor="@color/interpack6"
+            android:visibility="gone"
+            android:lines="1"
+            app:layout_constraintTop_toBottomOf="@id/txt_search_autocomplete_da"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/txt_assistive_header_da"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_xs"
-        android:layout_marginStart="@dimen/spacing_xl"
-        android:layout_marginEnd="@dimen/spacing_xl"
-        android:textAppearance="@style/Subtitle4Regular"
-        android:textColor="@color/shades3"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/cl_header_search_edit_text_da"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <TextView
-        android:id="@+id/txt_error_header_da"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_xs"
-        android:layout_marginStart="@dimen/spacing_xl"
-        android:layout_marginEnd="@dimen/spacing_xl"
-        android:textAppearance="@style/Subtitle4Regular"
-        android:textColor="@color/interpack6"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/cl_header_search_edit_text_da"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
