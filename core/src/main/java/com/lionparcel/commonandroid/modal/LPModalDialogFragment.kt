@@ -77,13 +77,14 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
                 )
             }
 
-        fun lpModalBasicBackIcon(title: String, content: String, btnPrimaryListener: View.OnClickListener? = null, backListener: View.OnClickListener? = null) =
+        fun lpModalBasicBackIcon(title: String, content: String, primaryButtonTitle: String, btnPrimaryListener: View.OnClickListener? = null, backListener: View.OnClickListener? = null) =
             LPModalDialogFragment(TypeModal.BASIC_BACK_ICON).apply {
                 this.backListener = backListener?: View.OnClickListener{ dialog?.dismiss() }
                 primaryListener = btnPrimaryListener?: View.OnClickListener { dialog?.dismiss() }
                 arguments = bundleOf(
                     BASIC_TITLE_GENERAL to title,
-                    BASIC_SUB_TITLE_GENERAL to content
+                    BASIC_SUB_TITLE_GENERAL to content,
+                    BASIC_PRIMARY_BUTTON to primaryButtonTitle
                 )
             }
 
@@ -262,6 +263,12 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         arguments?.getString(BASIC_SUB_TITLE_GENERAL)?.let { data ->
             content?.text = data
         }
+        arguments?.getString(BASIC_PRIMARY_BUTTON)?.let { data ->
+            primaryButton?.text = data
+        }
+        arguments?.getString(BASIC_SECONDARY_BUTTON)?.let { data ->
+            secondButton?.text = data
+        }
     }
 
     private fun prepareViewBasicBackIcon() {
@@ -285,6 +292,9 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         }
         arguments?.getString(BASIC_SUB_TITLE_GENERAL)?.let { data ->
             content?.text = data
+        }
+        arguments?.getString(BASIC_PRIMARY_BUTTON)?.let { data ->
+            primaryButton?.text = data
         }
     }
 
@@ -333,6 +343,9 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         }
         arguments?.getString(BASIC_TITLE_GENERAL)?.let { data ->
             title?.text = data
+        }
+        arguments?.getString(BASIC_SUB_TITLE_GENERAL)?.let { data ->
+            subtitle?.text = data
         }
         arguments?.getInt(ILLUSTRATION_IMAGE, -1).takeIf { value -> value != -1 }
             ?.let { value ->

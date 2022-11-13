@@ -61,7 +61,8 @@ class ModalComponentSampleActivity : AppCompatActivity() {
             "LP BASIC BACK ICON",
             LPModalDialogFragment.lpModalBasicBackIcon(
                 "Title Insert Here",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                "Click Me"
             )
         )
         }
@@ -82,7 +83,7 @@ class ModalComponentSampleActivity : AppCompatActivity() {
             "LP ILLUSTRATION 1 BUTTON",
             LPModalDialogFragment.lpModalIllustration1Button(
                 "Title Insert Here",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                "Hello world!!! ",
                 "Primary Button",
                 image = R.drawable.spot_illustration,
             )
@@ -94,8 +95,8 @@ class ModalComponentSampleActivity : AppCompatActivity() {
             LPModalDialogFragment.lpModalIllustration2Button(
                 "Title Insert Here",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-                "Primary Button",
-                "Secondary Button",
+                "Yes",
+                "No",
                 image = R.drawable.spot_illustration
             )
         )
