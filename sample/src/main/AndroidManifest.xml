@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Commonandroid">
         <activity
             android:name=".tooltip.TooltipComponentSampleActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".tag.TagComponentSampleActivity"
             android:exported="true" />

@@ -1,29 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ttContentView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ttContainer"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
             android:id="@+id/ttTopArrow"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_tooltip_arrow_up"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/ttDialogBox"
+            app:layout_constraintEnd_toEndOf="@id/ttDialogBox"
+            app:layout_constraintTop_toTopOf="@id/ttContainer"/>
 
         <LinearLayout
             android:id="@+id/ttDialogBox"
             style="?lpTooltip.tooltipBoxStyle"
             android:layout_below="@id/ttTopArrow"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <TextView
                 android:id="@+id/ttContent"
@@ -46,10 +57,33 @@
         <ImageView
             android:id="@+id/ttBottomArrow"
             android:visibility="gone"
-            android:layout_below="@id/ttDialogBox"
             app:srcCompat="@drawable/ic_tooltip_arrow_down"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </RelativeLayout>
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/ttDialogBox"
+            app:layout_constraintEnd_toEndOf="@id/ttDialogBox"
+            app:layout_constraintTop_toBottomOf="@id/ttDialogBox"/>
 
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/ttLeftArrow"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_tooltip_arrow_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/ttContainer"
+            app:layout_constraintBottom_toBottomOf="@id/ttDialogBox"
+            app:layout_constraintTop_toTopOf="@id/ttDialogBox"/>
+
+        <ImageView
+            android:id="@+id/ttRightArrow"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_tooltip_arrow_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/ttDialogBox"
+            app:layout_constraintBottom_toBottomOf="@id/ttDialogBox"
+            app:layout_constraintTop_toTopOf="@id/ttDialogBox"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
