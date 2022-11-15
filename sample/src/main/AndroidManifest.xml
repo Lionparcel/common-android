@@ -56,6 +56,9 @@
             android:name=".progressbar.ProgressBarSampleActivity"
             android:exported="true" />
         <activity
+            android:name=".tooltip.TooltipComponentSampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".tag.TagComponentSampleActivity"
             android:exported="true" />
         <activity

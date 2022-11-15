@@ -33,7 +33,8 @@ def moduleDirs = [
     'datepicker',
     'navbar',
     'counterinfo',
-    'banner'
+    'banner',
+    'tooltip'
 ]
 
 android {
@@ -42,8 +43,8 @@ android {
     defaultConfig {
         minSdk 18
         targetSdk 31
-        versionCode 11
-        versionName "1.1.0"
+        versionCode 12
+        versionName "1.1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -124,5 +125,7 @@ dependencies {
 
     //cardView
     implementation 'androidx.cardview:cardview:1.0.0'
+
+    implementation 'androidx.window:window:1.0.0'
 
 }
