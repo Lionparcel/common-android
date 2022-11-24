@@ -31,7 +31,7 @@ open class LPFullScreenSpinner(
 
         private var loadingTitle = ""
 
-        fun setLoadingTitle(context: Context, title: String) = LPFullScreenSpinner(context).apply {
+        fun newInstance(context: Context, title: String) = LPFullScreenSpinner(context).apply {
             loadingTitle = title
         }
     }
