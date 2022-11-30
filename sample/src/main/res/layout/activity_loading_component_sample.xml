@@ -1,39 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     tools:context=".loading.LoadingComponentSampleActivity">
 
-    <Button
-        android:id="@+id/btnLoading1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Loading Spinner Default"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <Button
-        android:id="@+id/btnLoading2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Loading Shimmer List Normal LP "/>
+        <Button
+            android:id="@+id/btnLoading1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading Spinner Default"/>
 
-    <Button
-        android:id="@+id/btnLoading3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Loading Shimmer List Large LP "/>
+        <Button
+            android:id="@+id/btnLoading2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading Shimmer List Normal LP "/>
 
-    <Button
-        android:id="@+id/btnLoading4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Loading Spinner FullScreen LP"/>
+        <Button
+            android:id="@+id/btnLoading3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading Shimmer List Large LP "/>
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnLoading4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading Spinner FullScreen LP"/>
+
+        <Button
+            android:id="@+id/btnLoading5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading Spinner FullScreen LP XML"/>
+
+    </LinearLayout>
+
+    <com.lionparcel.commonandroid.loading.LPSpinnerLoadingPage
+        android:id="@+id/loadingSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:loadingTitle="Loading"
+        android:visibility="gone"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
