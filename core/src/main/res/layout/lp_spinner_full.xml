@@ -13,40 +13,25 @@
         android:alpha="0.85"
         android:background="@color/white" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvSpinnerFull"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_100"
         android:layout_centerInParent="true"
-        app:cardCornerRadius="@dimen/dp_8"
-        app:cardElevation="0dp"
-        tools:ignore="UselessParent">
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animationView"
-            android:layout_width="@dimen/dp_100"
-            android:layout_height="@dimen/dp_100"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_fileName="loading-mix-color.json"/>
-
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="loading-mix-color.json"
+        app:lottie_loop="true" />
 
     <TextView
         android:id="@+id/text_loading_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/animationView"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/cvSpinnerFull"
         android:layout_marginTop="3dp"
-        android:textSize="@dimen/sp_12"
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/shades5"
-        tools:text="Please wait"/>
+        android:textSize="@dimen/sp_12"
+        tools:text="Please wait" />
 
 </RelativeLayout>
