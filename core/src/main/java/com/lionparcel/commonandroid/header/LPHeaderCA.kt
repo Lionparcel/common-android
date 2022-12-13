@@ -41,6 +41,8 @@ class LPHeaderCA : ConstraintLayout {
     private var firstIconImage: Drawable
     private var showSecondButton: Boolean
     private var secondIconImage: Drawable
+    private var showThirdButton: Boolean
+    private var thirdIconImage: Drawable
     private var addElevation: Boolean
     private var headerStyle: Int
     private var searchHint: String
@@ -58,6 +60,7 @@ class LPHeaderCA : ConstraintLayout {
     private val txtHeaderLabel: TextView
     private val imgBtnIcon1: ImageButton
     private val imgBtnIcon2: ImageButton
+    private val imgBtnIcon3: ImageButton
     private val clHeaderSearchEditText: ConstraintLayout
     private val txtSearchAutoComplete: LPAutoCompleteTextView
     private val txtButtonHeader: TextView
@@ -87,26 +90,21 @@ class LPHeaderCA : ConstraintLayout {
                 textLabel = getString(R.styleable.LPHeaderCA_headerLabel).setString()
                 textLabelColor = getInt(R.styleable.LPHeaderCA_textLabelColor, 0)
                 enableBackButton = getBoolean(R.styleable.LPHeaderCA_showBackButton, false)
-                backButtonImage =
-                    getDrawable(R.styleable.LPHeaderCA_backButtonImage)
-                        ?: resources.getDrawable(R.drawable.ic_o_arrow_left_alt)
+                backButtonImage = getDrawable(R.styleable.LPHeaderCA_backButtonImage) ?: resources.getDrawable(R.drawable.ic_o_arrow_left_alt)
                 backButtonColor = getInt(R.styleable.LPHeaderCA_backButtonColor, 0)
                 showFirstIcon = getBoolean(R.styleable.LPHeaderCA_showFirstIconButton, false)
-                firstIconImage =
-                    getDrawable(R.styleable.LPHeaderCA_firstIconImage)
-                        ?: resources.getDrawable(R.drawable.ics_o_info_circle)
+                firstIconImage = getDrawable(R.styleable.LPHeaderCA_firstIconImage) ?: resources.getDrawable(R.drawable.ics_o_info_circle)
                 showSecondButton = getBoolean(R.styleable.LPHeaderCA_showSecondIconButton, false)
-                secondIconImage =
-                    getDrawable(R.styleable.LPHeaderCA_secondIconImage)
-                        ?: resources.getDrawable(R.drawable.ics_o_info_circle)
+                secondIconImage = getDrawable(R.styleable.LPHeaderCA_secondIconImage) ?: resources.getDrawable(R.drawable.ics_o_info_circle)
+                showThirdButton = getBoolean(R.styleable.LPHeaderCA_showThirdIconButton, false)
+                thirdIconImage = getDrawable(R.styleable.LPHeaderCA_thirdIconImage) ?: resources.getDrawable(R.drawable.ics_o_info_circle)
                 addElevation = getBoolean(R.styleable.LPHeaderCA_addElevation, false)
                 headerStyle = getInt(R.styleable.LPHeaderCA_headerStyle, 0)
                 searchHint = getString(R.styleable.LPHeaderCA_searchHint).setString()
                 enableTextButton = getBoolean(R.styleable.LPHeaderCA_enableTextButton, false)
                 textButtonText = getString(R.styleable.LPHeaderCA_txtButtonText).setString()
                 enableScanImage = getBoolean(R.styleable.LPHeaderCA_enableScanImage, false)
-                imgScanImage = getDrawable(R.styleable.LPHeaderCA_imageScan)
-                    ?: resources.getDrawable(R.drawable.ics_o_scan)
+                imgScanImage = getDrawable(R.styleable.LPHeaderCA_imageScan) ?: resources.getDrawable(R.drawable.ics_o_scan)
                 enableAssistiveText = getBoolean(R.styleable.LPHeaderCA_enableAssistiveText, false)
                 assistiveText = getString(R.styleable.LPHeaderCA_assistiveText).setString()
                 enableErrorText = getBoolean(R.styleable.LPHeaderCA_enableErrorText, false)
@@ -122,6 +120,7 @@ class LPHeaderCA : ConstraintLayout {
         txtHeaderLabel = findViewById(R.id.txt_header_label)
         imgBtnIcon1 = findViewById(R.id.img_btn_info_1)
         imgBtnIcon2 = findViewById(R.id.img_btn_info_2)
+        imgBtnIcon3 = findViewById(R.id.img_btn_info_3)
         clHeaderSearchEditText = findViewById(R.id.cl_header_search_edit_text)
         txtSearchAutoComplete = findViewById(R.id.txt_search_autocomplete)
         txtButtonHeader = findViewById(R.id.txt_btn_header)
@@ -292,215 +291,42 @@ class LPHeaderCA : ConstraintLayout {
                     R.id.cl_header_search_edit_text,
                     ConstraintSet.TOP
                 )
+                set.connect(
+                    R.id.img_btn_info_3,
+                    ConstraintSet.BOTTOM,
+                    R.id.cl_header_search_edit_text,
+                    ConstraintSet.TOP
+                )
                 set.applyTo(clHeader)
             }
             // Search Only
             2 -> {
                 clHeaderSearchEditText.isVisible = true
                 txtHeaderLabel.isVisible = false
-                if (!(this.enableBackButton) && !(this.showFirstIcon) && !(this.showSecondButton)
-                        ) {
+                if (!(this.enableBackButton) && !(this.showFirstIcon) && !(this.showSecondButton) && !(this.showThirdButton)) {
                     set.clear(R.id.cl_header_search_edit_text)
-                    set.clone(clHeader)
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.TOP,
-                        R.id.cl_header,
-                        ConstraintSet.TOP,
-                        (8 * scale + 0.5F).toInt()
-                    )
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.BOTTOM,
-                        R.id.cl_header,
-                        ConstraintSet.BOTTOM,
-                        (8 * scale + 0.5F).toInt()
-                    )
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.START,
-                        R.id.cl_header,
-                        ConstraintSet.START,
-                        (24 * scale + 0.5F).toInt()
-                    )
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.END,
-                        R.id.cl_header,
-                        ConstraintSet.END,
-                        (24 * scale + 0.5F).toInt()
-                    )
-                    set.applyTo(clHeader)
+                    setConstraintSearchOnly(set, scale, R.id.cl_header, R.id.cl_header, 24, 24, ConstraintSet.START, ConstraintSet.END, false)
                 }
-                if (this.enableBackButton && !(this.showFirstIcon) && !(this.showSecondButton)
-                        ) {
-                    set.clone(clHeader)
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.TOP,
-                        R.id.cl_header,
-                        ConstraintSet.TOP,
-                        (8 * scale + 0.5F).toInt()
-                    )
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.BOTTOM,
-                        R.id.cl_header,
-                        ConstraintSet.BOTTOM,
-                        (8 * scale + 0.5F).toInt()
-                    )
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.START,
-                        R.id.img_btn_back_header,
-                        ConstraintSet.END,
-                        (16 * scale + 0.5F).toInt()
-                    )
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.END,
-                        R.id.cl_header,
-                        ConstraintSet.END,
-                        (24 * scale + 0.5F).toInt()
-                    )
-                    set.constrainWidth(R.id.cl_header_search_edit_text, ConstraintSet.PARENT_ID)
-                    set.applyTo(clHeader)
+                if (this.enableBackButton && !(this.showFirstIcon) && !(this.showSecondButton) && !(this.showThirdButton)) {
+                    setConstraintSearchOnly(set, scale, R.id.img_btn_back_header, R.id.cl_header, 16, 24, ConstraintSet.END, ConstraintSet.END, true)
                 }
-                if (!(this.enableBackButton) && this.showFirstIcon && !(this.showSecondButton)
-                        ) {
-                    set.clone(clHeader)
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.TOP,
-                        R.id.cl_header,
-                        ConstraintSet.TOP,
-                        (8 * scale + 0.5F).toInt()
-                    )
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.BOTTOM,
-                        R.id.cl_header,
-                        ConstraintSet.BOTTOM,
-                        (8 * scale + 0.5F).toInt()
-                    )
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.START,
-                        R.id.cl_header,
-                        ConstraintSet.START,
-                        (24 * scale + 0.5F).toInt()
-                    )
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.END,
-                        R.id.img_btn_info_1,
-                        ConstraintSet.START,
-                        (18 * scale + 0.5F).toInt()
-                    )
-                    set.constrainWidth(R.id.cl_header_search_edit_text, ConstraintSet.PARENT_ID)
-                    set.applyTo(clHeader)
+                if (!(this.enableBackButton) && this.showFirstIcon && !(this.showSecondButton) && !(this.showThirdButton)) {
+                    setConstraintSearchOnly(set, scale, R.id.cl_header, R.id.img_btn_info_1, 24, 18, ConstraintSet.START, ConstraintSet.START, true)
                 }
-                if (this.enableBackButton && this.showFirstIcon && !(this.showSecondButton)
-                        ) {
-                    set.clone(clHeader)
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.TOP,
-                        R.id.cl_header,
-                        ConstraintSet.TOP,
-                        (8 * scale + 0.5F).toInt()
-                    )
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.BOTTOM,
-                        R.id.cl_header,
-                        ConstraintSet.BOTTOM,
-                        (8 * scale + 0.5F).toInt()
-                    )
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.START,
-                        R.id.img_btn_back_header,
-                        ConstraintSet.END,
-                        (16 * scale + 0.5F).toInt()
-                    )
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.END,
-                        R.id.img_btn_info_1,
-                        ConstraintSet.START,
-                        (18 * scale + 0.5F).toInt()
-                    )
-                    set.constrainWidth(R.id.cl_header_search_edit_text, ConstraintSet.PARENT_ID)
-                    set.applyTo(clHeader)
+                if (this.enableBackButton && this.showFirstIcon && !(this.showSecondButton) && !(this.showThirdButton)) {
+                    setConstraintSearchOnly(set, scale, R.id.img_btn_back_header, R.id.img_btn_info_1, 16, 18, ConstraintSet.END, ConstraintSet.START, true)
                 }
-                if (!(this.enableBackButton) && this.showFirstIcon && this.showSecondButton
-                        ) {
-                    set.clone(clHeader)
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.TOP,
-                        R.id.cl_header,
-                        ConstraintSet.TOP,
-                        (8 * scale + 0.5F).toInt()
-                    )
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.BOTTOM,
-                        R.id.cl_header,
-                        ConstraintSet.BOTTOM,
-                        (8 * scale + 0.5F).toInt()
-                    )
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.START,
-                        R.id.cl_header,
-                        ConstraintSet.START,
-                        (24 * scale + 0.5F).toInt()
-                    )
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.END,
-                        R.id.img_btn_info_2,
-                        ConstraintSet.START,
-                        (18 * scale + 0.5F).toInt()
-                    )
-                    set.constrainWidth(R.id.cl_header_search_edit_text, ConstraintSet.PARENT_ID)
-                    set.applyTo(clHeader)
+                if (!(this.enableBackButton) && this.showFirstIcon && this.showSecondButton && !(this.showThirdButton)) {
+                    setConstraintSearchOnly(set, scale, R.id.cl_header, R.id.img_btn_info_2, 24, 18, ConstraintSet.START, ConstraintSet.START, true)
                 }
-                if (this.enableBackButton && this.showFirstIcon && this.showSecondButton
-                        ) {
-                    set.clone(clHeader)
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.TOP,
-                        R.id.cl_header,
-                        ConstraintSet.TOP,
-                        (8 * scale + 0.5F).toInt()
-                    )
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.BOTTOM,
-                        R.id.cl_header,
-                        ConstraintSet.BOTTOM,
-                        (8 * scale + 0.5F).toInt()
-                    )
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.START,
-                        R.id.img_btn_back_header,
-                        ConstraintSet.END,
-                        (16 * scale + 0.5F).toInt()
-                    )
-                    set.connect(
-                        R.id.cl_header_search_edit_text,
-                        ConstraintSet.END,
-                        R.id.img_btn_info_2,
-                        ConstraintSet.START,
-                        (18 * scale + 0.5F).toInt()
-                    )
-                    set.constrainWidth(R.id.cl_header_search_edit_text, ConstraintSet.PARENT_ID)
-                    set.applyTo(clHeader)
+                if (this.enableBackButton && this.showFirstIcon && this.showSecondButton && !(this.showThirdButton)) {
+                    setConstraintSearchOnly(set, scale, R.id.img_btn_back_header, R.id.img_btn_info_2, 16, 18, ConstraintSet.END, ConstraintSet.START, true)
+                }
+                if (!(this.enableBackButton) && this.showFirstIcon && this.showSecondButton && this.showThirdButton) {
+                    setConstraintSearchOnly(set, scale, R.id.cl_header, R.id.img_btn_info_3, 24, 18, ConstraintSet.START, ConstraintSet.START, true)
+                }
+                if (this.enableBackButton && this.showFirstIcon && this.showSecondButton && this.showThirdButton) {
+                    setConstraintSearchOnly(set, scale, R.id.img_btn_back_header, R.id.img_btn_info_3, 16, 18, ConstraintSet.END, ConstraintSet.START, true)
                 }
             }
         }
@@ -524,6 +350,50 @@ class LPHeaderCA : ConstraintLayout {
         })
         invalidate()
         requestLayout()
+    }
+
+    private fun setConstraintSearchOnly(
+        set: ConstraintSet,
+        scale: Float,
+        startId: Int,
+        endId: Int,
+        startMargin: Int,
+        endMargin: Int,
+        startTarget: Int,
+        endTarget: Int,
+        matchParentWidth: Boolean
+    ) {
+        set.clone(clHeader)
+        set.connect(
+            R.id.cl_header_search_edit_text,
+            ConstraintSet.TOP,
+            R.id.cl_header,
+            ConstraintSet.TOP,
+            (8 * scale + 0.5F).toInt()
+        )
+        set.connect(
+            R.id.cl_header_search_edit_text,
+            ConstraintSet.BOTTOM,
+            R.id.cl_header,
+            ConstraintSet.BOTTOM,
+            (8 * scale + 0.5F).toInt()
+        )
+        set.connect(
+            R.id.cl_header_search_edit_text,
+            ConstraintSet.START,
+            startId,
+            startTarget,
+            (startMargin * scale + 0.5F).toInt()
+        )
+        set.connect(
+            R.id.cl_header_search_edit_text,
+            ConstraintSet.END,
+            endId,
+            endTarget,
+            (endMargin * scale + 0.5F).toInt()
+        )
+        if (matchParentWidth) set.constrainWidth(R.id.cl_header_search_edit_text, ConstraintSet.PARENT_ID)
+        set.applyTo(clHeader)
     }
 
     fun setHeaderStyle(style: Int) {
@@ -604,8 +474,10 @@ class LPHeaderCA : ConstraintLayout {
     fun setIconButton(
         firstIconImage: Int? = null,
         secondIconImage: Int? = null,
+        thirdIconImage: Int? = null,
         firstIconListener: ((View) -> Unit)? = null,
-        secondIconListener: ((View) -> Unit)? = null
+        secondIconListener: ((View) -> Unit)? = null,
+        thirdIconListener: ((View) -> Unit)? = null
     ) {
         if (this.showFirstIcon) {
             imgBtnIcon1.isVisible = this.showFirstIcon
@@ -632,6 +504,19 @@ class LPHeaderCA : ConstraintLayout {
             }
         } else {
             imgBtnIcon2.isVisible = this.showSecondButton
+        }
+        if (this.showThirdButton && this.showSecondButton && this.showFirstIcon) {
+            imgBtnIcon3.isVisible = this.showSecondButton
+            imgBtnIcon3.setOnClickListener {
+                thirdIconListener?.invoke(it)
+            }
+            if (thirdIconImage != null) {
+                imgBtnIcon3.setImageResource(thirdIconImage)
+            } else {
+                imgBtnIcon3.setImageDrawable(this.thirdIconImage)
+            }
+        } else {
+            imgBtnIcon3.isVisible = this.showThirdButton
         }
     }
 

@@ -37,6 +37,20 @@
         tools:text="Medium Page Title" />
 
     <ImageButton
+        android:id="@+id/img_btn_info_3"
+        android:layout_width="@dimen/spacing_xl"
+        android:layout_height="@dimen/spacing_xl"
+        android:layout_marginEnd="@dimen/spacing_l"
+        android:background="@color/transparent"
+        android:contentDescription="@string/general_image_content_description"
+        android:visibility="gone"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@id/cl_header"
+        app:layout_constraintEnd_toStartOf="@id/img_btn_info_2"
+        app:layout_constraintTop_toTopOf="@id/cl_header"
+        tools:src="@drawable/ics_o_info_circle"/>
+
+    <ImageButton
         android:id="@+id/img_btn_info_2"
         android:layout_width="@dimen/spacing_xl"
         android:layout_height="@dimen/spacing_xl"
