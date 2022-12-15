@@ -16,6 +16,8 @@
         <attr name="firstIconImage" format="reference"/>
         <attr name="showSecondIconButton" format="boolean"/>
         <attr name="secondIconImage" format="reference"/>
+        <attr name="showThirdIconButton" format="boolean"/>
+        <attr name="thirdIconImage" format="reference"/>
         <attr name="addElevation" format="boolean"/>
         <attr name="headerStyle">
             <enum name="basic" value="0"/>
