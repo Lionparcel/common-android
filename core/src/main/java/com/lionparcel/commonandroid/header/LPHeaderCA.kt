@@ -396,17 +396,13 @@ class LPHeaderCA : ConstraintLayout {
         set.applyTo(clHeader)
     }
 
-    fun setHeaderStyle(style: Int) {
-        setHeaderStyle(headerStyle = style)
+    fun setHeaderStyle(style: Int, image : Int? = null) {
+        setHeaderStyle(headerStyle = style, searchImage = image)
     }
 
-    fun setSearchImage(image : Int) {
-        setHeaderStyle(searchImage = image)
-    }
+    fun getAutoCompleteTextView() = txtSearchAutoComplete
 
-    fun getTextFromSearch(): String {
-        return txtSearchAutoComplete.text.toString()
-    }
+    fun getTextFromSearch() = txtSearchAutoComplete.text.toString()
 
     fun searchTextFromKeyboard(searchListener: ((View) -> Unit)? = null) {
         txtSearchAutoComplete.setOnEditorActionListener(object : TextView.OnEditorActionListener {
