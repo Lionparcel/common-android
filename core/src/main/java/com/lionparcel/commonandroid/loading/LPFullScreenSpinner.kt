@@ -21,7 +21,7 @@ open class LPFullScreenSpinner(
         setContentView(R.layout.lp_spinner_full)
         window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
         window?.setFormat(PixelFormat.TRANSLUCENT)
-        window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         val textLoadingTitle = findViewById<TextView>(R.id.text_loading_title)
         textLoadingTitle.text = loadingTitle
@@ -29,9 +29,9 @@ open class LPFullScreenSpinner(
 
     companion object {
 
-        private var loadingTitle = ""
+        private var loadingTitle: String = "Tunggu ya..."
 
-        fun newInstance(context: Context, title: String) = LPFullScreenSpinner(context).apply {
+        fun newInstance(context: Context, title: String = loadingTitle) = LPFullScreenSpinner(context).apply {
             loadingTitle = title
         }
     }
