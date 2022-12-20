@@ -14,7 +14,7 @@ class LPSpinnerLoadingPage @JvmOverloads constructor(
 
     private val textLoadingSpinner: TextView
 
-    private fun String?.setString() = this?: ""
+    private fun String?.setString() = this?: resources.getString(R.string.loading_title_default)
 
     init {
         initView()

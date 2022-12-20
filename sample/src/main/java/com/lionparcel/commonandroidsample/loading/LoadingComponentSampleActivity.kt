@@ -23,7 +23,7 @@ class LoadingComponentSampleActivity : AppCompatActivity() {
             startActivity(Intent(this, LoadingShimmerSampleActivity::class.java).putExtra("TYPE", 2))
         }
         findViewById<Button>(R.id.btnLoading4).setOnClickListener {
-            LPFullScreenSpinner.newInstance(this, "Loading").show()
+            LPFullScreenSpinner.newInstance(this).show()
         }
         findViewById<Button>(R.id.btnLoading5).setOnClickListener {
             findViewById<LPSpinnerLoadingPage>(R.id.loadingSpinner).apply {

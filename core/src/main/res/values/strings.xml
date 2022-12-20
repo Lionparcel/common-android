@@ -84,4 +84,6 @@ di pergunakan dengan sebagai mana mestinya</string>
     <string name="navbar_title_earning">Penghasilan</string>
 
     <string name="general_short_message">Lorem ipsum dolor sit amet</string>
+
+    <string name="loading_title_default">Tunggu ya…</string>
 </resources>
