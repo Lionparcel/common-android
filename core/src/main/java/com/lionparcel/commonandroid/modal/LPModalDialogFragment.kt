@@ -217,7 +217,7 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
             primaryListener?.onClick(it)
         }
         secondButton?.setOnClickListener {
-            primaryListener?.onClick(it)
+            secondListener?.onClick(it)
         }
         close?.setOnClickListener {
             dismiss()
@@ -252,7 +252,7 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
             primaryListener?.onClick(it)
         }
         secondButton?.setOnClickListener {
-            primaryListener?.onClick(it)
+            secondListener?.onClick(it)
         }
         close?.setOnClickListener {
             dismiss()
@@ -374,7 +374,7 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
             primaryListener?.onClick(it)
         }
         secondButton?.setOnClickListener {
-            primaryListener?.onClick(it)
+            secondListener?.onClick(it)
         }
         close?.setOnClickListener {
             dismiss()
@@ -415,7 +415,7 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
             primaryListener?.onClick(it)
         }
         secondButton?.setOnClickListener {
-            primaryListener?.onClick(it)
+            secondListener?.onClick(it)
         }
         close?.setOnClickListener {
             dismiss()
