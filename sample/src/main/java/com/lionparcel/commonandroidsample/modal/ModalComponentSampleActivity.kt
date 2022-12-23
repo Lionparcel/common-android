@@ -1,11 +1,9 @@
 package com.lionparcel.commonandroidsample.modal
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.Toast
-import com.lionparcel.commonandroid.modal.ExampleModalListAdapter
+import androidx.appcompat.app.AppCompatActivity
 import com.lionparcel.commonandroid.modal.LPModalDialogFragment
 import com.lionparcel.commonandroid.modal.showCustomModal
 import com.lionparcel.commonandroidsample.R
