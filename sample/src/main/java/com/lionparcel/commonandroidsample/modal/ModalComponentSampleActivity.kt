@@ -1,9 +1,9 @@
 package com.lionparcel.commonandroidsample.modal
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.lionparcel.commonandroid.modal.ExampleModalListAdapter
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.lionparcel.commonandroid.modal.LPModalDialogFragment
 import com.lionparcel.commonandroid.modal.showCustomModal
 import com.lionparcel.commonandroidsample.R
@@ -41,7 +41,9 @@ class ModalComponentSampleActivity : AppCompatActivity() {
                 "Title Insert Here",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
                 "Primary Button",
-                "Second Button"
+                "Second Button",
+                { Toast.makeText(this, "Primary", Toast.LENGTH_SHORT).show() },
+                { Toast.makeText(this, "Secondary", Toast.LENGTH_SHORT).show() }
             )
         )
         }
@@ -52,7 +54,9 @@ class ModalComponentSampleActivity : AppCompatActivity() {
                     "Title Insert Here",
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
                     "Primary Button",
-                    "Secondary Button"
+                    "Secondary Button",
+                    { Toast.makeText(this, "Primary", Toast.LENGTH_SHORT).show() },
+                    { Toast.makeText(this, "Secondary", Toast.LENGTH_SHORT).show() }
                 )
             )
         }
@@ -97,6 +101,8 @@ class ModalComponentSampleActivity : AppCompatActivity() {
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
                 "Yes",
                 "No",
+                { Toast.makeText(this, "Primary", Toast.LENGTH_SHORT).show() },
+                { Toast.makeText(this, "Secondary", Toast.LENGTH_SHORT).show() },
                 image = R.drawable.spot_illustration
             )
         )
@@ -109,6 +115,8 @@ class ModalComponentSampleActivity : AppCompatActivity() {
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
                 "Primary Button",
                 "Secondary Button",
+                { Toast.makeText(this, "Primary", Toast.LENGTH_SHORT).show() },
+                { Toast.makeText(this, "Secondary", Toast.LENGTH_SHORT).show() },
                 image = R.drawable.spot_illustration
             )
         )
