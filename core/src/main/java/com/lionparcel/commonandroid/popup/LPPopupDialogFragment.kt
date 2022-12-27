@@ -1,5 +1,6 @@
 package com.lionparcel.commonandroid.popup
 
+import android.content.DialogInterface
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
@@ -21,7 +22,11 @@ class LPPopupDialogFragment : BaseDialogFragment() {
             primaryButtonText: String? = null,
             secondaryButtonText: String? = null,
             primaryButtonListener : ((LPPopupDialogFragment) -> Unit)? = null,
-            secondaryButtonListener : ((LPPopupDialogFragment) -> Unit)? = null
+            secondaryButtonListener : ((LPPopupDialogFragment) -> Unit)? = null,
+            dismissAfterClickButtonPrimary: Boolean = true,
+            dismissAfterClickButtonSecondary: Boolean = true,
+            cancelableTouchOutSide: Boolean = true,
+            callbackOnDismiss: (() -> Unit)? = null
         ) =
             LPPopupDialogFragment().apply {
 
@@ -33,6 +38,10 @@ class LPPopupDialogFragment : BaseDialogFragment() {
                 this.secondaryButtonText = secondaryButtonText
                 this.primaryListener = primaryButtonListener
                 this.secondaryListener = secondaryButtonListener
+                this.dismissAfterClickButtonPrimary = dismissAfterClickButtonPrimary
+                this.dismissAfterClickButtonSecondary = dismissAfterClickButtonSecondary
+                this.cancelableTouchOutSide = cancelableTouchOutSide
+                this.callbackOnDismiss = callbackOnDismiss
             }
     }
 
@@ -44,6 +53,10 @@ class LPPopupDialogFragment : BaseDialogFragment() {
     private var secondaryButtonText : String? = null
     private var primaryListener: ((LPPopupDialogFragment) -> Unit)? = null
     private var secondaryListener: ((LPPopupDialogFragment) -> Unit)? = null
+    private var dismissAfterClickButtonPrimary: Boolean = true
+    private var dismissAfterClickButtonSecondary: Boolean = true
+    private var cancelableTouchOutSide: Boolean = true
+    private var callbackOnDismiss: (() -> Unit)? = null
 
     override fun getContentResource(): Int = R.layout.lp_custom_popup_dialog_fragment
 
@@ -51,6 +64,11 @@ class LPPopupDialogFragment : BaseDialogFragment() {
         super.initViews()
         setWidthPercent(90)
         prepareView()
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        callbackOnDismiss?.invoke()
     }
 
     private fun prepareView() {
@@ -82,9 +100,16 @@ class LPPopupDialogFragment : BaseDialogFragment() {
         secondaryButton?.text = this.secondaryButtonText
         primaryButton?.setOnClickListener {
             primaryListener?.invoke(this)
+            if (dismissAfterClickButtonPrimary) {
+                dismiss()
+            }
         }
         secondaryButton?.setOnClickListener {
             secondaryListener?.invoke(this)
+            if (dismissAfterClickButtonSecondary) {
+                dismiss()
+            }
         }
+        dialog?.setCanceledOnTouchOutside(cancelableTouchOutSide)
     }
 }
