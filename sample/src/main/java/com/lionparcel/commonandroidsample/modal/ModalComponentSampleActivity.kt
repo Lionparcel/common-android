@@ -19,8 +19,9 @@ class ModalComponentSampleActivity : AppCompatActivity() {
                 "LP BASIC TEXT ONLY",
                 LPModalDialogFragment.lpModalBasicTextOnly(
                     "Title Insert Here",
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
-                )
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                    cancelableTouchOutside = false
+                ) { Toast.makeText(this, "Dismiss", Toast.LENGTH_SHORT).show() }
             )
         }
         findViewById<Button>(R.id.btnBasic1Button).setOnClickListener {
@@ -42,8 +43,10 @@ class ModalComponentSampleActivity : AppCompatActivity() {
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
                 "Primary Button",
                 "Second Button",
-                { Toast.makeText(this, "Primary", Toast.LENGTH_SHORT).show() },
-                { Toast.makeText(this, "Secondary", Toast.LENGTH_SHORT).show() }
+                secondaryButtonDismissAfterClick = false,
+                btnPrimaryListener = { Toast.makeText(this, "Primary", Toast.LENGTH_SHORT).show() },
+                btnSecondListener = { Toast.makeText(this, "Secondary", Toast.LENGTH_SHORT).show() },
+                callbackOnDismissListener = { Toast.makeText(this, "Dismiss", Toast.LENGTH_SHORT).show() }
             )
         )
         }
@@ -55,8 +58,8 @@ class ModalComponentSampleActivity : AppCompatActivity() {
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
                     "Primary Button",
                     "Secondary Button",
-                    { Toast.makeText(this, "Primary", Toast.LENGTH_SHORT).show() },
-                    { Toast.makeText(this, "Secondary", Toast.LENGTH_SHORT).show() }
+                    btnPrimaryListener = { Toast.makeText(this, "Primary", Toast.LENGTH_SHORT).show() },
+                    btnSecondListener = { Toast.makeText(this, "Secondary", Toast.LENGTH_SHORT).show() }
                 )
             )
         }
@@ -101,9 +104,10 @@ class ModalComponentSampleActivity : AppCompatActivity() {
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
                 "Yes",
                 "No",
-                { Toast.makeText(this, "Primary", Toast.LENGTH_SHORT).show() },
-                { Toast.makeText(this, "Secondary", Toast.LENGTH_SHORT).show() },
-                image = R.drawable.spot_illustration
+                btnPrimaryListener = { Toast.makeText(this, "Primary", Toast.LENGTH_SHORT).show() },
+                btnSecondListener = { Toast.makeText(this, "Secondary", Toast.LENGTH_SHORT).show() },
+                image = R.drawable.spot_illustration,
+                cancelableTouchOutside = false
             )
         )
         }
@@ -115,8 +119,8 @@ class ModalComponentSampleActivity : AppCompatActivity() {
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
                 "Primary Button",
                 "Secondary Button",
-                { Toast.makeText(this, "Primary", Toast.LENGTH_SHORT).show() },
-                { Toast.makeText(this, "Secondary", Toast.LENGTH_SHORT).show() },
+                btnPrimaryListener = { Toast.makeText(this, "Primary", Toast.LENGTH_SHORT).show() },
+                btnSecondListener = { Toast.makeText(this, "Secondary", Toast.LENGTH_SHORT).show() },
                 image = R.drawable.spot_illustration
             )
         )
