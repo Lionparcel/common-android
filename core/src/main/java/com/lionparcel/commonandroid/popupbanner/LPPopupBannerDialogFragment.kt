@@ -1,5 +1,6 @@
 package com.lionparcel.commonandroid.popupbanner
 
+import android.content.DialogInterface
 import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.popup.base.BaseDialogFragment
 import com.squareup.picasso.Picasso
@@ -9,14 +10,23 @@ class LPPopupBannerDialogFragment : BaseDialogFragment() {
 
     private var imageUrl: String? = null
     private var bannerOnClick: ((LPPopupBannerDialogFragment) -> Unit)? = null
+    private var dismissAfterClickBanner: Boolean = true
+    private var cancelableTouchOutSide: Boolean = true
+    private var callbackOnDismiss: (() -> Unit)? = null
 
     companion object {
         fun newInstance(
             imageUrl: String?,
-            bannerOnClick: ((LPPopupBannerDialogFragment) -> Unit)? = null
+            bannerOnClick: ((LPPopupBannerDialogFragment) -> Unit)? = null,
+            dismissAfterClickBanner: Boolean = true,
+            cancelableTouchOutSide: Boolean = true,
+            callbackOnDismiss: (() -> Unit)? = null
         ) = LPPopupBannerDialogFragment().apply {
             this.imageUrl = imageUrl
             this.bannerOnClick = bannerOnClick
+            this.dismissAfterClickBanner = dismissAfterClickBanner
+            this.cancelableTouchOutSide = cancelableTouchOutSide
+            this.callbackOnDismiss = callbackOnDismiss
         }
     }
 
@@ -31,8 +41,13 @@ class LPPopupBannerDialogFragment : BaseDialogFragment() {
         ivClose.setOnClickListener { dismiss() }
         clPopupBannerFragment.setOnClickListener {
             bannerOnClick?.invoke(this)
-            dismiss()
+            if (dismissAfterClickBanner) dismiss()
         }
-        dialog?.setCanceledOnTouchOutside(false)
+        dialog?.setCanceledOnTouchOutside(cancelableTouchOutSide)
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        callbackOnDismiss?.invoke()
     }
 }
