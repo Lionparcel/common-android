@@ -1,5 +1,6 @@
 package com.lionparcel.commonandroid.modal
 
+import android.content.DialogInterface
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -19,9 +20,13 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
     private var secondListener: View.OnClickListener? = null
     private var resetListener: View.OnClickListener? = null
     private var backListener: View.OnClickListener? = null
+    private var callbackOnDismiss: (() -> Unit)? = null
     private var customList: ViewGroup? = null
     private var listItem: List<String> = listOf()
     private var selectedItem: Int = 0
+    private var dismissAfterClickButtonPrimary: Boolean = true
+    private var dismissAfterClickButtonSecondary: Boolean = true
+    private var cancelableTouchOutSide: Boolean = true
 
     private val adapter by lazy {
         ExampleModalListAdapter()
@@ -35,17 +40,22 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         private const val BASIC_PRIMARY_BUTTON = "BASIC_PRIMARY_BUTTON"
         private const val BASIC_SECONDARY_BUTTON = "BASIC_SECONDARY_BUTTON"
 
-        fun lpModalBasicTextOnly(title: String, content: String) =
+        fun lpModalBasicTextOnly(title: String, content: String, cancelableTouchOutside: Boolean = true, callbackOnDismissListener: (() -> Unit)? = null) =
             LPModalDialogFragment(TypeModal.BASIC_TEXT_ONLY).apply {
+                this.callbackOnDismiss = callbackOnDismissListener
+                this.cancelableTouchOutSide = cancelableTouchOutside
                 arguments = bundleOf(
                     BASIC_TITLE_GENERAL to title,
                     BASIC_SUB_TITLE_GENERAL to content
                 )
             }
 
-        fun lpModalBasic1Button(title: String, content: String, primaryButtonTitle: String, btnPrimaryListener: View.OnClickListener? = null) =
+        fun lpModalBasic1Button(title: String, content: String, primaryButtonTitle: String, primaryButtonDismissAfterClick: Boolean = true, btnPrimaryListener: View.OnClickListener? = null, cancelableTouchOutside: Boolean = true, callbackOnDismissListener: (() -> Unit)? = null) =
             LPModalDialogFragment(TypeModal.BASIC_1_BUTTON).apply {
-                primaryListener = btnPrimaryListener?: View.OnClickListener{ dialog?.dismiss() }
+                this.primaryListener = btnPrimaryListener?: View.OnClickListener{ dialog?.dismiss() }
+                this.callbackOnDismiss = callbackOnDismissListener
+                this.dismissAfterClickButtonPrimary = primaryButtonDismissAfterClick
+                this.cancelableTouchOutSide = cancelableTouchOutside
                 arguments = bundleOf(
                     BASIC_TITLE_GENERAL to title,
                     BASIC_SUB_TITLE_GENERAL to content,
@@ -53,10 +63,14 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
                 )
             }
 
-        fun lpModalBasic2Button(title: String, content: String, primaryButtonTitle: String, secondaryButtonTitle: String, btnPrimaryListener: View.OnClickListener? = null, btnSecondListener: View.OnClickListener? = null) =
+        fun lpModalBasic2Button(title: String, content: String, primaryButtonTitle: String, secondaryButtonTitle: String, primaryButtonDismissAfterClick: Boolean = true, secondaryButtonDismissAfterClick: Boolean = true, btnPrimaryListener: View.OnClickListener? = null, btnSecondListener: View.OnClickListener? = null, cancelableTouchOutside: Boolean = true, callbackOnDismissListener: (() -> Unit)? = null) =
             LPModalDialogFragment(TypeModal.BASIC_2_BUTTON).apply {
-                primaryListener = btnPrimaryListener?: View.OnClickListener{ dialog?.dismiss() }
-                secondListener = btnSecondListener?: View.OnClickListener{ dialog?.dismiss() }
+                this.primaryListener = btnPrimaryListener?: View.OnClickListener{ dialog?.dismiss() }
+                this.secondListener = btnSecondListener?: View.OnClickListener{ dialog?.dismiss() }
+                this.callbackOnDismiss = callbackOnDismissListener
+                this.dismissAfterClickButtonPrimary = primaryButtonDismissAfterClick
+                this.dismissAfterClickButtonSecondary = secondaryButtonDismissAfterClick
+                this.cancelableTouchOutSide = cancelableTouchOutside
                 arguments = bundleOf(
                     BASIC_TITLE_GENERAL to title,
                     BASIC_SUB_TITLE_GENERAL to content,
@@ -65,10 +79,14 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
                 )
             }
 
-        fun lpModalBasic2ButtonAlt(title: String, content: String, primaryButtonTitle: String, secondaryButtonTitle: String, btnPrimaryListener: View.OnClickListener? = null, btnSecondListener: View.OnClickListener? = null) =
+        fun lpModalBasic2ButtonAlt(title: String, content: String, primaryButtonTitle: String, secondaryButtonTitle: String, primaryButtonDismissAfterClick: Boolean = true, secondaryButtonDismissAfterClick: Boolean = true, btnPrimaryListener: View.OnClickListener? = null, btnSecondListener: View.OnClickListener? = null, cancelableTouchOutside: Boolean = true, callbackOnDismissListener: (() -> Unit)? = null) =
             LPModalDialogFragment(TypeModal.BASIC_2_BUTTON_ALT).apply {
-                primaryListener = btnPrimaryListener?: View.OnClickListener{ dialog?.dismiss() }
-                secondListener = btnSecondListener?: View.OnClickListener{ dialog?.dismiss() }
+                this.primaryListener = btnPrimaryListener?: View.OnClickListener{ dialog?.dismiss() }
+                this.secondListener = btnSecondListener?: View.OnClickListener{ dialog?.dismiss() }
+                this.callbackOnDismiss = callbackOnDismissListener
+                this.dismissAfterClickButtonPrimary = primaryButtonDismissAfterClick
+                this.dismissAfterClickButtonSecondary = secondaryButtonDismissAfterClick
+                this.cancelableTouchOutSide = cancelableTouchOutside
                 arguments = bundleOf(
                     BASIC_TITLE_GENERAL to title,
                     BASIC_SUB_TITLE_GENERAL to content,
@@ -77,10 +95,13 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
                 )
             }
 
-        fun lpModalBasicBackIcon(title: String, content: String, primaryButtonTitle: String, btnPrimaryListener: View.OnClickListener? = null, backListener: View.OnClickListener? = null) =
+        fun lpModalBasicBackIcon(title: String, content: String, primaryButtonTitle: String, primaryButtonDismissAfterClick: Boolean = true, btnPrimaryListener: View.OnClickListener? = null, backListener: View.OnClickListener? = null, cancelableTouchOutside: Boolean = true, callbackOnDismissListener: (() -> Unit)? = null) =
             LPModalDialogFragment(TypeModal.BASIC_BACK_ICON).apply {
                 this.backListener = backListener?: View.OnClickListener{ dialog?.dismiss() }
-                primaryListener = btnPrimaryListener?: View.OnClickListener { dialog?.dismiss() }
+                this.primaryListener = btnPrimaryListener?: View.OnClickListener { dialog?.dismiss() }
+                this.callbackOnDismiss = callbackOnDismissListener
+                this.dismissAfterClickButtonPrimary = primaryButtonDismissAfterClick
+                this.cancelableTouchOutSide = cancelableTouchOutside
                 arguments = bundleOf(
                     BASIC_TITLE_GENERAL to title,
                     BASIC_SUB_TITLE_GENERAL to content,
@@ -88,12 +109,15 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
                 )
             }
 
-        fun lpModalBasicFilter(title: String, content: String, primaryButtonTitle: String, btnPrimaryListener: View.OnClickListener? = null, resetListener: View.OnClickListener? = null, listItem: List<String>, selectedItem: Int) =
+        fun lpModalBasicFilter(title: String, content: String, primaryButtonTitle: String, primaryButtonDismissAfterClick: Boolean = true, btnPrimaryListener: View.OnClickListener? = null, resetListener: View.OnClickListener? = null, listItem: List<String>, selectedItem: Int, cancelableTouchOutside: Boolean = true, callbackOnDismissListener: (() -> Unit)? = null) =
             LPModalDialogFragment(TypeModal.BASIC_FILTER_MODAL).apply {
                 this.resetListener = resetListener?: View.OnClickListener{ dialog?.dismiss() }
-                primaryListener = btnPrimaryListener?: View.OnClickListener { dialog?.dismiss() }
+                this.primaryListener = btnPrimaryListener?: View.OnClickListener { dialog?.dismiss() }
+                this.callbackOnDismiss = callbackOnDismissListener
                 this.listItem = listItem
                 this.selectedItem = selectedItem
+                this.cancelableTouchOutSide = cancelableTouchOutside
+                dismissAfterClickButtonPrimary = primaryButtonDismissAfterClick
                 arguments = bundleOf(
                     BASIC_TITLE_GENERAL to title,
                     BASIC_SUB_TITLE_GENERAL to content,
@@ -101,9 +125,12 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
                 )
             }
 
-        fun lpModalIllustration1Button(title: String, content: String, primaryButtonTitle: String, btnPrimaryListener: View.OnClickListener? = null, image: Int) =
+        fun lpModalIllustration1Button(title: String, content: String, primaryButtonTitle: String, primaryButtonDismissAfterClick: Boolean = true, btnPrimaryListener: View.OnClickListener? = null, image: Int, cancelableTouchOutside: Boolean = true, callbackOnDismissListener: (() -> Unit)? = null) =
             LPModalDialogFragment(TypeModal.ILLUSTRATION_1_BUTTON).apply {
-                primaryListener = btnPrimaryListener?: View.OnClickListener{ dialog?.dismiss() }
+                this.primaryListener = btnPrimaryListener?: View.OnClickListener{ dialog?.dismiss() }
+                this.dismissAfterClickButtonPrimary = primaryButtonDismissAfterClick
+                this.callbackOnDismiss = callbackOnDismissListener
+                this.cancelableTouchOutSide = cancelableTouchOutside
                 arguments = bundleOf(
                     BASIC_TITLE_GENERAL to title,
                     BASIC_SUB_TITLE_GENERAL to content,
@@ -112,10 +139,14 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
                 )
             }
 
-        fun lpModalIllustration2Button(title: String, content: String, primaryButtonTitle: String, secondaryButtonTitle: String, btnPrimaryListener: View.OnClickListener? = null, btnSecondListener: View.OnClickListener? = null, image: Int) =
+        fun lpModalIllustration2Button(title: String, content: String, primaryButtonTitle: String, secondaryButtonTitle: String, primaryButtonDismissAfterClick: Boolean = true, secondaryButtonDismissAfterClick: Boolean = true, btnPrimaryListener: View.OnClickListener? = null, btnSecondListener: View.OnClickListener? = null, image: Int, cancelableTouchOutside: Boolean = true, callbackOnDismissListener: (() -> Unit)? = null) =
             LPModalDialogFragment(TypeModal.ILLUSTRATION_2_BUTTON).apply {
-                primaryListener = btnPrimaryListener?: View.OnClickListener{ dialog?.dismiss() }
-                secondListener = btnSecondListener?: View.OnClickListener{ dialog?.dismiss() }
+                this.primaryListener = btnPrimaryListener?: View.OnClickListener{ dialog?.dismiss() }
+                this.secondListener = btnSecondListener?: View.OnClickListener{ dialog?.dismiss() }
+                this.callbackOnDismiss = callbackOnDismissListener
+                this.dismissAfterClickButtonPrimary = primaryButtonDismissAfterClick
+                this.dismissAfterClickButtonSecondary = secondaryButtonDismissAfterClick
+                this.cancelableTouchOutSide = cancelableTouchOutside
                 arguments = bundleOf(
                     BASIC_TITLE_GENERAL to title,
                     BASIC_SUB_TITLE_GENERAL to content,
@@ -125,10 +156,14 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
                 )
             }
 
-        fun lpModalIllustration2ButtonAlt(title: String, content: String, primaryButtonTitle: String, secondaryButtonTitle: String, btnPrimaryListener: View.OnClickListener? = null, btnSecondListener: View.OnClickListener? = null, image: Int) =
+        fun lpModalIllustration2ButtonAlt(title: String, content: String, primaryButtonTitle: String, secondaryButtonTitle: String, primaryButtonDismissAfterClick: Boolean = true, secondaryButtonDismissAfterClick: Boolean = true, btnPrimaryListener: View.OnClickListener? = null, btnSecondListener: View.OnClickListener? = null, image: Int, cancelableTouchOutside: Boolean = true, callbackOnDismissListener: (() -> Unit)? = null) =
             LPModalDialogFragment(TypeModal.ILLUSTRATION_2_BUTTON_ALT).apply {
-                primaryListener = btnPrimaryListener?: View.OnClickListener{ dialog?.dismiss() }
-                secondListener = btnSecondListener?: View.OnClickListener{ dialog?.dismiss() }
+                this.primaryListener = btnPrimaryListener?: View.OnClickListener{ dialog?.dismiss() }
+                this.secondListener = btnSecondListener?: View.OnClickListener{ dialog?.dismiss() }
+                this.callbackOnDismiss = callbackOnDismissListener
+                this.dismissAfterClickButtonPrimary = primaryButtonDismissAfterClick
+                this.dismissAfterClickButtonSecondary = secondaryButtonDismissAfterClick
+                this.cancelableTouchOutSide = cancelableTouchOutside
                 arguments = bundleOf(
                     BASIC_TITLE_GENERAL to title,
                     BASIC_SUB_TITLE_GENERAL to content,
@@ -155,6 +190,11 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         }
     }
 
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        callbackOnDismiss?.invoke()
+    }
+
     private fun prepareViewBasicTextOnly() {
         val title = view?.findViewById<TextView>(R.id.tvBasicTitleGeneral)
         val content = view?.findViewById<TextView>(R.id.tvSubtitleGeneral)
@@ -172,6 +212,7 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         arguments?.getString(BASIC_SUB_TITLE_GENERAL)?.let { data ->
             content?.text = data
         }
+        dialog?.setCanceledOnTouchOutside(cancelableTouchOutSide)
     }
 
     private fun prepareViewBasic1Button() {
@@ -186,6 +227,9 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         content?.gravity = Gravity.START
         primaryButton?.setOnClickListener {
             primaryListener?.onClick(it)
+            if (dismissAfterClickButtonPrimary) {
+                dismiss()
+            }
         }
         close?.setOnClickListener {
             dismiss()
@@ -199,6 +243,7 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         arguments?.getString(BASIC_PRIMARY_BUTTON)?.let { data ->
             primaryButton?.text = data
         }
+        dialog?.setCanceledOnTouchOutside(cancelableTouchOutSide)
     }
 
     private fun prepareViewBasic2Button() {
@@ -215,9 +260,15 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         content?.gravity = Gravity.START
         primaryButton?.setOnClickListener {
             primaryListener?.onClick(it)
+            if (dismissAfterClickButtonPrimary) {
+                dismiss()
+            }
         }
         secondButton?.setOnClickListener {
             secondListener?.onClick(it)
+            if (dismissAfterClickButtonSecondary) {
+                dismiss()
+            }
         }
         close?.setOnClickListener {
             dismiss()
@@ -234,6 +285,7 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         arguments?.getString(BASIC_SECONDARY_BUTTON)?.let { data ->
             secondButton?.text = data
         }
+        dialog?.setCanceledOnTouchOutside(cancelableTouchOutSide)
     }
 
     private fun prepareViewBasic2ButtonAlt() {
@@ -250,9 +302,15 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         content?.gravity = Gravity.START
         primaryButton?.setOnClickListener {
             primaryListener?.onClick(it)
+            if (dismissAfterClickButtonPrimary) {
+                dismiss()
+            }
         }
         secondButton?.setOnClickListener {
             secondListener?.onClick(it)
+            if (dismissAfterClickButtonSecondary) {
+                dismiss()
+            }
         }
         close?.setOnClickListener {
             dismiss()
@@ -269,6 +327,7 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         arguments?.getString(BASIC_SECONDARY_BUTTON)?.let { data ->
             secondButton?.text = data
         }
+        dialog?.setCanceledOnTouchOutside(cancelableTouchOutSide)
     }
 
     private fun prepareViewBasicBackIcon() {
@@ -283,6 +342,9 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         content?.gravity = Gravity.START
         primaryButton?.setOnClickListener {
             primaryListener?.onClick(it)
+            if (dismissAfterClickButtonPrimary) {
+                dismiss()
+            }
         }
         back?.setOnClickListener {
             backListener?.onClick(it)
@@ -296,6 +358,7 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         arguments?.getString(BASIC_PRIMARY_BUTTON)?.let { data ->
             primaryButton?.text = data
         }
+        dialog?.setCanceledOnTouchOutside(cancelableTouchOutSide)
     }
 
     private fun prepareViewBasicFilter() {
@@ -314,6 +377,9 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         }
         primaryButton?.setOnClickListener {
             primaryListener?.onClick(it)
+            if (dismissAfterClickButtonPrimary) {
+                dismiss()
+            }
         }
         arguments?.getString(BASIC_TITLE_GENERAL)?.let { data ->
             title?.text = data
@@ -321,6 +387,7 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         arguments?.getString(BASIC_PRIMARY_BUTTON)?.let { data ->
             primaryButton?.text = data
         }
+        dialog?.setCanceledOnTouchOutside(cancelableTouchOutSide)
     }
 
     private fun prepareViewIllustration1Button() {
@@ -337,6 +404,9 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         primaryButton?.isVisible = true
         primaryButton?.setOnClickListener {
             primaryListener?.onClick(it)
+            if (dismissAfterClickButtonPrimary) {
+                dismiss()
+            }
         }
         close?.setOnClickListener {
             dismiss()
@@ -354,6 +424,7 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         arguments?.getString(BASIC_PRIMARY_BUTTON)?.let { data ->
             primaryButton?.text = data
         }
+        dialog?.setCanceledOnTouchOutside(cancelableTouchOutSide)
     }
 
     private fun prepareViewIllustration2Button() {
@@ -372,9 +443,15 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         image?.isVisible = true
         primaryButton?.setOnClickListener {
             primaryListener?.onClick(it)
+            if (dismissAfterClickButtonPrimary) {
+                dismiss()
+            }
         }
         secondButton?.setOnClickListener {
             secondListener?.onClick(it)
+            if (dismissAfterClickButtonSecondary) {
+                dismiss()
+            }
         }
         close?.setOnClickListener {
             dismiss()
@@ -395,6 +472,7 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         arguments?.getString(BASIC_SECONDARY_BUTTON)?.let { data ->
             secondButton?.text = data
         }
+        dialog?.setCanceledOnTouchOutside(cancelableTouchOutSide)
     }
 
     private fun prepareViewIllustration2ButtonAlt() {
@@ -413,9 +491,15 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         subtitle?.gravity = Gravity.CENTER
         primaryButton?.setOnClickListener {
             primaryListener?.onClick(it)
+            if (dismissAfterClickButtonPrimary) {
+                dismiss()
+            }
         }
         secondButton?.setOnClickListener {
             secondListener?.onClick(it)
+            if (dismissAfterClickButtonSecondary) {
+                dismiss()
+            }
         }
         close?.setOnClickListener {
             dismiss()
@@ -436,6 +520,7 @@ class LPModalDialogFragment(private val typeModal: TypeModal) : BaseSheetDialogF
         arguments?.getString(BASIC_SECONDARY_BUTTON)?.let { data ->
             secondButton?.text = data
         }
+        dialog?.setCanceledOnTouchOutside(cancelableTouchOutSide)
     }
 
 }
