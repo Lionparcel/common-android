@@ -6,14 +6,17 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.Point
 import android.graphics.drawable.ColorDrawable
+import android.util.Log
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.widget.AbsoluteLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.view.isVisible
 import androidx.window.layout.WindowMetricsCalculator
 import com.lionparcel.commonandroid.R
 
@@ -23,7 +26,7 @@ class LPTooltip(
     themeStyleRes: Int = R.style.LPTooltipDialogTheme
 ) : Dialog(context, themeStyleRes) {
 
-    private val ttContentView: ConstraintLayout
+    private val ttContentView: AbsoluteLayout
     private val ttContainer: ConstraintLayout
     private val ttUpArrow: ImageView
     private val ttDownArrow: ImageView
@@ -37,7 +40,7 @@ class LPTooltip(
     private var statusBarHeight: Int
     private val constraintSet = ConstraintSet()
 
-    private var content: String = ""
+    var content: String = ""
 
     private val activity = parentActivity
 
@@ -62,6 +65,7 @@ class LPTooltip(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.MATCH_PARENT
         )
+        ttContent.text = content
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         ttContentView.setOnClickListener {
             dismiss()
@@ -72,35 +76,27 @@ class LPTooltip(
     }
 
     fun pointToUpDown(
-        x: Int,
-        y: Int,
+        anchor: View,
+        xOff: Int,
+        yOff: Int,
         position: PositionVertical,
-        alignment: HorizontalArrowAlignment
+        alignment: HorizontalArrowAlignment,
+        closeIcon: Boolean = false
     ): LPTooltip {
-        val params = ttContainer.layoutParams as ConstraintLayout.LayoutParams
+        val params = ttContainer.layoutParams as AbsoluteLayout.LayoutParams
+        if (closeIcon) ttClose.visibility = View.VISIBLE
+        val defaultWidth = if (closeIcon) 122 else 100
 
         when (position) {
             PositionVertical.ABOVE -> {
-                params.bottomMargin = windowHeight - y - statusBarHeight + dpToPx(14F)
-                if (x >= 0) {
-                    pointArrowUpDownTo(ttDownArrow, alignment)
-                }
-                val xPosition = x.toDouble() / screenWidth().toDouble()
-                constraintSet.clone(ttContentView)
-                constraintSet.clear(R.id.ttContainer, ConstraintSet.TOP)
-                constraintSet.setHorizontalBias(R.id.ttContainer, xPosition.toFloat())
-                constraintSet.applyTo(ttContentView)
+                params.y = (anchor.y.toInt() - 76 + yOff)
+                params.x = (anchor.x.toInt() - defaultWidth + xOff)
+                pointArrowUpDownTo(ttDownArrow, alignment)
             }
             PositionVertical.BELOW -> {
-                params.topMargin = y - statusBarHeight
-                if (x >= 0) {
-                    pointArrowUpDownTo(ttUpArrow, alignment)
-                }
-                val xPosition = x.toDouble() / screenWidth().toDouble()
-                constraintSet.clone(ttContentView)
-                constraintSet.clear(R.id.ttContainer, ConstraintSet.BOTTOM)
-                constraintSet.setHorizontalBias(R.id.ttContainer, xPosition.toFloat())
-                constraintSet.applyTo(ttContentView)
+                params.y = (anchor.y.toInt() + anchor.measuredHeight + yOff)
+                params.x = (anchor.x.toInt() - defaultWidth + xOff)
+                pointArrowUpDownTo(ttUpArrow, alignment)
             }
         }
 
@@ -109,35 +105,27 @@ class LPTooltip(
     }
 
     fun pointToLeftRight(
-        x: Int,
-        y: Int,
+        anchor: View,
+        xOff: Int,
+        yOff: Int,
         position: PositionHorizontal,
-        alignment: VerticalArrowAlignment
+        alignment: VerticalArrowAlignment,
+        closeIcon: Boolean = false
     ): LPTooltip {
-        val params = ttContainer.layoutParams as ConstraintLayout.LayoutParams
+        val params = ttContainer.layoutParams as AbsoluteLayout.LayoutParams
+        if (closeIcon) ttClose.visibility = View.VISIBLE
+        val defaultWidth = if (closeIcon) 244 else 200
 
         when (position) {
             PositionHorizontal.RIGHT -> {
-                params.marginStart = x
-                if (y >= 0) {
-                    pointArrowLeftRightTo(ttLeftArrow, alignment)
-                }
-                val yPosition = (y - statusBarHeight + dpToPx(16F)).toDouble() / getScreenHeight(context).toDouble()
-                constraintSet.clone(ttContentView)
-                constraintSet.clear(R.id.ttContainer, ConstraintSet.END)
-                constraintSet.setVerticalBias(R.id.ttContainer, yPosition.toFloat())
-                constraintSet.applyTo(ttContentView)
+                params.y = (anchor.y.toInt() + yOff)
+                params.x = (anchor.x.toInt() + anchor.measuredWidth + xOff)
+                pointArrowLeftRightTo(ttLeftArrow, alignment)
             }
             PositionHorizontal.LEFT -> {
-                params.marginEnd = windowWidth - x
-                if (y >= 0) {
-                    pointArrowLeftRightTo(ttRightArrow, alignment)
-                }
-                val yPosition = (y - statusBarHeight + dpToPx(16F)).toDouble() / getScreenHeight(context).toDouble()
-                constraintSet.clone(ttContentView)
-                constraintSet.clear(R.id.ttContainer, ConstraintSet.START)
-                constraintSet.setVerticalBias(R.id.ttContainer, yPosition.toFloat())
-                constraintSet.applyTo(ttContentView)
+                params.y = (anchor.y.toInt() + yOff)
+                params.x = (anchor.x.toInt() - defaultWidth - anchor.measuredWidth  + xOff)
+                pointArrowLeftRightTo(ttRightArrow, alignment)
             }
         }
 
@@ -224,10 +212,7 @@ class LPTooltip(
         return this
     }
 
-    fun closeIcon(): LPTooltip {
-        ttClose.visibility = View.VISIBLE
-        return this
-    }
+    fun getContainerHeight(): Int = ttContainer.measuredHeight
 
     private fun getScreenHeight(context: Context): Int {
         val wm =

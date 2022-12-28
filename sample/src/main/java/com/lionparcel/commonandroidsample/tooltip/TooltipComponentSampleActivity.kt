@@ -1,8 +1,10 @@
 package com.lionparcel.commonandroidsample.tooltip
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.lionparcel.commonandroid.tooltip.LPTooltip
 import com.lionparcel.commonandroidsample.R
@@ -16,8 +18,9 @@ class TooltipComponentSampleActivity : AppCompatActivity() {
             val location = intArrayOf(0, 0)
             it.getLocationInWindow(location)
             showTooltipUpDown(
-                location[0] + it.width/2,
-                location[1] + it.height,
+                it,
+                0,
+                0,
                 LPTooltip.PositionVertical.BELOW,
                 LPTooltip.HorizontalArrowAlignment.LEFT,
                 true
@@ -28,8 +31,9 @@ class TooltipComponentSampleActivity : AppCompatActivity() {
             val location = intArrayOf(0, 0)
             it.getLocationInWindow(location)
             showTooltipUpDown(
-                location[0] + it.width/2,
-                location[1] + it.height,
+                it,
+                0,
+                0,
                 LPTooltip.PositionVertical.BELOW,
                 LPTooltip.HorizontalArrowAlignment.CENTER
             )
@@ -39,8 +43,9 @@ class TooltipComponentSampleActivity : AppCompatActivity() {
             val location = intArrayOf(0, 0)
             it.getLocationInWindow(location)
             showTooltipUpDown(
-                location[0] + it.width,
-                location[1] + it.height,
+                it,
+                0,
+                0,
                 LPTooltip.PositionVertical.BELOW,
                 LPTooltip.HorizontalArrowAlignment.RIGHT,
                 true
@@ -51,8 +56,9 @@ class TooltipComponentSampleActivity : AppCompatActivity() {
             val location = intArrayOf(0, 0)
             it.getLocationInWindow(location)
             showTooltipUpDown(
-                location[0] + it.width/2,
-                location[1] + it.height,
+                it,
+                0,
+                0,
                 LPTooltip.PositionVertical.BELOW,
                 LPTooltip.HorizontalArrowAlignment.CENTER
             )
@@ -62,8 +68,9 @@ class TooltipComponentSampleActivity : AppCompatActivity() {
             val location = intArrayOf(0, 0)
             it.getLocationInWindow(location)
             showTooltipUpDown(
-                location[0],
-                location[1] - it.height,
+                it,
+                0,
+                0,
                 LPTooltip.PositionVertical.ABOVE,
                 LPTooltip.HorizontalArrowAlignment.LEFT,
                 true
@@ -74,8 +81,9 @@ class TooltipComponentSampleActivity : AppCompatActivity() {
             val location = intArrayOf(0, 0)
             it.getLocationInWindow(location)
             showTooltipUpDown(
-                location[0] + it.width/2,
-                location[1] - it.height,
+                it,
+                0,
+                0,
                 LPTooltip.PositionVertical.ABOVE,
                 LPTooltip.HorizontalArrowAlignment.CENTER
             )
@@ -85,8 +93,9 @@ class TooltipComponentSampleActivity : AppCompatActivity() {
             val location = intArrayOf(0, 0)
             it.getLocationInWindow(location)
             showTooltipUpDown(
-                location[0] + it.width,
-                location[1] - it.height,
+                it,
+                0,
+                0,
                 LPTooltip.PositionVertical.ABOVE,
                 LPTooltip.HorizontalArrowAlignment.CENTER_RIGHT
             )
@@ -96,8 +105,9 @@ class TooltipComponentSampleActivity : AppCompatActivity() {
             val location = intArrayOf(0, 0)
             it.getLocationInWindow(location)
             showTooltipLeftRight(
-                location[0] + it.width,
-                location[1],
+                it,
+                0,
+                0,
                 LPTooltip.PositionHorizontal.RIGHT,
                 LPTooltip.VerticalArrowAlignment.TOP
             )
@@ -106,8 +116,9 @@ class TooltipComponentSampleActivity : AppCompatActivity() {
             val location = intArrayOf(0, 0)
             it.getLocationInWindow(location)
             showTooltipLeftRight(
-                location[0],
-                location[1],
+                it,
+                -50,
+                0,
                 LPTooltip.PositionHorizontal.LEFT,
                 LPTooltip.VerticalArrowAlignment.TOP
             )
@@ -117,8 +128,9 @@ class TooltipComponentSampleActivity : AppCompatActivity() {
             val location = intArrayOf(0, 0)
             it.getLocationInWindow(location)
             showTooltipLeftRight(
-                location[0] + it.width,
-                location[1] + it.height/2,
+                it,
+                0,
+                0,
                 LPTooltip.PositionHorizontal.RIGHT,
                 LPTooltip.VerticalArrowAlignment.CENTER,
                 true
@@ -129,8 +141,9 @@ class TooltipComponentSampleActivity : AppCompatActivity() {
             val location = intArrayOf(0, 0)
             it.getLocationInWindow(location)
             showTooltipLeftRight(
-                location[0],
-                location[1] + it.height/2,
+                it,
+                -it.measuredWidth/2,
+                0,
                 LPTooltip.PositionHorizontal.LEFT,
                 LPTooltip.VerticalArrowAlignment.BOTTOM
             )
@@ -140,8 +153,9 @@ class TooltipComponentSampleActivity : AppCompatActivity() {
             val location = intArrayOf(0, 0)
             it.getLocationInWindow(location)
             showTooltipLeftRight(
-                location[0] + it.width,
-                location[1] + it.height,
+                it,
+                0,
+                0,
                 LPTooltip.PositionHorizontal.RIGHT,
                 LPTooltip.VerticalArrowAlignment.BOTTOM
             )
@@ -151,73 +165,74 @@ class TooltipComponentSampleActivity : AppCompatActivity() {
             val location = intArrayOf(0, 0)
             it.getLocationInWindow(location)
             showTooltipLeftRight(
-                location[0],
-                location[1] + it.height,
+                it,
+                20,
+                0,
                 LPTooltip.PositionHorizontal.LEFT,
                 LPTooltip.VerticalArrowAlignment.BOTTOM
+            )
+        }
+
+        findViewById<ImageView>(R.id.ivInfoTooltip).setOnClickListener {
+            showTooltipUpDown(
+                it,
+                0,
+                0,
+                LPTooltip.PositionVertical.ABOVE,
+                LPTooltip.HorizontalArrowAlignment.CENTER
+            )
+        }
+
+        findViewById<ImageView>(R.id.ivInfoTooltip2).setOnClickListener {
+            showTooltipUpDown(
+                it,
+                -it.width*7/2,
+                -it.height*2,
+                LPTooltip.PositionVertical.ABOVE,
+                LPTooltip.HorizontalArrowAlignment.CENTER
             )
         }
     }
 
     private fun showTooltipUpDown(
+        view: View,
         x: Int,
         y: Int,
         positionVertical: LPTooltip.PositionVertical,
         alignment: LPTooltip.HorizontalArrowAlignment,
         showCloseIcon: Boolean = false
     ) {
-        if (showCloseIcon) {
             val tooltip = LPTooltip(this, this)
                 .content(getString(R.string.general_message))
                 .pointToUpDown(
+                    view,
                     x,
                     y,
                     positionVertical,
-                    alignment
-                )
-                .closeIcon()
-            tooltip.show()
-        } else {
-            val tooltip = LPTooltip(this, this)
-                .content(getString(R.string.general_message))
-                .pointToUpDown(
-                    x,
-                    y,
-                    positionVertical,
-                    alignment
+                    alignment,
+                    showCloseIcon
                 )
             tooltip.show()
-        }
     }
 
     private fun showTooltipLeftRight(
+        view: View,
         x: Int,
         y: Int,
         positionHorizontal: LPTooltip.PositionHorizontal,
         alignment: LPTooltip.VerticalArrowAlignment,
         showCloseIcon: Boolean = false
     ) {
-        if (showCloseIcon) {
             val tooltip = LPTooltip(this, this)
                 .content(getString(R.string.general_message))
                 .pointToLeftRight(
+                    view,
                     x,
                     y,
                     positionHorizontal,
-                    alignment
-                )
-                .closeIcon()
-            tooltip.show()
-        } else {
-            val tooltip = LPTooltip(this, this)
-                .content(getString(R.string.general_message))
-                .pointToLeftRight(
-                    x,
-                    y,
-                    positionHorizontal,
-                    alignment
+                    alignment,
+                    showCloseIcon
                 )
             tooltip.show()
-        }
     }
 }
