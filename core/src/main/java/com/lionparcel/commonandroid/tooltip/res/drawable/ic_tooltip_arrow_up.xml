@@ -5,5 +5,5 @@
     android:viewportHeight="10">
   <path
       android:pathData="M20,10L0,10L8.0071,0.9346C9.1078,-0.3115 10.8922,-0.3115 11.9929,0.9346L20,10Z"
-      android:fillColor="?lpTooltip.backgroundColor"/>
+      android:fillColor="@color/shades5"/>
 </vector>

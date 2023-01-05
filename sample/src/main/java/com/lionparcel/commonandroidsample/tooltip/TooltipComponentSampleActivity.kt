@@ -1,12 +1,10 @@
 package com.lionparcel.commonandroidsample.tooltip
 
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import com.lionparcel.commonandroid.tooltip.LPTooltip
+import com.lionparcel.commonandroid.tooltip.createLPTooltip
 import com.lionparcel.commonandroidsample.R
 
 class TooltipComponentSampleActivity : AppCompatActivity() {
@@ -15,224 +13,149 @@ class TooltipComponentSampleActivity : AppCompatActivity() {
         setContentView(R.layout.activity_tooltip_component_sample)
 
         findViewById<Button>(R.id.btnTooltipTopLeft).setOnClickListener {
-            val location = intArrayOf(0, 0)
-            it.getLocationInWindow(location)
-            showTooltipUpDown(
-                it,
-                0,
-                0,
-                LPTooltip.PositionVertical.BELOW,
-                LPTooltip.HorizontalArrowAlignment.LEFT,
-                true
-            )
+            createLPTooltip(this) {
+                setText(getString(R.string.general_message))
+                setCloseIcon(false)
+                setWidth(220)
+                setHeight(60)
+                setArrowPosition(0.25F)
+            }.showFromBelow(it, -it.measuredWidth/3)
         }
 
         findViewById<Button>(R.id.btnTooltipTopCenter).setOnClickListener {
-            val location = intArrayOf(0, 0)
-            it.getLocationInWindow(location)
-            showTooltipUpDown(
-                it,
-                0,
-                0,
-                LPTooltip.PositionVertical.BELOW,
-                LPTooltip.HorizontalArrowAlignment.CENTER
-            )
+            createLPTooltip(this) {
+                setText(getString(R.string.general_message))
+                setCloseIcon(false)
+                setWidth(200)
+                setHeight(60)
+            }.showFromBelow(it)
         }
 
         findViewById<Button>(R.id.btnTooltipTopRight).setOnClickListener {
-            val location = intArrayOf(0, 0)
-            it.getLocationInWindow(location)
-            showTooltipUpDown(
-                it,
-                0,
-                0,
-                LPTooltip.PositionVertical.BELOW,
-                LPTooltip.HorizontalArrowAlignment.RIGHT,
-                true
-            )
+            createLPTooltip(this) {
+                setText(getString(R.string.general_message))
+                setCloseIcon(true)
+                setWidth(245)
+                setHeight(60)
+                setArrowPosition(0.75F)
+            }.showFromBelow(it, it.measuredWidth/3)
         }
 
         findViewById<Button>(R.id.btnTooltipCenter).setOnClickListener {
-            val location = intArrayOf(0, 0)
-            it.getLocationInWindow(location)
-            showTooltipUpDown(
-                it,
-                0,
-                0,
-                LPTooltip.PositionVertical.BELOW,
-                LPTooltip.HorizontalArrowAlignment.CENTER
-            )
+            createLPTooltip(this) {
+                setText(getString(R.string.general_message))
+                setCloseIcon(true)
+                setWidth(245)
+                setHeight(60)
+            }.showFromBelow(it)
         }
 
         findViewById<Button>(R.id.btnTooltipBottomLeft).setOnClickListener {
-            val location = intArrayOf(0, 0)
-            it.getLocationInWindow(location)
-            showTooltipUpDown(
-                it,
-                0,
-                0,
-                LPTooltip.PositionVertical.ABOVE,
-                LPTooltip.HorizontalArrowAlignment.LEFT,
-                true
-            )
+            createLPTooltip(this) {
+                setText(getString(R.string.general_message))
+                setCloseIcon(false)
+                setWidth(220)
+                setHeight(60)
+                setArrowPosition(0.25F)
+            }.showFromAbove(it, -it.measuredWidth/3)
         }
 
         findViewById<Button>(R.id.btnTooltipBottomCenter).setOnClickListener {
             val location = intArrayOf(0, 0)
             it.getLocationInWindow(location)
-            showTooltipUpDown(
-                it,
-                0,
-                0,
-                LPTooltip.PositionVertical.ABOVE,
-                LPTooltip.HorizontalArrowAlignment.CENTER
-            )
+            createLPTooltip(this) {
+                setText(getString(R.string.general_message))
+                setCloseIcon(true)
+                setWidth(245)
+                setHeight(60)
+            }.showFromAbove(it)
         }
 
         findViewById<Button>(R.id.btnTooltipBottomRight).setOnClickListener {
-            val location = intArrayOf(0, 0)
-            it.getLocationInWindow(location)
-            showTooltipUpDown(
-                it,
-                0,
-                0,
-                LPTooltip.PositionVertical.ABOVE,
-                LPTooltip.HorizontalArrowAlignment.CENTER_RIGHT
-            )
+            createLPTooltip(this) {
+                setText(getString(R.string.general_message))
+                setCloseIcon(true)
+                setWidth(245)
+                setHeight(60)
+                setArrowPosition(0.75F)
+            }.showFromAbove(it, it.measuredWidth/3)
         }
 
         findViewById<Button>(R.id.btnTooltipTopCenterLeft).setOnClickListener {
-            val location = intArrayOf(0, 0)
-            it.getLocationInWindow(location)
-            showTooltipLeftRight(
-                it,
-                0,
-                0,
-                LPTooltip.PositionHorizontal.RIGHT,
-                LPTooltip.VerticalArrowAlignment.TOP
-            )
+            createLPTooltip(this) {
+                setText(getString(R.string.general_message))
+                setCloseIcon(false)
+                setWidth(220)
+                setHeight(50)
+                setArrowPosition(0.75F)
+            }.showFromRight(it, 0, -it.measuredHeight/4)
         }
         findViewById<Button>(R.id.btnTooltipTopCenterRight).setOnClickListener {
-            val location = intArrayOf(0, 0)
-            it.getLocationInWindow(location)
-            showTooltipLeftRight(
-                it,
-                -50,
-                0,
-                LPTooltip.PositionHorizontal.LEFT,
-                LPTooltip.VerticalArrowAlignment.TOP
-            )
+            createLPTooltip(this) {
+                setText(getString(R.string.general_message))
+                setCloseIcon(false)
+                setWidth(215)
+                setHeight(50)
+                setArrowPosition(0.75F)
+            }.showFromLeft(it, 0, -it.measuredHeight/4)
         }
 
         findViewById<Button>(R.id.btnTooltipCenterLeft).setOnClickListener {
-            val location = intArrayOf(0, 0)
-            it.getLocationInWindow(location)
-            showTooltipLeftRight(
-                it,
-                0,
-                0,
-                LPTooltip.PositionHorizontal.RIGHT,
-                LPTooltip.VerticalArrowAlignment.CENTER,
-                true
-            )
+            createLPTooltip(this) {
+                setText(getString(R.string.general_message))
+                setCloseIcon(true)
+                setWidth(255)
+                setHeight(50)
+            }.showFromRight(it)
         }
 
         findViewById<Button>(R.id.btnTooltipCenterRight).setOnClickListener {
-            val location = intArrayOf(0, 0)
-            it.getLocationInWindow(location)
-            showTooltipLeftRight(
-                it,
-                -it.measuredWidth/2,
-                0,
-                LPTooltip.PositionHorizontal.LEFT,
-                LPTooltip.VerticalArrowAlignment.BOTTOM
-            )
+            createLPTooltip(this) {
+                setText(getString(R.string.general_message))
+                setCloseIcon(true)
+                setWidth(255)
+                setHeight(50)
+            }.showFromLeft(it)
         }
 
         findViewById<Button>(R.id.btnTooltipBottomCenterLeft).setOnClickListener {
-            val location = intArrayOf(0, 0)
-            it.getLocationInWindow(location)
-            showTooltipLeftRight(
-                it,
-                0,
-                0,
-                LPTooltip.PositionHorizontal.RIGHT,
-                LPTooltip.VerticalArrowAlignment.BOTTOM
-            )
+            createLPTooltip(this) {
+                setText(getString(R.string.general_short_message))
+                setCloseIcon(false)
+                setWidth(215)
+                setHeight(35)
+            }.showFromRight(it)
         }
 
         findViewById<Button>(R.id.btnTooltipBottomCenterRight).setOnClickListener {
-            val location = intArrayOf(0, 0)
-            it.getLocationInWindow(location)
-            showTooltipLeftRight(
-                it,
-                20,
-                0,
-                LPTooltip.PositionHorizontal.LEFT,
-                LPTooltip.VerticalArrowAlignment.BOTTOM
-            )
+            createLPTooltip(this) {
+                setText(getString(R.string.general_short_message))
+                setCloseIcon(false)
+                setWidth(205)
+                setHeight(35)
+            }.showFromLeft(it)
         }
 
         findViewById<ImageView>(R.id.ivInfoTooltip).setOnClickListener {
-            showTooltipUpDown(
-                it,
-                0,
-                0,
-                LPTooltip.PositionVertical.ABOVE,
-                LPTooltip.HorizontalArrowAlignment.CENTER
-            )
+            createLPTooltip(this) {
+                setText(getString(R.string.general_short_message))
+                setCloseIcon(true)
+                setWidth(238)
+                setHeight(50)
+            }.showFromBelow(it)
         }
 
         findViewById<ImageView>(R.id.ivInfoTooltip2).setOnClickListener {
-            showTooltipUpDown(
-                it,
-                -it.width*7/2,
-                -it.height*2,
-                LPTooltip.PositionVertical.ABOVE,
-                LPTooltip.HorizontalArrowAlignment.CENTER
-            )
+            createLPTooltip(this) {
+                setText(getString(R.string.general_message))
+                setCloseIcon(false)
+                setWidth(205)
+                setHeight(60)
+                setArrowPosition(0.23F)
+            }.apply {
+                val viewWidth = getMeasuredWidth()
+                showFromAbove(it, viewWidth/4)
+            }
         }
-    }
-
-    private fun showTooltipUpDown(
-        view: View,
-        x: Int,
-        y: Int,
-        positionVertical: LPTooltip.PositionVertical,
-        alignment: LPTooltip.HorizontalArrowAlignment,
-        showCloseIcon: Boolean = false
-    ) {
-            val tooltip = LPTooltip(this, this)
-                .content(getString(R.string.general_message))
-                .pointToUpDown(
-                    view,
-                    x,
-                    y,
-                    positionVertical,
-                    alignment,
-                    showCloseIcon
-                )
-            tooltip.show()
-    }
-
-    private fun showTooltipLeftRight(
-        view: View,
-        x: Int,
-        y: Int,
-        positionHorizontal: LPTooltip.PositionHorizontal,
-        alignment: LPTooltip.VerticalArrowAlignment,
-        showCloseIcon: Boolean = false
-    ) {
-            val tooltip = LPTooltip(this, this)
-                .content(getString(R.string.general_message))
-                .pointToLeftRight(
-                    view,
-                    x,
-                    y,
-                    positionHorizontal,
-                    alignment,
-                    showCloseIcon
-                )
-            tooltip.show()
     }
 }
