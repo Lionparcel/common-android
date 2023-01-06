@@ -125,6 +125,71 @@ class ModalComponentSampleActivity : AppCompatActivity() {
             )
         )
         }
+        findViewById<Button>(R.id.btnBasicBackIcon2Button).setOnClickListener {  showCustomModal(
+            supportFragmentManager,
+            "LP BASIC BACK ICON 2 BUTTON",
+            LPModalDialogFragment.lpModalBasicBackIcon2Button(
+                "Title Insert Here",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                "Primary Button",
+                "Second Button",
+                btnPrimaryListener = { Toast.makeText(this, "Primary", Toast.LENGTH_SHORT).show() },
+                btnSecondListener = { Toast.makeText(this, "Secondary", Toast.LENGTH_SHORT).show() }
+            )
+        )
+        }
+        findViewById<Button>(R.id.btnBasicBackIcon2ButtonAlt).setOnClickListener {  showCustomModal(
+            supportFragmentManager,
+            "LP BASIC BACK ICON 2 BUTTON ALT",
+            LPModalDialogFragment.lpModalBasicBackIcon2ButtonAlt(
+                "Title Insert Here",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                "Primary Button",
+                "Second Button",
+                btnPrimaryListener = { Toast.makeText(this, "Primary", Toast.LENGTH_SHORT).show() },
+                btnSecondListener = { Toast.makeText(this, "Secondary", Toast.LENGTH_SHORT).show() }
+            )
+        )
+        }
+        findViewById<Button>(R.id.btnIllustrationBackIcon1Button).setOnClickListener {  showCustomModal(
+            supportFragmentManager,
+            "LP ILLUSTRATION BACK ICON 1 BUTTON",
+            LPModalDialogFragment.lpModalIllustrationBackButtonIcon1Button(
+                "Title Insert Here",
+                "Hello world!!! ",
+                "Primary Button",
+                image = R.drawable.spot_illustration,
+            )
+        )
+        }
+        findViewById<Button>(R.id.btnIllustrationBackIcon2Button).setOnClickListener {  showCustomModal(
+            supportFragmentManager,
+            "LP ILLUSTRATION BACK ICON 2 BUTTON",
+            LPModalDialogFragment.lpModalIllustrationBackButtonIcon2Button(
+                "Title Insert Here",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                "Yes",
+                "No",
+                btnPrimaryListener = { Toast.makeText(this, "Primary", Toast.LENGTH_SHORT).show() },
+                btnSecondListener = { Toast.makeText(this, "Secondary", Toast.LENGTH_SHORT).show() },
+                image = R.drawable.spot_illustration
+            )
+        )
+        }
+        findViewById<Button>(R.id.btnIllustrationBackIcon2ButtonAlt).setOnClickListener {  showCustomModal(
+            supportFragmentManager,
+            "LP ILLUSTRATION BACK ICON 2 BUTTON ALT",
+            LPModalDialogFragment.lpModalIllustrationBackButtonIcon2ButtonAlt(
+                "Title Insert Here",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                "Primary Button",
+                "Secondary Button",
+                btnPrimaryListener = { Toast.makeText(this, "Primary", Toast.LENGTH_SHORT).show() },
+                btnSecondListener = { Toast.makeText(this, "Secondary", Toast.LENGTH_SHORT).show() },
+                image = R.drawable.spot_illustration
+            )
+        )
+        }
     }
 
 
