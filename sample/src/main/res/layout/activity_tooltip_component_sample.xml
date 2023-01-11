@@ -83,6 +83,16 @@
         app:layout_constraintTop_toBottomOf="@id/btnTooltipTopLeft"
         app:layout_constraintBottom_toTopOf="@id/btnTooltipCenter"/>
 
+    <ImageView
+        android:id="@+id/ivInfoTooltip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ics_f_info_circle_interpack6"
+        app:layout_constraintTop_toTopOf="@id/btnTooltipTopCenterRight"
+        app:layout_constraintBottom_toBottomOf="@id/btnTooltipTopCenterRight"
+        app:layout_constraintStart_toEndOf="@id/btnTooltipTopCenterLeft"
+        app:layout_constraintEnd_toStartOf="@id/btnTooltipTopCenterRight"/>
+
     <Button
         android:id="@+id/btnTooltipTopCenterRight"
         android:layout_width="wrap_content"
@@ -122,6 +132,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnTooltipCenterLeft"
         app:layout_constraintBottom_toTopOf="@id/btnTooltipBottomLeft"/>
+
+    <ImageView
+        android:id="@+id/ivInfoTooltip2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ics_f_info_circle_interpack6"
+        app:layout_constraintTop_toTopOf="@id/btnTooltipBottomCenterLeft"
+        app:layout_constraintBottom_toBottomOf="@id/btnTooltipBottomCenterLeft"
+        app:layout_constraintStart_toEndOf="@id/btnTooltipTopCenterLeft"
+        app:layout_constraintEnd_toStartOf="@id/btnTooltipTopCenterRight"/>
 
     <Button
         android:id="@+id/btnTooltipBottomCenterRight"

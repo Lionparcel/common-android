@@ -1,266 +1,296 @@
 package com.lionparcel.commonandroid.tooltip
 
-import android.app.Activity
-import android.app.Dialog
+import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Color
 import android.graphics.Point
-import android.graphics.drawable.ColorDrawable
+import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
+import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
+import android.widget.PopupWindow
+import androidx.annotation.FloatRange
+import androidx.annotation.MainThread
+import androidx.annotation.Px
 import androidx.constraintlayout.widget.ConstraintSet
-import androidx.window.layout.WindowMetricsCalculator
+import androidx.core.view.isVisible
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import com.lionparcel.commonandroid.R
+import com.lionparcel.commonandroid.databinding.LpLayoutTooltipBodyBinding
+import com.lionparcel.commonandroid.walkthrough.utils.dp
 
 class LPTooltip(
-    context: Context,
-    parentActivity: Activity,
-    themeStyleRes: Int = R.style.LPTooltipDialogTheme
-) : Dialog(context, themeStyleRes) {
+    private val context: Context,
+    private val builder: Builder,
+) : LifecycleObserver {
 
-    private val ttContentView: ConstraintLayout
-    private val ttContainer: ConstraintLayout
-    private val ttUpArrow: ImageView
-    private val ttDownArrow: ImageView
-    private val ttLeftArrow: ImageView
-    private val ttRightArrow: ImageView
-    private val ttDialogBox: LinearLayout
-    private val ttContent: TextView
-    private val ttClose: ImageView
-    private var windowHeight: Int
-    private var windowWidth: Int
-    private var statusBarHeight: Int
+    private val binding: LpLayoutTooltipBodyBinding = LpLayoutTooltipBodyBinding.inflate(
+        LayoutInflater.from(context), null, false
+    )
+
+    private val popupWindow: PopupWindow
     private val constraintSet = ConstraintSet()
 
-    private var content: String = ""
-
-    private val activity = parentActivity
-
     init {
-        setContentView(R.layout.lp_layout_tooltip_body)
-        ttContentView = findViewById(R.id.ttContentView)
-        ttContainer = findViewById(R.id.ttContainer)
-        ttUpArrow = findViewById(R.id.ttTopArrow)
-        ttDownArrow = findViewById(R.id.ttBottomArrow)
-        ttLeftArrow = findViewById(R.id.ttLeftArrow)
-        ttRightArrow = findViewById(R.id.ttRightArrow)
-        ttDialogBox = findViewById(R.id.ttDialogBox)
-        ttContent = findViewById(R.id.ttContent)
-        ttClose = findViewById(R.id.ttClose)
-
-        val usableView = parentActivity.window.findViewById<View>(Window.ID_ANDROID_CONTENT)
-        windowHeight = usableView.height
-        windowWidth = usableView.width
-        statusBarHeight = getScreenHeight(context) - windowHeight
-
-        window?.setLayout(
-            WindowManager.LayoutParams.MATCH_PARENT,
-            WindowManager.LayoutParams.MATCH_PARENT
+        this.popupWindow = PopupWindow(
+            binding.root,
+            FrameLayout.LayoutParams.WRAP_CONTENT,
+            FrameLayout.LayoutParams.WRAP_CONTENT
         )
-        window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        ttContentView.setOnClickListener {
-            dismiss()
-        }
-        ttClose.setOnClickListener {
-            dismiss()
+        if (context is LifecycleOwner) context.lifecycle.addObserver(this)
+        adjustFitsSystemWindows(binding.root)
+
+        this.popupWindow.isFocusable = true
+        this.popupWindow.setTouchInterceptor(
+            object : View.OnTouchListener {
+                @SuppressLint("ClickableViewAccessibility")
+                override fun onTouch(v: View?, event: MotionEvent): Boolean {
+                    if (event.action == MotionEvent.ACTION_OUTSIDE) {
+                        this@LPTooltip.dismiss()
+                        return true
+                    }
+                    return false
+                }
+            }
+        )
+        this.popupWindow.setOnDismissListener {
+            builder.onDismissListener?.invoke()
         }
     }
 
-    fun pointToUpDown(
-        x: Int,
-        y: Int,
-        position: PositionVertical,
-        alignment: HorizontalArrowAlignment
-    ): LPTooltip {
-        val params = ttContainer.layoutParams as ConstraintLayout.LayoutParams
-
-        when (position) {
-            PositionVertical.ABOVE -> {
-                params.bottomMargin = windowHeight - y - statusBarHeight + dpToPx(14F)
-                if (x >= 0) {
-                    pointArrowUpDownTo(ttDownArrow, alignment)
-                }
-                val xPosition = x.toDouble() / screenWidth().toDouble()
-                constraintSet.clone(ttContentView)
-                constraintSet.clear(R.id.ttContainer, ConstraintSet.TOP)
-                constraintSet.setHorizontalBias(R.id.ttContainer, xPosition.toFloat())
-                constraintSet.applyTo(ttContentView)
-            }
-            PositionVertical.BELOW -> {
-                params.topMargin = y - statusBarHeight
-                if (x >= 0) {
-                    pointArrowUpDownTo(ttUpArrow, alignment)
-                }
-                val xPosition = x.toDouble() / screenWidth().toDouble()
-                constraintSet.clone(ttContentView)
-                constraintSet.clear(R.id.ttContainer, ConstraintSet.BOTTOM)
-                constraintSet.setHorizontalBias(R.id.ttContainer, xPosition.toFloat())
-                constraintSet.applyTo(ttContentView)
+    private fun adjustFitsSystemWindows(parent: ViewGroup) {
+        parent.fitsSystemWindows = false
+        (0 until parent.childCount).map { parent.getChildAt(it) }.forEach { child ->
+            child.fitsSystemWindows = false
+            if (child is ViewGroup) {
+                adjustFitsSystemWindows(child)
             }
         }
-
-        ttContainer.layoutParams = params
-        return this
     }
 
-    fun pointToLeftRight(
-        x: Int,
-        y: Int,
-        position: PositionHorizontal,
-        alignment: VerticalArrowAlignment
-    ): LPTooltip {
-        val params = ttContainer.layoutParams as ConstraintLayout.LayoutParams
-
-        when (position) {
-            PositionHorizontal.RIGHT -> {
-                params.marginStart = x
-                if (y >= 0) {
-                    pointArrowLeftRightTo(ttLeftArrow, alignment)
-                }
-                val yPosition = (y - statusBarHeight + dpToPx(16F)).toDouble() / getScreenHeight(context).toDouble()
-                constraintSet.clone(ttContentView)
-                constraintSet.clear(R.id.ttContainer, ConstraintSet.END)
-                constraintSet.setVerticalBias(R.id.ttContainer, yPosition.toFloat())
-                constraintSet.applyTo(ttContentView)
-            }
-            PositionHorizontal.LEFT -> {
-                params.marginEnd = windowWidth - x
-                if (y >= 0) {
-                    pointArrowLeftRightTo(ttRightArrow, alignment)
-                }
-                val yPosition = (y - statusBarHeight + dpToPx(16F)).toDouble() / getScreenHeight(context).toDouble()
-                constraintSet.clone(ttContentView)
-                constraintSet.clear(R.id.ttContainer, ConstraintSet.START)
-                constraintSet.setVerticalBias(R.id.ttContainer, yPosition.toFloat())
-                constraintSet.applyTo(ttContentView)
-            }
-        }
-
-        ttContainer.layoutParams = params
-        return this
-    }
-
-    private fun pointArrowUpDownTo(arrow: ImageView, alignment: HorizontalArrowAlignment) {
-        constraintSet.clone(ttContainer)
-        when (alignment) {
-            HorizontalArrowAlignment.LEFT -> {
-                constraintSet.setHorizontalBias(R.id.ttTopArrow, 0.125f)
-                constraintSet.setHorizontalBias(R.id.ttBottomArrow, 0.125f)
-            }
-            HorizontalArrowAlignment.CENTER_LEFT -> {
-                constraintSet.setHorizontalBias(R.id.ttTopArrow, 0.375f)
-                constraintSet.setHorizontalBias(R.id.ttBottomArrow, 0.375f)
-            }
-            HorizontalArrowAlignment.CENTER -> {
-                constraintSet.setHorizontalBias(R.id.ttTopArrow, 0.5f)
-                constraintSet.setHorizontalBias(R.id.ttBottomArrow, 0.5f)
-            }
-            HorizontalArrowAlignment.CENTER_RIGHT -> {
-                constraintSet.setHorizontalBias(R.id.ttTopArrow, 0.625f)
-                constraintSet.setHorizontalBias(R.id.ttBottomArrow, 0.625f)
-            }
-            HorizontalArrowAlignment.RIGHT -> {
-                constraintSet.setHorizontalBias(R.id.ttTopArrow, 0.875f)
-                constraintSet.setHorizontalBias(R.id.ttBottomArrow, 0.875f)
-            }
-        }
+    private fun pointArrowUpDownTo(arrow: ImageView) {
+        constraintSet.clone(binding.ttContainer)
+        constraintSet.setHorizontalBias(R.id.ttTopArrow, builder.arrowPosition)
+        constraintSet.setHorizontalBias(R.id.ttBottomArrow, builder.arrowPosition)
 
         when (arrow) {
-            ttUpArrow -> {
+            binding.ttTopArrow -> {
                 constraintSet.clear(R.id.ttDialogBox, ConstraintSet.TOP)
-                constraintSet.connect(R.id.ttDialogBox, ConstraintSet.TOP, R.id.ttTopArrow, ConstraintSet.BOTTOM)
+                constraintSet.connect(
+                    R.id.ttDialogBox,
+                    ConstraintSet.TOP,
+                    R.id.ttTopArrow,
+                    ConstraintSet.BOTTOM
+                )
             }
-            ttDownArrow -> {
+            binding.ttBottomArrow -> {
                 constraintSet.clear(R.id.ttDialogBox, ConstraintSet.BOTTOM)
-                constraintSet.connect(R.id.ttDialogBox, ConstraintSet.BOTTOM, R.id.ttBottomArrow, ConstraintSet.TOP)
+                constraintSet.connect(
+                    R.id.ttDialogBox,
+                    ConstraintSet.BOTTOM,
+                    R.id.ttBottomArrow,
+                    ConstraintSet.TOP
+                )
             }
         }
 
-        constraintSet.applyTo(ttContainer)
+        constraintSet.applyTo(binding.ttContainer)
         arrow.visibility = View.VISIBLE
     }
 
-    private fun pointArrowLeftRightTo(arrow: ImageView, alignment: VerticalArrowAlignment) {
-        constraintSet.clone(ttContainer)
-        when (alignment) {
-            VerticalArrowAlignment.TOP -> {
-                constraintSet.setVerticalBias(R.id.ttLeftArrow, 0.25f)
-                constraintSet.setVerticalBias(R.id.ttRightArrow, 0.25f)
-            }
-            VerticalArrowAlignment.CENTER -> {
-                constraintSet.setVerticalBias(R.id.ttLeftArrow, 0.5f)
-                constraintSet.setVerticalBias(R.id.ttRightArrow, 0.5f)
-            }
-            VerticalArrowAlignment.BOTTOM -> {
-                constraintSet.setVerticalBias(R.id.ttLeftArrow, 0.75f)
-                constraintSet.setVerticalBias(R.id.ttRightArrow, 0.75f)
-            }
-        }
+    private fun pointArrowLeftRightTo(arrow: ImageView) {
+        constraintSet.clone(binding.ttContainer)
+        constraintSet.setVerticalBias(R.id.ttLeftArrow, builder.arrowPosition)
+        constraintSet.setVerticalBias(R.id.ttRightArrow, builder.arrowPosition)
 
         when (arrow) {
-            ttLeftArrow -> {
+            binding.ttLeftArrow -> {
                 constraintSet.clear(R.id.ttDialogBox, ConstraintSet.START)
-                constraintSet.connect(R.id.ttDialogBox, ConstraintSet.START, R.id.ttLeftArrow, ConstraintSet.END)
+                constraintSet.connect(
+                    R.id.ttDialogBox,
+                    ConstraintSet.START,
+                    R.id.ttLeftArrow,
+                    ConstraintSet.END
+                )
             }
-            ttRightArrow -> {
+            binding.ttRightArrow -> {
                 constraintSet.clear(R.id.ttDialogBox, ConstraintSet.END)
-                constraintSet.connect(R.id.ttDialogBox, ConstraintSet.END, R.id.ttRightArrow, ConstraintSet.START)
+                constraintSet.connect(
+                    R.id.ttDialogBox,
+                    ConstraintSet.END,
+                    R.id.ttRightArrow,
+                    ConstraintSet.START
+                )
             }
         }
 
-        constraintSet.applyTo(ttContainer)
+        constraintSet.applyTo(binding.ttContainer)
         arrow.visibility = View.VISIBLE
     }
 
-    fun content(content: String): LPTooltip {
-        ttContent.text = content
-        ttContent.visibility = View.VISIBLE
-        this.content = content
-        return this
+    private fun Context.displaySize(): Point {
+        return Point(
+            resources.displayMetrics.widthPixels,
+            resources.displayMetrics.heightPixels
+        )
     }
 
-    fun closeIcon(): LPTooltip {
-        ttClose.visibility = View.VISIBLE
-        return this
+    private fun dismiss() {
+        this.popupWindow.dismiss()
     }
 
-    private fun getScreenHeight(context: Context): Int {
-        val wm =
-            context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        val size = Point()
-        wm.defaultDisplay.getSize(size)
-        return size.y
+    private inline fun show(anchor: View, crossinline block: () -> Unit) {
+        anchor.post {
+            binding.ttClose.setOnClickListener {
+                this@LPTooltip.popupWindow.dismiss()
+            }
+            this.binding.ttContent.text = builder.text
+            this.binding.ttClose.isVisible = builder.isCloseIcon
+            this.binding.root.measure(
+                View.MeasureSpec.UNSPECIFIED,
+                View.MeasureSpec.UNSPECIFIED
+            )
+            this.popupWindow.width = getMeasuredWidth()
+            this.popupWindow.height = getMeasuredHeight()
+
+            block()
+        }
     }
 
-    private fun dpToPx(dp: Float): Int {
-        val scale = context.resources.displayMetrics.density
-        return (dp * scale + 0.5f).toInt()
+    fun showFromAbove(anchor: View, xOff: Int = 0, yOff: Int = 0) {
+        show(anchor) {
+            pointArrowUpDownTo(binding.ttBottomArrow)
+            popupWindow.showAsDropDown(
+                anchor,
+                ((anchor.measuredWidth / 2) - (getMeasuredWidth() / 2) + xOff),
+                -getMeasuredHeight() - anchor.measuredHeight + yOff
+            )
+        }
     }
 
-    private fun screenWidth(): Int {
-        val windowMetrics = WindowMetricsCalculator.getOrCreate().computeCurrentWindowMetrics(activity)
-        return windowMetrics.bounds.width()
+    fun showFromBelow(anchor: View, xOff: Int = 0, yOff: Int = 0) {
+        show(anchor) {
+            pointArrowUpDownTo(binding.ttTopArrow)
+            popupWindow.showAsDropDown(
+                anchor,
+                ((anchor.measuredWidth / 2) - (getMeasuredWidth() / 2) + xOff),
+                yOff
+            )
+        }
     }
 
-    enum class PositionVertical {
-        ABOVE, BELOW
+    fun showFromRight(anchor: View, xOff: Int = 0, yOff: Int = 0) {
+        show(anchor) {
+            binding.root.setPadding(0,0,0,0)
+            pointArrowLeftRightTo(binding.ttLeftArrow)
+            popupWindow.showAsDropDown(
+                anchor,
+                anchor.measuredWidth + xOff,
+                -(getMeasuredHeight() / 2) - (anchor.measuredHeight / 2) + yOff
+            )
+        }
     }
 
-    enum class PositionHorizontal {
-        LEFT, RIGHT
+    fun showFromLeft(anchor: View, xOff: Int = 0, yOff: Int = 0) {
+        show(anchor) {
+            binding.root.setPadding(0,0,0,0)
+            pointArrowLeftRightTo(binding.ttRightArrow)
+            popupWindow.showAsDropDown(
+                anchor,
+                -(getMeasuredWidth()) + xOff,
+                -(getMeasuredHeight() / 2) - (anchor.measuredHeight / 2) + yOff
+            )
+        }
     }
 
-    enum class HorizontalArrowAlignment {
-        LEFT, CENTER_LEFT, CENTER, CENTER_RIGHT, RIGHT
+    fun getMeasuredWidth(): Int {
+        val displayWidth = context.displaySize().x
+        return builder.width.coerceAtMost(displayWidth)
     }
 
-    enum class VerticalArrowAlignment {
-        TOP, CENTER, BOTTOM
+    fun getMeasuredHeight(): Int {
+        return builder.height
+    }
+
+    @LPTooltipInlineDsl
+    class Builder(private val context: Context) {
+
+        @JvmField
+        @Px
+        @set:JvmSynthetic
+        var width: Int = Int.MIN_VALUE
+
+        @JvmField
+        @Px
+        @set:JvmSynthetic
+        var height: Int = Int.MIN_VALUE
+
+        @JvmField
+        @FloatRange(from = 0.0, to = 1.0)
+        @set:JvmSynthetic
+        var arrowPosition: Float = 0.5f
+
+        @JvmField
+        @set:JvmSynthetic
+        var text: CharSequence = ""
+
+        @JvmField
+        @set:JvmSynthetic
+        var isCloseIcon: Boolean = false
+
+        @JvmField
+        @set:JvmSynthetic
+        var onDismissListener: (() -> Unit)? = null
+
+        fun build(): LPTooltip = LPTooltip(
+            context = context,
+            builder = this
+        )
+
+        fun setText(value: CharSequence): Builder = apply { this.text = value }
+
+        fun setCloseIcon(value: Boolean): Builder = apply { this.isCloseIcon = value }
+
+        /**
+         * Set width and height value is necessary due to LPTooltip position and size
+         * If the position of tooltip is not accurate try to resize either width or height
+         * Same case to size of tooltip, just resize either width or height
+         */
+        fun setWidth(value: Int): Builder = apply {
+            require(
+                value > 0 || value == Int.MIN_VALUE
+            )
+            this.width = value.dp
+        }
+
+        fun setHeight(value: Int): Builder = apply {
+            require(
+                value > 0 || value == Int.MIN_VALUE
+            )
+            this.height = value.dp
+        }
+
+        fun setArrowPosition(@FloatRange(from = 0.0, to = 1.0) value: Float): Builder = apply {
+            this.arrowPosition = value
+        }
+
+        fun setOnDismissListener(listener: (() -> Unit)) {
+            this.onDismissListener = listener
+        }
+
     }
 
 }
+
+@DslMarker
+internal annotation class LPTooltipInlineDsl
+
+@MainThread
+@JvmSynthetic
+@LPTooltipInlineDsl
+inline fun createLPTooltip(
+    context: Context,
+    crossinline block: LPTooltip.Builder.() -> Unit
+): LPTooltip = LPTooltip.Builder(context).apply(block).build()
