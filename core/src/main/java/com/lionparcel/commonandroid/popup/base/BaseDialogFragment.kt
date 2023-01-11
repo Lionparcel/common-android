@@ -15,7 +15,7 @@ import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseDialogFragment : DialogFragment() {
 
-    private val compositeDisposable = CompositeDisposable()
+    protected open val compositeDisposable = CompositeDisposable()
 
     override fun onCreateView(
         inflater: LayoutInflater,
