@@ -15,7 +15,6 @@ class LPTag : LinearLayout {
 
     private var titleText: String
     private var iconStart: Boolean
-    private var clicked : Int = 0
 
     private val llTagParent: LinearLayout
     private val ivSingleTag: ImageView
@@ -77,17 +76,15 @@ class LPTag : LinearLayout {
         ivSingleTag.isVisible = visible
     }
 
-    fun changeViewOnCLick() {
-        clicked += 1
-        if (clicked > 1 ) clicked = 0
-        when (clicked) {
-            0 -> {
-                llTagParent.isSelected = false
+    fun tagStatus(status: Boolean){
+        when (status) {
+            false -> {
+                this.isSelected = false
                 setImageColor(R.color.shades3)
                 setTextColor(R.color.shades5)
             }
-            1 -> {
-                llTagParent.isSelected = true
+            true -> {
+                this.isSelected = true
                 setImageColor(R.color.blue4)
                 setTextColor(R.color.blue3)
             }
