@@ -7,6 +7,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isVisible
+import androidx.fragment.app.FragmentManager
 import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.popup.base.BaseDialogFragment
 
@@ -57,6 +58,7 @@ class LPPopupDialogFragment : BaseDialogFragment() {
     private var dismissAfterClickButtonSecondary: Boolean = true
     private var cancelableTouchOutSide: Boolean = true
     private var callbackOnDismiss: (() -> Unit)? = null
+    private var shown: Boolean = false
 
     override fun getContentResource(): Int = R.layout.lp_custom_popup_dialog_fragment
 
@@ -66,8 +68,16 @@ class LPPopupDialogFragment : BaseDialogFragment() {
         prepareView()
     }
 
+    override fun show(manager: FragmentManager, tag: String?) {
+        if (shown || manager.isStateSaved) return
+        super.show(manager, tag)
+        shown = true
+    }
+
     override fun onDismiss(dialog: DialogInterface) {
+        if (!shown) return
         super.onDismiss(dialog)
+        shown = false
         callbackOnDismiss?.invoke()
     }
 
