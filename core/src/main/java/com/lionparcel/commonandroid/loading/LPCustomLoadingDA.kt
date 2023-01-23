@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Gravity
 import android.view.KeyEvent
+import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.DrawableRes
 import androidx.annotation.FloatRange
@@ -25,17 +26,46 @@ class LPCustomLoadingDA : BaseDialogFragment() {
 
     companion object {
 
+        const val BACKGROUND_TRANSPARENT = 0f
+        const val BACKGROUND_DEFAULT_ALPHA = 0.5f
+
+        /**
+         * Call when you need loading with only progressBar and title/content below progressBar
+         */
+        fun newInstance(
+            @DrawableRes loadingDrawable: Int = R.drawable.custom_progressbar,
+            content: String? = null,
+            backCancelDisable: Boolean = true,
+            cancelAbleTouchOutside: Boolean = false,
+            @FloatRange(from = 0.0, to = 1.0) backgroundTransparency: Float = BACKGROUND_DEFAULT_ALPHA
+        ) = LPCustomLoadingDA().apply {
+            this.loadingDrawable = loadingDrawable
+            this.content = content
+            this.backCancelDisable = backCancelDisable
+            this.cancelAbleTouchOutside = cancelAbleTouchOutside
+            this.backgroundTransparency = backgroundTransparency
+        }
+
+
+        /**
+         * Call when you need loading with progressBar, illustration and title above progressBar
+         */
         fun newInstance(
             @DrawableRes loadingDrawable: Int = R.drawable.custom_progressbar,
             title: String? = null,
+            @DrawableRes illustrationImage: Int? = null,
             backCancelDisable: Boolean = true,
-            @FloatRange(from = 0.0, to = 1.0) backgroundTransparency: Float = 0.5F
+            cancelAbleTouchOutside: Boolean = false,
+            @FloatRange(from = 0.0, to = 1.0) backgroundTransparency: Float = BACKGROUND_DEFAULT_ALPHA
         ) = LPCustomLoadingDA().apply {
             this.loadingDrawable = loadingDrawable
-            this.title = title
+            this.headerTitle = title
+            this.illustration = illustrationImage
             this.backCancelDisable = backCancelDisable
+            this.cancelAbleTouchOutside = cancelAbleTouchOutside
             this.backgroundTransparency = backgroundTransparency
         }
+
 
         fun dismiss() = LPCustomLoadingDA().apply {
             this.dismissLoading()
@@ -43,8 +73,11 @@ class LPCustomLoadingDA : BaseDialogFragment() {
     }
 
     private var loadingDrawable: Int = R.drawable.custom_progressbar
-    private var title: String? = null
+    private var content: String? = null
+    private var headerTitle: String? = null
+    private var illustration: Int? = null
     private var backCancelDisable: Boolean = true
+    private var cancelAbleTouchOutside: Boolean = false
     private var progressSuccess: Boolean = false
     private var onDismissListener: DialogInterface.OnDismissListener? = null
     private var loadSuccessCallBack: (() -> Unit)? = null
@@ -67,7 +100,7 @@ class LPCustomLoadingDA : BaseDialogFragment() {
         val dialog = super.onCreateDialog(savedInstanceState)
         val window = dialog.window
 
-        dialog.setCanceledOnTouchOutside(false)
+        dialog.setCanceledOnTouchOutside(cancelAbleTouchOutside)
         dialog.setOnKeyListener { _, i, _ -> i == KeyEvent.KEYCODE_BACK && this.backCancelDisable }
 
         window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
@@ -94,8 +127,19 @@ class LPCustomLoadingDA : BaseDialogFragment() {
     private fun prepareView() {
 
         pb_loading_da.indeterminateDrawable = ResourcesCompat.getDrawable(resources, this.loadingDrawable, null)
-        txt_loading_da_title?.isVisible = this.title != null
-        txt_loading_da_title?.text = this.title
+        txt_loading_da_title?.isVisible = this.content != null
+        if (this.content != null) {
+            txt_loading_da_title?.text = this.content
+            txt_loading_da_title?.visibility = View.VISIBLE
+        }
+        if (this.headerTitle != null) {
+            txt_loading_da_heading_title?.text = this.headerTitle
+            txt_loading_da_heading_title?.visibility = View.VISIBLE
+        }
+        if (this.illustration != null) {
+            iv_loading_da_illustration?.setImageResource(this.illustration!!)
+            iv_loading_da_illustration?.visibility = View.VISIBLE
+        }
 
     }
 

@@ -1,14 +1,12 @@
 package com.lionparcel.commonandroidsample.loading
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import com.lionparcel.commonandroid.loading.LPCustomLoadingDA
+import androidx.appcompat.app.AppCompatActivity
 import com.lionparcel.commonandroid.loading.LPFullScreenSpinner
 import com.lionparcel.commonandroid.loading.LPSpinnerLoadingPage
-import com.lionparcel.commonandroid.popup.showCustomPopup
 import com.lionparcel.commonandroidsample.R
 
 class LoadingComponentSampleActivity : AppCompatActivity() {
@@ -33,11 +31,7 @@ class LoadingComponentSampleActivity : AppCompatActivity() {
             }
         }
         findViewById<Button>(R.id.btnLoading6).setOnClickListener {
-            showCustomPopup(
-                supportFragmentManager,
-                "Loading Fragment",
-                LPCustomLoadingDA.newInstance(title = "Loading")
-            )
+            startActivity(Intent(this, LoadingCustomDASampleActivity::class.java))
         }
     }
 
