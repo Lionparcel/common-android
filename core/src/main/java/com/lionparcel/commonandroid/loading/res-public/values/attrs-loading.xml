@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomRefreshSpinner">
+        <attr name="drawAbleType" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="LPSpinnerLoadingPage">
+        <attr name="loadingTitle" format="string"/>
+    </declare-styleable>
+</resources>

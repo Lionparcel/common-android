@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewTreeObserver
 import androidx.fragment.app.DialogFragment
 import com.lionparcel.commonandroid.R
+import com.lionparcel.commonandroid.walkthrough.utils.toDp
 import java.lang.ref.WeakReference
 
 class WalkThroughBuilder(activity: Activity) {
@@ -30,9 +31,11 @@ class WalkThroughBuilder(activity: Activity) {
     internal var walkThroughSequenceIndex: Int = 1
     internal var walkThroughSequenceTotal: Int = 1
     internal var skipListener: WalkThroughSkipListener? = null
+    internal var finishListener: WalkThroughFinishListener? = null
     internal var beatingAnimation: Boolean = true
     internal var dim: Boolean = true
     internal var autoNext: Boolean = false
+    internal var customRoundedCorner: Int = 4.toDp()
 
     private var onGlobalLayoutListenerTargetView: ViewTreeObserver.OnGlobalLayoutListener? = null
 
@@ -51,6 +54,11 @@ class WalkThroughBuilder(activity: Activity) {
 
     fun autoNext(autoNext: Boolean): WalkThroughBuilder {
         this.autoNext = autoNext
+        return this
+    }
+
+    fun customRoundedCorner(customRoundedCorner: Int): WalkThroughBuilder {
+        this.customRoundedCorner = customRoundedCorner
         return this
     }
 
@@ -95,6 +103,11 @@ class WalkThroughBuilder(activity: Activity) {
 
     fun skipListener(skipListener: WalkThroughSkipListener?): WalkThroughBuilder {
         this.skipListener = skipListener
+        return this
+    }
+
+    fun finishListener(finishListener: WalkThroughFinishListener?): WalkThroughBuilder {
+        this.finishListener = finishListener
         return this
     }
 

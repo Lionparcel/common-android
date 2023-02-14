@@ -22,4 +22,28 @@
         <attr name="supportedTextEnabled" format="boolean"/>
         <attr name="errorTextEnabled" format="boolean"/>
     </declare-styleable>
+    <declare-styleable name="LPAutoCompleteForm">
+        <attr name="android:hint"/>
+        <attr name="enabledEditText" format="boolean"/>
+        <attr name="errorEnabled" format="boolean"/>
+        <attr name="errorText" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="LPAttachFile">
+        <attr name="textLabel"/>
+        <attr name="supportedTextLeft" format="string"/>
+        <attr name="supportedTextRight" format="string"/>
+        <attr name="errorTextRight" format="string"/>
+        <attr name="errorTextLeft" format="string"/>
+        <attr name="textPhotoAction" format="enum">
+            <enum name="ubah" value="0"/>
+            <enum name="hapus" value="1"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="LPBulkAttachFile">
+        <attr name="textLabel"/>
+        <attr name="enabledView"/>
+        <attr name="errorEnabled"/>
+        <attr name="errorText"/>
+        <attr name="maxPhoto" format="integer"/>
+    </declare-styleable>
 </resources>

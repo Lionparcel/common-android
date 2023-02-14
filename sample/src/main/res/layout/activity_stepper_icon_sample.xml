@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/dp_16"
+    tools:context=".stepper.StepperIconSampleActivity">
+
+    <com.lionparcel.commonandroid.stepper.LPStepperIcon
+        android:id="@+id/lp_stepper_icon_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.lionparcel.commonandroid.stepper.LPStepperIcon
+        android:id="@+id/lp_stepper_icon_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        app:firstTitle="Paket Rusak"
+        app:secondTitle="Paket Diperbaiki"
+        app:thirdTitle="Paket Dibungkus"
+        app:fourthTitle="Paket Dikirim"/>
+
+    <com.lionparcel.commonandroid.stepper.LPStepperIcon
+        android:id="@+id/lp_stepper_icon_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        app:stepperText="without_text"/>
+
+</LinearLayout>

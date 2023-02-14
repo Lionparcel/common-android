@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/llParentBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_shadow_banner"
+        android:padding="@dimen/spacing_m"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgStartBanner"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                app:srcCompat="@drawable/ics_f_warning_triangles"
+                android:layout_marginEnd="@dimen/spacing_s"
+                android:visibility="visible"
+                android:contentDescription="@string/general_image_content_description"/>
+
+            <TextView
+                android:id="@+id/txtMessageBanner"
+                style="@style/Body3Regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/shades5"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/sp_14"
+                android:layout_weight="1"
+                android:includeFontPadding="false"
+                android:layout_gravity="center_vertical"
+                android:text="@string/general_short_message"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_m"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/txtActionBannerLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:textSize="@dimen/sp_14"
+                android:includeFontPadding="false"
+                android:textColor="@color/interpack6"
+                android:visibility="visible"
+                tools:text="Secondary"/>
+
+            <TextView
+                android:id="@+id/txtActionBannerRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:textSize="@dimen/sp_14"
+                android:includeFontPadding="false"
+                android:layout_marginStart="@dimen/spacing_l"
+                android:textColor="@color/interpack6"
+                android:visibility="visible"
+                tools:text="Primary"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

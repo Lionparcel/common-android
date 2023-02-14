@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tooltip.TooltipComponentSampleActivity">
+
+    <Button
+        android:id="@+id/btnTooltipTopLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="top left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/btnTooltipTopCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="center top"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/btnTooltipTopRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="right top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/btnTooltipCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/btnTooltipBottomLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="bottom left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/btnTooltipBottomCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="center bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/btnTooltipBottomRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="right bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/btnTooltipTopCenterLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="top center left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnTooltipTopLeft"
+        app:layout_constraintBottom_toTopOf="@id/btnTooltipCenter"/>
+
+    <ImageView
+        android:id="@+id/ivInfoTooltip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ics_f_info_circle_interpack6"
+        app:layout_constraintTop_toTopOf="@id/btnTooltipTopCenterRight"
+        app:layout_constraintBottom_toBottomOf="@id/btnTooltipTopCenterRight"
+        app:layout_constraintStart_toEndOf="@id/btnTooltipTopCenterLeft"
+        app:layout_constraintEnd_toStartOf="@id/btnTooltipTopCenterRight"/>
+
+    <Button
+        android:id="@+id/btnTooltipTopCenterRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="top center right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnTooltipTopLeft"
+        app:layout_constraintBottom_toTopOf="@id/btnTooltipCenter"/>
+
+    <Button
+        android:id="@+id/btnTooltipCenterLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="center left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/btnTooltipCenterRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="center right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/btnTooltipBottomCenterLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="bottom center left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnTooltipCenterLeft"
+        app:layout_constraintBottom_toTopOf="@id/btnTooltipBottomLeft"/>
+
+    <ImageView
+        android:id="@+id/ivInfoTooltip2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ics_f_info_circle_interpack6"
+        app:layout_constraintTop_toTopOf="@id/btnTooltipBottomCenterLeft"
+        app:layout_constraintBottom_toBottomOf="@id/btnTooltipBottomCenterLeft"
+        app:layout_constraintStart_toEndOf="@id/btnTooltipTopCenterLeft"
+        app:layout_constraintEnd_toStartOf="@id/btnTooltipTopCenterRight"/>
+
+    <Button
+        android:id="@+id/btnTooltipBottomCenterRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LPRoundedRedMediumButtonStyle"
+        android:text="bottom center right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnTooltipCenterRight"
+        app:layout_constraintBottom_toTopOf="@id/btnTooltipBottomRight"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

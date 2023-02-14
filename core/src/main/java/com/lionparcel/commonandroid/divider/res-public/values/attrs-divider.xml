@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LPDivider">
+        <attr name="dividerStyle" format="enum">
+            <enum name="line" value="0"/>
+            <enum name="bloc_line" value="1"/>
+            <enum name="subtitle_text" value="2"/>
+            <enum name="label_text" value="3"/>
+            <enum name="center_text" value="4"/>
+        </attr>
+        <attr name="dividerText" format="string"/>
+    </declare-styleable>
+</resources>

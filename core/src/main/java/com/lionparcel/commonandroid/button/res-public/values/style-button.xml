@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="LPButtonTheme">
+        <item name="LPButtonStyle">@style/LPDefaultThemeButton</item>
+    </style>
+
+<!--    Default Theme Button-->
+    <style name="LPDefaultThemeButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">@dimen/sp_15</item>
+        <item name="android:paddingLeft">@dimen/dp_16</item>
+        <item name="android:paddingRight">@dimen/dp_16</item>
+        <item name="android:background">@drawable/bg_button_interpack6_rounded_2</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textColor">@color/selector_button_text_white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="drawableTint">@color/selector_button_text_white</item>
+        <item name="android:drawablePadding">@dimen/dp_4</item>
+    </style>
+
+
+<!--    Base Solid Red Button style-->
+    <style name="LPSolidRedButtonStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">@dimen/sp_15</item>
+        <item name="android:paddingLeft">@dimen/dp_16</item>
+        <item name="android:paddingRight">@dimen/dp_16</item>
+        <item name="android:background">@drawable/bg_button_interpack6_solid</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/selector_button_text_white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="drawableTint">@color/selector_button_text_white</item>
+        <item name="android:drawablePadding">@dimen/dp_4</item>
+    </style>
+    <!--large-->
+    <style name="LPSolidRedLargeButtonStyle" parent="LPSolidRedButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_45</item>
+        <item name="android:minWidth">@dimen/dp_120</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <!--medium-->
+    <style name="LPSolidRedMediumButtonStyle" parent="LPSolidRedButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_34</item>
+        <item name="android:minWidth">@dimen/dp_100</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+    <!--small-->
+    <style name="LPSolidRedSmallButtonStyle" parent="LPSolidRedButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_26</item>
+        <item name="android:minWidth">@dimen/dp_80</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+
+<!--Base Rounded Red Button style-->
+    <style name="LPRoundedRedButtonStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">@dimen/sp_15</item>
+        <item name="android:paddingLeft">@dimen/dp_16</item>
+        <item name="android:paddingRight">@dimen/dp_16</item>
+        <item name="android:background">@drawable/bg_button_interpack6_rounded_2</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/selector_button_text_white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="drawableTint">@color/selector_button_text_white</item>
+        <item name="android:drawablePadding">@dimen/dp_4</item>
+    </style>
+    <!--large-->
+    <style name="LPRoundedRedLargeButtonStyle" parent="LPRoundedRedButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_45</item>
+        <item name="android:minWidth">@dimen/dp_120</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <!--medium-->
+    <style name="LPRoundedRedMediumButtonStyle" parent="LPRoundedRedButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_34</item>
+        <item name="android:minWidth">@dimen/dp_100</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+    <!--small-->
+    <style name="LPRoundedRedSmallButtonStyle" parent="LPRoundedRedButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_26</item>
+        <item name="android:minWidth">@dimen/dp_80</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+
+<!--    Base Rounded White Button Inverted-->
+    <style name="LPRoundedWhiteButtonStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">@dimen/sp_15</item>
+        <item name="android:paddingLeft">@dimen/dp_16</item>
+        <item name="android:paddingRight">@dimen/dp_16</item>
+        <item name="android:background">@drawable/bg_button_white_rounded</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/selector_button_text_interpack6</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="drawableTint">@color/selector_button_text_interpack6</item>
+        <item name="android:drawablePadding">@dimen/dp_4</item>
+    </style>
+    <!--large-->
+    <style name="LPRoundedWhiteLargeButtonStyle" parent="LPRoundedWhiteButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_45</item>
+        <item name="android:minWidth">@dimen/dp_120</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <!--medium-->
+    <style name="LPRoundedWhiteMediumButtonStyle" parent="LPRoundedWhiteButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_34</item>
+        <item name="android:minWidth">@dimen/dp_100</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+    <!--small-->
+    <style name="LPRoundedWhiteSmallButtonStyle" parent="LPRoundedWhiteButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_26</item>
+        <item name="android:minWidth">@dimen/dp_80</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+
+<!--    Base Solid Red Border Button style-->
+    <style name="LPSolidRedBorderButtonStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/bg_button_interpack6_solid_outline_1</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:textColor">@color/selector_button_text_interpack6</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="drawableTint">@color/selector_button_text_interpack6</item>
+        <item name="android:drawablePadding">@dimen/dp_4</item>
+    </style>
+    <!--    large-->
+    <style name="LPSolidRedBorderLargeButtonStyle" parent="LPSolidRedBorderButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_45</item>
+        <item name="android:minWidth">@dimen/dp_120</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <!--    Medium-->
+    <style name="LPSolidRedBorderMediumButtonStyle" parent="LPSolidRedBorderButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_34</item>
+        <item name="android:minWidth">@dimen/dp_100</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+    <!--    Small-->
+    <style name="LPSolidRedBorderSmallButtonStyle" parent="LPSolidRedBorderButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_26</item>
+        <item name="android:minWidth">@dimen/dp_80</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+
+<!--    Base Rounded Red Border Button style-->
+    <style name="LPRoundedRedBorderButtonStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/bg_button_interpack6_rounded_outlined</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:textColor">@color/selector_button_text_interpack6</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="drawableTint">@color/selector_button_text_interpack6</item>
+        <item name="android:drawablePadding">@dimen/dp_4</item>
+    </style>
+    <!--    large-->
+    <style name="LPRoundedRedBorderLargeButtonStyle" parent="LPRoundedRedBorderButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_45</item>
+        <item name="android:minWidth">@dimen/dp_120</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <!--    Medium-->
+    <style name="LPRoundedRedBorderMediumButtonStyle" parent="LPRoundedRedBorderButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_34</item>
+        <item name="android:minWidth">@dimen/dp_100</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+    <!--    Small-->
+    <style name="LPRoundedRedBorderSmallButtonStyle" parent="LPRoundedRedBorderButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_26</item>
+        <item name="android:minWidth">@dimen/dp_80</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+<!--    Base Rounded White border inverted Button Style-->
+    <style name="LPRoundedWhiteBorderButtonStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/bg_button_white_rounded_outline</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:textColor">@color/selector_button_text_white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="drawableTint">@color/selector_button_text_white</item>
+        <item name="android:drawablePadding">@dimen/dp_4</item>
+    </style>
+    <!--    large-->
+    <style name="LPRoundedWhiteBorderLargeButtonStyle" parent="LPRoundedWhiteBorderButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_45</item>
+        <item name="android:minWidth">@dimen/dp_120</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <!--    Medium-->
+    <style name="LPRoundedWhiteBorderMediumButtonStyle" parent="LPRoundedWhiteBorderButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_34</item>
+        <item name="android:minWidth">@dimen/dp_100</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+    <!--    Small-->
+    <style name="LPRoundedWhiteBorderSmallButtonStyle" parent="LPRoundedWhiteBorderButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_26</item>
+        <item name="android:minWidth">@dimen/dp_80</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+
+<!--Base Red Button Square style-->
+    <style name="LPBaseRedButtonSquareStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">@dimen/sp_15</item>
+        <item name="android:paddingLeft">@dimen/dp_14</item>
+        <item name="android:paddingRight">@dimen/dp_12</item>
+        <item name="android:paddingTop">@dimen/dp_10</item>
+        <item name="android:paddingBottom">@dimen/dp_10</item>
+        <item name="android:background">@drawable/bg_button_square_interpack6</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/selector_button_text_white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="drawableTint">@color/selector_button_text_white</item>
+    </style>
+    <!--    large-->
+    <style name="LPRedLargeButtonSquareStyle" parent="LPBaseRedButtonSquareStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_94</item>
+        <item name="android:minWidth">@dimen/dp_98</item>>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <!--    Medium-->
+    <style name="LPRedMediumButtonSquareStyle" parent="LPBaseRedButtonSquareStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_84</item>
+        <item name="android:minWidth">@dimen/dp_86</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+    <!--    Small-->
+    <style name="LPRedSmallButtonSquareStyle" parent="LPBaseRedButtonSquareStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_74</item>
+        <item name="android:minWidth">@dimen/dp_76</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+
+<!--    Base White inverted Button Square Style-->
+    <style name="LPBaseWhiteButtonSquareStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">@dimen/sp_15</item>
+        <item name="android:paddingLeft">@dimen/dp_14</item>
+        <item name="android:paddingRight">@dimen/dp_12</item>
+        <item name="android:paddingTop">@dimen/dp_10</item>
+        <item name="android:paddingBottom">@dimen/dp_10</item>
+        <item name="android:background">@drawable/bg_button_square_white</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/selector_button_text_interpack6</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="drawableTint">@color/selector_button_text_interpack6</item>
+    </style>
+    <!--    large-->
+    <style name="LPWhiteLargeButtonSquareStyle" parent="LPBaseWhiteButtonSquareStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_94</item>
+        <item name="android:minWidth">@dimen/dp_98</item>>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <!--    Medium-->
+    <style name="LPWhiteMediumButtonSquareStyle" parent="LPBaseWhiteButtonSquareStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_84</item>
+        <item name="android:minWidth">@dimen/dp_86</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+    <!--    Small-->
+    <style name="LPWhiteSmallButtonSquareStyle" parent="LPBaseWhiteButtonSquareStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_74</item>
+        <item name="android:minWidth">@dimen/dp_76</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+
+<!--    Base Red Button Square Bordered style-->
+    <style name="LPBaseRedBorderButtonSquareStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">@dimen/sp_15</item>
+        <item name="android:paddingLeft">@dimen/dp_14</item>
+        <item name="android:paddingRight">@dimen/dp_12</item>
+        <item name="android:paddingTop">@dimen/dp_10</item>
+        <item name="android:paddingBottom">@dimen/dp_10</item>
+        <item name="android:background">@drawable/bg_button_square_interpack6_outlined</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/selector_button_text_interpack6</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="drawableTint">@color/selector_button_text_interpack6</item>
+    </style>
+    <!--    large-->
+    <style name="LPRedBorderLargeButtonSquareStyle" parent="LPBaseRedBorderButtonSquareStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_94</item>
+        <item name="android:minWidth">@dimen/dp_98</item>>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <!--    Medium-->
+    <style name="LPRedBorderMediumButtonSquareStyle" parent="LPBaseRedBorderButtonSquareStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_84</item>
+        <item name="android:minWidth">@dimen/dp_86</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+    <!--    Small-->
+    <style name="LPRedBorderSmallButtonSquareStyle" parent="LPBaseRedBorderButtonSquareStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_74</item>
+        <item name="android:minWidth">@dimen/dp_76</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+<!--    Base White inverted Button Square Bordered style-->
+    <style name="LPBaseWhiteBorderButtonSquareStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">@dimen/sp_15</item>
+        <item name="android:paddingLeft">@dimen/dp_14</item>
+        <item name="android:paddingRight">@dimen/dp_12</item>
+        <item name="android:paddingTop">@dimen/dp_10</item>
+        <item name="android:paddingBottom">@dimen/dp_10</item>
+        <item name="android:background">@drawable/bg_button_square_white_outline</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/selector_button_text_white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="drawableTint">@color/selector_button_text_white</item>
+    </style>
+    <!--    large-->
+    <style name="LPWhiteBorderLargeButtonSquareStyle" parent="LPBaseWhiteBorderButtonSquareStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_94</item>
+        <item name="android:minWidth">@dimen/dp_98</item>>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <!--    Medium-->
+    <style name="LPWhiteBorderMediumButtonSquareStyle" parent="LPBaseWhiteBorderButtonSquareStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_84</item>
+        <item name="android:minWidth">@dimen/dp_86</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+    <!--    Small-->
+    <style name="LPWhiteBorderSmallButtonSquareStyle" parent="LPBaseWhiteBorderButtonSquareStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_74</item>
+        <item name="android:minWidth">@dimen/dp_76</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+
+<!--Base Red Text Button Style-->
+    <style name="LPBaseRedTextButtonStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/selector_button_text_interpack6</item>
+        <item name="drawableTint">@color/selector_button_text_interpack6</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <!--    large-->
+    <style name="LPRedLargeTextButtonStyle" parent="LPBaseRedTextButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_45</item>
+        <item name="android:minWidth">@dimen/dp_120</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <!--    Medium-->
+    <style name="LPRedMediumTextButtonStyle" parent="LPBaseRedTextButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_34</item>
+        <item name="android:minWidth">@dimen/dp_100</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+    <!--    Small-->
+    <style name="LPRedSmallTextButtonStyle" parent="LPBaseRedTextButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_26</item>
+        <item name="android:minWidth">@dimen/dp_80</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+<!--    Base White Text Button Style-->
+    <style name="LPBaseWhiteTextButtonStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/selector_button_text_white</item>
+        <item name="drawableTint">@color/selector_button_text_white</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <!--    large-->
+    <style name="LPWhiteLargeTextButtonStyle" parent="LPBaseWhiteTextButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_45</item>
+        <item name="android:minWidth">@dimen/dp_120</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <!--    Medium-->
+    <style name="LPWhiteMediumTextButtonStyle" parent="LPBaseWhiteTextButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_34</item>
+        <item name="android:minWidth">@dimen/dp_100</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+    <!--    Small-->
+    <style name="LPWhiteSmallTextButtonStyle" parent="LPBaseWhiteTextButtonStyle">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:minHeight">@dimen/dp_26</item>
+        <item name="android:minWidth">@dimen/dp_80</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+</resources>

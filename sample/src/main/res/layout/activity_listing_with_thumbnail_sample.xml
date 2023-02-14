@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".listing.ListingWithThumbnailSampleActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_8">
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:listStyle="with_thumbnail"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_3_rb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:setIconStart="radio_button"
+            app:listStyle="with_thumbnail"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_3_cb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:setIconStart="check_box"
+            app:listStyle="with_thumbnail"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_3_remove"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:setIconStart="remove_button"
+            app:listStyle="with_thumbnail"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_3_ic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:setIconStart="icon"
+            app:listStyle="with_thumbnail"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_3_sw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:setIconEnd="toggle_button"
+            app:listStyle="with_thumbnail"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_3_re"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:setIconEnd="remove_button"
+            app:listStyle="with_thumbnail"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_3_ice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:setIconEnd="icon"
+            app:listStyle="with_thumbnail"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_3_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:setIconEnd="button"
+            app:buttonText="Kirim"
+            app:listStyle="with_thumbnail"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_3_icse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:setIconStart="icon"
+            app:setIconEnd="icon"
+            app:listStyle="with_thumbnail"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_3_div"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:setIconStart="icon"
+            app:setIconEnd="icon"
+            app:addListDivider="true"
+            app:listStyle="with_thumbnail"/>
+
+        <com.lionparcel.commonandroid.listing.LPListing
+            android:id="@+id/listing_3_sw1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:setIconEnd="toggle_button"
+            app:addListDivider="true"
+            app:listStyle="with_thumbnail"/>
+
+    </LinearLayout>
+
+</ScrollView>

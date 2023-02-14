@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/rLAccordionParent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/vwLineTop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/pensive4"
+        android:layout_alignParentTop="true"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clAccordionText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        tools:paddingVertical="@dimen/spacing_m"
+        tools:paddingHorizontal="@dimen/spacing_m">
+
+        <TextView
+            android:id="@+id/tvAccordion"
+            android:layout_width="@dimen/spacing_none"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:textColor="@color/shades5"
+            android:layout_marginEnd="@dimen/spacing_s"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivAccordion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Accordion Heading Here"
+            tools:textSize="@dimen/sp_16" />
+
+        <ImageView
+            android:id="@+id/ivAccordion"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:contentDescription="@string/general_image_content_description"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:src="@drawable/ics_o_chevron_down"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/vwLineBottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/pensive4"
+        android:layout_alignBottom="@id/clAccordionText" />
+
+    <View
+        android:id="@+id/vwDivider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/transparent"
+        android:layout_alignBottom="@id/clAccordionText" />
+
+    <LinearLayout
+        android:id="@+id/clAccordionContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/spacing_m"
+        android:layout_alignTop="@id/vwDivider"
+        android:orientation="vertical"
+        android:visibility="visible"
+        tools:paddingHorizontal="@dimen/spacing_m">
+
+        <TextView
+            android:id="@+id/tvAccordionContentTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:textColor="@color/shades5"
+            tools:text="@string/general_message"
+            tools:textSize="@dimen/sp_14" />
+
+
+        <View
+            android:id="@+id/vwAccordionContentDivider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_s"
+            android:background="@color/transparent"/>
+
+        <TextView
+            android:id="@+id/tvAccordionContentText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:textColor="@color/shades5"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. A, vel sit interdum in aliquet nisi. Molestie massa egestas cum vehicula felis gravida. Id hendrerit quis ornare venenatis congue habitant placerat facilisi pulvinar. Donec molestie egestas ac magna."
+            tools:textSize="@dimen/sp_12" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/vwLineContentBottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/pensive4"
+        android:visibility="gone"
+        android:layout_alignBottom="@id/clAccordionContent" />
+
+</RelativeLayout>

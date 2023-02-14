@@ -10,39 +10,28 @@
         android:id="@+id/relativeLayout"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
-        android:alpha="0.4"
-        android:background="@color/shades5" />
+        android:alpha="0.85"
+        android:background="@color/white" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvSpinnerFull"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_100"
         android:layout_centerInParent="true"
-        app:cardCornerRadius="@dimen/dp_8"
-        tools:ignore="UselessParent">
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animationView"
-            android:layout_width="@dimen/dp_100"
-            android:layout_height="@dimen/dp_100"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_fileName="loading-spinner.json"/>
-
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="loading-mix-color.json"
+        app:lottie_loop="true" />
 
     <TextView
+        android:id="@+id/text_loading_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/animationView"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/cvSpinnerFull"
         android:layout_marginTop="3dp"
-        android:textColor="@color/black70"
-        android:text="Please wait"/>
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/shades5"
+        android:textSize="@dimen/sp_12"
+        tools:text="Please wait" />
 
 </RelativeLayout>

@@ -1,10 +1,12 @@
 package com.lionparcel.commonandroidsample.loading
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import com.lionparcel.commonandroid.loading.LPFullScreenSpinner
+import com.lionparcel.commonandroid.loading.LPSpinnerLoadingPage
 import com.lionparcel.commonandroidsample.R
 
 class LoadingComponentSampleActivity : AppCompatActivity() {
@@ -21,7 +23,15 @@ class LoadingComponentSampleActivity : AppCompatActivity() {
             startActivity(Intent(this, LoadingShimmerSampleActivity::class.java).putExtra("TYPE", 2))
         }
         findViewById<Button>(R.id.btnLoading4).setOnClickListener {
-            LPFullScreenSpinner.createSpinner(this).show()
+            LPFullScreenSpinner.newInstance(this).show()
+        }
+        findViewById<Button>(R.id.btnLoading5).setOnClickListener {
+            findViewById<LPSpinnerLoadingPage>(R.id.loadingSpinner).apply {
+                visibility = View.VISIBLE
+            }
+        }
+        findViewById<Button>(R.id.btnLoading6).setOnClickListener {
+            startActivity(Intent(this, LoadingCustomDASampleActivity::class.java))
         }
     }
 

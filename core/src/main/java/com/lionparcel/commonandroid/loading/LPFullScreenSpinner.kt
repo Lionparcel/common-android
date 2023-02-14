@@ -4,12 +4,11 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.PixelFormat
-import android.graphics.drawable.AnimationDrawable
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.ViewGroup
 import android.view.Window
-import android.widget.ImageView
+import android.widget.TextView
 import com.lionparcel.commonandroid.R
 
 open class LPFullScreenSpinner(
@@ -22,13 +21,18 @@ open class LPFullScreenSpinner(
         setContentView(R.layout.lp_spinner_full)
         window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
         window?.setFormat(PixelFormat.TRANSLUCENT)
-        window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val textLoadingTitle = findViewById<TextView>(R.id.text_loading_title)
+        textLoadingTitle.text = loadingTitle
     }
 
     companion object {
 
-        fun createSpinner(context: Context): LPFullScreenSpinner {
-            return LPFullScreenSpinner(context)
+        private var loadingTitle: String = "Tunggu ya..."
+
+        fun newInstance(context: Context, title: String = loadingTitle) = LPFullScreenSpinner(context).apply {
+            loadingTitle = title
         }
     }
 

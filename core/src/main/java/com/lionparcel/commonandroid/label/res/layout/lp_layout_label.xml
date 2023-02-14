@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:id="@+id/ll_label_parent"
+    tools:paddingVertical="@dimen/spacing_xxxs"
+    tools:paddingHorizontal="@dimen/spacing_l"
+    tools:background="@drawable/bg_selector_label_onepack">
+
+    <ImageView
+        android:id="@+id/img_icon_label_before"
+        android:contentDescription="@string/general_image_content_description"
+        android:layout_width="@dimen/dp_12"
+        android:layout_height="@dimen/dp_12"
+        android:layout_marginEnd="@dimen/spacing_xxs"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:src="@drawable/ics_f_notification"/>
+
+    <TextView
+        android:id="@+id/txt_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center_vertical"
+        tools:text="Label Text"
+        tools:visibility="visible"
+        tools:textSize="14sp"
+        tools:textAppearance="@style/Subtitle2Medium"
+        tools:textColor="@color/white"/>
+
+    <ImageView
+        android:id="@+id/img_icon_label_after"
+        android:contentDescription="@string/general_image_content_description"
+        android:layout_width="@dimen/dp_16"
+        android:layout_height="@dimen/dp_16"
+        android:layout_marginStart="@dimen/spacing_xxs"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:src="@drawable/ics_f_notification"/>
+
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LPAlert">
+        <attr name="alertSize" format="enum">
+            <enum name="medium" value="0"/>
+            <enum name="small" value="1"/>
+        </attr>
+        <attr name="alertStyle" format="enum">
+            <enum name="text_only" value="0"/>
+            <enum name="with_title" value="1"/>
+        </attr>
+    </declare-styleable>
+</resources>

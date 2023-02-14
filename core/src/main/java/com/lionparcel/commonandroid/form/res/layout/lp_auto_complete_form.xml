@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.lionparcel.commonandroid.form.LPTextInputLayout
+        android:id="@+id/lpTextInputLayoutAutoComplete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.lionparcel.commonandroid.form.LPAutoCompleteTextView
+            android:id="@+id/lpAutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txtAutoCompleteError"
+            android:paddingLeft="@dimen/spacing_xxs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Body3Regular"
+            android:textColor="@color/interpack6"
+            android:visibility="gone"/>
+    </com.lionparcel.commonandroid.form.LPTextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/spacing_m"
+    tools:context=".badge.BadgeComponentSampleActivity">
+
+    <TextView
+        style="@style/H4SemiBold"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Badge Dot"
+        tools:ignore="HardcodedText"
+        android:layout_marginVertical="@dimen/spacing_xs"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/spacing_xs"
+        android:gravity="center_vertical">
+
+        <com.lionparcel.commonandroid.badge.LPBadgeDot
+            android:layout_width="8dp"
+            android:layout_height="8dp"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_xxs"
+            android:layout_marginStart="@dimen/spacing_xxs"
+            android:background="@color/interpack6">
+
+            <com.lionparcel.commonandroid.badge.LPBadgeDot
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                app:dotColor="inverted"/>
+
+        </FrameLayout>
+
+        <com.lionparcel.commonandroid.badge.LPBadgeDot
+            android:layout_marginStart="@dimen/spacing_xxs"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            app:dotColor="yellow_alt"/>
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/H4SemiBold"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Badge Number"
+        tools:ignore="HardcodedText"
+        android:layout_marginVertical="@dimen/spacing_xs"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/spacing_xs"
+        android:gravity="center_vertical">
+
+        <com.lionparcel.commonandroid.badge.LPBadgeNumber
+            android:id="@+id/lpBadgeNumber1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.lionparcel.commonandroid.badge.LPBadgeNumber
+            android:id="@+id/lpBadgeNumber2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:badgeColor="primary"
+            android:layout_marginStart="@dimen/spacing_xxs"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_xxs"
+            android:layout_marginStart="@dimen/spacing_xxs"
+            android:background="@color/interpack6">
+
+            <com.lionparcel.commonandroid.badge.LPBadgeNumber
+                android:id="@+id/lpBadgeNumber3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:badgeColor="inverted"/>
+
+        </FrameLayout>
+
+        <com.lionparcel.commonandroid.badge.LPBadgeNumber
+            android:id="@+id/lpBadgeNumber4"
+            android:layout_marginStart="@dimen/spacing_xxs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:badgeColor="yellow_alt"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/spacing_xs"
+        android:gravity="center_vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/ivBadge1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ics_o_box_alt"
+                app:tint="@color/shades5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <com.lionparcel.commonandroid.badge.LPBadgeNumber
+                android:id="@+id/lpBadgeNumber5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_6"
+                app:layout_constraintBottom_toBottomOf="@id/ivBadge1"
+                app:layout_constraintStart_toStartOf="@id/ivBadge1"
+                app:isStrokeOutside="true"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginStart="@dimen/spacing_xxs">
+
+            <ImageView
+                android:id="@+id/ivBadge2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ics_o_box_alt"
+                app:tint="@color/shades5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <com.lionparcel.commonandroid.badge.LPBadgeNumber
+                android:id="@+id/lpBadgeNumber6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_6"
+                app:badgeColor="primary"
+                app:layout_constraintBottom_toBottomOf="@id/ivBadge2"
+                app:layout_constraintStart_toStartOf="@id/ivBadge2"
+                app:isStrokeOutside="true"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/interpack6"
+            android:layout_marginStart="@dimen/spacing_xxs">
+
+            <ImageView
+                android:id="@+id/ivBadge3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ics_o_box_alt"
+                app:tint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <com.lionparcel.commonandroid.badge.LPBadgeNumber
+                android:id="@+id/lpBadgeNumber7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_6"
+                app:badgeColor="inverted"
+                app:layout_constraintBottom_toBottomOf="@id/ivBadge3"
+                app:layout_constraintStart_toStartOf="@id/ivBadge3"
+                app:isStrokeOutside="true"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginStart="@dimen/spacing_xxs">
+
+            <ImageView
+                android:id="@+id/ivBadge4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ics_o_box_alt"
+                app:tint="@color/shades5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <com.lionparcel.commonandroid.badge.LPBadgeNumber
+                android:id="@+id/lpBadgeNumber8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_6"
+                app:badgeColor="yellow_alt"
+                app:layout_constraintBottom_toBottomOf="@id/ivBadge4"
+                app:layout_constraintStart_toStartOf="@id/ivBadge4"
+                app:isStrokeOutside="true"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/H4SemiBold"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Badge Text"
+        tools:ignore="HardcodedText"
+        android:layout_marginVertical="@dimen/spacing_xs"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/spacing_xs"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <com.lionparcel.commonandroid.badge.LPBadgeText
+            android:id="@+id/lpBadgeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:badgeColor="primary"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/spacing_xxs">
+
+        <ImageView
+            android:id="@+id/ivBadgeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ics_o_box_alt"
+            app:tint="@color/shades5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.lionparcel.commonandroid.badge.LPBadgeText
+            android:id="@+id/lpBadgeText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_8"
+            android:layout_marginBottom="@dimen/dp_6"
+            app:badgeColor="primary"
+            app:layout_constraintBottom_toBottomOf="@id/ivBadgeText"
+            app:layout_constraintStart_toStartOf="@id/ivBadgeText"
+            app:isStrokeOutside="true"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

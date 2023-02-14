@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".form.AttachFileActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_8">
+
+        <com.lionparcel.commonandroid.form.LPAttachFile
+            android:id="@+id/lpAttachFile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:textLabel="Foto 3 x 4"
+            app:textPhotoAction="ubah"
+            app:supportedTextLeft="@string/claim_form_page_max_photo"
+            app:supportedTextRight="@string/form_claim_damaged_or_lost_required_label"/>
+
+        <Button
+            android:id="@+id/btn_disable_attach_file"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Disable"
+            android:layout_marginTop="@dimen/dp_8"
+            tools:ignore="HardcodedText"/>
+
+        <com.lionparcel.commonandroid.form.LPAttachFile
+            android:id="@+id/lpAttachFile2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:textLabel="Foto KTP"
+            app:textPhotoAction="hapus"
+            app:supportedTextLeft="@string/claim_form_page_max_photo"
+            app:supportedTextRight="@string/form_claim_damaged_or_lost_required_label"
+            app:errorTextLeft="@string/claim_form_page_photo_error"
+            app:errorTextRight="@string/form_claim_damaged_or_lost_required_label"/>
+
+        <ImageView
+            android:id="@+id/imgAttachFile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"/>
+
+        <com.lionparcel.commonandroid.form.LPBulkAttachFile
+            android:id="@+id/lpBulkAttachFile"
+            app:textLabel="Bulk Attach File"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:maxPhoto="6"/>
+
+        <com.lionparcel.commonandroid.form.LPBulkAttachFile
+            android:id="@+id/lpBulkAttachFile1"
+            app:textLabel="Bulk Attach File"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"/>
+
+        <Button
+            android:id="@+id/btn_disable_bulk_attach_file"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Disable"
+            android:layout_marginTop="@dimen/dp_8"
+            tools:ignore="HardcodedText"/>
+
+        <com.lionparcel.commonandroid.form.LPBulkAttachFile
+            android:id="@+id/lpBulkAttachFile2"
+            app:textLabel="Bulk Attach File"
+            app:errorText="*File terlalu besar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"/>
+
+        <Button
+            android:id="@+id/btn_error_bulk_attach_file"
+            style="@style/RedPaleSalmonButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Error"
+            android:layout_marginTop="@dimen/dp_8"
+            tools:ignore="HardcodedText"/>
+
+    </LinearLayout>
+
+</ScrollView>
