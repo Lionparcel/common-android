@@ -1,21 +1,25 @@
 package com.lionparcel.commonandroid.form
 
 import android.content.Context
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.core.widget.doOnTextChanged
+import androidx.core.widget.addTextChangedListener
 import com.lionparcel.commonandroid.R
 
 class LPCountInput : LinearLayout {
 
-    private var imgBtnCountInputMin : ImageButton
-    private var txtCountInputValue : TextView
-    private var imgBtnCountInputPlus : ImageButton
+    private var imgBtnCountInputMin: ImageButton
+    private var txtCountInputValue: EditText
+    private var imgBtnCountInputPlus: ImageButton
+    private var minQtyValue = 0
+    private var maxQtyValue = 99
+    private var qtyValue = minQtyValue
+    private var withDivider = true
+    private var countEditable = true
+    private var enabled = true
 
     constructor(context: Context) : this(context, null)
 
@@ -26,72 +30,115 @@ class LPCountInput : LinearLayout {
         attrs,
         defStyleAttr
     ) {
-         val layoutInflater = LayoutInflater.from(context)
+        val layoutInflater = LayoutInflater.from(context)
         layoutInflater.inflate(R.layout.lp_count_input_view, this, true)
+        context.theme.obtainStyledAttributes(
+            attrs,
+            R.styleable.LPCountInput,
+            0,
+            0
+        ).apply {
+            try {
+                minQtyValue = getInt(R.styleable.LPCountInput_minQtyValue, minQtyValue)
+                maxQtyValue = getInt(R.styleable.LPCountInput_maxQtyValue, maxQtyValue)
+                withDivider = getBoolean(R.styleable.LPCountInput_withDivider, withDivider)
+                countEditable = getBoolean(R.styleable.LPCountInput_countEditable, countEditable)
+            } finally {
+                recycle()
+            }
+        }
         imgBtnCountInputMin = findViewById(R.id.imgBtnCountInputMin)
         txtCountInputValue = findViewById(R.id.txtCountInputValue)
         imgBtnCountInputPlus = findViewById(R.id.imgBtnCountInputPlus)
 
-        txtCountInputValue.text = "1"
-        txtCountInputValue.addTextChangedListener(object :TextWatcher{
+        initImageButton()
+        initTxtCountInput()
+        setEnablePlusMinusButton(this.qtyValue)
+        setViewEnabledState()
+    }
 
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
+    override fun setEnabled(enabled: Boolean) {
+        this.enabled = enabled
+        setViewEnabledColor()
+        setViewEnabledState()
+    }
 
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                    checkButtonDisable(p0.toString())
-            }
+    override fun isEnabled() = this.enabled
 
-            override fun afterTextChanged(p0: Editable?) {
-
-            }
-        })
-
-        imgBtnCountInputMin.apply {
-            if (imgBtnCountInputMin.isClickable){
-                imgBtnCountInputMin.setOnClickListener {
-                    val textString = txtCountInputValue.text.toString()
-                    val textInt = textString.toInt()
-                    val textValue = textInt - 1
-                    txtCountInputValue.text = "${textValue.toString()}"
+    private fun initTxtCountInput() {
+        if (!this.withDivider) txtCountInputValue.background = null
+        txtCountInputValue.setText(this.qtyValue.toString())
+        txtCountInputValue.addTextChangedListener {
+            val newQty = it.toString().toIntOrNull()
+            newQty?.let {
+                if (newQty > this.maxQtyValue) {
+                    txtCountInputValue.setText(this.maxQtyValue.toString())
+                } else if (newQty < this.minQtyValue) {
+                    txtCountInputValue.setText(this.minQtyValue.toString())
                 }
-            }
-        }
-        imgBtnCountInputPlus.apply {
-            if (imgBtnCountInputPlus.isClickable){
-                imgBtnCountInputPlus.setOnClickListener {
-                    val textString = txtCountInputValue.text.toString()
-                    val textInt = textString.toInt()
-                    val textValue = textInt + 1
-                    txtCountInputValue.text = "${textValue.toString()}"
-                }
+
+                this.qtyValue = newQty
+                setEnablePlusMinusButton(newQty)
+            } ?: run {
+                txtCountInputValue.setText(this.minQtyValue.toString())
             }
         }
     }
 
-    private fun checkButtonDisable(text : String) {
-        if (text == "1"){
-            minBtnDisable(false)
-        } else if (text != "1"){
-            minBtnDisable(true)
+    private fun initImageButton() {
+        imgBtnCountInputMin.setOnClickListener {
+            val newQty = (txtCountInputValue.text.toString().toIntOrNull() ?: 0) - 1
+            txtCountInputValue.setText(newQty.toString())
         }
-        if (text == "99"){
-            plusBtnDisable(false)
-        } else if (text != "99"){
-            plusBtnDisable(true)
+        imgBtnCountInputPlus.setOnClickListener {
+            val newQty = (txtCountInputValue.text.toString().toIntOrNull() ?: 0) + 1
+            txtCountInputValue.setText(newQty.toString())
         }
     }
 
-    private fun minBtnDisable(isClickable : Boolean) {
-        imgBtnCountInputMin.isClickable = isClickable
-        val btnAlpha = if (isClickable) 1f else 0.5f
-        imgBtnCountInputMin.alpha = btnAlpha
-
+    private fun setEnablePlusMinusButton(qty: Int) {
+        imgBtnCountInputPlus.isEnabled = qty < this.maxQtyValue
+        imgBtnCountInputMin.isEnabled = qty > this.minQtyValue
     }
 
-    private fun plusBtnDisable(isClickable : Boolean){
-        imgBtnCountInputPlus.isClickable = isClickable
-        val btnAlpha = if (isClickable) 1f else 0.5f
-        imgBtnCountInputPlus.alpha = btnAlpha
+    private fun setViewEnabledState() {
+        imgBtnCountInputPlus.isClickable = this.enabled
+        imgBtnCountInputMin.isClickable = this.enabled
+        txtCountInputValue.isEnabled = this.enabled && this.countEditable
     }
+
+    private fun setViewEnabledColor() {
+        txtCountInputValue.alpha = if (this.enabled) 1F else 0.5F
+        imgBtnCountInputMin.alpha = if (this.enabled) 1F else 0.5F
+        imgBtnCountInputPlus.alpha = if (this.enabled) 1F else 0.5F
+    }
+
+    fun setCurrentQty(qty: Int) {
+        this.qtyValue = qty
+        initTxtCountInput()
+    }
+
+    fun setMinQtyValue(minValue: Int) {
+        this.minQtyValue = minValue
+        initTxtCountInput()
+    }
+
+    fun setMaxQtyValue(maxValue: Int) {
+        this.maxQtyValue = maxValue
+        initTxtCountInput()
+    }
+
+    fun setEditCountDivider(divider: Boolean) {
+        this.withDivider = divider
+        initTxtCountInput()
+    }
+
+    fun setEditCountEditable(editable: Boolean) {
+        this.countEditable = editable
+        setViewEnabledState()
+    }
+
+    fun getCountValue() = this.qtyValue
+
+    fun getEditText() = txtCountInputValue
 }

@@ -1,45 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/clLPListCountInput"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    
-    <TextView
-        android:id="@+id/txtLPListCountInputLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/Subtitle2Regular"
-        android:textColor="@color/shades5"
-        android:text="Your Title Label"
-        app:layout_constraintTop_toTopOf="@+id/clLPListCountInput"
-        app:layout_constraintStart_toStartOf="@+id/clLPListCountInput"/>
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/txtLPListCountInputAssistiveText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/Subtitle4Regular"
-        android:textColor="@color/shades3"
-        android:text="Assistive Text"
-        app:layout_constraintStart_toStartOf="@+id/clLPListCountInput"
-        app:layout_constraintTop_toBottomOf="@+id/txtLPListCountInputLabel"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <com.lionparcel.commonandroid.form.LPCountInput
-        android:id="@+id/lpCountInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@+id/clLPListCountInput"
-        app:layout_constraintEnd_toEndOf="@+id/clLPListCountInput"/>
+        <LinearLayout
+            android:id="@+id/llListCountInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+            <TextView
+                android:id="@+id/txtLPListCountInputLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Subtitle2Regular"
+                android:textColor="@color/shades5"
+                tools:text="Your Title Label" />
+
+            <TextView
+                android:id="@+id/txtLPListCountInputAssistiveText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Subtitle4Regular"
+                android:textColor="@color/shades3"
+                tools:text="Assistive Text" />
+
+        </LinearLayout>
+
+        <com.lionparcel.commonandroid.form.LPCountInput
+            android:id="@+id/lpCountInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"/>
+
+    </RelativeLayout>
 
     <View
         android:id="@+id/vLPListCountInputBtmLine"
         android:layout_width="match_parent"
         android:layout_height="@dimen/spacing_xxxs"
-        android:layout_marginTop="@dimen/spacing_l"
-        android:background="@color/pensive4"
-        app:layout_constraintTop_toBottomOf="@+id/lpCountInput"
-        app:layout_constraintStart_toStartOf="@id/clLPListCountInput"/>
+        android:layout_marginTop="@dimen/spacing_m"
+        android:background="@color/pensive4"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
