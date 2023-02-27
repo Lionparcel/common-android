@@ -64,6 +64,7 @@ class LPListCountInput : ConstraintLayout {
     override fun setEnabled(enabled: Boolean) {
         this.enabled = enabled
         lpCountInput.isEnabled = enabled
+        changeViewWhenEnabled()
     }
 
     override fun isEnabled() = enabled
@@ -82,6 +83,12 @@ class LPListCountInput : ConstraintLayout {
         vLPListCountInputBtmLine.visibility = if (this.withDivider) View.VISIBLE else View.GONE
         txtLPListCountInputLabel.text = this.listTitle
         txtLPListCountInputAssistiveText.text = this.listAssistiveText
+    }
+
+    private fun changeViewWhenEnabled() {
+        txtLPListCountInputAssistiveText.alpha = if (this.enabled) 1F else 0.5F
+        txtLPListCountInputLabel.alpha = if (this.enabled) 1F else 0.5F
+        vLPListCountInputBtmLine.alpha = if (this.enabled) 1F else 0.5F
     }
 
     fun setListTitle(title: String) {
