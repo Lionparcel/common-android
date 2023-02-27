@@ -11,7 +11,7 @@ class PositionIndicatorView : FrameLayout {
 
     private var indicatorQuantity: Int = 1
 
-    private var activeResource = R.drawable.bg_circle_interpack6
+    private var activeResource = R.drawable.bg_circle_interpack7
 
     private var nonActiveResource = R.drawable.bg_circle_shades2
 

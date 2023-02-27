@@ -24,8 +24,8 @@ class LPTabLayout @JvmOverloads constructor(
         setSelectedTabIndicatorHeight((scale * 4).toInt())
         tabRippleColor = ContextCompat.getColorStateList(context, R.color.transparent)
         background = ContextCompat.getDrawable(context, R.color.transparent)
-        setSelectedTabIndicatorColor(ContextCompat.getColor(context, R.color.interpack6))
-        setSelectedTabIndicator(ContextCompat.getDrawable(context, R.drawable.bg_tab_indicator_interpack6))
+        setSelectedTabIndicatorColor(ContextCompat.getColor(context, R.color.interpack7))
+        setSelectedTabIndicator(ContextCompat.getDrawable(context, R.drawable.bg_tab_indicator_interpack7))
     }
 
     fun setTabViewMargin(adapter: BasePagerAdapter) {

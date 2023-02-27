@@ -19,7 +19,7 @@
 
             <shape>
 
-                <solid android:color="@color/interpack6" />
+                <solid android:color="@color/interpack7" />
 
                 <corners android:radius="@dimen/dp_4"/>
 

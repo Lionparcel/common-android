@@ -15,7 +15,7 @@
         android:id="@+id/ivIndicator"
         android:layout_width="@dimen/spacing_xs"
         android:layout_height="@dimen/spacing_xs"
-        app:srcCompat="@drawable/bg_circle_interpack6"
+        app:srcCompat="@drawable/bg_circle_interpack7"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/space"
         app:layout_constraintBottom_toBottomOf="parent"

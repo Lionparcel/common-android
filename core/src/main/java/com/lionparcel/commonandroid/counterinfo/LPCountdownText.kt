@@ -77,7 +77,7 @@ class LPCountdownText @JvmOverloads constructor(
     fun setCountdownState(state: CountdownTextState) {
         when (state) {
             CountdownTextState.NORMAL -> getCounterTextView().setTextColor(ResourcesCompat.getColor(resources, R.color.shades5, null))
-            CountdownTextState.DANGER -> getCounterTextView().setTextColor(ResourcesCompat.getColor(resources, R.color.interpack6, null))
+            CountdownTextState.DANGER -> getCounterTextView().setTextColor(ResourcesCompat.getColor(resources, R.color.interpack7, null))
         }
     }
 

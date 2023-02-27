@@ -220,7 +220,7 @@ class LPDatePickerSingle : BaseDatePicker() {
                     tvDay.setTextColor(
                         ResourcesCompat.getColor(
                             resources,
-                            R.color.interpack6,
+                            R.color.interpack7,
                             null
                         )
                     )

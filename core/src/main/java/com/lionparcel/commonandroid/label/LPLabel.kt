@@ -10,7 +10,6 @@ import android.graphics.drawable.shapes.RoundRectShape
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -397,7 +396,7 @@ class LPLabel : LinearLayout {
                 when (backgroundStyle) {
                     0 -> {
                         llLabelParent.background = resources.getDrawable(R.drawable.bg_selector_label_basic)
-                        ViewCompat.setBackgroundTintList(llLabelParent, resources.getColorStateList(R.color.interpack6))
+                        ViewCompat.setBackgroundTintList(llLabelParent, resources.getColorStateList(R.color.interpack7))
                         txtLabel.setTextColor(resources.getColorStateList(R.color.white))
                         ImageViewCompat.setImageTintList(
                             imgIconLabelAfter,
@@ -405,16 +404,16 @@ class LPLabel : LinearLayout {
                         )
                     }
                     1 -> {
-                        txtLabel.setTextColor(resources.getColorStateList(R.color.interpack6))
+                        txtLabel.setTextColor(resources.getColorStateList(R.color.interpack7))
                         ImageViewCompat.setImageTintList(
                             imgIconLabelBefore,
-                            resources.getColorStateList(R.color.interpack6)
+                            resources.getColorStateList(R.color.interpack7)
                         )
                         val shapeDrawable = ShapeDrawable().apply {
                             shape = RoundRectShape(floatArrayOf(cornerRadius, cornerRadius, cornerRadius, cornerRadius, cornerRadius, cornerRadius, cornerRadius, cornerRadius), null, null)
                             paint.style = Paint.Style.STROKE
                             paint.strokeWidth = strokeWidth
-                            paint.color = resources.getColor(R.color.interpack6)
+                            paint.color = resources.getColor(R.color.interpack7)
                         }
                         val shapeFill = ShapeDrawable().apply {
                             shape = RoundRectShape(floatArrayOf(cornerRadius, cornerRadius, cornerRadius, cornerRadius, cornerRadius, cornerRadius, cornerRadius, cornerRadius), null, null)

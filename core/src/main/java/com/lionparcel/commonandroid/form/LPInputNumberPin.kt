@@ -94,7 +94,7 @@ class LPInputNumberPin : FrameLayout {
     private fun onHandlerPinError() {
         flxPinNumber.forEach { view ->
             val ivPinNumber = view.findViewById<ImageView>(R.id.ivPinNumber)
-            ivPinNumber.setImageResource(R.drawable.bg_circle_interpack6_20)
+            ivPinNumber.setImageResource(R.drawable.bg_circle_interpack7_20)
         }
     }
 }

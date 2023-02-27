@@ -3,11 +3,9 @@ package com.lionparcel.commonandroid.stepper
 import android.animation.ArgbEvaluator
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
@@ -54,9 +52,9 @@ class LPStepperCarousel @JvmOverloads constructor(
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         selectedStepperColor = when (stepperColor) {
-            0 -> ContextCompat.getColor(context, R.color.interpack6)
+            0 -> ContextCompat.getColor(context, R.color.interpack7)
             1 -> ContextCompat.getColor(context, R.color.white)
-            else -> ContextCompat.getColor(context, R.color.interpack6)
+            else -> ContextCompat.getColor(context, R.color.interpack7)
         }
 
         if (isInEditMode) {

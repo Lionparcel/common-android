@@ -12,5 +12,5 @@
         android:dashWidth="@dimen/dp_5"
         android:dashGap="@dimen/dp_5"
         android:width="@dimen/dp_1"
-        android:color="@color/interpack6" />
+        android:color="@color/interpack7" />
 </shape>

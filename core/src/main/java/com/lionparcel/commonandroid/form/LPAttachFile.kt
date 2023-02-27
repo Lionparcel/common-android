@@ -320,7 +320,7 @@ class LPAttachFile : FrameLayout {
     fun changeErrorStateViewPhotoField(
         isError: Boolean
     ) {
-        val textColor = if (isError) R.color.interpack6 else R.color.shades3
+        val textColor = if (isError) R.color.interpack7 else R.color.shades3
         val maxPhotoLabel = when {
             isError && llEmptyPhoto.isVisible -> errorTextLeft
             else -> supportedTextLeft

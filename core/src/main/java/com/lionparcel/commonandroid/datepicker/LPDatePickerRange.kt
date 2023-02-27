@@ -280,7 +280,7 @@ class LPDatePickerRange: BaseDatePicker() {
                     vRoundBackground.setBackgroundResource(R.drawable.bg_date_picker_single_selected)
                 }
                 day.date == today -> {
-                    tvDay.setTextColor(ResourcesCompat.getColor(resources, R.color.interpack6, null))
+                    tvDay.setTextColor(ResourcesCompat.getColor(resources, R.color.interpack7, null))
                 }
                 else -> tvDay.setTextColor(ResourcesCompat.getColor(resources, R.color.shades5, null))
             }

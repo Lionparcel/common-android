@@ -65,7 +65,7 @@ abstract class BaseBadgeComponent @JvmOverloads constructor(
         val gradientDrawable = GradientDrawable()
         val color = when (color) {
             0 -> R.color.pensive3
-            1 -> R.color.interpack6
+            1 -> R.color.interpack7
             2 -> R.color.white
             3 -> R.color.yellow4
             else -> R.color.pensive3
@@ -77,7 +77,7 @@ abstract class BaseBadgeComponent @JvmOverloads constructor(
             when (this.color) {
                 2 -> gradientDrawable.setStroke(
                     2.toDp(),
-                    ContextCompat.getColor(context, R.color.interpack6)
+                    ContextCompat.getColor(context, R.color.interpack7)
                 )
                 else -> gradientDrawable.setStroke(
                     2.toDp(),
@@ -102,7 +102,7 @@ abstract class BaseBadgeComponent @JvmOverloads constructor(
         val color = when (color) {
             0 -> R.color.shades5
             1 -> R.color.white
-            2 -> R.color.interpack6
+            2 -> R.color.interpack7
             3 -> R.color.shades5
             else -> R.color.shades5
         }

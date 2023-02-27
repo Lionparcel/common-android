@@ -19,7 +19,7 @@ fun TextView.setSemiBoldSpannable(
 ) {
     val spannableString = SpannableString(content)
     val font = fontArg ?: ResourcesCompat.getFont(context, R.font.poppins_semi_bold) ?: return
-    val color = fontArg ?: ForegroundColorSpan(ResourcesCompat.getColor(resources, R.color.interpack6, null))
+    val color = fontArg ?: ForegroundColorSpan(ResourcesCompat.getColor(resources, R.color.interpack7, null))
     targetStrings.forEach {
         val typefaceSpan = TypeFaceSpanCompat("", font)
         val index = spannableString.indexOf(it)

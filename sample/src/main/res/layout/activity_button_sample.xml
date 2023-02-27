@@ -308,7 +308,7 @@
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="@color/interpack6"
+            android:background="@color/interpack7"
             android:gravity="center"
             android:orientation="vertical"
             android:layout_marginBottom="@dimen/dp_8"

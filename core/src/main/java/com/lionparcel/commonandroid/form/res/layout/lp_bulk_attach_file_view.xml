@@ -65,7 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="@style/Body3Regular"
-        android:textColor="@color/interpack6"
+        android:textColor="@color/interpack7"
         android:layout_marginTop="@dimen/spacing_xs"
         app:layout_constraintTop_toBottomOf="@+id/llBulkAttachFile"
         app:layout_constraintStart_toStartOf="@+id/clBulkAttachFile"

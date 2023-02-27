@@ -193,7 +193,7 @@ class LPStepperNumber : ConstraintLayout {
                 tvStepperNumberFirst.setTextColor(
                     ContextCompat.getColorStateList(
                         context,
-                        R.color.interpack6
+                        R.color.interpack7
                     )
                 )
                 tvStepperNumberFirst.typeface =
@@ -236,7 +236,7 @@ class LPStepperNumber : ConstraintLayout {
                 tvStepperNumberSecond.setTextColor(
                     ContextCompat.getColorStateList(
                         context,
-                        R.color.interpack6
+                        R.color.interpack7
                     )
                 )
                 tvStepperNumberSecond.typeface =
@@ -279,7 +279,7 @@ class LPStepperNumber : ConstraintLayout {
                 tvStepperNumberThird.setTextColor(
                     ContextCompat.getColorStateList(
                         context,
-                        R.color.interpack6
+                        R.color.interpack7
                     )
                 )
                 tvStepperNumberThird.typeface =

@@ -29,7 +29,7 @@ abstract class BaseNavigationBarView @JvmOverloads constructor(
             16F,
             24F,
             R.drawable.bg_navbar_ca_shadow,
-            R.color.selector_navbar_interpack6_solid,
+            R.color.selector_navbar_interpack7_solid,
             R.style.BottomNavigationViewSelectedTextStyle,
             R.style.BottomNavigationViewTextStyle
         ),
@@ -37,7 +37,7 @@ abstract class BaseNavigationBarView @JvmOverloads constructor(
             8F,
             24F,
             R.drawable.bg_navbar_da_ta_shadow,
-            R.color.selector_navbar_interpack6_solid,
+            R.color.selector_navbar_interpack7_solid,
             R.style.BottomNavigationViewSelectedTextStyle,
             R.style.BottomNavigationViewTextStyle
         ),
@@ -45,7 +45,7 @@ abstract class BaseNavigationBarView @JvmOverloads constructor(
             8F,
             24F,
             R.drawable.bg_navbar_da_ta_shadow,
-            R.color.selector_navbar_interpack6_solid,
+            R.color.selector_navbar_interpack7_solid,
             R.style.BottomNavigationViewSelectedTextStyle,
             R.style.BottomNavigationViewTextStyle
         )

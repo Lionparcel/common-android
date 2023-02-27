@@ -22,7 +22,7 @@
                 android:textSize="@dimen/sp_14"
                 android:paddingTop="@dimen/dp_1"
                 android:fontFamily="@font/poppins_regular"
-                android:textColor="@color/interpack6"
+                android:textColor="@color/interpack7"
                 android:gravity="center"
                 android:background="@drawable/bg_stepper_number_inactive"
                 android:text="@string/stepper_number_one"/>
@@ -98,7 +98,7 @@
             android:textSize="@dimen/sp_14"
             android:paddingTop="@dimen/dp_1"
             android:fontFamily="@font/poppins_regular"
-            android:textColor="@color/interpack6"
+            android:textColor="@color/interpack7"
             android:gravity="center"
             android:background="@drawable/bg_stepper_number_inactive"
             android:text="@string/stepper_number_two"/>
@@ -175,7 +175,7 @@
             android:textSize="@dimen/sp_14"
             android:paddingTop="@dimen/dp_1"
             android:fontFamily="@font/poppins_regular"
-            android:textColor="@color/interpack6"
+            android:textColor="@color/interpack7"
             android:gravity="center"
             android:background="@drawable/bg_stepper_number_inactive"
             android:text="@string/stepper_number_three"/>

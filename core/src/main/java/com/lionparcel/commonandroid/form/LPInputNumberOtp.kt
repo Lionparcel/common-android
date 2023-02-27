@@ -95,7 +95,7 @@ class LPInputNumberOtp : FrameLayout {
     private fun onHandlerOtpError() {
         flxOtpNumber.forEach { view ->
             val ivNumberOutline = view.findViewById<ImageView>(R.id.ivNumberOutline)
-            ivNumberOutline.setImageResource(R.drawable.bg_interpack_6_outline)
+            ivNumberOutline.setImageResource(R.drawable.bg_interpack_7_outline)
         }
     }
 }

@@ -6,7 +6,6 @@ import android.text.InputFilter
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -133,7 +132,7 @@ class LPTextArea : ConstraintLayout {
     }
 
     private fun changeStateViewTextArea(isError : Boolean, isSupportedTextEnabled: Boolean, isErrorTextEnabled: Boolean) {
-        val textColor = if (isError) R.color.interpack6 else R.color.shades3
+        val textColor = if (isError) R.color.interpack7 else R.color.shades3
         llEditText.isSelected = isError
         txtAreaCounter.changeTextColor(textColor)
         if (isSupportedTextEnabled) txtAreaAlert.isVisible = !isError else txtAreaAlert.isVisible = false
