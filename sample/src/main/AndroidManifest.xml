@@ -142,6 +142,9 @@
             android:name=".header.HeaderSampleActivity"
             android:exported="true" />
         <activity
+            android:name=".form.StepperInputSampleActivity"
+            android:exported="false" />
+        <activity
             android:name=".form.TextAreaSampleActivity"
             android:exported="true" />
         <activity

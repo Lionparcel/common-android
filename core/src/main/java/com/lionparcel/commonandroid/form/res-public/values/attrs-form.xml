@@ -46,4 +46,17 @@
         <attr name="errorText"/>
         <attr name="maxPhoto" format="integer"/>
     </declare-styleable>
+    <declare-styleable name="LPCountInput">
+        <attr name="minQtyValue" format="integer"/>
+        <attr name="maxQtyValue" format="integer"/>
+        <attr name="withDivider" format="boolean"/>
+        <attr name="countEditable" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="LPListCountInput">
+        <attr name="withDivider"/>
+        <attr name="countEditable"/>
+        <attr name="minQtyValue"/>
+        <attr name="maxQtyValue"/>
+        <attr name="countDivider" format="boolean"/>
+    </declare-styleable>
 </resources>
