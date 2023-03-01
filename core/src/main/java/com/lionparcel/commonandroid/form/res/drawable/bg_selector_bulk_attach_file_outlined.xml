@@ -3,6 +3,6 @@
 
         <!-- When selected -->
         <item android:state_selected="false" android:drawable="@drawable/bg_bulk_attach_file_transparent_outlined"/>
-        <item android:state_selected="true" android:drawable="@drawable/bg_bulk_attach_file_interpack6_outlined"/>
+        <item android:state_selected="true" android:drawable="@drawable/bg_bulk_attach_file_interpack7_outlined"/>
 
 </selector>

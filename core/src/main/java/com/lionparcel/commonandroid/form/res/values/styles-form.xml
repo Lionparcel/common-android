@@ -30,7 +30,7 @@
         <item name="hintTextColor">@color/shades3</item>
 <!--        error text is a text below the EditText, see https://material.io/components/text-fields#anatomy-->
         <item name="errorTextAppearance">@style/Body3Regular</item>
-        <item name="errorTextColor">@color/interpack6</item>
+        <item name="errorTextColor">@color/interpack7</item>
 <!--        helper text is a text below the EditText, parallel to the error text.
             see https://material.io/components/text-fields#anatomy -->
         <item name="helperTextTextAppearance">@style/Body3Regular</item>
@@ -57,7 +57,7 @@
         <item name="hintTextColor">@color/shades3</item>
         <!--        error text is a text below the EditText, see https://material.io/components/text-fields#anatomy-->
         <item name="errorTextAppearance">@style/Body3Regular</item>
-        <item name="errorTextColor">@color/interpack6</item>
+        <item name="errorTextColor">@color/interpack7</item>
         <!--        helper text is a text below the EditText, parallel to the error text.
                     see https://material.io/components/text-fields#anatomy -->
         <item name="helperTextTextAppearance">@style/Body3Regular</item>
@@ -77,7 +77,7 @@
         <item name="android:minHeight">55dp</item>
         <item name="android:drawablePadding">@dimen/spacing_s</item>
 <!--        blinking cursor -->
-        <item name="android:textCursorDrawable">@drawable/cursor_interpack6</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_interpack7</item>
     </style>
 
 
@@ -97,7 +97,7 @@
     <style name="PasswordLayoutErrorAppearance" parent="TextAppearance.Design.Error">
         <item name="android:fontFamily">@font/poppins_regular</item>
         <item name="android:padding">2dp</item>
-        <item name="android:textColor">@color/interpack6</item>
+        <item name="android:textColor">@color/interpack7</item>
         <item name="android:textSize">@dimen/sp_10</item>
     </style>
 
@@ -130,7 +130,7 @@
         <item name="colorControlActivated">@color/shades5</item>
         <item name="android:theme">@style/PasswordEditTextViewTheme</item>
         <item name="android:textColorHighlight">@color/interpack1</item>
-        <item name="android:textCursorDrawable">@drawable/cursor_interpack6</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_interpack7</item>
     </style>
 
     <style name="PasswordEditTextViewTheme">
@@ -146,7 +146,7 @@
         <item name="android:background">@color/transparent</item>
         <item name="hintTextAppearance">@style/Body3Regular</item>
         <item name="android:textColorHint">@color/shades3</item>
-        <item name="android:textCursorDrawable">@drawable/cursor_interpack6</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_interpack7</item>
     </style>
 
     <style name="HeaderSearchAutoCompleteTextView">
@@ -157,7 +157,7 @@
         <item name="android:background">@color/transparent</item>
         <item name="android:singleLine">true</item>
         <!--        blinking cursor -->
-        <item name="android:textCursorDrawable">@drawable/cursor_interpack6</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_interpack7</item>
     </style>
 
 </resources>

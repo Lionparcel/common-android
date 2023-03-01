@@ -43,7 +43,7 @@
             android:textSize="@dimen/sp_14"
             android:includeFontPadding="false"
             android:layout_marginStart="@dimen/spacing_s"
-            android:textColor="@color/interpack6"
+            android:textColor="@color/interpack7"
             android:visibility="visible"
             android:layout_gravity="center_vertical"
             tools:text="Button"/>

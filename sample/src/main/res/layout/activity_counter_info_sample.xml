@@ -356,7 +356,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/interpack6"
+            android:background="@color/interpack7"
             android:layout_marginBottom="@dimen/spacing_s"
             android:orientation="vertical">
 
@@ -380,7 +380,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/interpack6"
+            android:background="@color/interpack7"
             android:layout_marginBottom="@dimen/spacing_s"
             android:orientation="vertical">
 
@@ -404,7 +404,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/interpack6"
+            android:background="@color/interpack7"
             android:layout_marginBottom="@dimen/spacing_s"
             android:orientation="vertical">
 

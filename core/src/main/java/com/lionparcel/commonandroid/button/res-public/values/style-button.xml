@@ -9,7 +9,7 @@
         <item name="android:textSize">@dimen/sp_15</item>
         <item name="android:paddingLeft">@dimen/dp_16</item>
         <item name="android:paddingRight">@dimen/dp_16</item>
-        <item name="android:background">@drawable/bg_button_interpack6_rounded_2</item>
+        <item name="android:background">@drawable/bg_button_interpack7_rounded_2</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:fontFamily">@font/poppins_semi_bold</item>
         <item name="android:textColor">@color/selector_button_text_white</item>
@@ -24,7 +24,7 @@
         <item name="android:textSize">@dimen/sp_15</item>
         <item name="android:paddingLeft">@dimen/dp_16</item>
         <item name="android:paddingRight">@dimen/dp_16</item>
-        <item name="android:background">@drawable/bg_button_interpack6_solid</item>
+        <item name="android:background">@drawable/bg_button_interpack7_solid</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:textColor">@color/selector_button_text_white</item>
         <item name="android:textAllCaps">false</item>
@@ -59,7 +59,7 @@
         <item name="android:textSize">@dimen/sp_15</item>
         <item name="android:paddingLeft">@dimen/dp_16</item>
         <item name="android:paddingRight">@dimen/dp_16</item>
-        <item name="android:background">@drawable/bg_button_interpack6_rounded_2</item>
+        <item name="android:background">@drawable/bg_button_interpack7_rounded_2</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:textColor">@color/selector_button_text_white</item>
         <item name="android:textAllCaps">false</item>
@@ -96,9 +96,9 @@
         <item name="android:paddingRight">@dimen/dp_16</item>
         <item name="android:background">@drawable/bg_button_white_rounded</item>
         <item name="android:includeFontPadding">false</item>
-        <item name="android:textColor">@color/selector_button_text_interpack6</item>
+        <item name="android:textColor">@color/selector_button_text_interpack7</item>
         <item name="android:textAllCaps">false</item>
-        <item name="drawableTint">@color/selector_button_text_interpack6</item>
+        <item name="drawableTint">@color/selector_button_text_interpack7</item>
         <item name="android:drawablePadding">@dimen/dp_4</item>
     </style>
     <!--large-->
@@ -126,14 +126,14 @@
 
 <!--    Base Solid Red Border Button style-->
     <style name="LPSolidRedBorderButtonStyle" parent="Widget.AppCompat.Button.Borderless">
-        <item name="android:background">@drawable/bg_button_interpack6_solid_outline_1</item>
+        <item name="android:background">@drawable/bg_button_interpack7_solid_outline_1</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
-        <item name="android:textColor">@color/selector_button_text_interpack6</item>
+        <item name="android:textColor">@color/selector_button_text_interpack7</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">15sp</item>
-        <item name="drawableTint">@color/selector_button_text_interpack6</item>
+        <item name="drawableTint">@color/selector_button_text_interpack7</item>
         <item name="android:drawablePadding">@dimen/dp_4</item>
     </style>
     <!--    large-->
@@ -161,14 +161,14 @@
 
 <!--    Base Rounded Red Border Button style-->
     <style name="LPRoundedRedBorderButtonStyle" parent="Widget.AppCompat.Button.Borderless">
-        <item name="android:background">@drawable/bg_button_interpack6_rounded_outlined</item>
+        <item name="android:background">@drawable/bg_button_interpack7_rounded_outlined</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
-        <item name="android:textColor">@color/selector_button_text_interpack6</item>
+        <item name="android:textColor">@color/selector_button_text_interpack7</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">15sp</item>
-        <item name="drawableTint">@color/selector_button_text_interpack6</item>
+        <item name="drawableTint">@color/selector_button_text_interpack7</item>
         <item name="android:drawablePadding">@dimen/dp_4</item>
     </style>
     <!--    large-->
@@ -235,7 +235,7 @@
         <item name="android:paddingRight">@dimen/dp_12</item>
         <item name="android:paddingTop">@dimen/dp_10</item>
         <item name="android:paddingBottom">@dimen/dp_10</item>
-        <item name="android:background">@drawable/bg_button_square_interpack6</item>
+        <item name="android:background">@drawable/bg_button_square_interpack7</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:textColor">@color/selector_button_text_white</item>
         <item name="android:textAllCaps">false</item>
@@ -273,9 +273,9 @@
         <item name="android:paddingBottom">@dimen/dp_10</item>
         <item name="android:background">@drawable/bg_button_square_white</item>
         <item name="android:includeFontPadding">false</item>
-        <item name="android:textColor">@color/selector_button_text_interpack6</item>
+        <item name="android:textColor">@color/selector_button_text_interpack7</item>
         <item name="android:textAllCaps">false</item>
-        <item name="drawableTint">@color/selector_button_text_interpack6</item>
+        <item name="drawableTint">@color/selector_button_text_interpack7</item>
     </style>
     <!--    large-->
     <style name="LPWhiteLargeButtonSquareStyle" parent="LPBaseWhiteButtonSquareStyle">
@@ -307,11 +307,11 @@
         <item name="android:paddingRight">@dimen/dp_12</item>
         <item name="android:paddingTop">@dimen/dp_10</item>
         <item name="android:paddingBottom">@dimen/dp_10</item>
-        <item name="android:background">@drawable/bg_button_square_interpack6_outlined</item>
+        <item name="android:background">@drawable/bg_button_square_interpack7_outlined</item>
         <item name="android:includeFontPadding">false</item>
-        <item name="android:textColor">@color/selector_button_text_interpack6</item>
+        <item name="android:textColor">@color/selector_button_text_interpack7</item>
         <item name="android:textAllCaps">false</item>
-        <item name="drawableTint">@color/selector_button_text_interpack6</item>
+        <item name="drawableTint">@color/selector_button_text_interpack7</item>
     </style>
     <!--    large-->
     <style name="LPRedBorderLargeButtonSquareStyle" parent="LPBaseRedBorderButtonSquareStyle">
@@ -378,8 +378,8 @@
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:textColor">@color/selector_button_text_interpack6</item>
-        <item name="drawableTint">@color/selector_button_text_interpack6</item>
+        <item name="android:textColor">@color/selector_button_text_interpack7</item>
+        <item name="drawableTint">@color/selector_button_text_interpack7</item>
         <item name="android:textSize">15sp</item>
     </style>
     <!--    large-->

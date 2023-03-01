@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/spacing_xxs"
             android:layout_marginStart="@dimen/spacing_xxs"
-            android:background="@color/interpack6">
+            android:background="@color/interpack7">
 
             <com.lionparcel.commonandroid.badge.LPBadgeDot
                 android:layout_width="8dp"
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/spacing_xxs"
             android:layout_marginStart="@dimen/spacing_xxs"
-            android:background="@color/interpack6">
+            android:background="@color/interpack7">
 
             <com.lionparcel.commonandroid.badge.LPBadgeNumber
                 android:id="@+id/lpBadgeNumber3"
@@ -165,7 +165,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/interpack6"
+            android:background="@color/interpack7"
             android:layout_marginStart="@dimen/spacing_xxs">
 
             <ImageView

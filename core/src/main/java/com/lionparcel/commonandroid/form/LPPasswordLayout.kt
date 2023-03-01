@@ -80,7 +80,7 @@ class LPPasswordLayout @JvmOverloads constructor(
     fun showHelperTextError(defaultMessage: String) {
         tflPassword.let {
             it.helperText = defaultMessage
-            val color = ContextCompat.getColorStateList(context, R.color.interpack6)
+            val color = ContextCompat.getColorStateList(context, R.color.interpack7)
             it.setHelperTextColor(color)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 it.editText?.backgroundTintList = color

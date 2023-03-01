@@ -113,7 +113,7 @@ object ImageUtils {
     fun getBitmapFromView(context: Context, view: View): Bitmap {
         val returnedBitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(returnedBitmap)
-        canvas.drawColor(ContextCompat.getColor(context, R.color.interpack6))
+        canvas.drawColor(ContextCompat.getColor(context, R.color.interpack7))
         view.draw(canvas)
         return returnedBitmap
     }

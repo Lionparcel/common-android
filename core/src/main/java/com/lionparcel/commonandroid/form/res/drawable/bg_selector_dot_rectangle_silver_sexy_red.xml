@@ -2,5 +2,5 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- When selected -->
     <item android:state_selected="false" android:drawable="@drawable/bg_rectangle_shades2"/>
-    <item android:state_selected="true" android:drawable="@drawable/bg_rounded_interpack6_outlined_dash_2"/>
+    <item android:state_selected="true" android:drawable="@drawable/bg_rounded_interpack7_outlined_dash_2"/>
 </selector>

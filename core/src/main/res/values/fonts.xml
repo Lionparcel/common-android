@@ -350,7 +350,7 @@
   <style name="BottomNavigationViewSelectedTextStyle">
     <item name="android:fontFamily">@font/poppins_regular</item>
     <item name="android:textSize">@dimen/sp_10</item>
-    <item name="android:textColor">@color/interpack6</item>
+    <item name="android:textColor">@color/interpack7</item>
   </style>
 
   <style name="BottomNavigationViewTextStyle">

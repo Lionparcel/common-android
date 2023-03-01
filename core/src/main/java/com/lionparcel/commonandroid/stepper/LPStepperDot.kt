@@ -99,11 +99,11 @@ class LPStepperDot : ConstraintLayout{
                 ViewCompat.setBackgroundTintList(vwStepperDotLineHor2, resources.getColorStateList(R.color.shades2))
             }
             StepperDotState.PRIMARY -> {
-                ImageViewCompat.setImageTintList(ivStepperDotIndicator, resources.getColorStateList(R.color.interpack6))
-                ViewCompat.setBackgroundTintList(vwStepperDotLineVer1, resources.getColorStateList(R.color.interpack6))
-                ViewCompat.setBackgroundTintList(vwStepperDotLineVer2, resources.getColorStateList(R.color.interpack6))
-                ViewCompat.setBackgroundTintList(vwStepperDotLineHor1, resources.getColorStateList(R.color.interpack6))
-                ViewCompat.setBackgroundTintList(vwStepperDotLineHor2, resources.getColorStateList(R.color.interpack6))
+                ImageViewCompat.setImageTintList(ivStepperDotIndicator, resources.getColorStateList(R.color.interpack7))
+                ViewCompat.setBackgroundTintList(vwStepperDotLineVer1, resources.getColorStateList(R.color.interpack7))
+                ViewCompat.setBackgroundTintList(vwStepperDotLineVer2, resources.getColorStateList(R.color.interpack7))
+                ViewCompat.setBackgroundTintList(vwStepperDotLineHor1, resources.getColorStateList(R.color.interpack7))
+                ViewCompat.setBackgroundTintList(vwStepperDotLineHor2, resources.getColorStateList(R.color.interpack7))
             }
             StepperDotState.FAILED -> {
                 ImageViewCompat.setImageTintList(ivStepperDotIndicator, resources.getColorStateList(R.color.interpack5))

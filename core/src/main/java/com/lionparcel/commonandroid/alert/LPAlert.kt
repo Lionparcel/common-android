@@ -2,19 +2,13 @@ package com.lionparcel.commonandroid.alert
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.text.SpannableString
-import android.text.Spanned
-import android.text.TextPaint
 import android.text.method.LinkMovementMethod
-import android.text.style.ClickableSpan
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.widget.ImageViewCompat
 import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.alert.utils.AlertState
@@ -124,10 +118,10 @@ class LPAlert @JvmOverloads constructor(
             }
             AlertState.DANGER -> {
                 binding.llAlert.background = ContextCompat.getDrawable(context, R.drawable.bg_alert_danger_dash)
-                binding.titleAlert.setTextColor(resources.getColor(R.color.interpack6))
-                binding.contentAlert.setTextColor(resources.getColor(R.color.interpack6))
-                ImageViewCompat.setImageTintList(binding.iconStartAlert, resources.getColorStateList(R.color.interpack6))
-                ImageViewCompat.setImageTintList(binding.iconEndAlert, resources.getColorStateList(R.color.interpack6))
+                binding.titleAlert.setTextColor(resources.getColor(R.color.interpack7))
+                binding.contentAlert.setTextColor(resources.getColor(R.color.interpack7))
+                ImageViewCompat.setImageTintList(binding.iconStartAlert, resources.getColorStateList(R.color.interpack7))
+                ImageViewCompat.setImageTintList(binding.iconEndAlert, resources.getColorStateList(R.color.interpack7))
             }
             AlertState.BLOC_INFO -> {
                 binding.llAlert.background = ContextCompat.getDrawable(context, R.drawable.bg_alert_bloc_info)

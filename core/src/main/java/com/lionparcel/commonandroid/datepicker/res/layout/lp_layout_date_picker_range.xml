@@ -61,7 +61,7 @@
                         android:layout_marginEnd="@dimen/spacing_l"
                         android:fontFamily="@font/poppins_semi_bold"
                         android:textSize="@dimen/sp_14"
-                        android:textColor="@color/interpack6"
+                        android:textColor="@color/interpack7"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@id/tvDatePickerTitle"
                         app:layout_constraintBottom_toBottomOf="@id/tvDatePickerTitle"

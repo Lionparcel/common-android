@@ -32,7 +32,7 @@ class LPRedBadge @JvmOverloads constructor(
                 isAntiAlias = true
             }
 
-            paint.color = ContextCompat.getColor(context, R.color.interpack6)
+            paint.color = ContextCompat.getColor(context, R.color.interpack7)
             paint.style = Paint.Style.FILL
             paint.strokeWidth = strokeWidth
             canvas?.drawCircle(

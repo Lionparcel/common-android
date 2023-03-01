@@ -108,7 +108,7 @@ class LPAutoCompleteForm : ConstraintLayout {
             R.color.shades3
         } else R.color.shades5
         val color = if (isError) {
-            ContextCompat.getColorStateList(context, R.color.interpack6)
+            ContextCompat.getColorStateList(context, R.color.interpack7)
         } else ContextCompat.getColorStateList(context, R.color.shades2)
         editTextError = isError
         lpTextInputLayoutAutoComplete.isSelected = isError

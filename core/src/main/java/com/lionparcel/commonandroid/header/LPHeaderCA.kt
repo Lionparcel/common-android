@@ -461,7 +461,7 @@ class LPHeaderCA : ConstraintLayout {
             ImageViewCompat.setImageTintList(imgBtnBackHeader, ContextCompat.getColorStateList(context, color))
         } else {
             when (this.backButtonColor){
-                0 -> ImageViewCompat.setImageTintList(imgBtnBackHeader, ContextCompat.getColorStateList(context, R.color.interpack6))
+                0 -> ImageViewCompat.setImageTintList(imgBtnBackHeader, ContextCompat.getColorStateList(context, R.color.interpack7))
                 1 -> ImageViewCompat.setImageTintList(imgBtnBackHeader, ContextCompat.getColorStateList(context, R.color.white))
             }
         }

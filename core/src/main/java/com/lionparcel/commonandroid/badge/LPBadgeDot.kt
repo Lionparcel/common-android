@@ -2,13 +2,11 @@ package com.lionparcel.commonandroid.badge
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import com.lionparcel.commonandroid.R
-import com.lionparcel.commonandroid.walkthrough.utils.toDp
 
 class LPBadgeDot @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttrs: Int = 0
@@ -28,10 +26,10 @@ class LPBadgeDot @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas?) {
         val color = when (color) {
-            0 -> R.color.interpack6
+            0 -> R.color.interpack7
             1 -> R.color.white
             2 -> R.color.yellow4
-            else -> R.color.interpack6
+            else -> R.color.interpack7
         }
         drawBadge(context, width/ 2F, canvas, color)
         super.onDraw(canvas)
