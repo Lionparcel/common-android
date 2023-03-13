@@ -16,9 +16,12 @@
     <color name="green5">#36B37E</color>
     <color name="green6">#00875A</color>
     <color name="interpack">#FF7B9C</color>
-    <color name="interpack1">#FDEAE8</color>
-    <color name="interpack4">#FFF05C72</color>
+    <color name="interpack1">#F8E9E9</color>
+    <color name="interpack2">#EABCBE</color>
+    <color name="interpack3">#DC8F92</color>
+    <color name="interpack4">#D4797C</color>
     <color name="interpack5">#E13E49</color>
+    <color name="interpack6">#C64D51</color>
     <color name="interpack7_50">#80B82025</color>
     <color name="interpack7">#B82025</color>
     <color name="orange1">#FCECE7</color>
