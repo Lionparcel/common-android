@@ -80,6 +80,8 @@ abstract class BaseDropdown @JvmOverloads constructor(
         setTextInputLayoutStyle()
         getSpinner().adapter = adapter
         setStartDrawable()
+        getInputLayout().endIconDrawable = ContextCompat.getDrawable(context, R.drawable.ics_o_chevron_down)
+        changeIcon()
     }
 
     abstract val type: Type
@@ -104,7 +106,7 @@ abstract class BaseDropdown @JvmOverloads constructor(
         Type.OUTLINED -> binding.lpDropdownTextInputLayoutOutlined
     }
 
-    fun getSpinner(): Spinner = binding.lpDropdownSpinner
+    fun getSpinner(): LPCustomSpinner = binding.lpDropdownSpinner
 
     override fun onSaveInstanceState(): Parcelable? = bundleOf(
         BUNDLE_INSTANCE to super.onSaveInstanceState(),
@@ -148,8 +150,6 @@ abstract class BaseDropdown @JvmOverloads constructor(
         fireValidation?.let {
             if (!hasWindowFocus) it()
         }
-        if (getEditText().text.isNullOrEmpty()) isCollapsed = !isCollapsed else isCollapsed = false
-        changeIcon()
     }
 
     private fun setText(s: CharSequence?) {
@@ -174,8 +174,16 @@ abstract class BaseDropdown @JvmOverloads constructor(
     private fun Disposable.collect() = compositeDisposable.add(this)
 
     private fun changeIcon() {
-        if (isCollapsed) getInputLayout().endIconDrawable = ContextCompat.getDrawable(context, R.drawable.ics_o_chevron_up)
-         else getInputLayout().endIconDrawable = ContextCompat.getDrawable(context, R.drawable.ics_o_chevron_down)
+        getSpinner().setSpinnerEventsListener(object : OnSpinnerEventsListener{
+            override fun onSpinnerOpened(spinner: Spinner) {
+                getInputLayout().endIconDrawable = ContextCompat.getDrawable(context, R.drawable.ics_o_chevron_up)
+            }
+
+            override fun onSpinnerClosed(spinner: Spinner) {
+                getInputLayout().endIconDrawable = ContextCompat.getDrawable(context, R.drawable.ics_o_chevron_down)
+            }
+
+        })
     }
 
     private fun setStartDrawable() {

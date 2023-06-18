@@ -20,7 +20,7 @@ class LPCustomSpinner @JvmOverloads constructor(
     }
 
     override fun onWindowFocusChanged(hasWindowFocus: Boolean) {
-        if (this.hasBeenOpened() && this.hasFocus()) {
+        if (this.hasBeenOpened() && hasWindowFocus()) {
             performClosedEvent()
         }
     }
