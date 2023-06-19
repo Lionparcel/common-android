@@ -70,6 +70,7 @@ class LPDropdownDA @JvmOverloads constructor(
     fun setData(data: List<DropdownData>) {
         mutableList.clear()
         mutableList.addAll(data)
+        mutableList.add(data.size, DropdownData(""))
         getSpinner().setSelection(if (currentPosition > -1) currentPosition else mutableList.lastIndex)
         adapter.notifyDataSetChanged()
     }
@@ -104,10 +105,12 @@ class LPDropdownDA @JvmOverloads constructor(
         RxAdapterView.itemSelections(getSpinner())
             .skipInitialValue()
             .subscribe({
-                if (it < mutableList.size - 1) {
+                if (it < mutableList.size - 1 && !mutableList[it].isDisable) {
                     onItemSelectedListener?.onItemSelected(null, null, it, 0L)
                 }
-                setText(mutableList[it].text)
+                if (!mutableList[it].isDisable) {
+                    setText(mutableList[it].text)
+                }
             }, {
                 it.printStackTrace()
             })
@@ -134,7 +137,7 @@ class LPDropdownDA @JvmOverloads constructor(
 
     private fun setHintText(stringRes: Int) {
         if (stringRes != 0 && !isInEditMode) {
-            getInputLayout().hint = context.getString(stringRes)
+            getEditText().hint = context.getString(stringRes)
         }
     }
 

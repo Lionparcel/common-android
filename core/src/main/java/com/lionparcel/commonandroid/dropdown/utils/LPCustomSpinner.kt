@@ -1,7 +1,9 @@
 package com.lionparcel.commonandroid.dropdown.utils
 
 import android.content.Context
+import android.graphics.Rect
 import android.util.AttributeSet
+import android.view.WindowManager
 import androidx.appcompat.widget.AppCompatSpinner
 
 class LPCustomSpinner @JvmOverloads constructor(
@@ -24,6 +26,12 @@ class LPCustomSpinner @JvmOverloads constructor(
             performClosedEvent()
         }
     }
+//
+//    override fun getWindowVisibleDisplayFrame(outRect: Rect?) {
+//        val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+//        val display = wm.defaultDisplay
+//        display.getRectSize(outRect)
+//    }
 
     fun setSpinnerEventsListener(onSpinnerEventsListener: OnSpinnerEventsListener) {
         spinnerEventsListener = onSpinnerEventsListener

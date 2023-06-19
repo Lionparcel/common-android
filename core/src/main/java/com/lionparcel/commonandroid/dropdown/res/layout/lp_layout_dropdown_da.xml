@@ -9,7 +9,7 @@
         style="@style/LPTextInputLayoutExposed"
         android:layout_width="match_parent"
         android:fontFamily="@font/poppins_regular"
-        android:layout_height="@dimen/dp_45"
+        android:layout_height="wrap_content"
         app:boxStrokeColor="@color/shades2"
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,8 +35,9 @@
         android:background="@color/transparent"
         android:dropDownVerticalOffset="56dp"
         android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toTopOf="@id/lpDropdownTextInputLayout"
+        app:layout_constraintBottom_toBottomOf="@id/lpDropdownTextInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

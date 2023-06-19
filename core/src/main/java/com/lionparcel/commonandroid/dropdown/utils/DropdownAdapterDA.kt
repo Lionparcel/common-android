@@ -22,6 +22,7 @@ class DropdownAdapterDA(
     }
 
     override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+        if (position == values.lastIndex) return initialSelection()
         val view = LayoutInflater.from(context).inflate(R.layout.lp_layout_dropdown_spinner, parent, false)
         view.lpDropdownSpinnerText.text = values[position].text
         view.lpDropdownSpinnerText.typeface = ResourcesCompat.getFont(context,
@@ -31,9 +32,15 @@ class DropdownAdapterDA(
                 R.font.poppins_regular
         )
         view.ivDropdownCheck.isVisible = values[position] == values[selectedItemPosition.invoke()]
-        view.isEnabled = values[position].isDisable
-        if (!values[position].isDisable) view.lpDropdownSpinnerText.setTextColor(ResourcesCompat.getColor(context.resources, R.color.shades3, null))
+        values[position].isDisable.let {
+            view.isEnabled = it != true
+            if (it) view.lpDropdownSpinnerText.setTextColor(ResourcesCompat.getColor(context.resources, R.color.shades3, null))
+        }
         return view
+    }
+
+    override fun isEnabled(position: Int): Boolean {
+        return !values[position].isDisable
     }
 
     private fun initialSelection(): View {
