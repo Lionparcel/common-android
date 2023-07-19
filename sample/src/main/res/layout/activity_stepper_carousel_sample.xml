@@ -63,6 +63,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_stepper_carousel_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -82,6 +83,31 @@
                 android:id="@+id/iv_view_pager_3"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_100"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/dp_16"
+            android:gravity="center_horizontal"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/spacing_m"
+            app:layout_constraintTop_toBottomOf="@id/ll_stepper_carousel_3"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.lionparcel.commonandroid.stepper.LPStepperCarouselBarVertical
+                android:id="@+id/lp_stepper_carousel_4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:barSpacing="@dimen/dp_4"/>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/iv_view_pager_4"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_100"
+                android:orientation="vertical"/>
 
         </LinearLayout>
 
