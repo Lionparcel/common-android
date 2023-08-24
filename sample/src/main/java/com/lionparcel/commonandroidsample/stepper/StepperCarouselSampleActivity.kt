@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.lionparcel.commonandroid.stepper.LPStepperCarousel
 import com.lionparcel.commonandroid.stepper.LPStepperCarouselBar
+import com.lionparcel.commonandroid.stepper.LPStepperCarouselBarVertical
 import com.lionparcel.commonandroidsample.R
 import com.lionparcel.commonandroidsample.stepper.utils.ViewPager2Adapter
 import com.lionparcel.commonandroidsample.stepper.utils.ViewPagerAdapter
@@ -26,6 +27,8 @@ class StepperCarouselSampleActivity : AppCompatActivity() {
         val stepperCarousel2 = findViewById<LPStepperCarousel>(R.id.lp_stepper_carousel_2)
         val viewPager3 = findViewById<ViewPager2>(R.id.iv_view_pager_3)
         val stepperCarousel3 = findViewById<LPStepperCarouselBar>(R.id.lp_stepper_carousel_3)
+        val viewPager4 = findViewById<ViewPager2>(R.id.iv_view_pager_4)
+        val stepperCarousel4 = findViewById<LPStepperCarouselBarVertical>(R.id.lp_stepper_carousel_4)
 
         viewPager.adapter = ViewPagerAdapter(this, imageList)
         stepperCarousel.setViewPager(viewPager)
@@ -33,5 +36,7 @@ class StepperCarouselSampleActivity : AppCompatActivity() {
         stepperCarousel2.setViewPager(viewPager2)
         viewPager3.adapter = ViewPager2Adapter()
         stepperCarousel3.setViewPager(viewPager3)
+        viewPager4.adapter = ViewPager2Adapter()
+        stepperCarousel4.setViewPager(viewPager4)
     }
 }

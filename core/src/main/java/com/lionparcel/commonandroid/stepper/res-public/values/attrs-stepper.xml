@@ -51,4 +51,11 @@
         <attr name="barBackgroundInactive" format="reference"/>
         <attr name="isBarClickable" format="boolean"/>
     </declare-styleable>
+    <declare-styleable name="LPStepperCarouselBarVertical">
+        <attr name="barHeight" />
+        <attr name="barSpacing" />
+        <attr name="barBackgroundActive" />
+        <attr name="barBackgroundInactive" />
+        <attr name="isBarClickable" />
+    </declare-styleable>
 </resources>

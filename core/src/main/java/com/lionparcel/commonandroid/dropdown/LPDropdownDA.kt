@@ -1,11 +1,10 @@
-package com.lionparcel.commonandroid.dropdown.utils
+package com.lionparcel.commonandroid.dropdown
 
 import android.content.Context
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.AdapterView
 import android.widget.Spinner
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -15,45 +14,29 @@ import androidx.core.widget.TextViewCompat
 import com.jakewharton.rxbinding2.widget.RxAdapterView
 import com.jakewharton.rxbinding2.widget.RxTextView
 import com.lionparcel.commonandroid.R
-import com.lionparcel.commonandroid.databinding.LpLayoutDropdownBinding
+import com.lionparcel.commonandroid.databinding.LpLayoutDropdownDaBinding
+import com.lionparcel.commonandroid.dropdown.utils.*
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.lp_layout_dropdown.view.*
 
-abstract class BaseDropdown @JvmOverloads constructor(
+class LPDropdownDA @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
-
-    enum class Type(
-        val styleableId: IntArray,
-        val hint: Int,
-        val drawableStart: Int
-    ) {
-        DEFAULT(
-            R.styleable.LPDropdown,
-            R.styleable.LPDropdown_android_hint,
-            R.styleable.LPDropdown_android_drawableStart
-        ),
-        OUTLINED(
-            R.styleable.LPDropdownOutlined,
-            R.styleable.LPDropdownOutlined_android_hint,
-            R.styleable.LPDropdownOutlined_android_drawableStart
-        )
-    }
 
     companion object {
         const val BUNDLE_INSTANCE = "BUNDLE_INSTANCE"
         const val BUNDLE_CURRENT_POSITION = "BUNDLE_CURRENT_EDIT"
     }
 
-    private val binding: LpLayoutDropdownBinding =
-        LpLayoutDropdownBinding.inflate(LayoutInflater.from(context), this, true)
+    private val binding: LpLayoutDropdownDaBinding =
+        LpLayoutDropdownDaBinding.inflate(LayoutInflater.from(context), this, true)
 
     var onItemSelectedListener: AdapterView.OnItemSelectedListener? = null
 
     private val compositeDisposable by lazy { CompositeDisposable() }
 
-    private val mutableList = mutableListOf<Any?>()
+    private val mutableList = mutableListOf<DropdownData>()
 
     private var currentPosition: Int = -1
 
@@ -63,48 +46,40 @@ abstract class BaseDropdown @JvmOverloads constructor(
 
     var fireValidation: (() -> Unit)? = null
 
-    private val adapter = DropdownAdapter(context, mutableList) {
+    private val adapter = DropdownAdapterDA(context, mutableList) {
         getSpinner().selectedItemPosition
     }
 
     init {
         binding.root
-        context.obtainStyledAttributes(attrs, type.styleableId).apply {
+        context.obtainStyledAttributes(attrs, R.styleable.LPDropdownDA).apply {
             try {
-                setHintText(getResourceId(type.hint, 0))
-                iconStart = getResourceId(type.drawableStart, 0)
+                setHintText(getResourceId(R.styleable.LPDropdownDA_android_hint, 0))
+                iconStart = getResourceId(R.styleable.LPDropdownDA_android_drawableStart, 0)
             } finally {
                 recycle()
             }
         }
-        setTextInputLayoutStyle()
         getSpinner().adapter = adapter
         setStartDrawable()
-        getInputLayout().endIconDrawable = ContextCompat.getDrawable(context, R.drawable.ics_o_chevron_down)
+        getInputLayout().endIconDrawable =
+            ContextCompat.getDrawable(context, R.drawable.ics_o_chevron_down)
         changeIcon()
     }
 
-    abstract val type: Type
-
-    fun <T> setData(data: List<T>) {
+    fun setData(data: List<DropdownData>) {
         mutableList.clear()
         mutableList.addAll(data)
-        mutableList.add(data.size, null)
+        mutableList.add(data.size, DropdownData(""))
         getSpinner().setSelection(if (currentPosition > -1) currentPosition else mutableList.lastIndex)
         adapter.notifyDataSetChanged()
     }
 
     fun getText() = getEditText().text.toString()
 
-    fun getEditText() = when (type) {
-        Type.DEFAULT -> binding.lpActDropdown
-        Type.OUTLINED -> binding.lpActDropdownOutlined
-    }
+    fun getEditText() = binding.lpActDropdown
 
-    fun getInputLayout() = when (type) {
-        Type.DEFAULT -> binding.lpDropdownTextInputLayout
-        Type.OUTLINED -> binding.lpDropdownTextInputLayoutOutlined
-    }
+    fun getInputLayout() = binding.lpDropdownTextInputLayout
 
     fun getSpinner(): LPCustomSpinner = binding.lpDropdownSpinner
 
@@ -130,10 +105,12 @@ abstract class BaseDropdown @JvmOverloads constructor(
         RxAdapterView.itemSelections(getSpinner())
             .skipInitialValue()
             .subscribe({
-                if (it < mutableList.size - 1) {
+                if (it < mutableList.size - 1 && !mutableList[it].isDisable) {
                     onItemSelectedListener?.onItemSelected(null, null, it, 0L)
                 }
-                setText(mutableList[it]?.toString() ?: "")
+                if (!mutableList[it].isDisable) {
+                    setText(mutableList[it].text)
+                }
             }, {
                 it.printStackTrace()
             })
@@ -160,27 +137,22 @@ abstract class BaseDropdown @JvmOverloads constructor(
 
     private fun setHintText(stringRes: Int) {
         if (stringRes != 0 && !isInEditMode) {
-            when (type) {
-                Type.DEFAULT -> {
-                    getInputLayout().hint = context.getString(stringRes)
-                }
-                Type.OUTLINED -> {
-                    getEditText().hint = context.getString(stringRes)
-                }
-            }
+            getEditText().hint = context.getString(stringRes)
         }
     }
 
     private fun Disposable.collect() = compositeDisposable.add(this)
 
     private fun changeIcon() {
-        getSpinner().setSpinnerEventsListener(object : OnSpinnerEventsListener{
+        getSpinner().setSpinnerEventsListener(object : OnSpinnerEventsListener {
             override fun onSpinnerOpened(spinner: Spinner) {
-                getInputLayout().endIconDrawable = ContextCompat.getDrawable(context, R.drawable.ics_o_chevron_up)
+                getInputLayout().endIconDrawable =
+                    ContextCompat.getDrawable(context, R.drawable.ics_o_chevron_up)
             }
 
             override fun onSpinnerClosed(spinner: Spinner) {
-                getInputLayout().endIconDrawable = ContextCompat.getDrawable(context, R.drawable.ics_o_chevron_down)
+                getInputLayout().endIconDrawable =
+                    ContextCompat.getDrawable(context, R.drawable.ics_o_chevron_down)
             }
 
         })
@@ -194,18 +166,5 @@ abstract class BaseDropdown @JvmOverloads constructor(
             0,
             0
         )
-    }
-
-    private fun setTextInputLayoutStyle() {
-        when (type) {
-            Type.DEFAULT -> {
-                binding.lpDropdownTextInputLayout.visibility = View.VISIBLE
-                binding.lpDropdownTextInputLayoutOutlined.visibility = View.GONE
-            }
-            Type.OUTLINED -> {
-                binding.lpDropdownTextInputLayout.visibility = View.GONE
-                binding.lpDropdownTextInputLayoutOutlined.visibility = View.VISIBLE
-            }
-        }
     }
 }

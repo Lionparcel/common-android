@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxLines="1"
+        style="@style/Subtitle3Regular"
         android:textSize="@dimen/sp_12"
         android:textColor="@color/shades5"
         android:fontFamily="@font/poppins_regular"

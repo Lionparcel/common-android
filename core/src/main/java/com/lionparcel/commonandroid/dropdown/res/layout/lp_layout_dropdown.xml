@@ -54,7 +54,7 @@
 
     </LinearLayout>
 
-    <Spinner
+    <com.lionparcel.commonandroid.dropdown.utils.LPCustomSpinner
         android:id="@+id/lpDropdownSpinner"
         android:layout_width="match_parent"
         android:layout_height="@dimen/spacing_none"
