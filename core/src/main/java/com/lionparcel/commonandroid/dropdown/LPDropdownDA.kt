@@ -44,11 +44,11 @@ class LPDropdownDA @JvmOverloads constructor(
 
     private var iconStart: Int? = null
 
+    private var useCheckIcon: Boolean = true
+
     var fireValidation: (() -> Unit)? = null
 
-    private val adapter = DropdownAdapterDA(context, mutableList) {
-        getSpinner().selectedItemPosition
-    }
+    private var adapter: DropdownAdapterDA
 
     init {
         binding.root
@@ -56,9 +56,13 @@ class LPDropdownDA @JvmOverloads constructor(
             try {
                 setHintText(getResourceId(R.styleable.LPDropdownDA_android_hint, 0))
                 iconStart = getResourceId(R.styleable.LPDropdownDA_android_drawableStart, 0)
+                useCheckIcon = getBoolean(R.styleable.LPDropdownDA_useCheckIcon, true)
             } finally {
                 recycle()
             }
+        }
+        adapter = DropdownAdapterDA(context, mutableList, useCheckIcon) {
+            getSpinner().selectedItemPosition
         }
         getSpinner().adapter = adapter
         setStartDrawable()
