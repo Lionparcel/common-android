@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.lp_layout_dropdown_spinner.view.*
 class DropdownAdapterDA(
     context: Context,
     private val values: List<DropdownData>,
+    private val useCheckIcon: Boolean = true,
     private val selectedItemPosition: () -> Int
 ) : ArrayAdapter<DropdownData>(context, 0, values) {
 
@@ -31,7 +32,7 @@ class DropdownAdapterDA(
             else
                 R.font.poppins_regular
         )
-        view.ivDropdownCheck.isVisible = values[position] == values[selectedItemPosition.invoke()]
+        view.ivDropdownCheck.isVisible = values[position] == values[selectedItemPosition.invoke()] && useCheckIcon
         values[position].isDisable.let {
             view.isEnabled = it != true
             if (it) view.lpDropdownSpinnerText.setTextColor(ResourcesCompat.getColor(context.resources, R.color.shades3, null))

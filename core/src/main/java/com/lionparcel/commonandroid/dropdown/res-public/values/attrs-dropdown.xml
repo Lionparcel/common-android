@@ -11,5 +11,6 @@
     <declare-styleable name="LPDropdownDA">
         <attr name="android:hint"/>
         <attr name="android:drawableStart"/>
+        <attr name="useCheckIcon" format="boolean"/>
     </declare-styleable>
 </resources>
