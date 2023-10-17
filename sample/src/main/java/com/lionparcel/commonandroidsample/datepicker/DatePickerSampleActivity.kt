@@ -99,7 +99,8 @@ class DatePickerSampleActivity : AppCompatActivity() {
                 isShowAlert = true,
                 alertMessage = "Periode riwayat yang dapat dipilih maksimal 31 hari yang lalu",
                 maxStartDate = 20L,
-                maxRangeDateSelected = 5
+                maxRangeDateSelected = 5,
+                showErrorSnackBar = true
             )
         )
     }

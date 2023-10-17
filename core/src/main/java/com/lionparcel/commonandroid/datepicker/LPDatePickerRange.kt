@@ -64,7 +64,10 @@ class LPDatePickerRange: BaseDatePicker() {
             intervalDay: Long? = 0L,
             title: String? = null,
             clearTitle: String? = null,
-            btnTitle: String? = null
+            btnTitle: String? = null,
+            maxStartDate: Long? = null,
+            maxRangeDateSelected: Int? = null,
+            showErrorSnackBar: Boolean = false
         ) = LPDatePickerRange().apply {
             this.startDate = startDate
             this.endDate = endDate
@@ -74,6 +77,9 @@ class LPDatePickerRange: BaseDatePicker() {
             this.title = title
             this.clearTitle = clearTitle
             this.btnTitle = btnTitle
+            this.maxStartDate = maxStartDate
+            this.maxRangeDateSelected = maxRangeDateSelected
+            this.showErrorSnackBar = showErrorSnackBar
         }
 
         fun newInstanceOptional(
@@ -84,7 +90,10 @@ class LPDatePickerRange: BaseDatePicker() {
             intervalDay: Long? = 0L,
             title: String? = null,
             clearTitle: String? = null,
-            btnTitle: String? = null
+            btnTitle: String? = null,
+            maxStartDate: Long? = null,
+            maxRangeDateSelected: Int? = null,
+            showErrorSnackBar: Boolean = false
         ) = LPDatePickerRange().apply {
             this.startDate = startDate
             this.endDate = endDate
@@ -94,6 +103,9 @@ class LPDatePickerRange: BaseDatePicker() {
             this.title = title
             this.clearTitle = clearTitle
             this.btnTitle = btnTitle
+            this.maxStartDate = maxStartDate
+            this.maxRangeDateSelected = maxRangeDateSelected
+            this.showErrorSnackBar = showErrorSnackBar
         }
 
         fun newInstanceWithAlert(
@@ -109,7 +121,8 @@ class LPDatePickerRange: BaseDatePicker() {
             alertMessage: String? = null,
             onAlertClicked: (() -> Unit)? = null,
             maxStartDate: Long? = null,
-            maxRangeDateSelected: Int? = null
+            maxRangeDateSelected: Int? = null,
+            showErrorSnackBar: Boolean = false
         ) = LPDatePickerRange().apply {
             this.startDate = startDate
             this.endDate = endDate
@@ -124,6 +137,7 @@ class LPDatePickerRange: BaseDatePicker() {
             this.onAlertClicked = onAlertClicked
             this.maxStartDate = maxStartDate
             this.maxRangeDateSelected = maxRangeDateSelected
+            this.showErrorSnackBar = showErrorSnackBar
         }
 
     }
@@ -145,7 +159,7 @@ class LPDatePickerRange: BaseDatePicker() {
     private var onAlertClicked: (() -> Unit)? = null
     private var maxStartDate: Long? = null
     private var maxRangeDateSelected: Int? = null
-    private var showSnackErrorSnackBar = false
+    private var showErrorSnackBar = false
     private val dayOfWeek by lazy {
         arrayOf(
             DayOfWeek.MONDAY,
@@ -384,7 +398,7 @@ class LPDatePickerRange: BaseDatePicker() {
                 if (date < startDate || endDate != null) {
                     if (maxStartDate != null) {
                         if (date.isBefore(LocalDate.now().minusDays(maxStartDate ?: 0L))) {
-                            if (showSnackErrorSnackBar) {
+                            if (showErrorSnackBar) {
                                 requireContext().showToastSmallIconNoClose(
                                     this.binding.parent,
                                     getString(R.string.date_picker_max_start_date_error_message, (maxStartDate ?: 0L).toString()),
@@ -404,7 +418,7 @@ class LPDatePickerRange: BaseDatePicker() {
                                 date
                             ) + 1) > (maxRangeDateSelected ?: MAX_RANGE_DATE_SELECTED)
                         ) {
-                            if (showSnackErrorSnackBar) {
+                            if (showErrorSnackBar) {
                                 requireContext().showToastSmallIconNoClose(
                                     this.binding.parent,
                                     getString(R.string.date_picker_error_message, (maxRangeDateSelected ?: MAX_RANGE_DATE_SELECTED).toString()),
@@ -421,7 +435,7 @@ class LPDatePickerRange: BaseDatePicker() {
             } else {
                 if (maxStartDate != null) {
                     if (date.isBefore(LocalDate.now().minusDays(maxStartDate ?: 0L))) {
-                        if (showSnackErrorSnackBar) {
+                        if (showErrorSnackBar) {
                             requireContext().showToastSmallIconNoClose(
                                 this.binding.parent,
                                 getString(R.string.date_picker_max_start_date_error_message, (maxStartDate ?: 0L).toString()),
