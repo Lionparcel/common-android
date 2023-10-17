@@ -23,6 +23,7 @@ class LPAlert @JvmOverloads constructor(
 
     private var size : Int
     private var style: Int
+    private var strokeStyle: Int
 
     init {
         context.theme.obtainStyledAttributes(
@@ -34,6 +35,7 @@ class LPAlert @JvmOverloads constructor(
             try {
                 size = getInt(R.styleable.LPAlert_alertSize, 0)
                 style = getInt(R.styleable.LPAlert_alertStyle, 0)
+                strokeStyle = getInt(R.styleable.LPAlert_alertStroke, 0)
             } finally {
                 recycle()
             }
@@ -101,23 +103,38 @@ class LPAlert @JvmOverloads constructor(
     @Suppress("DEPRECATION")
     @SuppressLint("UseCompatLoadingForColorStateLists")
     fun setAlertState(state: AlertState) {
+        val normalBackground = when (strokeStyle) {
+            0 -> R.drawable.bg_alert_normal_dash
+            1 -> R.drawable.bg_alert_normal
+            else -> R.drawable.bg_alert_normal_dash
+        }
+        val warningBackground = when (strokeStyle) {
+            0 -> R.drawable.bg_alert_warning_dash
+            1 -> R.drawable.bg_alert_warning
+            else -> R.drawable.bg_alert_warning_dash
+        }
+        val dangerBackground = when (strokeStyle) {
+            0 -> R.drawable.bg_alert_danger_dash
+            1 -> R.drawable.bg_alert_danger
+            else -> R.drawable.bg_alert_danger_dash
+        }
         when (state) {
             AlertState.NORMAL -> {
-                binding.llAlert.background = ContextCompat.getDrawable(context, R.drawable.bg_alert_normal_dash)
+                binding.llAlert.background = ContextCompat.getDrawable(context, normalBackground)
                 binding.titleAlert.setTextColor(resources.getColor(R.color.shades5))
                 binding.contentAlert.setTextColor(resources.getColor(R.color.shades5))
                 ImageViewCompat.setImageTintList(binding.iconStartAlert, resources.getColorStateList(R.color.shades5))
                 ImageViewCompat.setImageTintList(binding.iconEndAlert, resources.getColorStateList(R.color.shades5))
             }
             AlertState.WARNING -> {
-                binding.llAlert.background = ContextCompat.getDrawable(context, R.drawable.bg_alert_warning_dash)
+                binding.llAlert.background = ContextCompat.getDrawable(context, warningBackground)
                 binding.titleAlert.setTextColor(resources.getColor(R.color.box7))
                 binding.contentAlert.setTextColor(resources.getColor(R.color.box7))
                 ImageViewCompat.setImageTintList(binding.iconStartAlert, resources.getColorStateList(R.color.yellow6))
                 ImageViewCompat.setImageTintList(binding.iconEndAlert, resources.getColorStateList(R.color.yellow6))
             }
             AlertState.DANGER -> {
-                binding.llAlert.background = ContextCompat.getDrawable(context, R.drawable.bg_alert_danger_dash)
+                binding.llAlert.background = ContextCompat.getDrawable(context, dangerBackground)
                 binding.titleAlert.setTextColor(resources.getColor(R.color.interpack7))
                 binding.contentAlert.setTextColor(resources.getColor(R.color.interpack7))
                 ImageViewCompat.setImageTintList(binding.iconStartAlert, resources.getColorStateList(R.color.interpack7))

@@ -67,8 +67,9 @@ di pergunakan dengan sebagai mana mestinya</string>
     <string name="date_picker_friday_label">Jum</string>
     <string name="date_picker_saturday_label">Sab</string>
     <string name="date_picker_sunday_label">Min</string>
-    <string name="date_picker_error_message">Tanggal yang kamu pilih lenih dari 30 hari</string>
+    <string name="date_picker_error_message">Tanggal yang kamu pilih lebih dari %s hari</string>
     <string name="date_picker_clear_label">Atur Ulang</string>
+    <string name="date_picker_max_start_date_error_message">Periode riwayat yang dapat dipilih maksimal %s hari yang lalu</string>
 
     <string name="general_select">Pilih</string>
     <string name="general_strip">-</string>

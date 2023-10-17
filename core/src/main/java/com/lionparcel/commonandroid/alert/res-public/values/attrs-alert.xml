@@ -9,5 +9,9 @@
             <enum name="text_only" value="0"/>
             <enum name="with_title" value="1"/>
         </attr>
+        <attr name="alertStroke" format="enum">
+            <enum name="dash" value="0"/>
+            <enum name="no_stroke" value="1"/>
+        </attr>
     </declare-styleable>
 </resources>
