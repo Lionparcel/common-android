@@ -14,6 +14,7 @@ import com.lionparcel.commonandroid.datepicker.utils.toLocaleDate
 import com.lionparcel.commonandroidsample.R
 import java.lang.ref.WeakReference
 import java.time.LocalDate
+import java.time.YearMonth
 import java.util.*
 
 class DatePickerSampleActivity : AppCompatActivity() {
@@ -38,14 +39,18 @@ class DatePickerSampleActivity : AppCompatActivity() {
         findViewById<LinearLayout>(R.id.llDatePicker2).setOnClickListener {
             showDatePickerSingleDialog()
         }
+        findViewById<LinearLayout>(R.id.llDatePicker3).setOnClickListener {
+            showDatePickerRangeDADialog()
+        }
         setSelectedDateView(findViewById(R.id.tvDatePick))
         setSelectedSingleDateView(findViewById(R.id.tvDatePick2))
+        setSelectedDateView(findViewById(R.id.tvDatePick3))
     }
 
     init {
         startDate = run {
             val calendar = Calendar.getInstance()
-            calendar.add(Calendar.DATE, -7)
+            calendar.add(Calendar.DATE, -2)
             DateUtils.dateToString(calendar.time, DateUtils.DATE_NUMBER_FORMAT)
             calendar.time
         }
@@ -78,6 +83,24 @@ class DatePickerSampleActivity : AppCompatActivity() {
                 start.toLocaleDate(),
                 endDate?.toLocaleDate(),
                 this::onChooseButtonDatePickerRange
+            )
+        )
+    }
+
+    private fun showDatePickerRangeDADialog() {
+        val start = startDate ?: return
+        showCustomDialog(
+            supportFragmentManager,
+            DATE_PICKER_RANGE_DIALOG,
+            LPDatePickerRange.newInstanceWithAlert(
+                start.toLocaleDate(),
+                null,
+                this::onChooseButtonDatePickerRange,
+                isShowAlert = true,
+                alertMessage = "Periode riwayat yang dapat dipilih maksimal 31 hari yang lalu",
+                maxStartDate = 20L,
+                maxRangeDateSelected = 5,
+                showErrorSnackBar = true
             )
         )
     }

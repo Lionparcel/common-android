@@ -21,6 +21,7 @@ import com.kizitonwose.calendarview.utils.Size
 import com.kizitonwose.calendarview.utils.next
 import com.kizitonwose.calendarview.utils.previous
 import com.lionparcel.commonandroid.R
+import com.lionparcel.commonandroid.alert.utils.AlertState
 import com.lionparcel.commonandroid.databinding.LpDatePickerDayBinding
 import com.lionparcel.commonandroid.databinding.LpLayoutDatePickerRangeBinding
 import com.lionparcel.commonandroid.datepicker.utils.*
@@ -63,7 +64,10 @@ class LPDatePickerRange: BaseDatePicker() {
             intervalDay: Long? = 0L,
             title: String? = null,
             clearTitle: String? = null,
-            btnTitle: String? = null
+            btnTitle: String? = null,
+            maxStartDate: Long? = null,
+            maxRangeDateSelected: Int? = null,
+            showErrorSnackBar: Boolean = false
         ) = LPDatePickerRange().apply {
             this.startDate = startDate
             this.endDate = endDate
@@ -73,6 +77,9 @@ class LPDatePickerRange: BaseDatePicker() {
             this.title = title
             this.clearTitle = clearTitle
             this.btnTitle = btnTitle
+            this.maxStartDate = maxStartDate
+            this.maxRangeDateSelected = maxRangeDateSelected
+            this.showErrorSnackBar = showErrorSnackBar
         }
 
         fun newInstanceOptional(
@@ -83,7 +90,10 @@ class LPDatePickerRange: BaseDatePicker() {
             intervalDay: Long? = 0L,
             title: String? = null,
             clearTitle: String? = null,
-            btnTitle: String? = null
+            btnTitle: String? = null,
+            maxStartDate: Long? = null,
+            maxRangeDateSelected: Int? = null,
+            showErrorSnackBar: Boolean = false
         ) = LPDatePickerRange().apply {
             this.startDate = startDate
             this.endDate = endDate
@@ -93,7 +103,43 @@ class LPDatePickerRange: BaseDatePicker() {
             this.title = title
             this.clearTitle = clearTitle
             this.btnTitle = btnTitle
+            this.maxStartDate = maxStartDate
+            this.maxRangeDateSelected = maxRangeDateSelected
+            this.showErrorSnackBar = showErrorSnackBar
         }
+
+        fun newInstanceWithAlert(
+            startDate: LocalDate,
+            endDate: LocalDate?,
+            onChooseButtonClicked: (LocalDate, LocalDate?) -> Unit,
+            isUseLimit: Boolean = false,
+            intervalDay: Long? = 0L,
+            title: String? = null,
+            clearTitle: String? = null,
+            btnTitle: String? = null,
+            isShowAlert: Boolean = false,
+            alertMessage: String? = null,
+            onAlertClicked: (() -> Unit)? = null,
+            maxStartDate: Long? = null,
+            maxRangeDateSelected: Int? = null,
+            showErrorSnackBar: Boolean = false
+        ) = LPDatePickerRange().apply {
+            this.startDate = startDate
+            this.endDate = endDate
+            this.onChooseButtonClicked = onChooseButtonClicked
+            this.isUseLimit = isUseLimit
+            intervalDay?.let { this.intervalDay = it }
+            this.title = title
+            this.clearTitle = clearTitle
+            this.btnTitle = btnTitle
+            this.isShowAlert = isShowAlert
+            this.alertMessage = alertMessage
+            this.onAlertClicked = onAlertClicked
+            this.maxStartDate = maxStartDate
+            this.maxRangeDateSelected = maxRangeDateSelected
+            this.showErrorSnackBar = showErrorSnackBar
+        }
+
     }
 
     private val today = LocalDate.now()
@@ -108,7 +154,12 @@ class LPDatePickerRange: BaseDatePicker() {
     private var title: String? = null
     private var clearTitle: String? = null
     private var btnTitle: String? = null
-
+    private var isShowAlert = false
+    private var alertMessage: String? = null
+    private var onAlertClicked: (() -> Unit)? = null
+    private var maxStartDate: Long? = null
+    private var maxRangeDateSelected: Int? = null
+    private var showErrorSnackBar = false
     private val dayOfWeek by lazy {
         arrayOf(
             DayOfWeek.MONDAY,
@@ -177,6 +228,7 @@ class LPDatePickerRange: BaseDatePicker() {
                     onChooseButtonClicked?.invoke(it, endDate) ?: onChooseButtonClickedOptional?.invoke(it, endDate)
                 } ?: onChooseButtonClickedOptional?.invoke(null, null)
             }
+            setAlertView()
         }
         setDaySize()
         changeStateButtonChoose()
@@ -344,26 +396,56 @@ class LPDatePickerRange: BaseDatePicker() {
             if (isEndDate || isStartDate) return
             if (startDate != null) {
                 if (date < startDate || endDate != null) {
+                    if (maxStartDate != null) {
+                        if (date.isBefore(LocalDate.now().minusDays(maxStartDate ?: 0L))) {
+                            if (showErrorSnackBar) {
+                                requireContext().showToastSmallIconNoClose(
+                                    this.binding.parent,
+                                    getString(R.string.date_picker_max_start_date_error_message, (maxStartDate ?: 0L).toString()),
+                                    R.drawable.ics_f_warning_circle_white,
+                                    MessageType.ERROR
+                                )
+                            }
+                            return
+                        }
+                    }
                     startDate = date
                     endDate = null
                 } else if (date != startDate) {
-                    val isNotSameMonth = startDate?.monthValue != date.monthValue
-                    if ((ChronoUnit.DAYS.between(
-                            startDate,
-                            date
-                        ) + 1) > MAX_RANGE_DATE_SELECTED && isNotSameMonth
-                    ) {
-                        requireContext().showToastSmallIconNoClose(
-                            this.binding.parent,
-                            getString(R.string.date_picker_error_message),
-                            R.drawable.ics_f_warning_circle_white,
-                            MessageType.ERROR
-                        )
-                        return
+                    if (maxRangeDateSelected != null) {
+                        if ((ChronoUnit.DAYS.between(
+                                startDate,
+                                date
+                            ) + 1) > (maxRangeDateSelected ?: MAX_RANGE_DATE_SELECTED)
+                        ) {
+                            if (showErrorSnackBar) {
+                                requireContext().showToastSmallIconNoClose(
+                                    this.binding.parent,
+                                    getString(R.string.date_picker_error_message, (maxRangeDateSelected ?: MAX_RANGE_DATE_SELECTED).toString()),
+                                    R.drawable.ics_f_warning_circle_white,
+                                    MessageType.ERROR
+                                )
+                            }
+                            return
+                        }
+
                     }
                     endDate = date
                 }
             } else {
+                if (maxStartDate != null) {
+                    if (date.isBefore(LocalDate.now().minusDays(maxStartDate ?: 0L))) {
+                        if (showErrorSnackBar) {
+                            requireContext().showToastSmallIconNoClose(
+                                this.binding.parent,
+                                getString(R.string.date_picker_max_start_date_error_message, (maxStartDate ?: 0L).toString()),
+                                R.drawable.ics_f_warning_circle_white,
+                                MessageType.ERROR
+                            )
+                        }
+                        return
+                    }
+                }
                 startDate = date
             }
             this.binding.calendarView.notifyCalendarChanged()
@@ -445,4 +527,16 @@ class LPDatePickerRange: BaseDatePicker() {
     }
 
     private fun isDateInRange(day: CalendarDay): Boolean = if (!isUseLimit) true else day.date.isAfter(shipmentFilterLimitDate)
+
+    private fun LpLayoutDatePickerRangeBinding.setAlertView() {
+        lpAlert.apply {
+            isVisible = isShowAlert
+            setAlertState(AlertState.WARNING)
+            setTextTitle(alertMessage ?: String())
+            setStartIcon()
+            setOnClickListener {
+                onAlertClicked?.invoke()
+            }
+        }
+    }
 }
