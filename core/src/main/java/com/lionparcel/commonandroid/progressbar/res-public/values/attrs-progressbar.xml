@@ -7,5 +7,6 @@
             <enum name="small" value="2"/>
         </attr>
         <attr name="withStatus" format="boolean"/>
+        <attr name="customProgressDrawable" format="reference"/>
     </declare-styleable>
 </resources>

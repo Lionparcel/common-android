@@ -21,7 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_16"
         app:progressSize="medium"
-        app:withStatus="true"/>
+        app:withStatus="true"
+        app:customProgressDrawable="@drawable/bg_progress_bar_dummy"/>
 
     <com.lionparcel.commonandroid.progressbar.LPProgressBar
         android:id="@+id/pbSample3"
