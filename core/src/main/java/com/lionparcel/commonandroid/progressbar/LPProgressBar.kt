@@ -1,9 +1,11 @@
 package com.lionparcel.commonandroid.progressbar
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.databinding.LpLayoutProgressBarBinding
@@ -22,6 +24,8 @@ class LPProgressBar @JvmOverloads constructor(
 
     private var withStatus: Boolean
 
+    private var customProgressBarDrawable: Drawable
+
     init {
         context.theme.obtainStyledAttributes(
             attrs,
@@ -32,6 +36,8 @@ class LPProgressBar @JvmOverloads constructor(
             try {
                 size = getInt(R.styleable.LPProgressBar_progressSize, 0)
                 withStatus = getBoolean(R.styleable.LPProgressBar_withStatus, false)
+                customProgressBarDrawable =
+                    (getDrawable(R.styleable.LPProgressBar_customProgressDrawable) ?: ResourcesCompat.getDrawable(resources, R.drawable.bg_progress_bar_progress, null)) as Drawable
             } finally {
                 recycle()
             }
@@ -39,6 +45,7 @@ class LPProgressBar @JvmOverloads constructor(
         binding.root
         setProgressBarSize()
         setStatusIndicator()
+        setProgressBarBackground(customProgressBarDrawable)
     }
 
     private fun setProgressBarSize() {
@@ -53,6 +60,10 @@ class LPProgressBar @JvmOverloads constructor(
     private fun setStatusIndicator() {
         binding.llIndicatorDynamic.isVisible = withStatus
         binding.flIndicatorFix.isVisible = withStatus
+    }
+
+    fun setProgressBarBackground(backgroundDrawable: Drawable?) {
+        binding.progressBar.progressDrawable = backgroundDrawable
     }
 
     fun setProgress(progress: Int) {
