@@ -45,7 +45,7 @@ class LPProgressBar @JvmOverloads constructor(
         binding.root
         setProgressBarSize()
         setStatusIndicator()
-        setProgressBarBackground()
+        setProgressBarBackground(customProgressBarDrawable)
     }
 
     private fun setProgressBarSize() {
@@ -62,8 +62,8 @@ class LPProgressBar @JvmOverloads constructor(
         binding.flIndicatorFix.isVisible = withStatus
     }
 
-    private fun setProgressBarBackground() {
-        binding.progressBar.progressDrawable = customProgressBarDrawable
+    fun setProgressBarBackground(backgroundDrawable: Drawable?) {
+        binding.progressBar.progressDrawable = backgroundDrawable
     }
 
     fun setProgress(progress: Int) {

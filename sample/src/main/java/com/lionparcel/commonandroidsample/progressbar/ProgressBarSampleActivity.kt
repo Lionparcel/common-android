@@ -2,6 +2,8 @@ package com.lionparcel.commonandroidsample.progressbar
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import com.lionparcel.commonandroid.progressbar.LPProgressBar
 import com.lionparcel.commonandroidsample.R
 
@@ -29,6 +31,7 @@ class ProgressBarSampleActivity : AppCompatActivity() {
             setFixIndicatorTitle("10x")
         }
         findViewById<LPProgressBar>(R.id.pbSample4).apply {
+            setProgressBarBackground(ContextCompat.getDrawable(context, R.drawable.bg_progress_bar_dummy))
             setProgress(66)
         }
     }
