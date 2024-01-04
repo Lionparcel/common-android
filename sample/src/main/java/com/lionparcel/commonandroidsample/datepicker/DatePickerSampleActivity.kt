@@ -112,7 +112,9 @@ class DatePickerSampleActivity : AppCompatActivity() {
             DATE_PICKER_SINGLE_DIALOG,
             LPDatePickerSingle.newInstance(
                 date.toLocaleDate(),
-                this::onChooseButtonDatePickerSingle
+                this::onChooseButtonDatePickerSingle,
+                maxStartDate = 20L,
+                showErrorSnackBar = true
             )
         )
     }

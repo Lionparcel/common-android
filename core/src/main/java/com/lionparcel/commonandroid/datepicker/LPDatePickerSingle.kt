@@ -22,6 +22,8 @@ import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.databinding.LpDatePickerDayBinding
 import com.lionparcel.commonandroid.databinding.LpLayoutDatePickerSingleBinding
 import com.lionparcel.commonandroid.datepicker.utils.BaseDatePicker
+import com.lionparcel.commonandroid.snackbartoast.MessageType
+import com.lionparcel.commonandroid.snackbartoast.showToastSmallIconNoClose
 import com.lionparcel.commonandroid.walkthrough.utils.ScreenUtils
 import com.lionparcel.commonandroid.walkthrough.utils.toDp
 import java.time.DayOfWeek
@@ -52,24 +54,32 @@ class LPDatePickerSingle : BaseDatePicker() {
             selectedDate: LocalDate,
             onChooseButtonClicked: (LocalDate) -> Unit,
             title: String? = null,
-            btnTitle: String? = null
+            btnTitle: String? = null,
+            maxStartDate: Long? = null,
+            showErrorSnackBar: Boolean = false
         ) = LPDatePickerSingle().apply {
             this.selectedDate = selectedDate
             this.onChooseButtonClicked = onChooseButtonClicked
             this.title = title
             this.btnTitle = btnTitle
+            this.maxStartDate = maxStartDate
+            this.showErrorSnackBar = showErrorSnackBar
         }
 
         fun newInstanceOptional(
             selectedDate: LocalDate?,
             onChooseButtonClickedOptional: (LocalDate?) -> Unit,
             title: String? = null,
-            btnTitle: String? = null
+            btnTitle: String? = null,
+            maxStartDate: Long? = null,
+            showErrorSnackBar: Boolean = false
         ) = LPDatePickerSingle().apply {
             this.selectedDate = selectedDate
             this.onChooseButtonClickedOptional = onChooseButtonClickedOptional
             this.title = title
             this.btnTitle = btnTitle
+            this.maxStartDate = maxStartDate
+            this.showErrorSnackBar = showErrorSnackBar
         }
     }
 
@@ -80,6 +90,8 @@ class LPDatePickerSingle : BaseDatePicker() {
     private var onChooseButtonClickedOptional: ((LocalDate?) -> Unit)? = null
     private var title: String? = null
     private var btnTitle: String? = null
+    private var maxStartDate: Long? = null
+    private var showErrorSnackBar = false
 
     private val dayOfWeek by lazy {
         arrayOf(
@@ -285,6 +297,19 @@ class LPDatePickerSingle : BaseDatePicker() {
             if (currentSelection == date) {
                 selectedDate = null
             } else {
+                if (maxStartDate != null) {
+                    if (date.isBefore(LocalDate.now().minusDays(maxStartDate ?: 0L))) {
+                        if (showErrorSnackBar) {
+                            requireContext().showToastSmallIconNoClose(
+                                this.binding.parent,
+                                getString(R.string.date_picker_max_start_date_error_message, (maxStartDate ?: 0L).toString()),
+                                R.drawable.ics_f_warning_circle_white,
+                                MessageType.ERROR
+                            )
+                        }
+                        return
+                    }
+                }
                 selectedDate = date
             }
             this.binding.calendarView.notifyCalendarChanged()
