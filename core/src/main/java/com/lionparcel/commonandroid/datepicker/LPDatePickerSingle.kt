@@ -51,18 +51,24 @@ class LPDatePickerSingle : BaseDatePicker() {
         private const val MIN_MONTH_DATE = 12L * 5L
 
         fun newInstance(
-            selectedDate: LocalDate,
+            selectedDate: LocalDate? = null,
             onChooseButtonClicked: (LocalDate) -> Unit,
             title: String? = null,
             btnTitle: String? = null,
             maxStartDate: Long? = null,
-            showErrorSnackBar: Boolean = false
+            minDate: LocalDate? = null, // all dates before minDate are disabled
+            maxDate: LocalDate? = null, // all dates after maxDate are disabled
+            showErrorSnackBar: Boolean = false,
+            disabledDates: List<LocalDate>? = null // all dates contains in list are disabled
         ) = LPDatePickerSingle().apply {
             this.selectedDate = selectedDate
             this.onChooseButtonClicked = onChooseButtonClicked
             this.title = title
             this.btnTitle = btnTitle
             this.maxStartDate = maxStartDate
+            this.minDate = minDate
+            this.maxDate = maxDate
+            this.disabledDates = disabledDates
             this.showErrorSnackBar = showErrorSnackBar
         }
 
@@ -91,6 +97,9 @@ class LPDatePickerSingle : BaseDatePicker() {
     private var title: String? = null
     private var btnTitle: String? = null
     private var maxStartDate: Long? = null
+    private var minDate: LocalDate? = null
+    private var maxDate: LocalDate? = null
+    private var disabledDates: List<LocalDate>? = null
     private var showErrorSnackBar = false
 
     private val dayOfWeek by lazy {
@@ -109,7 +118,7 @@ class LPDatePickerSingle : BaseDatePicker() {
         Locale("id", "ID")
     }
 
-    private lateinit var binding: LpLayoutDatePickerSingleBinding
+    lateinit var binding: LpLayoutDatePickerSingleBinding
 
     override fun getContentResource() = -1
 
@@ -199,22 +208,26 @@ class LPDatePickerSingle : BaseDatePicker() {
                 }
                 llBgEnd.isVisible = false
                 llBgStart.isVisible = false
-                when (day.owner) {
-                    DayOwner.THIS_MONTH -> {
-                        tvDay.text = day.day.toString()
-                        if (day.date.isAfter(today)) {
-                            tvDay.setTextColor(
-                                ResourcesCompat.getColor(
-                                    resources,
-                                    R.color.shades3,
-                                    null
-                                )
-                            )
-                        } else {
-                            setStateSelectedDateThisMonth(container, day)
-                        }
+
+                var isDisabledDates = false
+                disabledDates?.let {
+                    for (disabledDate in it) {
+                        if (day.date.isEqual(disabledDate)) isDisabledDates = true
+                        break
                     }
-                    else -> Unit
+                }
+
+                tvDay.text = day.day.toString()
+                if ((maxDate != null && day.date.isAfter(maxDate)) || (minDate != null && day.date.isBefore(minDate)) || isDisabledDates) {
+                    tvDay.setTextColor(
+                        ResourcesCompat.getColor(
+                            resources,
+                            R.color.shades3,
+                            null
+                        )
+                    )
+                } else {
+                    setStateSelectedDateThisMonth(container, day)
                 }
             }
         }
@@ -237,13 +250,15 @@ class LPDatePickerSingle : BaseDatePicker() {
                         )
                     )
                 }
-                else -> tvDay.setTextColor(
-                    ResourcesCompat.getColor(
-                        resources,
-                        R.color.shades5,
-                        null
+                else -> {
+                    tvDay.setTextColor(
+                        ResourcesCompat.getColor(
+                            resources,
+                            R.color.shades5,
+                            null
+                        )
                     )
-                )
+                }
             }
         }
     }
@@ -291,6 +306,23 @@ class LPDatePickerSingle : BaseDatePicker() {
     }
 
     private fun onDateClicked(day: CalendarDay) {
+        // disable click all dates before minDate
+        minDate?.let {
+            if (day.date.isBefore(it)) return
+        }
+
+        // disable click all dates after maxDate
+        maxDate?.let {
+            if (day.date.isAfter(it)) return
+        }
+
+        // disable click all dates if contains in disabledDates
+        disabledDates?.let {
+            for (disabledDate in it) {
+                if (day.date.isEqual(disabledDate)) return
+            }
+        }
+
         if (day.owner == DayOwner.THIS_MONTH) {
             val currentSelection = selectedDate
             val date = day.date
@@ -314,6 +346,8 @@ class LPDatePickerSingle : BaseDatePicker() {
             }
             this.binding.calendarView.notifyCalendarChanged()
         }
+
+        changeStateButtonChoose()
     }
 
     private fun changeStateButtonChoose() {
