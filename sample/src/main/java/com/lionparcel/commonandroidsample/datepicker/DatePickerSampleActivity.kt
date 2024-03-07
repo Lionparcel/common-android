@@ -13,8 +13,10 @@ import com.lionparcel.commonandroid.datepicker.utils.toDate
 import com.lionparcel.commonandroid.datepicker.utils.toLocaleDate
 import com.lionparcel.commonandroidsample.R
 import java.lang.ref.WeakReference
+import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.YearMonth
+import java.time.ZoneId
 import java.util.*
 
 class DatePickerSampleActivity : AppCompatActivity() {
@@ -106,14 +108,27 @@ class DatePickerSampleActivity : AppCompatActivity() {
     }
 
     private fun showDatePickerSingleDialog() {
+        val minDate = Calendar.getInstance().time.toLocaleDate()
+        val tomorrow = Calendar.getInstance()
+        tomorrow.add(Calendar.DATE, 2)
+        val maxDate = Calendar.getInstance()
+        maxDate.add(Calendar.DATE, 7)
+
         val date = selectedDate ?: return
+
+        val dialog = LPDatePickerSingle.newInstance(
+            selectedDate = date.toLocaleDate(),
+            this::onChooseButtonDatePickerSingle,
+            maxStartDate = null,
+            minDate = minDate,
+            maxDate = maxDate.time.toLocaleDate(),
+            showErrorSnackBar = true,
+            disabledDates = listOf(tomorrow.time.toLocaleDate())
+        )
         showCustomDialog(
             supportFragmentManager,
             DATE_PICKER_SINGLE_DIALOG,
-            LPDatePickerSingle.newInstance(
-                date.toLocaleDate(),
-                this::onChooseButtonDatePickerSingle
-            )
+            dialog
         )
     }
 
