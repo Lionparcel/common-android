@@ -5,11 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import com.lionparcel.commonandroid.R
-import kotlinx.android.synthetic.main.lp_layout_dropdown_spinner.view.*
 
 class DropdownAdapterDA(
     context: Context,
@@ -25,17 +26,19 @@ class DropdownAdapterDA(
     override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
         if (position == values.lastIndex) return initialSelection()
         val view = LayoutInflater.from(context).inflate(R.layout.lp_layout_dropdown_spinner, parent, false)
-        view.lpDropdownSpinnerText.text = values[position].text
-        view.lpDropdownSpinnerText.typeface = ResourcesCompat.getFont(context,
+        val lpDropdownSpinnerText = view.findViewById<TextView>(R.id.lpDropdownSpinnerText)
+        val ivDropdownCheck = view.findViewById<ImageView>(R.id.ivDropdownCheck)
+        lpDropdownSpinnerText.text = values[position].text
+        lpDropdownSpinnerText.typeface = ResourcesCompat.getFont(context,
             if (values[position] == values[selectedItemPosition.invoke()])
                 R.font.poppins_semi_bold
             else
                 R.font.poppins_regular
         )
-        view.ivDropdownCheck.isVisible = values[position] == values[selectedItemPosition.invoke()] && useCheckIcon
+        ivDropdownCheck.isVisible = values[position] == values[selectedItemPosition.invoke()] && useCheckIcon
         values[position].isDisable.let {
             view.isEnabled = it != true
-            if (it) view.lpDropdownSpinnerText.setTextColor(ResourcesCompat.getColor(context.resources, R.color.shades3, null))
+            if (it) lpDropdownSpinnerText.setTextColor(ResourcesCompat.getColor(context.resources, R.color.shades3, null))
         }
         return view
     }

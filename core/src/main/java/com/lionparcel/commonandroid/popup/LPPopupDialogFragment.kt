@@ -1,7 +1,10 @@
 package com.lionparcel.commonandroid.popup
 
 import android.content.DialogInterface
+import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -66,6 +69,17 @@ class LPPopupDialogFragment : BaseDialogFragment() {
         super.initViews()
         setWidthPercent(90)
         prepareView()
+    }
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        dialog?.window?.setBackgroundDrawableResource(R.color.transparent)
+        parentView = inflater.inflate(getContentResource(), container, false)
+        return parentView
     }
 
     override fun show(manager: FragmentManager, tag: String?) {

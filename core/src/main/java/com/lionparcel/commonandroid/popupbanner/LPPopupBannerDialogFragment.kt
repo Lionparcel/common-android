@@ -1,12 +1,20 @@
 package com.lionparcel.commonandroid.popupbanner
 
 import android.content.DialogInterface
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import com.lionparcel.commonandroid.R
+import com.lionparcel.commonandroid.common.BaseViewBinding
+import com.lionparcel.commonandroid.databinding.LpLayoutPopupBannerBinding
 import com.lionparcel.commonandroid.popup.base.BaseDialogFragment
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.lp_layout_popup_banner.*
 
-class LPPopupBannerDialogFragment : BaseDialogFragment() {
+class LPPopupBannerDialogFragment : BaseDialogFragment(),
+    BaseViewBinding<LpLayoutPopupBannerBinding> {
+
+    override lateinit var binding: LpLayoutPopupBannerBinding
 
     private var imageUrl: String? = null
     private var bannerOnClick: ((LPPopupBannerDialogFragment) -> Unit)? = null
@@ -30,16 +38,34 @@ class LPPopupBannerDialogFragment : BaseDialogFragment() {
         }
     }
 
-    override fun getContentResource() = R.layout.lp_layout_popup_banner
+    override fun getContentResource() = -1
+
+    override fun getViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): LpLayoutPopupBannerBinding {
+        binding = LpLayoutPopupBannerBinding.inflate(inflater, container, false)
+        return binding
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        dialog?.window?.setBackgroundDrawableResource(R.color.transparent)
+        parentView = getViewBinding(inflater, container).root
+        return parentView
+    }
 
     override fun initViews() {
         super.initViews()
-        val imageUrl = this.imageUrl?: ""
+        val imageUrl = this.imageUrl ?: ""
         if (imageUrl.isEmpty()) dismiss() else Picasso.with(requireContext())
             .load(imageUrl)
-            .into(ivPopupBanner)
-        ivClose.setOnClickListener { dismiss() }
-        clPopupBannerFragment.setOnClickListener {
+            .into(binding.ivPopupBanner)
+        binding.ivClose.setOnClickListener { dismiss() }
+        binding.clPopupBannerFragment.setOnClickListener {
             bannerOnClick?.invoke(this)
             if (dismissAfterClickBanner) dismiss()
         }

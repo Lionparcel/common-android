@@ -12,8 +12,8 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.lionparcel.commonandroid.R
+import com.lionparcel.commonandroid.badge.LPBadgeNumber
 import com.lionparcel.commonandroid.navbar.utils.*
-import kotlinx.android.synthetic.main.lp_layout_navbar_badge_number.view.*
 
 class LPNavbarDA @JvmOverloads constructor(
     context: Context,
@@ -203,10 +203,11 @@ class LPNavbarDA @JvmOverloads constructor(
         if (numberBadge.parent == null){
             menuItem.addView(numberBadge)
         }
-        navbar_red_badge_number.updateLayoutParams<FrameLayout.LayoutParams> {
+        val navbarRedBadgeNumber = findViewById<LPBadgeNumber>(R.id.navbar_red_badge_number)
+        navbarRedBadgeNumber.updateLayoutParams<LayoutParams> {
             marginStart = badgeMarginStart
         }
-        navbar_red_badge_number.setNumber(number)
+        navbarRedBadgeNumber.setNumber(number)
     }
 
     fun removeNumberBadge(menuItemIndex: Int) {

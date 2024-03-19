@@ -12,7 +12,7 @@ import androidx.core.view.isVisible
 import com.google.android.material.tabs.TabLayout
 import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.tab.utils.BasePagerAdapter
-import kotlinx.android.synthetic.main.lp_layout_tab_layout.view.*
+import com.lionparcel.commonandroid.tab.utils.LPRedBadge
 
 @Suppress("DEPRECATION")
 class LPTabLayout @JvmOverloads constructor(
@@ -53,8 +53,8 @@ class LPTabLayout @JvmOverloads constructor(
     ) : View {
         val tabView =
             LayoutInflater.from(context).inflate(R.layout.lp_layout_tab_layout, root, false)
-        tabView.tv_tab_title.text = adapter.getPageTitle(position)
-        tabView.tab_red_badge.isVisible = position == page && showRedBadge.invoke() == true
+        tabView.findViewById<TextView>(R.id.tv_tab_title).text = adapter.getPageTitle(position)
+        tabView.findViewById<LPRedBadge>(R.id.tab_red_badge).isVisible = position == page && showRedBadge.invoke() == true
         return tabView
     }
 

@@ -24,7 +24,7 @@ class LPBadgeDot @JvmOverloads constructor(
         }
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         val color = when (color) {
             0 -> R.color.interpack7
             1 -> R.color.white
