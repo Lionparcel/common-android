@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Filter
+import android.widget.TextView
 import com.lionparcel.commonandroid.R
-import kotlinx.android.synthetic.main.lp_layout_item_autocomplete.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -34,16 +34,17 @@ class AutoCompleteArrayAdapter<T>(
             parent,
             false
         )
+        val txtAutoComplete = view.findViewById<TextView>(R.id.txtAutoComplete)
         val text = getItem(position).toString()
         when {
             text.contains(inputString, false) ->
-                view.txtAutoComplete.setSemiBoldSpannable(text, inputString)
+                txtAutoComplete.setSemiBoldSpannable(text, inputString)
             text.contains(inputString.lowercase(Locale.ROOT), false) ->
-                view.txtAutoComplete.setSemiBoldSpannable(text, inputString.lowercase(Locale.ROOT))
+                txtAutoComplete.setSemiBoldSpannable(text, inputString.lowercase(Locale.ROOT))
             text.contains(inputString.uppercase(Locale.ROOT), false) ->
-                view.txtAutoComplete.setSemiBoldSpannable(text, inputString.uppercase(Locale.ROOT))
+                txtAutoComplete.setSemiBoldSpannable(text, inputString.uppercase(Locale.ROOT))
             text.contains(inputString.toTitleCase(), false) ->
-                view.txtAutoComplete.setSemiBoldSpannable(text, inputString.toTitleCase())
+                txtAutoComplete.setSemiBoldSpannable(text, inputString.toTitleCase())
         }
         return view
     }

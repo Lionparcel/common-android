@@ -17,14 +17,7 @@ abstract class BaseDialogFragment : DialogFragment() {
 
     protected open val compositeDisposable = CompositeDisposable()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        dialog?.window?.setBackgroundDrawableResource(R.color.transparent)
-        return inflater.inflate(getContentResource(), container, false)
-    }
+    protected var parentView: View? = null
 
     override fun onDestroy() {
         super.onDestroy()

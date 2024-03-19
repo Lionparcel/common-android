@@ -1,28 +1,44 @@
 package com.lionparcel.commonandroid.modal
 
-import android.view.View
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.lionparcel.commonandroid.R
-import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.item_list_example_modal.*
+import com.lionparcel.commonandroid.common.BaseViewBinding
+import com.lionparcel.commonandroid.databinding.ItemListExampleModalBinding
 
-class ExampleModalListAdapter(
-): RecyclerView.Adapter<ExampleModalListAdapter.ViewHolder>() {
+class ExampleModalListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(),
+    BaseViewBinding<ItemListExampleModalBinding> {
+
+    override lateinit var binding: ItemListExampleModalBinding
 
     private val list = mutableListOf<String>()
 
     private var selectedItem: Int = 0
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(parent.inflate(R.layout.item_list_example_modal))
+    override fun getViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): ItemListExampleModalBinding {
+        binding = ItemListExampleModalBinding.inflate(inflater, container, false)
+        return binding
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return ViewHolder(
+            getViewBinding(
+                inflater = LayoutInflater.from(parent.context),
+                container = parent
+            )
+        )
     }
 
     override fun getItemCount(): Int = list.size
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(list[position])
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when (holder) {
+            is ViewHolder -> holder.bind(list[position])
+        }
     }
 
     fun setData(data: List<String>, selectedItem: Int) {
@@ -32,14 +48,14 @@ class ExampleModalListAdapter(
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
-        LayoutContainer {
+    inner class ViewHolder(itemBinding: ItemListExampleModalBinding) :
+        RecyclerView.ViewHolder(itemBinding.root) {
 
         fun bind(item: String) {
-            ivCheckItem.isVisible = adapterPosition == selectedItem
-            tvSampleList.text = item
-            llExampleList.setOnClickListener {
-                selectedItem = adapterPosition
+            binding.ivCheckItem.isVisible = bindingAdapterPosition == selectedItem
+            binding.tvSampleList.text = item
+            binding.llExampleList.setOnClickListener {
+                selectedItem = bindingAdapterPosition
                 notifyDataSetChanged()
             }
         }

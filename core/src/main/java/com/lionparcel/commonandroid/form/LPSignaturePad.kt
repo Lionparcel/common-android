@@ -67,8 +67,7 @@ class LPSignaturePad @JvmOverloads constructor(
         extraCanvas = Canvas(extraBitmap!!)
         extraCanvas!!.drawColor(backgroundColor)
     }
-
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         // Draw the bitmap that has the saved path.
         extraBitmap?.let {

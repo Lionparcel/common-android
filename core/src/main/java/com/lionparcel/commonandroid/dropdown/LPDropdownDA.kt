@@ -18,7 +18,6 @@ import com.lionparcel.commonandroid.databinding.LpLayoutDropdownDaBinding
 import com.lionparcel.commonandroid.dropdown.utils.*
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
-import kotlinx.android.synthetic.main.lp_layout_dropdown.view.*
 
 class LPDropdownDA @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -87,9 +86,9 @@ class LPDropdownDA @JvmOverloads constructor(
 
     fun getSpinner(): LPCustomSpinner = binding.lpDropdownSpinner
 
-    override fun onSaveInstanceState(): Parcelable? = bundleOf(
+    override fun onSaveInstanceState(): Parcelable = bundleOf(
         BUNDLE_INSTANCE to super.onSaveInstanceState(),
-        BUNDLE_CURRENT_POSITION to lpDropdownSpinner.selectedItemPosition
+        BUNDLE_CURRENT_POSITION to binding.lpDropdownSpinner.selectedItemPosition
     )
 
     override fun onRestoreInstanceState(state: Parcelable?) {

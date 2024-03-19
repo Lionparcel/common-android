@@ -17,7 +17,7 @@ class LPRedBadge @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : ImageView(context, attrs, defStyleAttr) {
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         drawBadge(context, width/ 2F, canvas)
         super.onDraw(canvas)
     }

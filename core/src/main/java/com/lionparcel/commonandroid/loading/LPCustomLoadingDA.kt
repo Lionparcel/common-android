@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Gravity
 import android.view.KeyEvent
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.DrawableRes
@@ -14,15 +15,16 @@ import androidx.annotation.FloatRange
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import com.lionparcel.commonandroid.R
+import com.lionparcel.commonandroid.common.BaseViewBinding
+import com.lionparcel.commonandroid.databinding.LpCustomLoadingDaBinding
 import com.lionparcel.commonandroid.popup.base.BaseDialogFragment
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.lp_custom_loading_da.*
 import java.util.concurrent.TimeUnit
 
-class LPCustomLoadingDA : BaseDialogFragment() {
+class LPCustomLoadingDA : BaseDialogFragment(), BaseViewBinding<LpCustomLoadingDaBinding> {
 
     companion object {
 
@@ -72,6 +74,9 @@ class LPCustomLoadingDA : BaseDialogFragment() {
         }
     }
 
+    override lateinit var binding: LpCustomLoadingDaBinding
+
+
     private var loadingDrawable: Int = R.drawable.custom_progressbar
     private var content: String? = null
     private var headerTitle: String? = null
@@ -89,7 +94,25 @@ class LPCustomLoadingDA : BaseDialogFragment() {
 
     private fun dismissLoading() = dismiss()
 
-    override fun getContentResource(): Int = R.layout.lp_custom_loading_da
+    override fun getContentResource(): Int = -1
+
+    override fun getViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): LpCustomLoadingDaBinding {
+        binding = LpCustomLoadingDaBinding.inflate(inflater, container, false)
+        return binding
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        dialog?.window?.setBackgroundDrawableResource(R.color.transparent)
+        parentView = getViewBinding(inflater, container).root
+        return parentView
+    }
 
     override fun initViews() {
         super.initViews()
@@ -125,21 +148,21 @@ class LPCustomLoadingDA : BaseDialogFragment() {
     }
 
     private fun prepareView() {
-
-        pb_loading_da.indeterminateDrawable = ResourcesCompat.getDrawable(resources, this.loadingDrawable, null)
-        txt_loading_da_title?.isVisible = this.content != null
+        binding.pbLoadingDa.indeterminateDrawable = ResourcesCompat.getDrawable(resources, this.loadingDrawable, null)
+        binding.txtLoadingDaTitle.isVisible = this.content != null
         if (this.content != null) {
-            txt_loading_da_title?.text = this.content
-            txt_loading_da_title?.visibility = View.VISIBLE
+            binding.txtLoadingDaTitle.text = this.content
+            binding.txtLoadingDaTitle.visibility = View.VISIBLE
         }
         if (this.headerTitle != null) {
-            txt_loading_da_heading_title?.text = this.headerTitle
-            txt_loading_da_heading_title?.visibility = View.VISIBLE
+            binding.txtLoadingDaHeadingTitle.text = this.headerTitle
+            binding.txtLoadingDaHeadingTitle.visibility = View.VISIBLE
         }
         if (this.illustration != null) {
-            iv_loading_da_illustration?.setImageResource(this.illustration!!)
-            iv_loading_da_illustration?.visibility = View.VISIBLE
+            binding.ivLoadingDaIllustration.setImageResource(this.illustration!!)
+            binding.ivLoadingDaIllustration.visibility = View.VISIBLE
         }
+
 
     }
 
@@ -150,12 +173,12 @@ class LPCustomLoadingDA : BaseDialogFragment() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                if (pb_loading_da.progress == LOADING_PROGRESS_MAX_VALUE) {
+                if (binding.pbLoadingDa.progress == LOADING_PROGRESS_MAX_VALUE) {
                     stopHandleLoading()
                     dismiss()
                     loadSuccessCallBack?.invoke()
-                } else if (progressSuccess || pb_loading_da.progress <= LOADING_PROGRESS_TIME_OUT_VALUE) {
-                    pb_loading_da.progress++
+                } else if (progressSuccess || binding.pbLoadingDa.progress <= LOADING_PROGRESS_TIME_OUT_VALUE) {
+                    binding.pbLoadingDa.progress++
                 }
             }, {
                 it.printStackTrace()
