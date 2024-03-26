@@ -176,7 +176,7 @@ class LPDatePickerSingle : BaseDatePicker() {
         val currentMonth = YearMonth.now()
         binding.calendarView.setup(
             currentMonth.minusMonths(MIN_MONTH_DATE),
-            currentMonth,
+            currentMonth.plusMonths(100),
             dayOfWeek.first()
         )
         binding.calendarView.post {
@@ -262,8 +262,6 @@ class LPDatePickerSingle : BaseDatePicker() {
         with(binding) {
             calendarView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    ivChevronRight.isEnabled =
-                        calendarView.findFirstVisibleMonth()?.yearMonth?.monthValue != today?.monthValue
                     ivChevronRight.alpha = if (binding.ivChevronRight.isEnabled) {
                         ENABLE_ALPHA_VALUE
                     } else DISABLE_ALPHA_VALUE
@@ -350,16 +348,6 @@ class LPDatePickerSingle : BaseDatePicker() {
             if (onChooseButtonClickedOptional == null) selectedDate != null else true
     }
 
-    private fun onScrollNextMonth() {
-        with(binding) {
-            ivChevronRight.setOnClickListener {
-                calendarView.findFirstVisibleMonth()?.let {
-                    calendarView.smoothScrollToMonth(it.yearMonth.nextMonth)
-                }
-            }
-        }
-    }
-
     private fun onScrollPreviousMonth() {
         with(binding) {
             ivChevronLeft.setOnClickListener {
@@ -370,6 +358,15 @@ class LPDatePickerSingle : BaseDatePicker() {
         }
     }
 
+    private fun onScrollNextMonth() {
+        with(binding) {
+            ivChevronRight.setOnClickListener {
+                calendarView.findLastVisibleMonth()?.let {
+                    calendarView.smoothScrollToMonth(it.yearMonth.nextMonth)
+                }
+            }
+        }
+    }
 
     private fun TextView.changeStateToSelected() {
         setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
