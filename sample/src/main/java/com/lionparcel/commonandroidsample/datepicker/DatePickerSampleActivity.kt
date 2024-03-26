@@ -114,7 +114,7 @@ class DatePickerSampleActivity : AppCompatActivity() {
         val tomorrow2 = Calendar.getInstance()
         tomorrow2.add(Calendar.DATE, 3)
         val maxDate = Calendar.getInstance()
-        maxDate.add(Calendar.DATE, 7)
+        maxDate.add(Calendar.DATE, 15)
 
         val date = selectedDate ?: return
 
