@@ -3,6 +3,7 @@ package com.lionparcel.commonandroid.datepicker
 import android.content.res.Resources
 import android.os.Bundle
 import android.util.Log
+import android.util.Size
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,13 +12,6 @@ import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.*
 import androidx.recyclerview.widget.RecyclerView
-import com.kizitonwose.calendarview.model.CalendarDay
-import com.kizitonwose.calendarview.model.DayOwner
-import com.kizitonwose.calendarview.ui.DayBinder
-import com.kizitonwose.calendarview.ui.ViewContainer
-import com.kizitonwose.calendarview.utils.Size
-import com.kizitonwose.calendarview.utils.next
-import com.kizitonwose.calendarview.utils.previous
 import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.databinding.LpDatePickerDayBinding
 import com.lionparcel.commonandroid.databinding.LpLayoutDatePickerSingleBinding
@@ -26,6 +20,13 @@ import com.lionparcel.commonandroid.snackbartoast.MessageType
 import com.lionparcel.commonandroid.snackbartoast.showToastSmallIconNoClose
 import com.lionparcel.commonandroid.walkthrough.utils.ScreenUtils
 import com.lionparcel.commonandroid.walkthrough.utils.toDp
+import com.kizitonwose.calendar.core.CalendarDay
+import com.kizitonwose.calendar.core.DayPosition
+import com.kizitonwose.calendar.core.nextMonth
+import com.kizitonwose.calendar.core.previousMonth
+import com.kizitonwose.calendar.view.DaySize
+import com.kizitonwose.calendar.view.MonthDayBinder
+import com.kizitonwose.calendar.view.ViewContainer
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.YearMonth
@@ -34,7 +35,7 @@ import java.util.*
 
 class LPDatePickerSingle : BaseDatePicker() {
 
-    inner class DayViewContainer(view: View) : ViewContainer(view) {
+    inner class DayViewContainer(view: View): ViewContainer(view) {
         lateinit var day: CalendarDay
         val binding = LpDatePickerDayBinding.bind(view)
 
@@ -163,8 +164,9 @@ class LPDatePickerSingle : BaseDatePicker() {
     private fun setDaySize() {
         val size = (ScreenUtils.getScreenWidthCompat(requireActivity()) / 7) - 4
         binding.calendarView.apply {
-            daySize = Size(size, size)
-            setMonthPadding(4.toDp(), monthPaddingTop, 4.toDp(), monthPaddingBottom)
+            daySize = DaySize.Square
+            monthViewClass?.padStart(4)
+            monthViewClass?.padEnd(4)
             layoutParams.width = ScreenUtils.getScreenWidthCompat(requireActivity())
         }
         Log.e("Date", size.toString())
@@ -187,9 +189,9 @@ class LPDatePickerSingle : BaseDatePicker() {
     }
 
     private fun bindCalendarDayView() {
-        binding.calendarView.dayBinder = object : DayBinder<DayViewContainer> {
+        binding.calendarView.dayBinder = object : MonthDayBinder<LPDatePickerSingle.DayViewContainer> {
             override fun create(view: View) = DayViewContainer(view)
-            override fun bind(container: DayViewContainer, day: CalendarDay) {
+            override fun bind(container: LPDatePickerSingle.DayViewContainer, day: CalendarDay) {
                 container.day = day
                 val tvDay = container.binding.tvDay
                 val vRoundBackground = container.binding.vRoundBackground
@@ -217,7 +219,7 @@ class LPDatePickerSingle : BaseDatePicker() {
                     }
                 }
 
-                tvDay.text = day.day.toString()
+                tvDay.text = day.date.dayOfMonth.toString()
                 if ((maxDate != null && day.date.isAfter(maxDate)) || (minDate != null && day.date.isBefore(minDate)) || isDisabledDates) {
                     tvDay.setTextColor(
                         ResourcesCompat.getColor(
@@ -268,7 +270,7 @@ class LPDatePickerSingle : BaseDatePicker() {
             calendarView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     ivChevronRight.isEnabled =
-                        calendarView.findFirstVisibleMonth()?.month != today?.monthValue
+                        calendarView.findFirstVisibleMonth()?.yearMonth?.monthValue != today?.monthValue
                     ivChevronRight.alpha = if (binding.ivChevronRight.isEnabled) {
                         ENABLE_ALPHA_VALUE
                     } else DISABLE_ALPHA_VALUE
@@ -294,10 +296,10 @@ class LPDatePickerSingle : BaseDatePicker() {
                 monthTittleFormatter.withLocale(localeId).format(it.yearMonth)
             } ${it.yearMonth.year}"
             val monthBeforeTitle = "${
-                monthTittleFormatter.withLocale(localeId).format(it.yearMonth.previous)
+                monthTittleFormatter.withLocale(localeId).format(it.yearMonth.previousMonth)
             } "
             val monthAfterTitle = "${
-                monthTittleFormatter.withLocale(localeId).format(it.yearMonth.next)
+                monthTittleFormatter.withLocale(localeId).format(it.yearMonth.nextMonth)
             } "
             binding.tvMonth.text = monthTitle
             binding.tvPreviousMonth.text = monthBeforeTitle
@@ -323,7 +325,7 @@ class LPDatePickerSingle : BaseDatePicker() {
             }
         }
 
-        if (day.owner == DayOwner.THIS_MONTH) {
+        if (day.position == DayPosition.MonthDate) {
             val currentSelection = selectedDate
             val date = day.date
             if (currentSelection == date) {
@@ -359,7 +361,7 @@ class LPDatePickerSingle : BaseDatePicker() {
         with(binding) {
             ivChevronRight.setOnClickListener {
                 calendarView.findFirstVisibleMonth()?.let {
-                    calendarView.smoothScrollToMonth(it.yearMonth.next)
+                    calendarView.smoothScrollToMonth(it.yearMonth.nextMonth)
                 }
             }
         }
@@ -369,7 +371,7 @@ class LPDatePickerSingle : BaseDatePicker() {
         with(binding) {
             ivChevronLeft.setOnClickListener {
                 calendarView.findFirstVisibleMonth()?.let {
-                    calendarView.smoothScrollToMonth(it.yearMonth.previous)
+                    calendarView.smoothScrollToMonth(it.yearMonth.previousMonth)
                 }
             }
         }
