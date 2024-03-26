@@ -111,8 +111,10 @@ class DatePickerSampleActivity : AppCompatActivity() {
         val minDate = Calendar.getInstance().time.toLocaleDate()
         val tomorrow = Calendar.getInstance()
         tomorrow.add(Calendar.DATE, 2)
+        val tomorrow2 = Calendar.getInstance()
+        tomorrow2.add(Calendar.DATE, 3)
         val maxDate = Calendar.getInstance()
-        maxDate.add(Calendar.DATE, 1)
+        maxDate.add(Calendar.DATE, 7)
 
         val date = selectedDate ?: return
 
@@ -120,10 +122,10 @@ class DatePickerSampleActivity : AppCompatActivity() {
             selectedDate = date.toLocaleDate(),
             this::onChooseButtonDatePickerSingle,
             maxStartDate = null,
-            minDate = null,
+            minDate = minDate,
             maxDate = maxDate.time.toLocaleDate(),
             showErrorSnackBar = true,
-            disabledDates = null
+            disabledDates = listOf(tomorrow.time.toLocaleDate(), tomorrow2.time.toLocaleDate())
         )
         showCustomDialog(
             supportFragmentManager,

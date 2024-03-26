@@ -211,16 +211,9 @@ class LPDatePickerSingle : BaseDatePicker() {
                 llBgEnd.isVisible = false
                 llBgStart.isVisible = false
 
-                var isDisabledDates = false
-                disabledDates?.let {
-                    for (disabledDate in it) {
-                        if (day.date.isEqual(disabledDate)) isDisabledDates = true
-                        break
-                    }
-                }
-
+                val isDisabledDate = disabledDates?.any { day.date.isEqual(it) } ?: false
                 tvDay.text = day.date.dayOfMonth.toString()
-                if ((maxDate != null && day.date.isAfter(maxDate)) || (minDate != null && day.date.isBefore(minDate)) || isDisabledDates) {
+                if ((maxDate != null && day.date.isAfter(maxDate)) || (minDate != null && day.date.isBefore(minDate)) || isDisabledDate) {
                     tvDay.setTextColor(
                         ResourcesCompat.getColor(
                             resources,
