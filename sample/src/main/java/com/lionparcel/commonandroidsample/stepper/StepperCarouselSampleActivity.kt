@@ -70,7 +70,7 @@ class StepperCarouselSampleActivity : AppCompatActivity() {
             }
 
         })
-        viewPager3.setCurrentItem(1, true)
+        viewPager3.setCurrentItem(1, false)
         viewPager3.registerOnPageChangeCallback(object : OnPageChangeCallback(){
             override fun onPageScrolled(
                 position: Int,
