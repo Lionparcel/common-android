@@ -43,6 +43,7 @@
             <enum name="inverted" value="1"/>
         </attr>
         <attr name="progressMode" format="boolean"/>
+        <attr name="stepperInfiniteMode" format="boolean"/>
     </declare-styleable>
     <declare-styleable name="LPStepperCarouselBar">
         <attr name="barHeight" format="dimension"/>

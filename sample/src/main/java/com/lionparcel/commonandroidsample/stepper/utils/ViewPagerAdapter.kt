@@ -12,8 +12,9 @@ import com.lionparcel.commonandroidsample.R
 import java.util.*
 
 class ViewPagerAdapter(val context: Context, val imageList: List<Int>) : PagerAdapter() {
+    private val newList = listOf(imageList.last()) + imageList + listOf(imageList.first())
     override fun getCount(): Int {
-        return imageList.size
+        return newList.size
     }
 
     override fun isViewFromObject(view: View, any : Any): Boolean {
@@ -24,7 +25,7 @@ class ViewPagerAdapter(val context: Context, val imageList: List<Int>) : PagerAd
         val layoutInflater = LayoutInflater.from(context)
         val itemView = layoutInflater.inflate(R.layout.image_slider_item, container , false)
         val imageView = itemView.findViewById<ImageView>(R.id.iv_image_slider)
-        imageView.setImageResource(imageList[position])
+        imageView.setImageResource(newList[position])
         container.addView(itemView, 0)
         return itemView
     }
