@@ -8,9 +8,9 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.lionparcel.commonandroidsample.R
 
-class ViewPager2Adapter: RecyclerView.Adapter<ViewPager2Adapter.ImageViewHolder>() {
+class ViewPager2Adapter(private val listNumber: List<String>): RecyclerView.Adapter<ViewPager2Adapter.ImageViewHolder>() {
 
-    private val eventList = listOf("0", "1", "2")
+    private val eventList = listOf(listNumber.last()) + listNumber + listOf(listNumber.first())
 
     override fun onCreateViewHolder(
         parent: ViewGroup,

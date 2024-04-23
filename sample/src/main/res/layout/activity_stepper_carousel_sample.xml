@@ -24,7 +24,10 @@
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/iv_view_pager_1"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_100"/>
+                android:layout_height="@dimen/dp_100"
+                android:paddingHorizontal="@dimen/spacing_xl"
+                android:layout_marginTop="@dimen/dp_5"
+                android:clipToPadding="false"/>
 
             <com.lionparcel.commonandroid.stepper.LPStepperCarousel
                 android:id="@+id/lp_stepper_carousel_1"
@@ -32,7 +35,8 @@
                 android:layout_height="wrap_content"
                 app:stepperColor="normal"
                 app:stepperSize="large"
-                android:paddingTop="@dimen/dp_16"/>
+                android:paddingTop="@dimen/dp_16"
+                app:stepperInfiniteMode="true"/>
 
         </LinearLayout>
 
@@ -74,15 +78,18 @@
             app:layout_constraintTop_toBottomOf="@+id/ll_stepper_carousel_2"
             app:layout_constraintStart_toStartOf="parent">
 
-            <com.lionparcel.commonandroid.stepper.LPStepperCarouselBar
+            <com.lionparcel.commonandroid.stepper.LPStepperCarousel
                 android:id="@+id/lp_stepper_carousel_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:stepperColor="normal"
+                app:stepperSize="large"
+                app:stepperInfiniteMode="true"/>
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/iv_view_pager_3"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_100"/>
+                android:layout_height="@dimen/dp_100" />
 
         </LinearLayout>
 

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import com.lionparcel.commonandroid.R
 import com.lionparcel.commonandroid.stepper.utils.BaseCarouselIndicator
 import com.lionparcel.commonandroid.stepper.utils.OnPageChangeListenerHelper
@@ -23,6 +24,7 @@ class LPStepperCarousel @JvmOverloads constructor(
     private var progressMode: Boolean = false
     private var stepperSize: Int
     private var stepperColor: Int
+    private var dotInfiniteMode: Boolean
 
     var selectedStepperColor: Int = 0
         set(value) {
@@ -38,6 +40,7 @@ class LPStepperCarousel @JvmOverloads constructor(
                 stepperSize = getInt(R.styleable.LPStepperCarousel_stepperSize, 0)
                 stepperColor = getInt(R.styleable.LPStepperCarousel_stepperColor, 0)
                 progressMode = getBoolean(R.styleable.LPStepperCarousel_progressMode, false)
+                dotInfiniteMode = getBoolean(R.styleable.LPStepperCarousel_stepperInfiniteMode, false)
             } finally {
                 recycle()
             }
@@ -98,7 +101,17 @@ class LPStepperCarousel @JvmOverloads constructor(
         } else {
             background.setColor(if (pager!!.currentItem == index) selectedStepperColor else dotsColor)
         }
+        val dotCount = pager?.count ?: 0
         imageView.background = background
+        imageView.isVisible = if (dotInfiniteMode && dotCount > 1) {
+            when (index) {
+                0 -> false
+                dotCount.minus(1) -> false
+                else -> true
+            }
+        } else {
+            true
+        }
 
         stepper.setOnClickListener {
             if (dotsClickable && index < pager?.count ?: 0) {
