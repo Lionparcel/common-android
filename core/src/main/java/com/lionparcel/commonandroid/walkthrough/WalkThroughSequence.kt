@@ -48,8 +48,8 @@ class WalkThroughSequence {
         return this
     }
 
-    fun show(buildFlavor: String) {
-        if (buildFlavor != STAGING_AUTOMATION) show(0)
+    fun show(buildFlavor: String): WalkThrough? {
+        return if (buildFlavor != STAGING_AUTOMATION) show(0) else null
     }
 
     private fun show(position: Int): WalkThrough? {
