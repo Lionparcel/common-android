@@ -33,7 +33,6 @@ class WalkThroughSampleActivity : AppCompatActivity() {
             )
         ).addBeforeShowingListener { _, wt ->
             walkThrough = wt
-        }
-            .show()
+        }.show(String())
     }
 }
