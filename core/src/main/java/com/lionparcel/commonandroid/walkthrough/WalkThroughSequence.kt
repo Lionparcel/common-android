@@ -49,7 +49,10 @@ class WalkThroughSequence {
     }
 
     fun show(buildFlavor: String): WalkThrough? {
-        return if (buildFlavor != STAGING_AUTOMATION) show(0) else null
+        return if (buildFlavor != STAGING_AUTOMATION) show(0) else {
+            finishListener?.onFinish()
+            null
+        }
     }
 
     private fun show(position: Int): WalkThrough? {
