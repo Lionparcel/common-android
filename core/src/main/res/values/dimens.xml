@@ -7,7 +7,10 @@
     <dimen name="sp_16">16sp</dimen>
     <dimen name="sp_18">18sp</dimen>
     <dimen name="sp_20">20sp</dimen>
+    <dimen name="sp_24">24sp</dimen>
     <dimen name="sp_34">34sp</dimen>
+    <dimen name="sp_48">48sp</dimen>
+    <dimen name="sp_60">60sp</dimen>
 
     <dimen name="spacing_none">0dp</dimen>
     <dimen name="spacing_xxxs">1dp</dimen>

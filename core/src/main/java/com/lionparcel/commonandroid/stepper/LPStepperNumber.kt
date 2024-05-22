@@ -197,7 +197,7 @@ class LPStepperNumber : ConstraintLayout {
                     )
                 )
                 tvStepperNumberFirst.typeface =
-                    ResourcesCompat.getFont(context, R.font.poppins_regular)
+                    ResourcesCompat.getFont(context, R.font.montserrat_regular)
             }
             StepperNumberState.ACTIVE -> {
                 ivStepperNumberFirst.isVisible = false
@@ -211,7 +211,7 @@ class LPStepperNumber : ConstraintLayout {
                     )
                 )
                 tvStepperNumberFirst.typeface =
-                    ResourcesCompat.getFont(context, R.font.poppins_semi_bold)
+                    ResourcesCompat.getFont(context, R.font.montserrat_semi_bold)
             }
             StepperNumberState.FINISHED -> {
                 ivStepperNumberFirst.isVisible = true
@@ -240,7 +240,7 @@ class LPStepperNumber : ConstraintLayout {
                     )
                 )
                 tvStepperNumberSecond.typeface =
-                    ResourcesCompat.getFont(context, R.font.poppins_regular)
+                    ResourcesCompat.getFont(context, R.font.montserrat_regular)
             }
             StepperNumberState.ACTIVE -> {
                 ivStepperNumberSecond.isVisible = false
@@ -254,7 +254,7 @@ class LPStepperNumber : ConstraintLayout {
                     )
                 )
                 tvStepperNumberSecond.typeface =
-                    ResourcesCompat.getFont(context, R.font.poppins_semi_bold)
+                    ResourcesCompat.getFont(context, R.font.montserrat_semi_bold)
             }
             StepperNumberState.FINISHED -> {
                 ivStepperNumberSecond.isVisible = true
@@ -283,7 +283,7 @@ class LPStepperNumber : ConstraintLayout {
                     )
                 )
                 tvStepperNumberThird.typeface =
-                    ResourcesCompat.getFont(context, R.font.poppins_regular)
+                    ResourcesCompat.getFont(context, R.font.montserrat_regular)
             }
             StepperNumberState.ACTIVE -> {
                 ivStepperNumberThird.isVisible = false
@@ -297,7 +297,7 @@ class LPStepperNumber : ConstraintLayout {
                     )
                 )
                 tvStepperNumberThird.typeface =
-                    ResourcesCompat.getFont(context, R.font.poppins_semi_bold)
+                    ResourcesCompat.getFont(context, R.font.montserrat_semi_bold)
             }
             StepperNumberState.FINISHED -> {
                 ivStepperNumberThird.isVisible = true

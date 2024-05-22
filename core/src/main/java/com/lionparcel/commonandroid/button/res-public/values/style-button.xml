@@ -11,7 +11,7 @@
         <item name="android:paddingRight">@dimen/dp_16</item>
         <item name="android:background">@drawable/bg_button_interpack7_rounded_2</item>
         <item name="android:includeFontPadding">false</item>
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:textColor">@color/selector_button_text_white</item>
         <item name="android:textAllCaps">false</item>
         <item name="drawableTint">@color/selector_button_text_white</item>
@@ -33,21 +33,21 @@
     </style>
     <!--large-->
     <style name="LPSolidRedLargeButtonStyle" parent="LPSolidRedButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_45</item>
         <item name="android:minWidth">@dimen/dp_120</item>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
     <!--medium-->
     <style name="LPSolidRedMediumButtonStyle" parent="LPSolidRedButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_34</item>
         <item name="android:minWidth">@dimen/dp_100</item>
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
     <!--small-->
     <style name="LPSolidRedSmallButtonStyle" parent="LPSolidRedButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_26</item>
         <item name="android:minWidth">@dimen/dp_80</item>
         <item name="android:textSize">@dimen/sp_10</item>
@@ -68,21 +68,21 @@
     </style>
     <!--large-->
     <style name="LPRoundedRedLargeButtonStyle" parent="LPRoundedRedButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_45</item>
         <item name="android:minWidth">@dimen/dp_120</item>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
     <!--medium-->
     <style name="LPRoundedRedMediumButtonStyle" parent="LPRoundedRedButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_34</item>
         <item name="android:minWidth">@dimen/dp_100</item>
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
     <!--small-->
     <style name="LPRoundedRedSmallButtonStyle" parent="LPRoundedRedButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_26</item>
         <item name="android:minWidth">@dimen/dp_80</item>
         <item name="android:textSize">@dimen/sp_10</item>
@@ -103,21 +103,21 @@
     </style>
     <!--large-->
     <style name="LPRoundedWhiteLargeButtonStyle" parent="LPRoundedWhiteButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_45</item>
         <item name="android:minWidth">@dimen/dp_120</item>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
     <!--medium-->
     <style name="LPRoundedWhiteMediumButtonStyle" parent="LPRoundedWhiteButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_34</item>
         <item name="android:minWidth">@dimen/dp_100</item>
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
     <!--small-->
     <style name="LPRoundedWhiteSmallButtonStyle" parent="LPRoundedWhiteButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_26</item>
         <item name="android:minWidth">@dimen/dp_80</item>
         <item name="android:textSize">@dimen/sp_10</item>
@@ -138,21 +138,21 @@
     </style>
     <!--    large-->
     <style name="LPSolidRedBorderLargeButtonStyle" parent="LPSolidRedBorderButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_45</item>
         <item name="android:minWidth">@dimen/dp_120</item>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
     <!--    Medium-->
     <style name="LPSolidRedBorderMediumButtonStyle" parent="LPSolidRedBorderButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_34</item>
         <item name="android:minWidth">@dimen/dp_100</item>
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
     <!--    Small-->
     <style name="LPSolidRedBorderSmallButtonStyle" parent="LPSolidRedBorderButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_26</item>
         <item name="android:minWidth">@dimen/dp_80</item>
         <item name="android:textSize">@dimen/sp_10</item>
@@ -173,21 +173,21 @@
     </style>
     <!--    large-->
     <style name="LPRoundedRedBorderLargeButtonStyle" parent="LPRoundedRedBorderButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_45</item>
         <item name="android:minWidth">@dimen/dp_120</item>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
     <!--    Medium-->
     <style name="LPRoundedRedBorderMediumButtonStyle" parent="LPRoundedRedBorderButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_34</item>
         <item name="android:minWidth">@dimen/dp_100</item>
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
     <!--    Small-->
     <style name="LPRoundedRedBorderSmallButtonStyle" parent="LPRoundedRedBorderButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_26</item>
         <item name="android:minWidth">@dimen/dp_80</item>
         <item name="android:textSize">@dimen/sp_10</item>
@@ -207,21 +207,21 @@
     </style>
     <!--    large-->
     <style name="LPRoundedWhiteBorderLargeButtonStyle" parent="LPRoundedWhiteBorderButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_45</item>
         <item name="android:minWidth">@dimen/dp_120</item>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
     <!--    Medium-->
     <style name="LPRoundedWhiteBorderMediumButtonStyle" parent="LPRoundedWhiteBorderButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_34</item>
         <item name="android:minWidth">@dimen/dp_100</item>
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
     <!--    Small-->
     <style name="LPRoundedWhiteBorderSmallButtonStyle" parent="LPRoundedWhiteBorderButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_26</item>
         <item name="android:minWidth">@dimen/dp_80</item>
         <item name="android:textSize">@dimen/sp_10</item>
@@ -243,21 +243,21 @@
     </style>
     <!--    large-->
     <style name="LPRedLargeButtonSquareStyle" parent="LPBaseRedButtonSquareStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_94</item>
         <item name="android:minWidth">@dimen/dp_98</item>>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
     <!--    Medium-->
     <style name="LPRedMediumButtonSquareStyle" parent="LPBaseRedButtonSquareStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_84</item>
         <item name="android:minWidth">@dimen/dp_86</item>
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
     <!--    Small-->
     <style name="LPRedSmallButtonSquareStyle" parent="LPBaseRedButtonSquareStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_74</item>
         <item name="android:minWidth">@dimen/dp_76</item>
         <item name="android:textSize">@dimen/sp_10</item>
@@ -279,21 +279,21 @@
     </style>
     <!--    large-->
     <style name="LPWhiteLargeButtonSquareStyle" parent="LPBaseWhiteButtonSquareStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_94</item>
         <item name="android:minWidth">@dimen/dp_98</item>>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
     <!--    Medium-->
     <style name="LPWhiteMediumButtonSquareStyle" parent="LPBaseWhiteButtonSquareStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_84</item>
         <item name="android:minWidth">@dimen/dp_86</item>
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
     <!--    Small-->
     <style name="LPWhiteSmallButtonSquareStyle" parent="LPBaseWhiteButtonSquareStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_74</item>
         <item name="android:minWidth">@dimen/dp_76</item>
         <item name="android:textSize">@dimen/sp_10</item>
@@ -315,21 +315,21 @@
     </style>
     <!--    large-->
     <style name="LPRedBorderLargeButtonSquareStyle" parent="LPBaseRedBorderButtonSquareStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_94</item>
         <item name="android:minWidth">@dimen/dp_98</item>>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
     <!--    Medium-->
     <style name="LPRedBorderMediumButtonSquareStyle" parent="LPBaseRedBorderButtonSquareStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_84</item>
         <item name="android:minWidth">@dimen/dp_86</item>
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
     <!--    Small-->
     <style name="LPRedBorderSmallButtonSquareStyle" parent="LPBaseRedBorderButtonSquareStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_74</item>
         <item name="android:minWidth">@dimen/dp_76</item>
         <item name="android:textSize">@dimen/sp_10</item>
@@ -350,21 +350,21 @@
     </style>
     <!--    large-->
     <style name="LPWhiteBorderLargeButtonSquareStyle" parent="LPBaseWhiteBorderButtonSquareStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_94</item>
         <item name="android:minWidth">@dimen/dp_98</item>>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
     <!--    Medium-->
     <style name="LPWhiteBorderMediumButtonSquareStyle" parent="LPBaseWhiteBorderButtonSquareStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_84</item>
         <item name="android:minWidth">@dimen/dp_86</item>
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
     <!--    Small-->
     <style name="LPWhiteBorderSmallButtonSquareStyle" parent="LPBaseWhiteBorderButtonSquareStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_74</item>
         <item name="android:minWidth">@dimen/dp_76</item>
         <item name="android:textSize">@dimen/sp_10</item>
@@ -384,21 +384,21 @@
     </style>
     <!--    large-->
     <style name="LPRedLargeTextButtonStyle" parent="LPBaseRedTextButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_45</item>
         <item name="android:minWidth">@dimen/dp_120</item>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
     <!--    Medium-->
     <style name="LPRedMediumTextButtonStyle" parent="LPBaseRedTextButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_34</item>
         <item name="android:minWidth">@dimen/dp_100</item>
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
     <!--    Small-->
     <style name="LPRedSmallTextButtonStyle" parent="LPBaseRedTextButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_26</item>
         <item name="android:minWidth">@dimen/dp_80</item>
         <item name="android:textSize">@dimen/sp_10</item>
@@ -417,21 +417,21 @@
     </style>
     <!--    large-->
     <style name="LPWhiteLargeTextButtonStyle" parent="LPBaseWhiteTextButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_45</item>
         <item name="android:minWidth">@dimen/dp_120</item>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
     <!--    Medium-->
     <style name="LPWhiteMediumTextButtonStyle" parent="LPBaseWhiteTextButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_34</item>
         <item name="android:minWidth">@dimen/dp_100</item>
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
     <!--    Small-->
     <style name="LPWhiteSmallTextButtonStyle" parent="LPBaseWhiteTextButtonStyle">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:minHeight">@dimen/dp_26</item>
         <item name="android:minWidth">@dimen/dp_80</item>
         <item name="android:textSize">@dimen/sp_10</item>

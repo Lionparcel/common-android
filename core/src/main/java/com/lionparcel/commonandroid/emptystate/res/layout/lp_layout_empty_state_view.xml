@@ -20,7 +20,7 @@
         android:id="@+id/tv_empty_state_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_semi_bold"
+        android:fontFamily="@font/montserrat_semi_bold"
         android:textSize="@dimen/sp_14"
         android:textColor="@color/shades5"
         android:layout_marginBottom="@dimen/spacing_xs"

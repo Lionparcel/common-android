@@ -29,7 +29,7 @@
         android:layout_below="@+id/animationView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="3dp"
-        android:fontFamily="@font/poppins_regular"
+        android:fontFamily="@font/montserrat_regular"
         android:textColor="@color/shades5"
         android:textSize="@dimen/sp_12"
         tools:text="Please wait" />

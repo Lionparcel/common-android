@@ -8,7 +8,7 @@
         android:id="@+id/lpDropdownTextInputLayout"
         style="@style/LPTextInputLayoutExposed"
         android:layout_width="match_parent"
-        android:fontFamily="@font/poppins_regular"
+        android:fontFamily="@font/montserrat_regular"
         android:layout_height="wrap_content"
         app:boxStrokeColor="@color/shades2"
         app:hintEnabled="false"
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/sp_14"
             android:drawablePadding="@dimen/spacing_xs"
-            android:fontFamily="@font/poppins_regular"
+            android:fontFamily="@font/montserrat_regular"
             android:focusable="false"
             android:focusableInTouchMode="false" />
 
