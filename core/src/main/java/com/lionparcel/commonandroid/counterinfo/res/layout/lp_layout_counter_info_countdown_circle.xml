@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:includeFontPadding="false"
         android:textColor="@color/shades3"
-        android:fontFamily="@font/poppins_regular"
+        android:fontFamily="@font/montserrat_regular"
         android:textSize="@dimen/sp_10"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"

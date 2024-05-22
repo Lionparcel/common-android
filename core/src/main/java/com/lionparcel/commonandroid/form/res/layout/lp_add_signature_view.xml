@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/form_signature_add_signature"
-            android:fontFamily="@font/poppins_regular"
+            android:fontFamily="@font/montserrat_regular"
             android:textColor="@color/shades3"
             android:textSize="@dimen/sp_10"
             android:layout_marginTop="@dimen/spacing_xs"/>
@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/form_signature_add_signature"
-            android:fontFamily="@font/poppins_regular"
+            android:fontFamily="@font/montserrat_regular"
             android:textColor="@color/shades3"
             android:textSize="@dimen/sp_10"
             android:layout_marginTop="@dimen/spacing_xs"/>

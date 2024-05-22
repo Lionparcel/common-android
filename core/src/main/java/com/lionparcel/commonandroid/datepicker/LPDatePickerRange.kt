@@ -280,7 +280,7 @@ class LPDatePickerRange: BaseDatePicker() {
                 tvDay.run {
                     text = null
                     background = null
-                    typeface = ResourcesCompat.getFont(context, R.font.poppins_regular)
+                    typeface = ResourcesCompat.getFont(context, R.font.montserrat_regular)
                 }
                 vRoundBackground.run {
                     isVisible = false
@@ -494,7 +494,7 @@ class LPDatePickerRange: BaseDatePicker() {
 
     private fun TextView.changeStateToSelected() {
         setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
-        typeface = ResourcesCompat.getFont(context, R.font.poppins_semi_bold)
+        typeface = ResourcesCompat.getFont(context, R.font.montserrat_semi_bold)
     }
 
     private fun changeStateBackgroundSelectedMiddle(

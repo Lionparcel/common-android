@@ -19,7 +19,7 @@
             android:id="@+id/txt_card_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_semi_bold"
+            android:fontFamily="@font/montserrat_semi_bold"
             android:textSize="@dimen/sp_14"
             android:textColor="@color/shades7"
             tools:text="Your Title Text Here"/>
@@ -45,7 +45,7 @@
         <Button
             android:id="@+id/btn_card_red"
             style="@style/LPRoundedRedMediumButtonStyle"
-            android:fontFamily="@font/poppins_semi_bold"
+            android:fontFamily="@font/montserrat_semi_bold"
             android:textSize="@dimen/sp_12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

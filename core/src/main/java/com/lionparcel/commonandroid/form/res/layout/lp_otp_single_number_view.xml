@@ -12,7 +12,7 @@
         android:layout_width="@dimen/dp_42"
         android:layout_height="@dimen/dp_40"
         android:layout_marginTop="@dimen/dp_2"
-        android:fontFamily="@font/poppins_light"
+        android:fontFamily="@font/montserrat_light"
         android:gravity="center"
         android:textColor="@color/shades5"
         android:textSize="@dimen/sp_20"

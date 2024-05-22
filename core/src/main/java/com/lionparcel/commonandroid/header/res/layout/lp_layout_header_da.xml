@@ -73,7 +73,7 @@
         android:drawablePadding="@dimen/spacing_xxs"
         android:gravity="center"
         android:textAppearance="@style/Body3Semibold"
-        android:fontFamily="@font/poppins_semi_bold"
+        android:fontFamily="@font/montserrat_semi_bold"
         android:textColor="@color/interpack7"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/cl_header_da"

@@ -1,360 +1,360 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
   <style name="H1Bold">
-    <item name="font">@font/poppins_bold</item>
+    <item name="font">@font/montserrat_bold</item>
     <item name="android:textStyle">bold</item>
-    <item name="android:textSize">60sp</item>
+    <item name="android:textSize">@dimen/sp_60</item>
   </style>
 
   <style name="H1Semibold">
-    <item name="font">@font/poppins_semi_bold</item>
+    <item name="font">@font/montserrat_semi_bold</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">60sp</item>
+    <item name="android:textSize">@dimen/sp_60</item>
   </style>
 
   <style name="H1Medium">
-    <item name="font">@font/poppins_medium</item>
+    <item name="font">@font/montserrat_medium</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">60sp</item>
+    <item name="android:textSize">@dimen/sp_60</item>
   </style>
 
   <style name="H1Regular">
-    <item name="font">@font/poppins_regular</item>
+    <item name="font">@font/montserrat_regular</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">60sp</item>
+    <item name="android:textSize">@dimen/sp_60</item>
   </style>
 
   <style name="H2Bold">
-    <item name="font">@font/poppins_regular</item>
+    <item name="font">@font/montserrat_regular</item>
     <item name="android:textStyle">bold</item>
-    <item name="android:textSize">48sp</item>
+    <item name="android:textSize">@dimen/sp_48</item>
   </style>
 
   <style name="H2Semibold">
-    <item name="font">@font/poppins_semi_bold</item>
+    <item name="font">@font/montserrat_semi_bold</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">48sp</item>
+    <item name="android:textSize">@dimen/sp_48</item>
   </style>
 
   <style name="H2Medium">
-    <item name="font">@font/poppins_medium</item>
+    <item name="font">@font/montserrat_medium</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">48sp</item>
+    <item name="android:textSize">@dimen/sp_48</item>
   </style>
 
   <style name="H2Regular">
-    <item name="font">@font/poppins_regular</item>
+    <item name="font">@font/montserrat_regular</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">48sp</item>
+    <item name="android:textSize">@dimen/sp_48</item>
   </style>
 
   <style name="H3Bold">
-    <item name="font">@font/poppins_bold</item>
+    <item name="font">@font/montserrat_bold</item>
     <item name="android:textStyle">bold</item>
-    <item name="android:textSize">34sp</item>
+    <item name="android:textSize">@dimen/sp_34</item>
   </style>
 
   <style name="H3Semibold">
-    <item name="font">@font/poppins_semi_bold</item>
+    <item name="font">@font/montserrat_semi_bold</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">34sp</item>
+    <item name="android:textSize">@dimen/sp_34</item>
   </style>
 
   <style name="H3Medium">
-    <item name="font">@font/poppins_medium</item>
+    <item name="font">@font/montserrat_medium</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">34sp</item>
+    <item name="android:textSize">@dimen/sp_34</item>
   </style>
 
   <style name="H3Regular">
-    <item name="font">@font/poppins_regular</item>
+    <item name="font">@font/montserrat_regular</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">34sp</item>
+    <item name="android:textSize">@dimen/sp_34</item>
   </style>
 
   <style name="H4Bold">
-    <item name="font">@font/poppins_bold</item>
+    <item name="font">@font/montserrat_bold</item>
     <item name="android:textStyle">bold</item>
-    <item name="android:textSize">24sp</item>
+    <item name="android:textSize">@dimen/sp_24</item>
   </style>
 
   <style name="H4SemiBold">
-    <item name="font">@font/poppins_semi_bold</item>
+    <item name="font">@font/montserrat_semi_bold</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">24sp</item>
+    <item name="android:textSize">@dimen/sp_24</item>
   </style>
 
   <style name="H4Medium">
-    <item name="font">@font/poppins_medium</item>
+    <item name="font">@font/montserrat_medium</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">24sp</item>
+    <item name="android:textSize">@dimen/sp_24</item>
   </style>
 
   <style name="H4Regular">
-    <item name="font">@font/poppins_regular</item>
+    <item name="font">@font/montserrat_regular</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">24sp</item>
+    <item name="android:textSize">@dimen/sp_24</item>
   </style>
 
   <style name="H5Bold">
-    <item name="font">@font/poppins_bold</item>
+    <item name="font">@font/montserrat_bold</item>
     <item name="android:textStyle">bold</item>
-    <item name="android:textSize">20sp</item>
+    <item name="android:textSize">@dimen/sp_20</item>
   </style>
 
   <style name="H5Semibold">
-    <item name="font">@font/poppins_semi_bold</item>
+    <item name="font">@font/montserrat_semi_bold</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">20sp</item>
+    <item name="android:textSize">@dimen/sp_20</item>
   </style>
 
   <style name="H5Medium">
-    <item name="font">@font/poppins_medium</item>
+    <item name="font">@font/montserrat_medium</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">20sp</item>
+    <item name="android:textSize">@dimen/sp_20</item>
   </style>
 
   <style name="H5Regular">
-    <item name="font">@font/poppins_regular</item>
+    <item name="font">@font/montserrat_regular</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">20sp</item>
+    <item name="android:textSize">@dimen/sp_20</item>
   </style>
 
   <style name="Subtitle1Bold">
-    <item name="font">@font/poppins_bold</item>
+    <item name="font">@font/montserrat_bold</item>
     <item name="android:textStyle">bold</item>
-    <item name="android:textSize">16sp</item>
+    <item name="android:textSize">@dimen/sp_16</item>
   </style>
 
   <style name="Body1Bold">
-    <item name="font">@font/poppins_bold</item>
+    <item name="font">@font/montserrat_bold</item>
     <item name="android:textStyle">bold</item>
-    <item name="android:textSize">16sp</item>
+    <item name="android:textSize">@dimen/sp_16</item>
   </style>
 
   <style name="Subtitle1Semibold">
-    <item name="font">@font/poppins_semi_bold</item>
+    <item name="font">@font/montserrat_semi_bold</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">16sp</item>
+    <item name="android:textSize">@dimen/sp_16</item>
   </style>
 
   <style name="Body1Semibold">
-    <item name="font">@font/poppins_semi_bold</item>
+    <item name="font">@font/montserrat_semi_bold</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">16sp</item>
+    <item name="android:textSize">@dimen/sp_16</item>
   </style>
 
   <style name="Subtitle1Medium">
-    <item name="font">@font/poppins_medium</item>
+    <item name="font">@font/montserrat_medium</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">16sp</item>
+    <item name="android:textSize">@dimen/sp_16</item>
   </style>
 
   <style name="Body1Medium">
-    <item name="font">@font/poppins_medium</item>
+    <item name="font">@font/montserrat_medium</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">16sp</item>
+    <item name="android:textSize">@dimen/sp_16</item>
   </style>
 
   <style name="Subtitle1Regular">
-    <item name="font">@font/poppins_regular</item>
+    <item name="font">@font/montserrat_regular</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">16sp</item>
+    <item name="android:textSize">@dimen/sp_16</item>
   </style>
 
   <style name="Body1Regular">
-    <item name="font">@font/poppins_regular</item>
+    <item name="font">@font/montserrat_regular</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">16sp</item>
+    <item name="android:textSize">@dimen/sp_16</item>
   </style>
 
   <style name="Subtitle2Bold">
-    <item name="font">@font/poppins_bold</item>
+    <item name="font">@font/montserrat_bold</item>
     <item name="android:textStyle">bold</item>
-    <item name="android:textSize">14sp</item>
+    <item name="android:textSize">@dimen/sp_14</item>
   </style>
 
   <style name="Body2Bold">
-    <item name="font">@font/poppins_bold</item>
+    <item name="font">@font/montserrat_bold</item>
     <item name="android:textStyle">bold</item>
-    <item name="android:textSize">14sp</item>
+    <item name="android:textSize">@dimen/sp_14</item>
   </style>
 
   <style name="Subtitle2Semibold">
-    <item name="font">@font/poppins_semi_bold</item>
+    <item name="font">@font/montserrat_semi_bold</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">14sp</item>
+    <item name="android:textSize">@dimen/sp_14</item>
   </style>
 
   <style name="LinkTextLink1">
-    <item name="font">@font/poppins_semi_bold</item>
+    <item name="font">@font/montserrat_semi_bold</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">14sp</item>
+    <item name="android:textSize">@dimen/sp_14</item>
     <item name="android:letterSpacing" tools:targetApi="lollipop">0.04</item>
   </style>
 
   <style name="ButtonButton">
-    <item name="font">@font/poppins_semi_bold</item>
+    <item name="font">@font/montserrat_semi_bold</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">14sp</item>
+    <item name="android:textSize">@dimen/sp_14</item>
     <item name="android:letterSpacing" tools:targetApi="lollipop">0.01</item>
   </style>
 
   <style name="Body2Semibold">
-    <item name="font">@font/poppins_semi_bold</item>
+    <item name="font">@font/montserrat_semi_bold</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">14sp</item>
+    <item name="android:textSize">@dimen/sp_14</item>
   </style>
 
   <style name="Subtitle2Medium">
-    <item name="font">@font/poppins_medium</item>
+    <item name="font">@font/montserrat_medium</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">14sp</item>
+    <item name="android:textSize">@dimen/sp_14</item>
   </style>
 
   <style name="ButtonTextButton1">
-    <item name="font">@font/poppins_medium</item>
+    <item name="font">@font/montserrat_medium</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">14sp</item>
+    <item name="android:textSize">@dimen/sp_14</item>
     <item name="android:letterSpacing" tools:targetApi="lollipop">0.04</item>
   </style>
 
   <style name="Body2Medium">
-    <item name="font">@font/poppins_medium</item>
+    <item name="font">@font/montserrat_medium</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textSize">14sp</item>
+    <item name="android:textSize">@dimen/sp_14</item>
   </style>
 
   <style name="Subtitle2Regular">
-    <item name="font">@font/poppins_regular</item>
+    <item name="font">@font/montserrat_regular</item>
     <item name="fontStyle">normal</item>
-    <item name="android:textSize">14sp</item>
+    <item name="android:textSize">@dimen/sp_14</item>
   </style>
 
   <style name="Body2Regular">
-    <item name="font">@font/poppins_regular</item>
+    <item name="font">@font/montserrat_regular</item>
     <item name="fontStyle">normal</item>
-    <item name="android:textSize">14sp</item>
+    <item name="android:textSize">@dimen/sp_14</item>
   </style>
 
   <style name="Subtitle3Bold">
-    <item name="font">@font/poppins_bold</item>
+    <item name="font">@font/montserrat_bold</item>
     <item name="android:textStyle">bold</item>
-    <item name="android:textSize">12sp</item>
+    <item name="android:textSize">@dimen/sp_12</item>
   </style>
 
   <style name="Body3Bold">
-    <item name="font">@font/poppins_bold</item>
+    <item name="font">@font/montserrat_bold</item>
     <item name="android:textStyle">bold</item>
-    <item name="android:textSize">12sp</item>
+    <item name="android:textSize">@dimen/sp_12</item>
   </style>
 
   <style name="Subtitle3Semibold">
-    <item name="font">@font/poppins_semi_bold</item>
+    <item name="font">@font/montserrat_semi_bold</item>
     <item name="fontStyle">normal</item>
-    <item name="android:textSize">12sp</item>
+    <item name="android:textSize">@dimen/sp_12</item>
   </style>
 
   <style name="LinkTextLink2">
-    <item name="font">@font/poppins_semi_bold</item>
+    <item name="font">@font/montserrat_semi_bold</item>
     <item name="fontStyle">normal</item>
-    <item name="android:textSize">12sp</item>
+    <item name="android:textSize">@dimen/sp_12</item>
     <item name="android:letterSpacing" tools:targetApi="lollipop">0.04</item>
   </style>
 
   <style name="Body3Semibold">
-    <item name="font">@font/poppins_semi_bold</item>
+    <item name="font">@font/montserrat_semi_bold</item>
     <item name="fontStyle">normal</item>
-    <item name="android:textSize">12sp</item>
+    <item name="android:textSize">@dimen/sp_12</item>
   </style>
 
   <style name="Subtitle3Medium">
-    <item name="font">@font/poppins_medium</item>
+    <item name="font">@font/montserrat_medium</item>
     <item name="fontStyle">normal</item>
-    <item name="android:textSize">12sp</item>
+    <item name="android:textSize">@dimen/sp_12</item>
   </style>
 
   <style name="ButtonTextButton2">
-    <item name="font">@font/poppins_medium</item>
+    <item name="font">@font/montserrat_medium</item>
     <item name="fontStyle">normal</item>
-    <item name="android:textSize">12sp</item>
+    <item name="android:textSize">@dimen/sp_12</item>
     <item name="android:letterSpacing" tools:targetApi="lollipop">0.04</item>
   </style>
 
   <style name="Body3Medium">
-    <item name="font">@font/poppins_medium</item>
+    <item name="font">@font/montserrat_medium</item>
     <item name="fontStyle">normal</item>
-    <item name="android:textSize">12sp</item>
+    <item name="android:textSize">@dimen/sp_12</item>
   </style>
 
   <style name="Subtitle3Regular">
-    <item name="font">@font/poppins_regular</item>
+    <item name="font">@font/montserrat_regular</item>
     <item name="fontStyle">normal</item>
-    <item name="android:textSize">12sp</item>
+    <item name="android:textSize">@dimen/sp_12</item>
   </style>
 
   <style name="Body3Regular">
-    <item name="font">@font/poppins_regular</item>
+    <item name="font">@font/montserrat_regular</item>
     <item name="fontStyle">normal</item>
-    <item name="android:textSize">12sp</item>
+    <item name="android:textSize">@dimen/sp_12</item>
   </style>
 
   <style name="Subtitle4Bold">
-    <item name="font">@font/poppins_bold</item>
+    <item name="font">@font/montserrat_bold</item>
     <item name="android:textStyle">bold</item>
-    <item name="android:textSize">10sp</item>
+    <item name="android:textSize">@dimen/sp_10</item>
   </style>
 
   <style name="Body4Bold">
-    <item name="font">@font/poppins_bold</item>
+    <item name="font">@font/montserrat_bold</item>
     <item name="android:textStyle">bold</item>
-    <item name="android:textSize">10sp</item>
+    <item name="android:textSize">@dimen/sp_10</item>
   </style>
 
   <style name="Subtitle4Semibold">
-    <item name="font">@font/poppins_semi_bold</item>
+    <item name="font">@font/montserrat_semi_bold</item>
     <item name="fontStyle">normal</item>
-    <item name="android:textSize">10sp</item>
+    <item name="android:textSize">@dimen/sp_10</item>
   </style>
 
   <style name="Body4Semibold">
-    <item name="font">@font/poppins_semi_bold</item>
+    <item name="font">@font/montserrat_semi_bold</item>
     <item name="fontStyle">normal</item>
-    <item name="android:textSize">10sp</item>
+    <item name="android:textSize">@dimen/sp_10</item>
   </style>
 
   <style name="Subtitle4Medium">
-    <item name="font">@font/poppins_medium</item>
+    <item name="font">@font/montserrat_medium</item>
     <item name="fontStyle">normal</item>
-    <item name="android:textSize">10sp</item>
+    <item name="android:textSize">@dimen/sp_10</item>
   </style>
 
   <style name="Body4Medium">
-    <item name="font">@font/poppins_medium</item>
+    <item name="font">@font/montserrat_medium</item>
     <item name="fontStyle">normal</item>
-    <item name="android:textSize">10sp</item>
+    <item name="android:textSize">@dimen/sp_10</item>
   </style>
 
   <style name="Subtitle4Regular">
-    <item name="font">@font/poppins_regular</item>
+    <item name="font">@font/montserrat_regular</item>
     <item name="fontStyle">normal</item>
-    <item name="android:textSize">10sp</item>
+    <item name="android:textSize">@dimen/sp_10</item>
   </style>
 
   <style name="Body4Regular">
-    <item name="font">@font/poppins_regular</item>
+    <item name="font">@font/montserrat_regular</item>
     <item name="fontStyle">normal</item>
-    <item name="android:textSize">10sp</item>
+    <item name="android:textSize">@dimen/sp_10</item>
   </style>
 
   <style name="BottomNavigationViewSelectedTextStyle">
-    <item name="android:fontFamily">@font/poppins_regular</item>
+    <item name="android:fontFamily">@font/montserrat_regular</item>
     <item name="android:textSize">@dimen/sp_10</item>
     <item name="android:textColor">@color/interpack7</item>
   </style>
 
   <style name="BottomNavigationViewTextStyle">
-    <item name="android:fontFamily">@font/poppins_regular</item>
+    <item name="android:fontFamily">@font/montserrat_regular</item>
     <item name="android:textSize">@dimen/sp_10</item>
     <item name="android:textColor">@color/shades3</item>
   </style>

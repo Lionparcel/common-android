@@ -31,9 +31,9 @@ class DropdownAdapter<T>(
         lpDropdownSpinnerText.text = values[position].toString()
         lpDropdownSpinnerText.typeface = ResourcesCompat.getFont(context,
         if (values[position] == values[selectedItemPosition.invoke()])
-            R.font.poppins_semi_bold
+            R.font.montserrat_semi_bold
         else
-            R.font.poppins_regular
+            R.font.montserrat_regular
         )
         ivDropdownCheck.isVisible = values[position] == values[selectedItemPosition.invoke()]
         return view

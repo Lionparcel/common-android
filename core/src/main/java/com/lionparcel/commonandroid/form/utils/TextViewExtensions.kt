@@ -18,7 +18,7 @@ fun TextView.setSemiBoldSpannable(
     fontArg: Typeface? = null
 ) {
     val spannableString = SpannableString(content)
-    val font = fontArg ?: ResourcesCompat.getFont(context, R.font.poppins_semi_bold) ?: return
+    val font = fontArg ?: ResourcesCompat.getFont(context, R.font.montserrat_semi_bold) ?: return
     val color = fontArg ?: ForegroundColorSpan(ResourcesCompat.getColor(resources, R.color.interpack7, null))
     targetStrings.forEach {
         val typefaceSpan = TypeFaceSpanCompat("", font)
@@ -45,7 +45,7 @@ fun TextView.setBoldSpannable(
     fontArg: Typeface? = null
 ) {
     val spannableString = SpannableString(content)
-    val font = fontArg ?: ResourcesCompat.getFont(context, R.font.poppins_bold) ?: return
+    val font = fontArg ?: ResourcesCompat.getFont(context, R.font.montserrat_bold) ?: return
     targetStrings.forEach {
         val typefaceSpan = TypeFaceSpanCompat("", font)
         val index = spannableString.indexOf(it)
@@ -66,7 +66,7 @@ fun TextView.setBoldClickable(
     fontArg: Typeface? = null
 ) {
     val spannableString = SpannableString(content)
-    val font = fontArg ?: ResourcesCompat.getFont(context, R.font.poppins_semi_bold) ?: return
+    val font = fontArg ?: ResourcesCompat.getFont(context, R.font.montserrat_semi_bold) ?: return
     val clickableSpan = object : ClickableSpan() {
         override fun updateDrawState(ds: TextPaint) {
             ds.isUnderlineText = false
@@ -98,9 +98,9 @@ fun TextView.setBoldClickable(
 }
 
 fun TextView.setRegularFont() {
-    typeface = ResourcesCompat.getFont(context, R.font.poppins_regular)
+    typeface = ResourcesCompat.getFont(context, R.font.montserrat_regular)
 }
 
 fun TextView.setSemiBoldFont() {
-    typeface = ResourcesCompat.getFont(context, R.font.poppins_semi_bold)
+    typeface = ResourcesCompat.getFont(context, R.font.montserrat_semi_bold)
 }

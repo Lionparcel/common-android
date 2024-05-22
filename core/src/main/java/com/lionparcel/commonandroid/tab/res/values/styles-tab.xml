@@ -6,14 +6,14 @@
 
     <!-- Tab Active -->
     <style name="TextAppearance.Base.Widget.Tab.Active" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:textSize">@dimen/sp_14</item>
         <item name="android:textColor">@color/interpack7</item>
     </style>
     <!-- Tab Inactive -->
     <style name="TextAppearance.Base.Widget.Tab.Inactive" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:textSize">@dimen/sp_14</item>
         <item name="android:textColor">@color/shades5</item>

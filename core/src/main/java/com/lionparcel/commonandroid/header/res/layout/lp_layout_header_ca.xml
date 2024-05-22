@@ -144,7 +144,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/spacing_xl"
         android:textAppearance="@style/Body3Semibold"
-        android:fontFamily="@font/poppins_semi_bold"
+        android:fontFamily="@font/montserrat_semi_bold"
         android:textColor="@color/interpack7"
         android:layout_marginTop="@dimen/spacing_xs"
         android:visibility="gone"

@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/interpack7"
-            android:fontFamily="@font/poppins_bold"
+            android:fontFamily="@font/montserrat_bold"
             android:padding="@dimen/spacing_s"
             android:text="WalkThrough Test"
             android:textSize="25sp" />
