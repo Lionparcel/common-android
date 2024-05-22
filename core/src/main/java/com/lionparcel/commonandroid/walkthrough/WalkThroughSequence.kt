@@ -5,6 +5,10 @@ import android.os.Looper
 
 class WalkThroughSequence {
 
+    companion object {
+        private const val STAGING_AUTOMATION = "stagingAutomation"
+    }
+
     private val walkThroughBuilderList = ArrayList<WalkThroughBuilder>()
     private var beforeShowingListener: (position: Int, walkThrough: WalkThrough) -> Unit = { _,_ ->
 
@@ -44,7 +48,9 @@ class WalkThroughSequence {
         return this
     }
 
-    fun show() = show(0)
+    fun show(buildFlavor: String) {
+        if (buildFlavor != STAGING_AUTOMATION) show(0)
+    }
 
     private fun show(position: Int): WalkThrough? {
         if (position >= walkThroughBuilderList.size) return null
