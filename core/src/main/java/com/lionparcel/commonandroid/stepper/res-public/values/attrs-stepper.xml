@@ -41,6 +41,7 @@
         <attr name="stepperColor" format="enum">
             <enum name="normal" value="0"/>
             <enum name="inverted" value="1"/>
+            <enum name="red5" value="2"/>
         </attr>
         <attr name="progressMode" format="boolean"/>
         <attr name="stepperInfiniteMode" format="boolean"/>

@@ -57,6 +57,7 @@ class LPStepperCarousel @JvmOverloads constructor(
         selectedStepperColor = when (stepperColor) {
             0 -> ContextCompat.getColor(context, R.color.interpack7)
             1 -> ContextCompat.getColor(context, R.color.white)
+            2 -> ContextCompat.getColor(context, R.color.red5)
             else -> ContextCompat.getColor(context, R.color.interpack7)
         }
 
