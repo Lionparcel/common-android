@@ -6,6 +6,7 @@
     android:paddingVertical="@dimen/spacing_xs">
 
     <TextView
+        android:id="@+id/tvMonday"
         style="@style/Subtitle2Regular"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -16,6 +17,7 @@
         android:text="@string/date_picker_monday_label"/>
 
     <TextView
+        android:id="@+id/tvTuesday"
         style="@style/Subtitle2Regular"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -26,6 +28,7 @@
         android:text="@string/date_picker_tuesday_label"/>
 
     <TextView
+        android:id="@+id/tvWednesday"
         style="@style/Subtitle2Regular"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -36,6 +39,7 @@
         android:text="@string/date_picker_wednesday_label"/>
 
     <TextView
+        android:id="@+id/tvThursday"
         style="@style/Subtitle2Regular"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -46,6 +50,7 @@
         android:text="@string/date_picker_thursday_label"/>
 
     <TextView
+        android:id="@+id/tvFriday"
         style="@style/Subtitle2Regular"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -56,6 +61,7 @@
         android:text="@string/date_picker_friday_label"/>
 
     <TextView
+        android:id="@+id/tvSaturday"
         style="@style/Subtitle2Regular"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -66,6 +72,7 @@
         android:text="@string/date_picker_saturday_label"/>
 
     <TextView
+        android:id="@+id/tvSunday"
         style="@style/Subtitle2Regular"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.*
@@ -122,7 +123,8 @@ class LPDatePickerRange: BaseDatePicker() {
             onAlertClicked: (() -> Unit)? = null,
             maxStartDate: Long? = null,
             maxRangeDateSelected: Int? = null,
-            showErrorSnackBar: Boolean = false
+            showErrorSnackBar: Boolean = false,
+            isUseEnglish: Boolean = false
         ) = LPDatePickerRange().apply {
             this.startDate = startDate
             this.endDate = endDate
@@ -138,6 +140,7 @@ class LPDatePickerRange: BaseDatePicker() {
             this.maxStartDate = maxStartDate
             this.maxRangeDateSelected = maxRangeDateSelected
             this.showErrorSnackBar = showErrorSnackBar
+            this.isUseEnglish = isUseEnglish
         }
 
     }
@@ -160,6 +163,7 @@ class LPDatePickerRange: BaseDatePicker() {
     private var maxStartDate: Long? = null
     private var maxRangeDateSelected: Int? = null
     private var showErrorSnackBar = false
+    private var isUseEnglish = false
     private val dayOfWeek by lazy {
         arrayOf(
             DayOfWeek.MONDAY,
@@ -173,7 +177,7 @@ class LPDatePickerRange: BaseDatePicker() {
     }
 
     private val localeId by lazy {
-        Locale("id", "ID")
+        if (isUseEnglish) Locale.ENGLISH else Locale("id", "ID")
     }
 
     private val startBackground: GradientDrawable by lazy {
@@ -208,12 +212,21 @@ class LPDatePickerRange: BaseDatePicker() {
         val maxHeight = (0.99F * Resources.getSystem().displayMetrics.heightPixels).toInt()
         getLayoutBehaviour().peekHeight = maxHeight
         with(binding) {
-            tvDatePickerTitle.text = title ?: getString(R.string.date_picker_title)
-            tvClear.text = clearTitle ?: getString(R.string.date_picker_clear_label)
-            btnChoose.text = btnTitle ?: getString(R.string.general_select)
+            tvDatePickerTitle.text = title ?: getLocalizedText(R.string.date_picker_title, "Select Date")
+            tvClear.text = clearTitle ?: getLocalizedText(R.string.date_picker_clear_label, "Reset")
+            btnChoose.text = btnTitle ?: getLocalizedText(R.string.general_select, "Select")
             if (isUseLimit) {
-                tvClear.text = getString(R.string.general_reset)
+                tvClear.text = getLocalizedText(R.string.general_reset, "Reset")
             }
+            tvFromLabel.text = getLocalizedText(R.string.date_picker_from_label, "From")
+            tvEndLabel.text = getLocalizedText(R.string.date_picker_end_label, "To")
+            root.findViewById<TextView>(R.id.tvMonday)?.text = getLocalizedText(R.string.date_picker_monday_label, "Mon")
+            root.findViewById<TextView>(R.id.tvTuesday)?.text = getLocalizedText(R.string.date_picker_tuesday_label, "Tue")
+            root.findViewById<TextView>(R.id.tvWednesday)?.text = getLocalizedText(R.string.date_picker_wednesday_label, "Wed")
+            root.findViewById<TextView>(R.id.tvThursday)?.text = getLocalizedText(R.string.date_picker_thursday_label, "Thu")
+            root.findViewById<TextView>(R.id.tvFriday)?.text = getLocalizedText(R.string.date_picker_friday_label, "Fri")
+            root.findViewById<TextView>(R.id.tvSaturday)?.text = getLocalizedText(R.string.date_picker_saturday_label, "Sat")
+            root.findViewById<TextView>(R.id.tvSunday)?.text = getLocalizedText(R.string.date_picker_sunday_label, "Sun")
             tvClear.setOnClickListener {
                 onClearSelectedDate()
             }
@@ -347,10 +360,10 @@ class LPDatePickerRange: BaseDatePicker() {
                 startDate?.let { DateUtils.dateToString(it.toDate(), DateUtils.DATE_FORMAT) }
             binding.tvEndDate.text = if (endDate != null) {
                 endDate?.let { DateUtils.dateToString(it.toDate(), DateUtils.DATE_FORMAT) }
-            } else getString(R.string.date_picker_title)
+            } else getLocalizedText(R.string.date_picker_title, "Select Date")
         } else {
             binding.llEndDate.alpha = DISABLE_ALPHA_VALUE
-            getString(R.string.date_picker_title).let {
+            getLocalizedText(R.string.date_picker_title, "Select Date").let {
                 binding.tvEndDate.text = it
                 binding.tvStartDate.text = it
             }
@@ -402,7 +415,7 @@ class LPDatePickerRange: BaseDatePicker() {
                             if (showErrorSnackBar) {
                                 requireContext().showToastSmallIconNoClose(
                                     this.binding.parent,
-                                    getString(R.string.date_picker_max_start_date_error_message, (maxStartDate ?: 0L).toString()),
+                                    getMaxStartDateErrorMessage((maxStartDate ?: 0L).toString()),
                                     R.drawable.ics_f_warning_circle_white,
                                     MessageType.ERROR
                                 )
@@ -422,7 +435,7 @@ class LPDatePickerRange: BaseDatePicker() {
                             if (showErrorSnackBar) {
                                 requireContext().showToastSmallIconNoClose(
                                     this.binding.parent,
-                                    getString(R.string.date_picker_error_message, (maxRangeDateSelected ?: MAX_RANGE_DATE_SELECTED).toString()),
+                                    getRangeDateErrorMessage((maxRangeDateSelected ?: MAX_RANGE_DATE_SELECTED).toString()),
                                     R.drawable.ics_f_warning_circle_white,
                                     MessageType.ERROR
                                 )
@@ -439,7 +452,7 @@ class LPDatePickerRange: BaseDatePicker() {
                         if (showErrorSnackBar) {
                             requireContext().showToastSmallIconNoClose(
                                 this.binding.parent,
-                                getString(R.string.date_picker_max_start_date_error_message, (maxStartDate ?: 0L).toString()),
+                                getMaxStartDateErrorMessage((maxStartDate ?: 0L).toString()),
                                 R.drawable.ics_f_warning_circle_white,
                                 MessageType.ERROR
                             )
@@ -528,6 +541,26 @@ class LPDatePickerRange: BaseDatePicker() {
     }
 
     private fun isDateInRange(day: CalendarDay): Boolean = if (!isUseLimit) true else day.date.isAfter(shipmentFilterLimitDate)
+
+    private fun getRangeDateErrorMessage(maxDays: String): String {
+        return if (isUseEnglish) {
+            "The selected date range exceeds $maxDays days"
+        } else {
+            getString(R.string.date_picker_error_message, maxDays)
+        }
+    }
+
+    private fun getMaxStartDateErrorMessage(maxDays: String): String {
+        return if (isUseEnglish) {
+            "Maximum selectable history period is $maxDays days ago"
+        } else {
+            getString(R.string.date_picker_max_start_date_error_message, maxDays)
+        }
+    }
+
+    private fun getLocalizedText(@StringRes textRes: Int, englishText: String): String {
+        return if (isUseEnglish) englishText else getString(textRes)
+    }
 
     private fun LpLayoutDatePickerRangeBinding.setAlertView() {
         lpAlert.apply {
