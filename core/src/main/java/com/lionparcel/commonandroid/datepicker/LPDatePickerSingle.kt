@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.annotation.StringRes
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.*
 import androidx.recyclerview.widget.RecyclerView
@@ -60,7 +61,8 @@ class LPDatePickerSingle : BaseDatePicker() {
             minDate: LocalDate? = null, // all dates before minDate are disabled
             maxDate: LocalDate? = null, // all dates after maxDate are disabled
             showErrorSnackBar: Boolean = false,
-            disabledDates: List<LocalDate>? = null // all dates contains in list are disabled
+            disabledDates: List<LocalDate>? = null, // all dates contains in list are disabled
+            isUseEnglish: Boolean = false
         ) = LPDatePickerSingle().apply {
             this.selectedDate = selectedDate
             this.onChooseButtonClicked = onChooseButtonClicked
@@ -71,6 +73,7 @@ class LPDatePickerSingle : BaseDatePicker() {
             this.maxDate = maxDate
             this.disabledDates = disabledDates
             this.showErrorSnackBar = showErrorSnackBar
+            this.isUseEnglish = isUseEnglish
         }
 
         fun newInstanceOptional(
@@ -79,7 +82,8 @@ class LPDatePickerSingle : BaseDatePicker() {
             title: String? = null,
             btnTitle: String? = null,
             maxStartDate: Long? = null,
-            showErrorSnackBar: Boolean = false
+            showErrorSnackBar: Boolean = false,
+            isUseEnglish: Boolean = false
         ) = LPDatePickerSingle().apply {
             this.selectedDate = selectedDate
             this.onChooseButtonClickedOptional = onChooseButtonClickedOptional
@@ -87,6 +91,7 @@ class LPDatePickerSingle : BaseDatePicker() {
             this.btnTitle = btnTitle
             this.maxStartDate = maxStartDate
             this.showErrorSnackBar = showErrorSnackBar
+            this.isUseEnglish = isUseEnglish
         }
     }
 
@@ -102,6 +107,7 @@ class LPDatePickerSingle : BaseDatePicker() {
     private var maxDate: LocalDate? = null
     private var disabledDates: List<LocalDate>? = null
     private var showErrorSnackBar = false
+    private var isUseEnglish = false
 
     private val dayOfWeek by lazy {
         arrayOf(
@@ -116,7 +122,7 @@ class LPDatePickerSingle : BaseDatePicker() {
     }
 
     private val localeId by lazy {
-        Locale("id", "ID")
+        if (isUseEnglish) Locale.ENGLISH else Locale("id", "ID")
     }
 
     lateinit var binding: LpLayoutDatePickerSingleBinding
@@ -137,8 +143,15 @@ class LPDatePickerSingle : BaseDatePicker() {
         val maxHeight = (0.99F * Resources.getSystem().displayMetrics.heightPixels).toInt()
         getLayoutBehaviour().peekHeight = maxHeight
         with(binding) {
-            tvDatePickerTitle.text = title ?: getString(R.string.date_picker_title)
-            btnChoose.text = btnTitle ?: getString(R.string.general_select)
+            tvDatePickerTitle.text = title ?: getLocalizedText(R.string.date_picker_title, "Select Date")
+            btnChoose.text = btnTitle ?: getLocalizedText(R.string.general_select, "Select")
+            root.findViewById<TextView>(R.id.tvMonday)?.text = getLocalizedText(R.string.date_picker_monday_label, "Mon")
+            root.findViewById<TextView>(R.id.tvTuesday)?.text = getLocalizedText(R.string.date_picker_tuesday_label, "Tue")
+            root.findViewById<TextView>(R.id.tvWednesday)?.text = getLocalizedText(R.string.date_picker_wednesday_label, "Wed")
+            root.findViewById<TextView>(R.id.tvThursday)?.text = getLocalizedText(R.string.date_picker_thursday_label, "Thu")
+            root.findViewById<TextView>(R.id.tvFriday)?.text = getLocalizedText(R.string.date_picker_friday_label, "Fri")
+            root.findViewById<TextView>(R.id.tvSaturday)?.text = getLocalizedText(R.string.date_picker_saturday_label, "Sat")
+            root.findViewById<TextView>(R.id.tvSunday)?.text = getLocalizedText(R.string.date_picker_sunday_label, "Sun")
             ivClose.setOnClickListener {
                 dismiss()
             }
@@ -159,6 +172,7 @@ class LPDatePickerSingle : BaseDatePicker() {
         setupCalendarView()
         bindCalendarDayView()
         addOnScrollCalendarView()
+        binding.calendarView.post { setMonthLabel() }
     }
 
     private fun setDaySize() {
@@ -327,7 +341,7 @@ class LPDatePickerSingle : BaseDatePicker() {
                         if (showErrorSnackBar) {
                             requireContext().showToastSmallIconNoClose(
                                 this.binding.parent,
-                                getString(R.string.date_picker_max_start_date_error_message, (maxStartDate ?: 0L).toString()),
+                                getMaxStartDateErrorMessage((maxStartDate ?: 0L).toString()),
                                 R.drawable.ics_f_warning_circle_white,
                                 MessageType.ERROR
                             )
@@ -371,5 +385,17 @@ class LPDatePickerSingle : BaseDatePicker() {
     private fun TextView.changeStateToSelected() {
         setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
         typeface = ResourcesCompat.getFont(context, R.font.montserrat_semi_bold)
+    }
+
+    private fun getMaxStartDateErrorMessage(maxDays: String): String {
+        return if (isUseEnglish) {
+            "Maximum selectable history period is $maxDays days ago"
+        } else {
+            getString(R.string.date_picker_max_start_date_error_message, maxDays)
+        }
+    }
+
+    private fun getLocalizedText(@StringRes textRes: Int, englishText: String): String {
+        return if (isUseEnglish) englishText else getString(textRes)
     }
 }
